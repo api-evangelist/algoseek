@@ -1,0 +1,130 @@
+aid: algoseek
+name: AlgoSeek
+review:
+  question: Does AlgoSeek expose a documented public API surface?
+  answer: true
+  date: '2026-07-21'
+  reviewer: API Evangelist
+findings:
+  summary: |
+    AlgoSeek is a data-platform-first market data vendor, not an API-first
+    one. There is no branded developer portal (developer.algoseek.com and
+    docs.algoseek.com do not resolve; algoseek.com/apis is a soft 404), and
+    the commercial posture is sales-led (sales@algoseek.com, "Request Demo"
+    CTAs), though the customer console at console.algoseek.com has an open
+    registration page. The one genuinely public HTTP API surface is the
+    Metadata Services API at metadata-services.algoseek.com - a FastAPI
+    service ("metadata-api" v1.2) with a live Swagger UI at /docs and a
+    publicly downloadable OpenAPI 3.0.2 document (148 paths: 56 public/,
+    90 internal/) covering the dataset catalog (data groups, datasets,
+    pricing, database tables, cloud storage buckets, documentation,
+    vendors, sample data). Endpoints require HTTP Bearer tokens issued by
+    POST /api/v1/login/access_token/ (unauthenticated calls return 403);
+    the healthcheck responds 200 without auth. Bulk data itself is
+    delivered outside HTTP APIs: S3 flat-file buckets, the ArdaDB managed
+    ClickHouse cloud database (AWS us-east-1) queried in SQL through the
+    open-source algoseek-connector Python library (settings groups: ARDADB
+    credentials, DATASET_API, S3), and ultra-low-latency real-time feeds
+    delivered via colocated MultiCast and TCP socket (documented at <15us,
+    no public protocol reference). No WebSocket, FIX, GraphQL, Snowflake,
+    or BigQuery delivery is publicly documented. No acquisition found;
+    AlgoSeek, LLC appears independently owned (New York).
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://metadata-services.algoseek.com/api/v1
+      documented: true
+      note: Metadata Services API; HTTP Bearer auth; healthcheck 200, unauthenticated data calls 403.
+    - protocol: SQL (ClickHouse)
+      scheme: native
+      documented: true
+      note: ArdaDB managed ClickHouse database accessed via algoseek-connector Python library with ArdaDB user/password credentials; no public host documented.
+    - protocol: FlatFiles
+      scheme: s3
+      documented: true
+      note: Historical datasets delivered as flat files in S3 buckets; bucket-group and s3object metadata modeled in the Metadata Services API, S3 settings group in algoseek-connector.
+    - protocol: MultiCast/TCP
+      scheme: colocation
+      documented: partial
+      note: Real-time market data (Ticker Plant) offered via colocated MultiCast, TCP Socket, or hosted solution at sub-15-microsecond latency; marketing page only, no public protocol documentation. Sales-gated.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket API is publicly documented.
+    - protocol: FIX
+      scheme: tcp
+      documented: false
+      note: No FIX delivery is publicly documented.
+  authentication:
+    - type: HTTPBearer
+      note: OpenAPI securitySchemes declares HTTP Bearer; tokens issued by POST /api/v1/login/access_token/ using AlgoSeek account credentials.
+    - type: DatabaseCredentials
+      note: ArdaDB user/password (ALGOSEEK__ARDADB__USER/PASSWORD env vars) for SQL access via algoseek-connector.
+  probes:
+    - url: https://algoseek.com/
+      status: 200
+    - url: https://developer.algoseek.com/
+      status: unresolvable
+    - url: https://docs.algoseek.com/
+      status: unresolvable
+    - url: https://algoseek.com/apis
+      status: 200 (soft 404 - "Page Not Found")
+    - url: https://api.algoseek.com/
+      status: unresolvable
+    - url: https://metadata-services.algoseek.com/docs
+      status: 200
+    - url: https://metadata-services.algoseek.com/api/v1/openapi.json
+      status: 200
+    - url: https://metadata-services.algoseek.com/api/v1/healthcheck/
+      status: 200
+    - url: https://metadata-services.algoseek.com/api/v1/public/dataset/
+      status: 403 (Not authenticated)
+    - url: https://datasets-metadata.algoseek.com/
+      status: 200 (Angular "Metadata" app; /docs returns 401)
+    - url: https://console.algoseek.com/auth/register
+      status: 200
+    - url: https://github.com/algoseekgit
+      status: 200
+    - url: https://algoseek.com/blog
+      status: 200
+    - url: https://algoseek.com/financial-data/packages
+      status: 200
+    - url: https://status.algoseek.com/
+      status: unresolvable
+openapi:
+  harvested: true
+  path: openapi/algoseek-metadata-services-openapi.json
+  provenance: |
+    Downloaded verbatim on 2026-07-21 from
+    https://metadata-services.algoseek.com/api/v1/openapi.json (HTTP 200,
+    257,369 bytes), the spec URL referenced by the Swagger UI at
+    https://metadata-services.algoseek.com/docs. OpenAPI 3.0.2, info.title
+    "metadata-api", info.version "1.2", 148 paths. Not modified.
+sources:
+  - url: https://algoseek.com/
+    type: Website
+    note: Positions AlgoSeek as ultra-low-latency financial data for quant trading; equities, options, futures, futures options, reference data; console login; sales/support contacts.
+  - url: https://metadata-services.algoseek.com/docs
+    type: Documentation
+    note: Live Swagger UI ("metadata-api") referencing /api/v1/openapi.json.
+  - url: https://algoseek-connector.readthedocs.io/
+    type: Documentation
+    note: Official Python connector docs; settings groups ARDADB, DATASET_API, and S3 confirm the metadata API + ClickHouse + S3 delivery model.
+  - url: https://algoseek.com/ardadb
+    type: Documentation
+    note: ArdaDB - ClickHouse-based cloud database on AWS us-east-1 with 2PB of preloaded AlgoSeek data; Request Demo (sales-led).
+  - url: https://algoseek.com/realtime-market-data/professional
+    type: Documentation
+    note: Real-time feed via colocated MultiCast/TCP Socket/hosted at <15us latency; contact-sales.
+  - url: https://pypi.org/pypi/algoseek-connector/json
+    type: SDK
+    note: algoseek-connector 2.1.6 on PyPI; repository github.com/algoseekgit/algoseek-connector.
+actions:
+  openapiPath: openapi/algoseek-metadata-services-openapi.json
+  apisYmlUpdated: true
+  reason: |
+    Bootstrap harvest. The Metadata Services API is cataloged with its
+    harvested OpenAPI; ArdaDB is cataloged as a documented SQL query
+    service without a public HTTP base URL. The real-time feed was left
+    out of apis[] because no public protocol documentation exists - it is
+    recorded here as a sales-gated MultiCast/TCP delivery channel.
