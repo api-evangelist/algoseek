@@ -1,0 +1,474 @@
+openapi: 3.0.2
+info:
+  title: metadata-api AWSAccount Vendor API
+  version: '1.2'
+tags:
+- name: Vendor
+paths:
+  /api/v1/internal/vendor/:
+    get:
+      tags:
+      - Vendor
+      summary: List Vendors
+      description: Get a list of all vendors
+      operationId: get_vendors_internal_api_v1_internal_vendor__get
+      parameters:
+      - required: false
+        schema:
+          title: Is Active
+          type: boolean
+        name: is_active
+        in: query
+      - required: false
+        schema:
+          title: Is Public
+          type: boolean
+        name: is_public
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Get Vendors Internal Api V1 Internal Vendor  Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/VendorOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    post:
+      tags:
+      - Vendor
+      summary: Add vendor
+      description: Add a new vendor
+      operationId: create_vendor_api_v1_internal_vendor__post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VendorCreate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VendorOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/internal/vendor/{vendor_id}/:
+    get:
+      tags:
+      - Vendor
+      summary: Get vendor
+      description: Get vendor details by id
+      operationId: get_vendor_internal_api_v1_internal_vendor__vendor_id___get
+      parameters:
+      - required: true
+        schema:
+          title: Vendor Id
+          type: integer
+        name: vendor_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VendorOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    put:
+      tags:
+      - Vendor
+      summary: Update vendor
+      description: Update vendor details by id
+      operationId: update_vendor_api_v1_internal_vendor__vendor_id___put
+      parameters:
+      - required: true
+        schema:
+          title: Vendor Id
+          type: integer
+        name: vendor_id
+        in: path
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VendorUpdate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VendorOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    delete:
+      tags:
+      - Vendor
+      summary: Delete vendor
+      description: Delete a vendor record
+      operationId: delete_vendor_api_v1_internal_vendor__vendor_id___delete
+      parameters:
+      - required: true
+        schema:
+          title: Vendor Id
+          type: integer
+        name: vendor_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VendorOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/public/vendor/{vendor_id}/:
+    get:
+      tags:
+      - Vendor
+      summary: Get vendor
+      description: Get vendor details by id
+      operationId: get_vendor_public_api_v1_public_vendor__vendor_id___get
+      parameters:
+      - required: true
+        schema:
+          title: Vendor Id
+          type: integer
+        name: vendor_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VendorOutPublic'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/public/vendor/:
+    get:
+      tags:
+      - Vendor
+      summary: List vendors
+      description: Get a list of all vendors
+      operationId: get_vendors_public_api_v1_public_vendor__get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Get Vendors Public Api V1 Public Vendor  Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/VendorOutPublic'
+      security:
+      - HTTPBearer: []
+components:
+  schemas:
+    VendorOutAdmin:
+      title: VendorOutAdmin
+      required:
+      - text_id
+      - full_name
+      - display_name
+      - internal_name
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        full_name:
+          title: Full Name
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        description:
+          title: Description
+          type: string
+        website:
+          title: Website
+          type: string
+        logo_url:
+          title: Logo Url
+          type: string
+        icon_url:
+          title: Icon Url
+          type: string
+        internal_name:
+          title: Internal Name
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        persons:
+          title: Persons
+          type: array
+          items:
+            $ref: '#/components/schemas/PersonOutAdmin'
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    PersonOutAdmin:
+      title: PersonOutAdmin
+      required:
+      - first_name
+      - last_name
+      - email
+      - vendor_id
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        first_name:
+          title: First Name
+          type: string
+        last_name:
+          title: Last Name
+          type: string
+        email:
+          title: Email
+          type: string
+        phone:
+          title: Phone
+          type: string
+        role:
+          title: Role
+          type: string
+        vendor_id:
+          title: Vendor Id
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    ValidationError:
+      title: ValidationError
+      required:
+      - loc
+      - msg
+      - type
+      type: object
+      properties:
+        loc:
+          title: Location
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
+    VendorCreate:
+      title: VendorCreate
+      required:
+      - text_id
+      - full_name
+      - display_name
+      - internal_name
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        full_name:
+          title: Full Name
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        description:
+          title: Description
+          type: string
+        website:
+          title: Website
+          type: string
+        logo_url:
+          title: Logo Url
+          type: string
+        icon_url:
+          title: Icon Url
+          type: string
+        internal_name:
+          title: Internal Name
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+    VendorOutPublic:
+      title: VendorOutPublic
+      required:
+      - text_id
+      - full_name
+      - display_name
+      - id
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        full_name:
+          title: Full Name
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        description:
+          title: Description
+          type: string
+        website:
+          title: Website
+          type: string
+        logo_url:
+          title: Logo Url
+          type: string
+        icon_url:
+          title: Icon Url
+          type: string
+        id:
+          title: Id
+          type: integer
+    VendorUpdate:
+      title: VendorUpdate
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        full_name:
+          title: Full Name
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        description:
+          title: Description
+          type: string
+        website:
+          title: Website
+          type: string
+        logo_url:
+          title: Logo Url
+          type: string
+        icon_url:
+          title: Icon Url
+          type: string
+        internal_name:
+          title: Internal Name
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+  securitySchemes:
+    HTTPBearer:
+      type: http
+      scheme: bearer

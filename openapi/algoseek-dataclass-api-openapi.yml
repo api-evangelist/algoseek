@@ -1,0 +1,404 @@
+openapi: 3.0.2
+info:
+  title: metadata-api AWSAccount DataClass API
+  version: '1.2'
+tags:
+- name: DataClass
+paths:
+  /api/v1/internal/data_class/:
+    get:
+      tags:
+      - DataClass
+      summary: List Data Class
+      description: Get a list of all data classes
+      operationId: get_data_classes_internal_api_v1_internal_data_class__get
+      parameters:
+      - required: false
+        schema:
+          title: Is Active
+          type: boolean
+        name: is_active
+        in: query
+      - required: false
+        schema:
+          title: Is Public
+          type: boolean
+        name: is_public
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Get Data Classes Internal Api V1 Internal Data Class  Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/EnumOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    post:
+      tags:
+      - DataClass
+      summary: Add Data Class
+      description: Add a new data class
+      operationId: create_data_class_api_v1_internal_data_class__post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EnumCreate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnumOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/internal/data_class/{data_class_id}/:
+    get:
+      tags:
+      - DataClass
+      summary: Get Data Class
+      description: Get Data Class details by id
+      operationId: get_data_class_internal_api_v1_internal_data_class__data_class_id___get
+      parameters:
+      - required: true
+        schema:
+          title: Data Class Id
+          type: integer
+        name: data_class_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnumOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    put:
+      tags:
+      - DataClass
+      summary: Update data class
+      description: Update data class details by id
+      operationId: update_data_class_api_v1_internal_data_class__data_class_id___put
+      parameters:
+      - required: true
+        schema:
+          title: Data Class Id
+          type: integer
+        name: data_class_id
+        in: path
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EnumUpdate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnumOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    delete:
+      tags:
+      - DataClass
+      summary: Delete data class
+      description: Delete a data class record
+      operationId: delete_data_class_api_v1_internal_data_class__data_class_id___delete
+      parameters:
+      - required: true
+        schema:
+          title: Data Class Id
+          type: integer
+        name: data_class_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnumOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/internal/data_class/text_id/{text_id}/:
+    get:
+      tags:
+      - DataClass
+      summary: Get Data Class by text id
+      description: Get data class details by text_id
+      operationId: get_data_class_by_text_id_internal_api_v1_internal_data_class_text_id__text_id___get
+      parameters:
+      - required: true
+        schema:
+          title: Text Id
+          type: string
+        name: text_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnumOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/public/data_class/{data_class_id}/:
+    get:
+      tags:
+      - DataClass
+      summary: Get Data Class
+      description: Get Data Class details by id
+      operationId: get_data_class_public_api_v1_public_data_class__data_class_id___get
+      parameters:
+      - required: true
+        schema:
+          title: Data Class Id
+          type: integer
+        name: data_class_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnumOutPublic'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/public/data_class/:
+    get:
+      tags:
+      - DataClass
+      summary: List Data Classes
+      description: Get a list of all data classes
+      operationId: get_data_classes_public_api_v1_public_data_class__get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Get Data Classes Public Api V1 Public Data Class  Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/EnumOutPublic'
+      security:
+      - HTTPBearer: []
+components:
+  schemas:
+    EnumOutAdmin:
+      title: EnumOutAdmin
+      required:
+      - text_id
+      - internal_name
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        full_name:
+          title: Full Name
+          type: string
+        description:
+          title: Description
+          type: string
+        internal_name:
+          title: Internal Name
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    EnumCreate:
+      title: EnumCreate
+      required:
+      - text_id
+      - internal_name
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        full_name:
+          title: Full Name
+          type: string
+        description:
+          title: Description
+          type: string
+        internal_name:
+          title: Internal Name
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+    ValidationError:
+      title: ValidationError
+      required:
+      - loc
+      - msg
+      - type
+      type: object
+      properties:
+        loc:
+          title: Location
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
+    EnumOutPublic:
+      title: EnumOutPublic
+      required:
+      - text_id
+      - id
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        full_name:
+          title: Full Name
+          type: string
+        description:
+          title: Description
+          type: string
+        id:
+          title: Id
+          type: integer
+    EnumUpdate:
+      title: EnumUpdate
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        full_name:
+          title: Full Name
+          type: string
+        description:
+          title: Description
+          type: string
+        internal_name:
+          title: Internal Name
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+  securitySchemes:
+    HTTPBearer:
+      type: http
+      scheme: bearer

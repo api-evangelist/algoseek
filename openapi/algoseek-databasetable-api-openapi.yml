@@ -1,0 +1,1578 @@
+openapi: 3.0.2
+info:
+  title: metadata-api AWSAccount DatabaseTable API
+  version: '1.2'
+tags:
+- name: DatabaseTable
+paths:
+  /api/v1/internal/database_table/:
+    get:
+      tags:
+      - DatabaseTable
+      summary: List Database Tables
+      description: Get a list of all database tables
+      operationId: get_database_tables_internal_api_v1_internal_database_table__get
+      parameters:
+      - required: false
+        schema:
+          title: Is Active
+          type: boolean
+        name: is_active
+        in: query
+      - required: false
+        schema:
+          title: Is Public
+          type: boolean
+        name: is_public
+        in: query
+      - required: false
+        schema:
+          title: Status Id
+          type: integer
+        name: status_id
+        in: query
+      - required: false
+        schema:
+          title: Db Object Type Id
+          type: integer
+        name: db_object_type_id
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Get Database Tables Internal Api V1 Internal Database Table  Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/DatabaseTableOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    post:
+      tags:
+      - DatabaseTable
+      summary: Add Database Table
+      description: Add a new database table
+      operationId: create_database_table_api_v1_internal_database_table__post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DatabaseTableCreate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DatabaseTableOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/internal/database_table/{database_table_id}/:
+    get:
+      tags:
+      - DatabaseTable
+      summary: Get Database Table
+      description: Get database table details by id
+      operationId: get_database_table_internal_api_v1_internal_database_table__database_table_id___get
+      parameters:
+      - required: true
+        schema:
+          title: Database Table Id
+          type: integer
+        name: database_table_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DatabaseTableOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    put:
+      tags:
+      - DatabaseTable
+      summary: Update Database Table
+      description: Update database table details by id
+      operationId: update_database_table_api_v1_internal_database_table__database_table_id___put
+      parameters:
+      - required: true
+        schema:
+          title: Database Table Id
+          type: integer
+        name: database_table_id
+        in: path
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DatabaseTableUpdate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DatabaseTableOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    delete:
+      tags:
+      - DatabaseTable
+      summary: Delete Database Table
+      description: Delete a database table record
+      operationId: delete_database_table_api_v1_internal_database_table__database_table_id___delete
+      parameters:
+      - required: true
+        schema:
+          title: Database Table Id
+          type: integer
+        name: database_table_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DatabaseTableOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/internal/database_table/table_name/{table_name}/:
+    get:
+      tags:
+      - DatabaseTable
+      summary: Get Database Table
+      description: Get database table details by table_name
+      operationId: get_database_table_by_table_name_internal_api_v1_internal_database_table_table_name__table_name___get
+      parameters:
+      - required: true
+        schema:
+          title: Table Name
+          type: string
+        name: table_name
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DatabaseTableOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/internal/database_table/ext/{database_table_id}/:
+    get:
+      tags:
+      - DatabaseTable
+      summary: Get Extended Dataset Table
+      description: Get Extended Dataset Table details by id
+      operationId: get_ext_dataset_table_internal_api_v1_internal_database_table_ext__database_table_id___get
+      parameters:
+      - required: true
+        schema:
+          title: Database Table Id
+          type: integer
+        name: database_table_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExtDatabaseTableOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/public/database_table/{database_table_id}/:
+    get:
+      tags:
+      - DatabaseTable
+      summary: Get Database Table
+      description: Get database table details by id
+      operationId: get_database_table_public_api_v1_public_database_table__database_table_id___get
+      parameters:
+      - required: true
+        schema:
+          title: Database Table Id
+          type: integer
+        name: database_table_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DatabaseTableOutPublic'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/public/database_table/table_name/{table_name}/:
+    get:
+      tags:
+      - DatabaseTable
+      summary: Get Database Table
+      description: Get database table details by table_name
+      operationId: get_database_table_by_table_name_public_api_v1_public_database_table_table_name__table_name___get
+      parameters:
+      - required: true
+        schema:
+          title: Table Name
+          type: string
+        name: table_name
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DatabaseTableOutPublic'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/public/database_table/:
+    get:
+      tags:
+      - DatabaseTable
+      summary: List Database Tables
+      description: Get a list of all database tables
+      operationId: get_database_tables_public_api_v1_public_database_table__get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Get Database Tables Public Api V1 Public Database Table  Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/DatabaseTableOutPublic'
+      security:
+      - HTTPBearer: []
+components:
+  schemas:
+    SQLColumnOutPublic:
+      title: SQLColumnOutPublic
+      required:
+      - table_id
+      - ordering
+      - id
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        data_type_simple:
+          title: Data Type Simple
+          type: string
+        data_type_db:
+          title: Data Type Db
+          type: string
+        compression:
+          title: Compression
+          type: string
+        endcoding:
+          title: Endcoding
+          type: string
+        description:
+          title: Description
+          type: string
+        table_id:
+          title: Table Id
+          type: integer
+        ordering:
+          title: Ordering
+          type: integer
+        id:
+          title: Id
+          type: integer
+    BucketSourceOutAdmin:
+      title: BucketSourceOutAdmin
+      required:
+      - author_id
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        account_name:
+          title: Account Name
+          type: string
+        resource_arn:
+          title: Resource Arn
+          type: string
+        source_code_url:
+          title: Source Code Url
+          type: string
+        code_location:
+          title: Code Location
+          type: string
+        logs_location:
+          title: Logs Location
+          type: string
+        aws_resource_type_id:
+          title: Aws Resource Type Id
+          type: integer
+        author_id:
+          title: Author Id
+          type: integer
+        maintainer_id:
+          title: Maintainer Id
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    ValidationError:
+      title: ValidationError
+      required:
+      - loc
+      - msg
+      - type
+      type: object
+      properties:
+        loc:
+          title: Location
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
+    ExtDatabaseTableOutAdmin:
+      title: ExtDatabaseTableOutAdmin
+      required:
+      - table_name
+      - db_object_type
+      - id
+      - ttl_type
+      - is_active
+      - is_public
+      - created
+      - modified
+      type: object
+      properties:
+        table_name:
+          title: Table Name
+          type: string
+        primary_date_column:
+          title: Primary Date Column
+          type: string
+        timestamp_column:
+          title: Timestamp Column
+          type: string
+        text_id_column:
+          title: Text Id Column
+          type: string
+        sample_data_url:
+          title: Sample Data Url
+          type: string
+        dataset_id:
+          title: Dataset Id
+          type: integer
+        bucket_group:
+          $ref: '#/components/schemas/ExtBucketGroupOutAdmin'
+        db_object_type:
+          $ref: '#/components/schemas/EnumOutAdmin'
+        status:
+          $ref: '#/components/schemas/EnumOutAdmin'
+        id:
+          title: Id
+          type: integer
+        internal_id_column:
+          title: Internal Id Column
+          type: string
+        engine:
+          title: Engine
+          type: string
+        partition_column:
+          title: Partition Column
+          type: string
+        partition_expression:
+          title: Partition Expression
+          type: string
+        sort_columns:
+          title: Sort Columns
+          type: array
+          items: {}
+        constraints:
+          title: Constraints
+          type: array
+          items: {}
+        ttl_type:
+          $ref: '#/components/schemas/EnumOutAdmin'
+        ttl_period:
+          title: Ttl Period
+          type: integer
+        ghost_table_name:
+          title: Ghost Table Name
+          type: string
+        create_query:
+          title: Create Query
+          type: string
+        select_query:
+          title: Select Query
+          type: string
+        sql_columns:
+          title: Sql Columns
+          type: array
+          items:
+            $ref: '#/components/schemas/SQLColumnOutPublic'
+        watch_waiter:
+          title: Watch Waiter
+          type: boolean
+        table_dependencies:
+          title: Table Dependencies
+          type: array
+          items:
+            type: integer
+        object_dependencies:
+          title: Object Dependencies
+          type: array
+          items:
+            type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
+    ExtS3ObjectOutAdmin:
+      title: ExtS3ObjectOutAdmin
+      required:
+      - aws_account_id
+      - bucket_name
+      - object_name
+      - region_name
+      - id
+      - is_active
+      - is_public
+      - created
+      - modified
+      type: object
+      properties:
+        aws_account_id:
+          title: Aws Account Id
+          type: integer
+        bucket_name:
+          title: Bucket Name
+          type: string
+        object_name:
+          title: Object Name
+          type: string
+        region_name:
+          title: Region Name
+          type: string
+        id:
+          title: Id
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        aws_account:
+          $ref: '#/components/schemas/EnumOutAdmin'
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    ExtBucketGroupOutAdmin:
+      title: ExtBucketGroupOutAdmin
+      required:
+      - text_id
+      - bucket_name
+      - path_format
+      - aggregation
+      - id
+      - aws_account
+      - is_active
+      - is_public
+      - created
+      - modified
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        bucket_name:
+          title: Bucket Name
+          type: string
+        path_format:
+          title: Path Format
+          type: string
+        path_description:
+          title: Path Description
+          type: string
+        aggregation:
+          title: Aggregation
+          type: string
+        start_year:
+          title: Start Year
+          type: integer
+        end_year:
+          title: End Year
+          type: integer
+        indexed:
+          title: Indexed
+          type: boolean
+        is_primary:
+          title: Is Primary
+          type: boolean
+        bucket_size_human:
+          title: Bucket Size Human
+          type: string
+        total_size_human:
+          title: Total Size Human
+          type: string
+        bucket_num_objects:
+          title: Bucket Num Objects
+          type: integer
+        bucket_num_objects_human:
+          title: Bucket Num Objects Human
+          type: string
+        creation_date:
+          title: Creation Date
+          type: string
+          format: date
+        supplementary_bucket_group:
+          title: Supplementary Bucket Group
+          type: array
+          items:
+            type: string
+        cloud_storage:
+          $ref: '#/components/schemas/CloudStorageOutAdmin'
+        status:
+          $ref: '#/components/schemas/EnumOutAdmin'
+        updates:
+          $ref: '#/components/schemas/BucketUpdatesOutAdmin'
+        sample_data:
+          $ref: '#/components/schemas/ExtSampleDataOutAdmin'
+        storage_type:
+          $ref: '#/components/schemas/EnumOutAdmin'
+        id:
+          title: Id
+          type: integer
+        aws_account:
+          $ref: '#/components/schemas/EnumOutAdmin'
+        bucket_size_bytes:
+          title: Bucket Size Bytes
+          type: integer
+        total_size_bytes:
+          title: Total Size Bytes
+          type: integer
+        versioning:
+          title: Versioning
+          type: boolean
+        requester_pays:
+          title: Requester Pays
+          type: boolean
+        author:
+          $ref: '#/components/schemas/ExtPersonOutAdmin'
+        maintainer:
+          $ref: '#/components/schemas/ExtPersonOutAdmin'
+        monitoring:
+          $ref: '#/components/schemas/BucketMonitoringOutAdmin'
+        version:
+          title: Version
+          type: string
+        prev_version_expiration_interval_days:
+          title: Prev Version Expiration Interval Days
+          type: integer
+        archive_transition_interval_days:
+          title: Archive Transition Interval Days
+          type: integer
+        bucket_qa:
+          $ref: '#/components/schemas/BucketQAOutAdmin'
+        bucket_source:
+          $ref: '#/components/schemas/BucketSourceOutAdmin'
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    DatabaseTableUpdate:
+      title: DatabaseTableUpdate
+      type: object
+      properties:
+        table_name:
+          title: Table Name
+          type: string
+        primary_date_column:
+          title: Primary Date Column
+          type: string
+        timestamp_column:
+          title: Timestamp Column
+          type: string
+        text_id_column:
+          title: Text Id Column
+          type: string
+        sample_data_url:
+          title: Sample Data Url
+          type: string
+        dataset_id:
+          title: Dataset Id
+          type: integer
+        bucket_group_id:
+          title: Bucket Group Id
+          type: integer
+        db_object_type_id:
+          title: Db Object Type Id
+          type: string
+        status_id:
+          title: Status Id
+          type: integer
+        internal_id_column:
+          title: Internal Id Column
+          type: string
+        engine:
+          title: Engine
+          type: string
+        partition_column:
+          title: Partition Column
+          type: string
+        partition_expression:
+          title: Partition Expression
+          type: string
+        sort_columns:
+          title: Sort Columns
+          type: array
+          items: {}
+        constraints:
+          title: Constraints
+          type: array
+          items: {}
+        ttl_type_id:
+          title: Ttl Type Id
+          type: integer
+        ttl_period:
+          title: Ttl Period
+          type: integer
+        ghost_table_name:
+          title: Ghost Table Name
+          type: string
+        create_query:
+          title: Create Query
+          type: string
+        select_query:
+          title: Select Query
+          type: string
+        watch_waiter:
+          title: Watch Waiter
+          type: boolean
+        table_dependencies:
+          title: Table Dependencies
+          type: array
+          items:
+            type: integer
+        object_dependencies:
+          title: Object Dependencies
+          type: array
+          items:
+            type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+    ExtVendorOutAdmin:
+      title: ExtVendorOutAdmin
+      required:
+      - text_id
+      - full_name
+      - display_name
+      - internal_name
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        full_name:
+          title: Full Name
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        description:
+          title: Description
+          type: string
+        website:
+          title: Website
+          type: string
+        logo_url:
+          title: Logo Url
+          type: string
+        icon_url:
+          title: Icon Url
+          type: string
+        internal_name:
+          title: Internal Name
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    ExtPersonOutAdmin:
+      title: ExtPersonOutAdmin
+      required:
+      - first_name
+      - last_name
+      - email
+      - id
+      - is_active
+      - is_public
+      - created
+      - modified
+      type: object
+      properties:
+        first_name:
+          title: First Name
+          type: string
+        last_name:
+          title: Last Name
+          type: string
+        email:
+          title: Email
+          type: string
+        phone:
+          title: Phone
+          type: string
+        role:
+          title: Role
+          type: string
+        id:
+          title: Id
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+        vendor:
+          $ref: '#/components/schemas/ExtVendorOutAdmin'
+    EnumOutAdmin:
+      title: EnumOutAdmin
+      required:
+      - text_id
+      - internal_name
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        full_name:
+          title: Full Name
+          type: string
+        description:
+          title: Description
+          type: string
+        internal_name:
+          title: Internal Name
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    CSVColumnOutAdmin:
+      title: CSVColumnOutAdmin
+      required:
+      - cloud_storage_id
+      - ordering
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        data_type:
+          title: Data Type
+          type: string
+        description:
+          title: Description
+          type: string
+        cloud_storage_id:
+          title: Cloud Storage Id
+          type: integer
+        ordering:
+          title: Ordering
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    ExtSampleDataOutAdmin:
+      title: ExtSampleDataOutAdmin
+      required:
+      - id
+      - is_active
+      - is_public
+      - created
+      - modified
+      type: object
+      properties:
+        bucket_name:
+          title: Bucket Name
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        description:
+          title: Description
+          type: string
+        id:
+          title: Id
+          type: integer
+        aws_account:
+          $ref: '#/components/schemas/EnumOutAdmin'
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    DatabaseTableCreate:
+      title: DatabaseTableCreate
+      required:
+      - table_name
+      - db_object_type_id
+      type: object
+      properties:
+        table_name:
+          title: Table Name
+          type: string
+        primary_date_column:
+          title: Primary Date Column
+          type: string
+        timestamp_column:
+          title: Timestamp Column
+          type: string
+        text_id_column:
+          title: Text Id Column
+          type: string
+        sample_data_url:
+          title: Sample Data Url
+          type: string
+        dataset_id:
+          title: Dataset Id
+          type: integer
+        bucket_group_id:
+          title: Bucket Group Id
+          type: integer
+        db_object_type_id:
+          title: Db Object Type Id
+          type: integer
+        status_id:
+          title: Status Id
+          type: integer
+        internal_id_column:
+          title: Internal Id Column
+          type: string
+        engine:
+          title: Engine
+          type: string
+        partition_column:
+          title: Partition Column
+          type: string
+        partition_expression:
+          title: Partition Expression
+          type: string
+        sort_columns:
+          title: Sort Columns
+          type: array
+          items: {}
+        constraints:
+          title: Constraints
+          type: array
+          items: {}
+        ttl_type_id:
+          title: Ttl Type Id
+          type: integer
+        ttl_period:
+          title: Ttl Period
+          type: integer
+        ghost_table_name:
+          title: Ghost Table Name
+          type: string
+        create_query:
+          title: Create Query
+          type: string
+        select_query:
+          title: Select Query
+          type: string
+        watch_waiter:
+          title: Watch Waiter
+          type: boolean
+        table_dependencies:
+          title: Table Dependencies
+          type: array
+          items:
+            type: integer
+        object_dependencies:
+          title: Object Dependencies
+          type: array
+          items:
+            type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+    CloudStorageOutAdmin:
+      title: CloudStorageOutAdmin
+      required:
+      - text_id
+      - dataset_id
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        sample_data_url:
+          title: Sample Data Url
+          type: string
+        sample_file_description:
+          title: Sample File Description
+          type: string
+        sample_file_id:
+          title: Sample File Id
+          type: integer
+        dataset_id:
+          title: Dataset Id
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        csv_columns:
+          title: Csv Columns
+          type: array
+          items:
+            $ref: '#/components/schemas/CSVColumnOutAdmin'
+        bucket_groups:
+          title: Bucket Groups
+          type: array
+          items:
+            type: integer
+        sample_file:
+          $ref: '#/components/schemas/ExtS3ObjectOutAdmin'
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    DatabaseTableOutAdmin:
+      title: DatabaseTableOutAdmin
+      required:
+      - table_name
+      - db_object_type_id
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        table_name:
+          title: Table Name
+          type: string
+        primary_date_column:
+          title: Primary Date Column
+          type: string
+        timestamp_column:
+          title: Timestamp Column
+          type: string
+        text_id_column:
+          title: Text Id Column
+          type: string
+        sample_data_url:
+          title: Sample Data Url
+          type: string
+        dataset_id:
+          title: Dataset Id
+          type: integer
+        bucket_group_id:
+          title: Bucket Group Id
+          type: integer
+        db_object_type_id:
+          title: Db Object Type Id
+          type: integer
+        status_id:
+          title: Status Id
+          type: integer
+        internal_id_column:
+          title: Internal Id Column
+          type: string
+        engine:
+          title: Engine
+          type: string
+        partition_column:
+          title: Partition Column
+          type: string
+        partition_expression:
+          title: Partition Expression
+          type: string
+        sort_columns:
+          title: Sort Columns
+          type: array
+          items: {}
+        constraints:
+          title: Constraints
+          type: array
+          items: {}
+        ttl_type_id:
+          title: Ttl Type Id
+          type: integer
+        ttl_period:
+          title: Ttl Period
+          type: integer
+        ghost_table_name:
+          title: Ghost Table Name
+          type: string
+        create_query:
+          title: Create Query
+          type: string
+        select_query:
+          title: Select Query
+          type: string
+        watch_waiter:
+          title: Watch Waiter
+          type: boolean
+        table_dependencies:
+          title: Table Dependencies
+          type: array
+          items:
+            type: integer
+        object_dependencies:
+          title: Object Dependencies
+          type: array
+          items:
+            type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        ttl_type:
+          $ref: '#/components/schemas/EnumOutAdmin'
+        sql_columns:
+          title: Sql Columns
+          type: array
+          items:
+            $ref: '#/components/schemas/SQLColumnOutAdmin'
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    BucketMonitoringOutAdmin:
+      title: BucketMonitoringOutAdmin
+      required:
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        delay_alert_minutes:
+          title: Delay Alert Minutes
+          type: integer
+        timeout_minutes:
+          title: Timeout Minutes
+          type: integer
+        check_period_minutes:
+          title: Check Period Minutes
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    BucketUpdatesOutAdmin:
+      title: BucketUpdatesOutAdmin
+      required:
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        interval:
+          title: Interval
+          type: string
+        days_offset:
+          title: Days Offset
+          type: integer
+        public_time:
+          title: Public Time
+          type: string
+        size_human:
+          title: Size Human
+          type: string
+        num_objects_human:
+          title: Num Objects Human
+          type: string
+        expected_time:
+          title: Expected Time
+          type: string
+        intraday_period_minutes:
+          title: Intraday Period Minutes
+          type: integer
+        duration_minutes:
+          title: Duration Minutes
+          type: integer
+        source:
+          title: Source
+          type: string
+        size_bytes:
+          title: Size Bytes
+          type: integer
+        num_objects:
+          title: Num Objects
+          type: integer
+        path_prefix:
+          title: Path Prefix
+          type: string
+        regex_structure:
+          title: Regex Structure
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+        bucket_group:
+          title: Bucket Group
+          type: integer
+    DatabaseTableOutPublic:
+      title: DatabaseTableOutPublic
+      required:
+      - table_name
+      - db_object_type_id
+      - id
+      type: object
+      properties:
+        table_name:
+          title: Table Name
+          type: string
+        primary_date_column:
+          title: Primary Date Column
+          type: string
+        timestamp_column:
+          title: Timestamp Column
+          type: string
+        text_id_column:
+          title: Text Id Column
+          type: string
+        sample_data_url:
+          title: Sample Data Url
+          type: string
+        dataset_id:
+          title: Dataset Id
+          type: integer
+        bucket_group_id:
+          title: Bucket Group Id
+          type: integer
+        db_object_type_id:
+          title: Db Object Type Id
+          type: integer
+        status_id:
+          title: Status Id
+          type: integer
+        id:
+          title: Id
+          type: integer
+        ttl_type:
+          $ref: '#/components/schemas/EnumOutAdmin'
+        ttl_period:
+          title: Ttl Period
+          type: integer
+        sql_columns:
+          title: Sql Columns
+          type: array
+          items:
+            $ref: '#/components/schemas/SQLColumnOutPublic'
+        create_query:
+          title: Create Query
+          type: string
+        table_dependencies:
+          title: Table Dependencies
+          type: array
+          items:
+            type: integer
+        object_dependencies:
+          title: Object Dependencies
+          type: array
+          items:
+            type: integer
+    BucketQAOutAdmin:
+      title: BucketQAOutAdmin
+      required:
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        row_1:
+          title: Row 1
+          type: string
+        row_2:
+          title: Row 2
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    SQLColumnOutAdmin:
+      title: SQLColumnOutAdmin
+      required:
+      - table_id
+      - ordering
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        data_type_simple:
+          title: Data Type Simple
+          type: string
+        data_type_db:
+          title: Data Type Db
+          type: string
+        compression:
+          title: Compression
+          type: string
+        endcoding:
+          title: Endcoding
+          type: string
+        description:
+          title: Description
+          type: string
+        table_id:
+          title: Table Id
+          type: integer
+        ordering:
+          title: Ordering
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+  securitySchemes:
+    HTTPBearer:
+      type: http
+      scheme: bearer

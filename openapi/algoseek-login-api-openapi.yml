@@ -1,0 +1,95 @@
+openapi: 3.0.2
+info:
+  title: metadata-api AWSAccount Login API
+  version: '1.2'
+tags:
+- name: Login
+paths:
+  /api/v1/login/access_token/:
+    post:
+      tags:
+      - Login
+      summary: Apps Access Token
+      operationId: apps_access_token_api_v1_login_access_token__post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AppsTokenQuery'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Token'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    Token:
+      title: Token
+      required:
+      - token
+      - expiry_date
+      type: object
+      properties:
+        token:
+          title: Token
+          type: string
+        expiry_date:
+          title: Expiry Date
+          type: string
+          format: date-time
+    ValidationError:
+      title: ValidationError
+      required:
+      - loc
+      - msg
+      - type
+      type: object
+      properties:
+        loc:
+          title: Location
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
+    AppsTokenQuery:
+      title: AppsTokenQuery
+      required:
+      - name
+      - secret
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        secret:
+          title: Secret
+          type: string
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
+  securitySchemes:
+    HTTPBearer:
+      type: http
+      scheme: bearer

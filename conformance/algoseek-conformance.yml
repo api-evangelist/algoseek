@@ -1,0 +1,29 @@
+generated: '2026-07-22'
+method: derived
+source: openapi/ (metadata-api v1.2), live probes of /.well-known/ discovery endpoints
+standards:
+- id: openapi-3
+  conforms: true
+  evidence: Publishes a live OpenAPI 3.0.2 document at https://metadata-services.algoseek.com/api/v1/openapi.json
+- id: http-bearer-auth
+  conforms: true
+  evidence: components.securitySchemes.HTTPBearer (type http, scheme bearer); token issued by POST /api/v1/login/access_token/
+- id: oauth2
+  conforms: false
+  evidence: No oauth2 securitySchemes; token endpoint takes a JSON AppsTokenQuery body, not an RFC 6749
+    grant
+- id: oidc
+  conforms: false
+  evidence: /.well-known/openid-configuration not published (404 on API host)
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors use FastAPI HTTPValidationError (application/json), not application/problem+json
+- id: pagination
+  conforms: false
+  evidence: No pagination parameters (page/limit/offset/cursor) declared on any of the 241 operations
+- id: idempotency
+  conforms: false
+  evidence: No idempotency-key header or parameter declared in the spec or docs
+- id: json-api
+  conforms: false
+  evidence: Plain JSON bodies; no JSON:API media type

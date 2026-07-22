@@ -1,0 +1,510 @@
+openapi: 3.0.2
+info:
+  title: metadata-api AWSAccount BucketSource API
+  version: '1.2'
+tags:
+- name: BucketSource
+paths:
+  /api/v1/internal/bucket_source/:
+    get:
+      tags:
+      - BucketSource
+      summary: List Buckets Source
+      description: Get a list of all bucket sources
+      operationId: get_buckets_sources_internal_api_v1_internal_bucket_source__get
+      parameters:
+      - required: false
+        schema:
+          title: Is Active
+          type: boolean
+        name: is_active
+        in: query
+      - required: false
+        schema:
+          title: Is Public
+          type: boolean
+        name: is_public
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Get Buckets Sources Internal Api V1 Internal Bucket Source  Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/BucketSourceOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    post:
+      tags:
+      - BucketSource
+      summary: Add Bucket Source
+      description: Add a new bucket source
+      operationId: create_bucket_source_api_v1_internal_bucket_source__post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BucketSourceCreate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BucketSourceOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/internal/bucket_source/{bucket_source_id}/:
+    get:
+      tags:
+      - BucketSource
+      summary: Get Bucket Source
+      description: Get Bucket Source details by id
+      operationId: get_bucket_source_internal_api_v1_internal_bucket_source__bucket_source_id___get
+      parameters:
+      - required: true
+        schema:
+          title: Bucket Source Id
+          type: integer
+        name: bucket_source_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BucketSourceOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    put:
+      tags:
+      - BucketSource
+      summary: Update bucket source
+      description: Update bucket source details by id
+      operationId: update_bucket_source_api_v1_internal_bucket_source__bucket_source_id___put
+      parameters:
+      - required: true
+        schema:
+          title: Bucket Source Id
+          type: integer
+        name: bucket_source_id
+        in: path
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BucketSourceUpdate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BucketSourceOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    delete:
+      tags:
+      - BucketSource
+      summary: Delete bucket source
+      description: Delete a bucket source record
+      operationId: delete_bucket_source_api_v1_internal_bucket_source__bucket_source_id___delete
+      parameters:
+      - required: true
+        schema:
+          title: Bucket Source Id
+          type: integer
+        name: bucket_source_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BucketSourceOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/internal/bucket_source/ext/{bucket_source_id}/:
+    get:
+      tags:
+      - BucketSource
+      summary: Get Extended Bucket Source
+      description: Get Extended bucket source details by id
+      operationId: get_ext_bucket_source_internal_api_v1_internal_bucket_source_ext__bucket_source_id___get
+      parameters:
+      - required: true
+        schema:
+          title: Bucket Source Id
+          type: integer
+        name: bucket_source_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExtBucketSourceOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+components:
+  schemas:
+    PersonOutAdmin:
+      title: PersonOutAdmin
+      required:
+      - first_name
+      - last_name
+      - email
+      - vendor_id
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        first_name:
+          title: First Name
+          type: string
+        last_name:
+          title: Last Name
+          type: string
+        email:
+          title: Email
+          type: string
+        phone:
+          title: Phone
+          type: string
+        role:
+          title: Role
+          type: string
+        vendor_id:
+          title: Vendor Id
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    BucketSourceOutAdmin:
+      title: BucketSourceOutAdmin
+      required:
+      - author_id
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        account_name:
+          title: Account Name
+          type: string
+        resource_arn:
+          title: Resource Arn
+          type: string
+        source_code_url:
+          title: Source Code Url
+          type: string
+        code_location:
+          title: Code Location
+          type: string
+        logs_location:
+          title: Logs Location
+          type: string
+        aws_resource_type_id:
+          title: Aws Resource Type Id
+          type: integer
+        author_id:
+          title: Author Id
+          type: integer
+        maintainer_id:
+          title: Maintainer Id
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    BucketSourceUpdate:
+      title: BucketSourceUpdate
+      type: object
+      properties:
+        account_name:
+          title: Account Name
+          type: string
+        resource_arn:
+          title: Resource Arn
+          type: string
+        source_code_url:
+          title: Source Code Url
+          type: string
+        code_location:
+          title: Code Location
+          type: string
+        logs_location:
+          title: Logs Location
+          type: string
+        aws_resource_type_id:
+          title: Aws Resource Type Id
+          type: integer
+        author_id:
+          title: Author Id
+          type: integer
+        maintainer_id:
+          title: Maintainer Id
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+    ValidationError:
+      title: ValidationError
+      required:
+      - loc
+      - msg
+      - type
+      type: object
+      properties:
+        loc:
+          title: Location
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
+    ExtBucketSourceOutAdmin:
+      title: ExtBucketSourceOutAdmin
+      required:
+      - author_id
+      - id
+      - is_active
+      - is_public
+      - created
+      - modified
+      type: object
+      properties:
+        account_name:
+          title: Account Name
+          type: string
+        resource_arn:
+          title: Resource Arn
+          type: string
+        source_code_url:
+          title: Source Code Url
+          type: string
+        code_location:
+          title: Code Location
+          type: string
+        logs_location:
+          title: Logs Location
+          type: string
+        aws_resource_type:
+          $ref: '#/components/schemas/EnumOutAdmin'
+        author_id:
+          $ref: '#/components/schemas/PersonOutAdmin'
+        maintainer_id:
+          $ref: '#/components/schemas/PersonOutAdmin'
+        id:
+          title: Id
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
+    BucketSourceCreate:
+      title: BucketSourceCreate
+      required:
+      - author_id
+      type: object
+      properties:
+        account_name:
+          title: Account Name
+          type: string
+        resource_arn:
+          title: Resource Arn
+          type: string
+        source_code_url:
+          title: Source Code Url
+          type: string
+        code_location:
+          title: Code Location
+          type: string
+        logs_location:
+          title: Logs Location
+          type: string
+        aws_resource_type_id:
+          title: Aws Resource Type Id
+          type: integer
+        author_id:
+          title: Author Id
+          type: integer
+        maintainer_id:
+          title: Maintainer Id
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+    EnumOutAdmin:
+      title: EnumOutAdmin
+      required:
+      - text_id
+      - internal_name
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        full_name:
+          title: Full Name
+          type: string
+        description:
+          title: Description
+          type: string
+        internal_name:
+          title: Internal Name
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+  securitySchemes:
+    HTTPBearer:
+      type: http
+      scheme: bearer

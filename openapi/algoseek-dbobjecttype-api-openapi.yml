@@ -1,0 +1,404 @@
+openapi: 3.0.2
+info:
+  title: metadata-api AWSAccount DBObjectType API
+  version: '1.2'
+tags:
+- name: DBObjectType
+paths:
+  /api/v1/internal/db_object_type/:
+    get:
+      tags:
+      - DBObjectType
+      summary: List DB Object Types
+      description: Get a list of all db object types
+      operationId: get_db_object_types_internal_api_v1_internal_db_object_type__get
+      parameters:
+      - required: false
+        schema:
+          title: Is Active
+          type: boolean
+        name: is_active
+        in: query
+      - required: false
+        schema:
+          title: Is Public
+          type: boolean
+        name: is_public
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Get Db Object Types Internal Api V1 Internal Db Object Type  Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/EnumOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    post:
+      tags:
+      - DBObjectType
+      summary: Add DB Object Type
+      description: Add a new db object type
+      operationId: create_db_object_type_api_v1_internal_db_object_type__post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EnumCreate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnumOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/internal/db_object_type/{db_object_type_id}/:
+    get:
+      tags:
+      - DBObjectType
+      summary: Get DB Object Type
+      description: Get db object type details by id
+      operationId: get_db_object_type_internal_api_v1_internal_db_object_type__db_object_type_id___get
+      parameters:
+      - required: true
+        schema:
+          title: Db Object Type Id
+          type: integer
+        name: db_object_type_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnumOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    put:
+      tags:
+      - DBObjectType
+      summary: Update DB Object Type
+      description: Update db object type details by id
+      operationId: update_db_object_type_api_v1_internal_db_object_type__db_object_type_id___put
+      parameters:
+      - required: true
+        schema:
+          title: Db Object Type Id
+          type: integer
+        name: db_object_type_id
+        in: path
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EnumUpdate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnumOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    delete:
+      tags:
+      - DBObjectType
+      summary: Delete DB Object Type
+      description: Delete a db object type record
+      operationId: delete_db_object_type_api_v1_internal_db_object_type__db_object_type_id___delete
+      parameters:
+      - required: true
+        schema:
+          title: Db Object Type Id
+          type: integer
+        name: db_object_type_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnumOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/internal/db_object_type/text_id/{text_id}/:
+    get:
+      tags:
+      - DBObjectType
+      summary: Get DB Object Type by text id
+      description: Get db object type details by text_id
+      operationId: get_db_object_type_by_text_id_internal_api_v1_internal_db_object_type_text_id__text_id___get
+      parameters:
+      - required: true
+        schema:
+          title: Text Id
+          type: string
+        name: text_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnumOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/public/db_object_type/{db_object_type_id}/:
+    get:
+      tags:
+      - DBObjectType
+      summary: Get DB Object Type
+      description: Get db object type details by id
+      operationId: get_db_object_type_public_api_v1_public_db_object_type__db_object_type_id___get
+      parameters:
+      - required: true
+        schema:
+          title: Db Object Type Id
+          type: integer
+        name: db_object_type_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnumOutPublic'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/public/db_object_type/:
+    get:
+      tags:
+      - DBObjectType
+      summary: List DB Object Types
+      description: Get a list of all db object types
+      operationId: get_db_object_types_public_api_v1_public_db_object_type__get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Get Db Object Types Public Api V1 Public Db Object Type  Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/EnumOutPublic'
+      security:
+      - HTTPBearer: []
+components:
+  schemas:
+    EnumOutAdmin:
+      title: EnumOutAdmin
+      required:
+      - text_id
+      - internal_name
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        full_name:
+          title: Full Name
+          type: string
+        description:
+          title: Description
+          type: string
+        internal_name:
+          title: Internal Name
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    EnumCreate:
+      title: EnumCreate
+      required:
+      - text_id
+      - internal_name
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        full_name:
+          title: Full Name
+          type: string
+        description:
+          title: Description
+          type: string
+        internal_name:
+          title: Internal Name
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+    ValidationError:
+      title: ValidationError
+      required:
+      - loc
+      - msg
+      - type
+      type: object
+      properties:
+        loc:
+          title: Location
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
+    EnumOutPublic:
+      title: EnumOutPublic
+      required:
+      - text_id
+      - id
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        full_name:
+          title: Full Name
+          type: string
+        description:
+          title: Description
+          type: string
+        id:
+          title: Id
+          type: integer
+    EnumUpdate:
+      title: EnumUpdate
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        full_name:
+          title: Full Name
+          type: string
+        description:
+          title: Description
+          type: string
+        internal_name:
+          title: Internal Name
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+  securitySchemes:
+    HTTPBearer:
+      type: http
+      scheme: bearer

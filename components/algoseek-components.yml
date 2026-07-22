@@ -1,0 +1,15 @@
+generated: '2026-07-22'
+method: searched
+source: https://www.npmjs.com/package/algoseek-design-system
+note: AlgoSeek publishes its Angular design system to npm (maintainer ci@algoseek.com). It is the component
+  library behind AlgoSeek web properties (console.algoseek.com is an Angular SPA) rather than an embeddable
+  API-consumer surface.
+families:
+- family: Design system
+  components:
+  - name: algoseek-design-system
+    kind: angular-component-library
+    loader: npm install algoseek-design-system
+    url: https://www.npmjs.com/package/algoseek-design-system
+    description: Angular component library built on PrimeNG (Aura theme)
+    official: true

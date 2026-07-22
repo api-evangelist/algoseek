@@ -1,0 +1,22 @@
+generated: '2026-07-22'
+method: searched
+source: https://github.com/algoseekgit/algoseek-connector/blob/master/CHANGELOG.md
+scope: algoseek-connector Python SDK (semantic-release, Keep-a-Changelog style). AlgoSeek publishes no
+  dated changelog for the Metadata Services API itself.
+scheme: semver
+current_version: 2.1.6
+entries:
+- version: 2.1.6
+  date: '2026-07-13'
+  breaking: false
+  highlights:
+  - fix s3 connector for datasets with multiple s3 destinations
+  - upgrade sqlalchemy to 2.X
+  - 'docs: update query example with having statement in jupyter notebook'
+- version: 2.1.5
+  date: '2024-11-27'
+  breaking: false
+  highlights:
+  - documentation readability improvements
+  - remove developer guides
+  - update README

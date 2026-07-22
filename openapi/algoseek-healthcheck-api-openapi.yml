@@ -1,0 +1,24 @@
+openapi: 3.0.2
+info:
+  title: metadata-api AWSAccount Healthcheck API
+  version: '1.2'
+tags:
+- name: Healthcheck
+paths:
+  /api/v1/healthcheck/:
+    get:
+      summary: Healthcheck
+      operationId: healthcheck_api_v1_healthcheck__get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+      tags:
+      - Healthcheck
+components:
+  securitySchemes:
+    HTTPBearer:
+      type: http
+      scheme: bearer

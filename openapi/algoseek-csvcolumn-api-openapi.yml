@@ -1,0 +1,398 @@
+openapi: 3.0.2
+info:
+  title: metadata-api AWSAccount CSVColumn API
+  version: '1.2'
+tags:
+- name: CSVColumn
+paths:
+  /api/v1/internal/csv_column/:
+    get:
+      tags:
+      - CSVColumn
+      summary: List CSV Columns
+      description: Get a list of all csv columns
+      operationId: get_csv_columns_internal_api_v1_internal_csv_column__get
+      parameters:
+      - required: false
+        schema:
+          title: Is Active
+          type: boolean
+        name: is_active
+        in: query
+      - required: false
+        schema:
+          title: Is Public
+          type: boolean
+        name: is_public
+        in: query
+      - required: false
+        schema:
+          title: Cloud Storage Id
+          type: integer
+        name: cloud_storage_id
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Get Csv Columns Internal Api V1 Internal Csv Column  Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/CSVColumnOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    post:
+      tags:
+      - CSVColumn
+      summary: Add CSV Column
+      description: Add a new csv column
+      operationId: create_csv_column_api_v1_internal_csv_column__post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CSVColumnCreate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CSVColumnOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/internal/csv_column/{csv_column_id}/:
+    get:
+      tags:
+      - CSVColumn
+      summary: Get CSV Column
+      description: Get CSV Column details by id
+      operationId: get_csv_column_internal_api_v1_internal_csv_column__csv_column_id___get
+      parameters:
+      - required: true
+        schema:
+          title: Csv Column Id
+          type: integer
+        name: csv_column_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CSVColumnOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    put:
+      tags:
+      - CSVColumn
+      summary: Update csv column
+      description: Update csv column details by id
+      operationId: update_csv_column_api_v1_internal_csv_column__csv_column_id___put
+      parameters:
+      - required: true
+        schema:
+          title: Csv Column Id
+          type: integer
+        name: csv_column_id
+        in: path
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CSVColumnUpdate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CSVColumnOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    delete:
+      tags:
+      - CSVColumn
+      summary: Delete csv column
+      description: Delete a csv column record
+      operationId: delete_csv_column_api_v1_internal_csv_column__csv_column_id___delete
+      parameters:
+      - required: true
+        schema:
+          title: Csv Column Id
+          type: integer
+        name: csv_column_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CSVColumnOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/public/csv_column/{csv_column_id}/:
+    get:
+      tags:
+      - CSVColumn
+      summary: Get CSV Column
+      description: Get CSV Column details by id
+      operationId: get_csv_column_public_api_v1_public_csv_column__csv_column_id___get
+      parameters:
+      - required: true
+        schema:
+          title: Csv Column Id
+          type: integer
+        name: csv_column_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CSVColumnOutPublic'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/public/csv_column/:
+    get:
+      tags:
+      - CSVColumn
+      summary: List CSV Columns
+      description: Get a list of all csv columns
+      operationId: get_csv_columns_public_api_v1_public_csv_column__get
+      parameters:
+      - required: false
+        schema:
+          title: Cloud Storage Id
+          type: integer
+        name: cloud_storage_id
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Get Csv Columns Public Api V1 Public Csv Column  Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/CSVColumnOutPublic'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+components:
+  schemas:
+    CSVColumnOutAdmin:
+      title: CSVColumnOutAdmin
+      required:
+      - cloud_storage_id
+      - ordering
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        data_type:
+          title: Data Type
+          type: string
+        description:
+          title: Description
+          type: string
+        cloud_storage_id:
+          title: Cloud Storage Id
+          type: integer
+        ordering:
+          title: Ordering
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    CSVColumnUpdate:
+      title: CSVColumnUpdate
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        data_type:
+          title: Data Type
+          type: string
+        description:
+          title: Description
+          type: string
+        cloud_storage_id:
+          title: Cloud Storage Id
+          type: integer
+        ordering:
+          title: Ordering
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+    CSVColumnCreate:
+      title: CSVColumnCreate
+      required:
+      - cloud_storage_id
+      - ordering
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        data_type:
+          title: Data Type
+          type: string
+        description:
+          title: Description
+          type: string
+        cloud_storage_id:
+          title: Cloud Storage Id
+          type: integer
+        ordering:
+          title: Ordering
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+    ValidationError:
+      title: ValidationError
+      required:
+      - loc
+      - msg
+      - type
+      type: object
+      properties:
+        loc:
+          title: Location
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
+    CSVColumnOutPublic:
+      title: CSVColumnOutPublic
+      required:
+      - cloud_storage_id
+      - ordering
+      - id
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        data_type:
+          title: Data Type
+          type: string
+        description:
+          title: Description
+          type: string
+        cloud_storage_id:
+          title: Cloud Storage Id
+          type: integer
+        ordering:
+          title: Ordering
+          type: integer
+        id:
+          title: Id
+          type: integer
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
+  securitySchemes:
+    HTTPBearer:
+      type: http
+      scheme: bearer

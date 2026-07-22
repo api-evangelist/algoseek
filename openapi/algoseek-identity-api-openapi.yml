@@ -1,0 +1,299 @@
+openapi: 3.0.2
+info:
+  title: metadata-api AWSAccount Identity API
+  version: '1.2'
+tags:
+- name: Identity
+paths:
+  /api/v1/internal/identity/:
+    get:
+      tags:
+      - Identity
+      summary: List Identities
+      description: Get a list of all identities
+      operationId: get_identites_internal_api_v1_internal_identity__get
+      parameters:
+      - required: false
+        schema:
+          title: Is Active
+          type: boolean
+        name: is_active
+        in: query
+      - required: false
+        schema:
+          title: Is Public
+          type: boolean
+        name: is_public
+        in: query
+      - required: false
+        schema:
+          $ref: '#/components/schemas/AccessRole'
+        name: access_role
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Get Identites Internal Api V1 Internal Identity  Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/IdentityOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    post:
+      tags:
+      - Identity
+      summary: Add identity
+      description: Add a new identity
+      operationId: create_identity_api_v1_internal_identity__post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdentityCreate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/internal/identity/{identity_id}/:
+    get:
+      tags:
+      - Identity
+      summary: Get identity
+      description: Get identity details by id
+      operationId: get_identity_internal_api_v1_internal_identity__identity_id___get
+      parameters:
+      - required: true
+        schema:
+          title: Identity Id
+          type: integer
+        name: identity_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    put:
+      tags:
+      - Identity
+      summary: Update identity
+      description: Update identity details by id
+      operationId: update_identity_api_v1_internal_identity__identity_id___put
+      parameters:
+      - required: true
+        schema:
+          title: Identity Id
+          type: integer
+        name: identity_id
+        in: path
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdentityUpdate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    delete:
+      tags:
+      - Identity
+      summary: Delete identity
+      description: Delete an identity record
+      operationId: delete_identity_api_v1_internal_identity__identity_id___delete
+      parameters:
+      - required: true
+        schema:
+          title: Identity Id
+          type: integer
+        name: identity_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+components:
+  schemas:
+    ValidationError:
+      title: ValidationError
+      required:
+      - loc
+      - msg
+      - type
+      type: object
+      properties:
+        loc:
+          title: Location
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
+    IdentityCreate:
+      title: IdentityCreate
+      required:
+      - name
+      - access_role
+      - password
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        access_role:
+          title: Access Role
+          type: string
+        password:
+          title: Password
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+    IdentityOutAdmin:
+      title: IdentityOutAdmin
+      required:
+      - name
+      - access_role
+      - id
+      - is_active
+      - is_public
+      - created
+      - modified
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        access_role:
+          title: Access Role
+          type: string
+        id:
+          title: Id
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+        notes:
+          title: Notes
+          type: string
+    IdentityUpdate:
+      title: IdentityUpdate
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        access_role:
+          title: Access Role
+          type: string
+        password:
+          title: Password
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+    AccessRole:
+      title: AccessRole
+      enum:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      description: An enumeration.
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
+  securitySchemes:
+    HTTPBearer:
+      type: http
+      scheme: bearer

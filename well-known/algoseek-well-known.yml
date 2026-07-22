@@ -1,0 +1,45 @@
+generated: '2026-07-22'
+method: searched
+source: live probes of algoseek.com, console.algoseek.com, metadata-services.algoseek.com
+note: No /.well-known/ documents found. algoseek.com and console.algoseek.com are Angular SPAs whose catch-all
+  route returns the HTML shell (HTTP 200) for every path — those 200s are not real documents. metadata-services.algoseek.com
+  returns 404.
+hosts:
+- host: https://algoseek.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    result: SPA HTML shell — not a security.txt
+  - path: /.well-known/openid-configuration
+    status: 200
+    result: SPA HTML shell — not a JSON document
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    result: SPA HTML shell — not a JSON document
+  - path: /.well-known/api-catalog
+    status: 200
+    result: SPA HTML shell — not a JSON document
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    result: SPA HTML shell — not a JSON document
+  - path: /llms.txt
+    status: 200
+    result: SPA HTML shell — no llms.txt published
+- host: https://console.algoseek.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    result: SPA HTML shell — not a security.txt
+  - path: /llms.txt
+    status: 200
+    result: SPA HTML shell — no llms.txt published
+- host: https://metadata-services.algoseek.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404

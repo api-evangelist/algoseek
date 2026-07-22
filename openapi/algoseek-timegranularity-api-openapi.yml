@@ -1,0 +1,404 @@
+openapi: 3.0.2
+info:
+  title: metadata-api AWSAccount TimeGranularity API
+  version: '1.2'
+tags:
+- name: TimeGranularity
+paths:
+  /api/v1/internal/time_granularity/:
+    get:
+      tags:
+      - TimeGranularity
+      summary: List Time Granularities
+      description: Get a list of all time granularities
+      operationId: get_time_granularities_internal_api_v1_internal_time_granularity__get
+      parameters:
+      - required: false
+        schema:
+          title: Is Active
+          type: boolean
+        name: is_active
+        in: query
+      - required: false
+        schema:
+          title: Is Public
+          type: boolean
+        name: is_public
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Get Time Granularities Internal Api V1 Internal Time Granularity  Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/EnumOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    post:
+      tags:
+      - TimeGranularity
+      summary: Add Time Granularity
+      description: Add a new time granularity
+      operationId: create_time_granularity_api_v1_internal_time_granularity__post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EnumCreate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnumOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/internal/time_granularity/{time_granularity_id}/:
+    get:
+      tags:
+      - TimeGranularity
+      summary: Get Time Granularity
+      description: Get Time Granularity details by id
+      operationId: get_time_granularity_internal_api_v1_internal_time_granularity__time_granularity_id___get
+      parameters:
+      - required: true
+        schema:
+          title: Time Granularity Id
+          type: integer
+        name: time_granularity_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnumOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    put:
+      tags:
+      - TimeGranularity
+      summary: Update Time Granularity
+      description: Update time granularity details by id
+      operationId: update_time_granularity_api_v1_internal_time_granularity__time_granularity_id___put
+      parameters:
+      - required: true
+        schema:
+          title: Time Granularity Id
+          type: integer
+        name: time_granularity_id
+        in: path
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EnumUpdate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnumOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    delete:
+      tags:
+      - TimeGranularity
+      summary: Delete Time Granularity
+      description: Delete a time granularity record
+      operationId: delete_time_granularity_api_v1_internal_time_granularity__time_granularity_id___delete
+      parameters:
+      - required: true
+        schema:
+          title: Time Granularity Id
+          type: integer
+        name: time_granularity_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnumOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/internal/time_granularity/text_id/{text_id}/:
+    get:
+      tags:
+      - TimeGranularity
+      summary: Get Time Granularity by text id
+      description: Get time granularity details by text_id
+      operationId: get_time_granularity_by_text_id_internal_api_v1_internal_time_granularity_text_id__text_id___get
+      parameters:
+      - required: true
+        schema:
+          title: Text Id
+          type: string
+        name: text_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnumOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/public/time_granularity/{time_granularity_id}/:
+    get:
+      tags:
+      - TimeGranularity
+      summary: Get Time Granularity
+      description: Get Time Granularity details by id
+      operationId: get_time_granularity_public_api_v1_public_time_granularity__time_granularity_id___get
+      parameters:
+      - required: true
+        schema:
+          title: Time Granularity Id
+          type: integer
+        name: time_granularity_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnumOutPublic'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/public/time_granularity/:
+    get:
+      tags:
+      - TimeGranularity
+      summary: List Time Granularities
+      description: Get a list of all time granularities
+      operationId: get_time_granularities_public_api_v1_public_time_granularity__get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Get Time Granularities Public Api V1 Public Time Granularity  Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/EnumOutPublic'
+      security:
+      - HTTPBearer: []
+components:
+  schemas:
+    EnumOutAdmin:
+      title: EnumOutAdmin
+      required:
+      - text_id
+      - internal_name
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        full_name:
+          title: Full Name
+          type: string
+        description:
+          title: Description
+          type: string
+        internal_name:
+          title: Internal Name
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    EnumCreate:
+      title: EnumCreate
+      required:
+      - text_id
+      - internal_name
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        full_name:
+          title: Full Name
+          type: string
+        description:
+          title: Description
+          type: string
+        internal_name:
+          title: Internal Name
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+    ValidationError:
+      title: ValidationError
+      required:
+      - loc
+      - msg
+      - type
+      type: object
+      properties:
+        loc:
+          title: Location
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
+    EnumOutPublic:
+      title: EnumOutPublic
+      required:
+      - text_id
+      - id
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        full_name:
+          title: Full Name
+          type: string
+        description:
+          title: Description
+          type: string
+        id:
+          title: Id
+          type: integer
+    EnumUpdate:
+      title: EnumUpdate
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        full_name:
+          title: Full Name
+          type: string
+        description:
+          title: Description
+          type: string
+        internal_name:
+          title: Internal Name
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+  securitySchemes:
+    HTTPBearer:
+      type: http
+      scheme: bearer

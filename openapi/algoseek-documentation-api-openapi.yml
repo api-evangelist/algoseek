@@ -1,0 +1,732 @@
+openapi: 3.0.2
+info:
+  title: metadata-api AWSAccount Documentation API
+  version: '1.2'
+tags:
+- name: Documentation
+paths:
+  /api/v1/internal/documentation/:
+    get:
+      tags:
+      - Documentation
+      summary: List Documentation
+      description: Get a list of all documentations
+      operationId: get_documentations_internal_api_v1_internal_documentation__get
+      parameters:
+      - required: false
+        schema:
+          title: Is Active
+          type: boolean
+        name: is_active
+        in: query
+      - required: false
+        schema:
+          title: Is Public
+          type: boolean
+        name: is_public
+        in: query
+      - required: false
+        schema:
+          title: Author Id
+          type: integer
+        name: author_id
+        in: query
+      - required: false
+        schema:
+          title: Maintainer Id
+          type: integer
+        name: maintainer_id
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Get Documentations Internal Api V1 Internal Documentation  Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/DocumentationOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    post:
+      tags:
+      - Documentation
+      summary: Add Documentation
+      description: Add a new documentation
+      operationId: create_documentation_api_v1_internal_documentation__post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DocumentationCreate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentationOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/internal/documentation/{documentation_id}/:
+    get:
+      tags:
+      - Documentation
+      summary: Get Documentation
+      description: Get Documentation details by id
+      operationId: get_documentation_internal_api_v1_internal_documentation__documentation_id___get
+      parameters:
+      - required: true
+        schema:
+          title: Documentation Id
+          type: integer
+        name: documentation_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentationOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    put:
+      tags:
+      - Documentation
+      summary: Update documentation
+      description: Update documentation details by id
+      operationId: update_documentation_api_v1_internal_documentation__documentation_id___put
+      parameters:
+      - required: true
+        schema:
+          title: Documentation Id
+          type: integer
+        name: documentation_id
+        in: path
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DocumentationUpdate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentationOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    delete:
+      tags:
+      - Documentation
+      summary: Delete documentation
+      description: Delete a documentation record
+      operationId: delete_documentation_api_v1_internal_documentation__documentation_id___delete
+      parameters:
+      - required: true
+        schema:
+          title: Documentation Id
+          type: integer
+        name: documentation_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentationOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/internal/documentation/ext/{documentation_id}/:
+    get:
+      tags:
+      - Documentation
+      summary: Get Extended Documentation
+      description: Get Extended Documentation details by id
+      operationId: get_ext_documentation_internal_api_v1_internal_documentation_ext__documentation_id___get
+      parameters:
+      - required: true
+        schema:
+          title: Documentation Id
+          type: integer
+        name: documentation_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExtDocumentationOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/public/documentation/{documentation_id}/:
+    get:
+      tags:
+      - Documentation
+      summary: Get Documentation
+      description: Get Documentation details by id
+      operationId: get_documentation_public_api_v1_public_documentation__documentation_id___get
+      parameters:
+      - required: true
+        schema:
+          title: Documentation Id
+          type: integer
+        name: documentation_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentationOutPublic'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/public/documentation/:
+    get:
+      tags:
+      - Documentation
+      summary: List Documentation
+      description: Get a list of all documentations
+      operationId: get_documentations_public_api_v1_public_documentation__get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Get Documentations Public Api V1 Public Documentation  Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/DocumentationOutPublic'
+      security:
+      - HTTPBearer: []
+components:
+  schemas:
+    DocumentationCreate:
+      title: DocumentationCreate
+      required:
+      - text_id
+      - title
+      - file_name
+      - s3_location_id
+      - author_id
+      - source_path
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        title:
+          title: Title
+          type: string
+        description:
+          title: Description
+          type: string
+        file_name:
+          title: File Name
+          type: string
+        html:
+          title: Html
+          type: string
+        s3_location_id:
+          title: S3 Location Id
+          type: integer
+        author_id:
+          title: Author Id
+          type: integer
+        maintainer_id:
+          title: Maintainer Id
+          type: integer
+        source_path:
+          title: Source Path
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+    ExtDocumentationOutAdmin:
+      title: ExtDocumentationOutAdmin
+      required:
+      - text_id
+      - title
+      - file_name
+      - s3_location
+      - id
+      - author
+      - source_path
+      - is_active
+      - is_public
+      - created
+      - modified
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        title:
+          title: Title
+          type: string
+        description:
+          title: Description
+          type: string
+        file_name:
+          title: File Name
+          type: string
+        html:
+          title: Html
+          type: string
+        s3_location:
+          $ref: '#/components/schemas/ExtS3ObjectOutAdmin'
+        id:
+          title: Id
+          type: integer
+        author:
+          $ref: '#/components/schemas/ExtPersonOutAdmin'
+        maintainer:
+          $ref: '#/components/schemas/ExtPersonOutAdmin'
+        source_path:
+          title: Source Path
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    ValidationError:
+      title: ValidationError
+      required:
+      - loc
+      - msg
+      - type
+      type: object
+      properties:
+        loc:
+          title: Location
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
+    DocumentationUpdate:
+      title: DocumentationUpdate
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        title:
+          title: Title
+          type: string
+        description:
+          title: Description
+          type: string
+        file_name:
+          title: File Name
+          type: string
+        html:
+          title: Html
+          type: string
+        s3_location_id:
+          title: S3 Location Id
+          type: integer
+        author_id:
+          title: Author Id
+          type: integer
+        maintainer_id:
+          title: Maintainer Id
+          type: integer
+        source_path:
+          title: Source Path
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+    ExtVendorOutAdmin:
+      title: ExtVendorOutAdmin
+      required:
+      - text_id
+      - full_name
+      - display_name
+      - internal_name
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        full_name:
+          title: Full Name
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        description:
+          title: Description
+          type: string
+        website:
+          title: Website
+          type: string
+        logo_url:
+          title: Logo Url
+          type: string
+        icon_url:
+          title: Icon Url
+          type: string
+        internal_name:
+          title: Internal Name
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    DocumentationOutPublic:
+      title: DocumentationOutPublic
+      required:
+      - text_id
+      - title
+      - file_name
+      - s3_location_id
+      - id
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        title:
+          title: Title
+          type: string
+        description:
+          title: Description
+          type: string
+        file_name:
+          title: File Name
+          type: string
+        html:
+          title: Html
+          type: string
+        s3_location_id:
+          title: S3 Location Id
+          type: integer
+        id:
+          title: Id
+          type: integer
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
+    ExtS3ObjectOutAdmin:
+      title: ExtS3ObjectOutAdmin
+      required:
+      - aws_account_id
+      - bucket_name
+      - object_name
+      - region_name
+      - id
+      - is_active
+      - is_public
+      - created
+      - modified
+      type: object
+      properties:
+        aws_account_id:
+          title: Aws Account Id
+          type: integer
+        bucket_name:
+          title: Bucket Name
+          type: string
+        object_name:
+          title: Object Name
+          type: string
+        region_name:
+          title: Region Name
+          type: string
+        id:
+          title: Id
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        aws_account:
+          $ref: '#/components/schemas/EnumOutAdmin'
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    DocumentationOutAdmin:
+      title: DocumentationOutAdmin
+      required:
+      - text_id
+      - title
+      - file_name
+      - s3_location_id
+      - author_id
+      - source_path
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        title:
+          title: Title
+          type: string
+        description:
+          title: Description
+          type: string
+        file_name:
+          title: File Name
+          type: string
+        html:
+          title: Html
+          type: string
+        s3_location_id:
+          title: S3 Location Id
+          type: integer
+        author_id:
+          title: Author Id
+          type: integer
+        maintainer_id:
+          title: Maintainer Id
+          type: integer
+        source_path:
+          title: Source Path
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    ExtPersonOutAdmin:
+      title: ExtPersonOutAdmin
+      required:
+      - first_name
+      - last_name
+      - email
+      - id
+      - is_active
+      - is_public
+      - created
+      - modified
+      type: object
+      properties:
+        first_name:
+          title: First Name
+          type: string
+        last_name:
+          title: Last Name
+          type: string
+        email:
+          title: Email
+          type: string
+        phone:
+          title: Phone
+          type: string
+        role:
+          title: Role
+          type: string
+        id:
+          title: Id
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+        vendor:
+          $ref: '#/components/schemas/ExtVendorOutAdmin'
+    EnumOutAdmin:
+      title: EnumOutAdmin
+      required:
+      - text_id
+      - internal_name
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        full_name:
+          title: Full Name
+          type: string
+        description:
+          title: Description
+          type: string
+        internal_name:
+          title: Internal Name
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+  securitySchemes:
+    HTTPBearer:
+      type: http
+      scheme: bearer

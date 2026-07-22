@@ -1,0 +1,434 @@
+openapi: 3.0.2
+info:
+  title: metadata-api AWSAccount SQLColumn API
+  version: '1.2'
+tags:
+- name: SQLColumn
+paths:
+  /api/v1/internal/sql_column/:
+    get:
+      tags:
+      - SQLColumn
+      summary: List SQL Columns
+      description: Get a list of all sql columns
+      operationId: get_sql_columns_internal_api_v1_internal_sql_column__get
+      parameters:
+      - required: false
+        schema:
+          title: Is Active
+          type: boolean
+        name: is_active
+        in: query
+      - required: false
+        schema:
+          title: Is Public
+          type: boolean
+        name: is_public
+        in: query
+      - required: false
+        schema:
+          title: Database Table Id
+          type: integer
+        name: database_table_id
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Get Sql Columns Internal Api V1 Internal Sql Column  Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/SQLColumnOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    post:
+      tags:
+      - SQLColumn
+      summary: Add SQL Column
+      description: Add a new SQL Column
+      operationId: create_sql_column_api_v1_internal_sql_column__post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SQLColumnCreate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SQLColumnOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/internal/sql_column/{sql_column_id}/:
+    get:
+      tags:
+      - SQLColumn
+      summary: Get SQL Column
+      description: Get SQL Column details by id
+      operationId: get_sql_column_internal_api_v1_internal_sql_column__sql_column_id___get
+      parameters:
+      - required: true
+        schema:
+          title: Sql Column Id
+          type: integer
+        name: sql_column_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SQLColumnOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    put:
+      tags:
+      - SQLColumn
+      summary: Update SQL Column
+      description: Update SQL Column details by id
+      operationId: update_sql_column_api_v1_internal_sql_column__sql_column_id___put
+      parameters:
+      - required: true
+        schema:
+          title: Sql Column Id
+          type: integer
+        name: sql_column_id
+        in: path
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SQLColumnUpdate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SQLColumnOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    delete:
+      tags:
+      - SQLColumn
+      summary: Delete sql column
+      description: Delete a sql column record
+      operationId: delete_sql_column_api_v1_internal_sql_column__sql_column_id___delete
+      parameters:
+      - required: true
+        schema:
+          title: Sql Column Id
+          type: integer
+        name: sql_column_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SQLColumnOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/public/sql_column/{sql_column_id}/:
+    get:
+      tags:
+      - SQLColumn
+      summary: Get SQL Column
+      description: Get SQL Column details by id
+      operationId: get_sql_column_public_api_v1_public_sql_column__sql_column_id___get
+      parameters:
+      - required: true
+        schema:
+          title: Sql Column Id
+          type: integer
+        name: sql_column_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SQLColumnOutPublic'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/public/sql_column/:
+    get:
+      tags:
+      - SQLColumn
+      summary: List SQL Columns
+      description: Get a list of all sql columns
+      operationId: get_sql_columns_public_api_v1_public_sql_column__get
+      parameters:
+      - required: false
+        schema:
+          title: Database Table Id
+          type: integer
+        name: database_table_id
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Get Sql Columns Public Api V1 Public Sql Column  Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/SQLColumnOutPublic'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+components:
+  schemas:
+    SQLColumnOutPublic:
+      title: SQLColumnOutPublic
+      required:
+      - table_id
+      - ordering
+      - id
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        data_type_simple:
+          title: Data Type Simple
+          type: string
+        data_type_db:
+          title: Data Type Db
+          type: string
+        compression:
+          title: Compression
+          type: string
+        endcoding:
+          title: Endcoding
+          type: string
+        description:
+          title: Description
+          type: string
+        table_id:
+          title: Table Id
+          type: integer
+        ordering:
+          title: Ordering
+          type: integer
+        id:
+          title: Id
+          type: integer
+    SQLColumnUpdate:
+      title: SQLColumnUpdate
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        data_type_simple:
+          title: Data Type Simple
+          type: string
+        data_type_db:
+          title: Data Type Db
+          type: string
+        compression:
+          title: Compression
+          type: string
+        endcoding:
+          title: Endcoding
+          type: string
+        description:
+          title: Description
+          type: string
+        table_id:
+          title: Table Id
+          type: integer
+        ordering:
+          title: Ordering
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+    ValidationError:
+      title: ValidationError
+      required:
+      - loc
+      - msg
+      - type
+      type: object
+      properties:
+        loc:
+          title: Location
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
+    SQLColumnCreate:
+      title: SQLColumnCreate
+      required:
+      - table_id
+      - ordering
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        data_type_simple:
+          title: Data Type Simple
+          type: string
+        data_type_db:
+          title: Data Type Db
+          type: string
+        compression:
+          title: Compression
+          type: string
+        endcoding:
+          title: Endcoding
+          type: string
+        description:
+          title: Description
+          type: string
+        table_id:
+          title: Table Id
+          type: integer
+        ordering:
+          title: Ordering
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+    SQLColumnOutAdmin:
+      title: SQLColumnOutAdmin
+      required:
+      - table_id
+      - ordering
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        data_type_simple:
+          title: Data Type Simple
+          type: string
+        data_type_db:
+          title: Data Type Db
+          type: string
+        compression:
+          title: Compression
+          type: string
+        endcoding:
+          title: Endcoding
+          type: string
+        description:
+          title: Description
+          type: string
+        table_id:
+          title: Table Id
+          type: integer
+        ordering:
+          title: Ordering
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+  securitySchemes:
+    HTTPBearer:
+      type: http
+      scheme: bearer

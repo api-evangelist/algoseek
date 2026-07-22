@@ -1,0 +1,390 @@
+openapi: 3.0.2
+info:
+  title: metadata-api AWSAccount DataGroupPricing API
+  version: '1.2'
+tags:
+- name: DataGroupPricing
+paths:
+  /api/v1/internal/data_group_pricing/:
+    get:
+      tags:
+      - DataGroupPricing
+      summary: List Data Group Pricing
+      description: Get a list of all data group pricing
+      operationId: get_data_group_pricings_internal_api_v1_internal_data_group_pricing__get
+      parameters:
+      - required: false
+        schema:
+          title: Is Active
+          type: boolean
+        name: is_active
+        in: query
+      - required: false
+        schema:
+          title: Is Public
+          type: boolean
+        name: is_public
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Get Data Group Pricings Internal Api V1 Internal Data Group Pricing  Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/DataGroupPricingOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    post:
+      tags:
+      - DataGroupPricing
+      summary: Add Data Group Pricing
+      description: Add a new data group pricing
+      operationId: create_data_group_pricing_api_v1_internal_data_group_pricing__post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DataGroupPricingCreate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataGroupPricingOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/internal/data_group_pricing/{data_group_pricing_id}/:
+    get:
+      tags:
+      - DataGroupPricing
+      summary: Get Data Group Pricing
+      description: Get Data Group Pricing details by id
+      operationId: get_data_group_pricing_internal_api_v1_internal_data_group_pricing__data_group_pricing_id___get
+      parameters:
+      - required: true
+        schema:
+          title: Data Group Pricing Id
+          type: integer
+        name: data_group_pricing_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataGroupPricingOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    put:
+      tags:
+      - DataGroupPricing
+      summary: Update data group pricing
+      description: Update data group pricing details by id
+      operationId: update_data_group_pricing_api_v1_internal_data_group_pricing__data_group_pricing_id___put
+      parameters:
+      - required: true
+        schema:
+          title: Data Group Pricing Id
+          type: integer
+        name: data_group_pricing_id
+        in: path
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DataGroupPricingUpdate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataGroupPricingOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    delete:
+      tags:
+      - DataGroupPricing
+      summary: Delete data group pricing
+      description: Delete a data group pricing record
+      operationId: delete_data_group_pricing_api_v1_internal_data_group_pricing__data_group_pricing_id___delete
+      parameters:
+      - required: true
+        schema:
+          title: Data Group Pricing Id
+          type: integer
+        name: data_group_pricing_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataGroupPricingOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/public/data_group_pricing/{data_group_pricing_id}/:
+    get:
+      tags:
+      - DataGroupPricing
+      summary: Get Data Group Pricing
+      description: Get Data Group Pricing details by id
+      operationId: get_data_group_pricing_public_api_v1_public_data_group_pricing__data_group_pricing_id___get
+      parameters:
+      - required: true
+        schema:
+          title: Data Group Pricing Id
+          type: integer
+        name: data_group_pricing_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataGroupPricingOutPublic'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/public/data_group_pricing/:
+    get:
+      tags:
+      - DataGroupPricing
+      summary: List Data Group Pricing
+      description: Get a list of all data group pricing
+      operationId: get_data_group_pricings_public_api_v1_public_data_group_pricing__get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Get Data Group Pricings Public Api V1 Public Data Group Pricing  Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/DataGroupPricingOutPublic'
+      security:
+      - HTTPBearer: []
+components:
+  schemas:
+    DataGroupPricingUpdate:
+      title: DataGroupPricingUpdate
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        buy_annual_decrease_factor:
+          title: Buy Annual Decrease Factor
+          type: number
+        buy_prod_upd_factor:
+          title: Buy Prod Upd Factor
+          type: number
+        buy_research_upd_factor:
+          title: Buy Research Upd Factor
+          type: number
+        lease_hist_factor:
+          title: Lease Hist Factor
+          type: number
+        lease_upd_factor:
+          title: Lease Upd Factor
+          type: number
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+    ValidationError:
+      title: ValidationError
+      required:
+      - loc
+      - msg
+      - type
+      type: object
+      properties:
+        loc:
+          title: Location
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
+    DataGroupPricingOutPublic:
+      title: DataGroupPricingOutPublic
+      required:
+      - name
+      - id
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        buy_annual_decrease_factor:
+          title: Buy Annual Decrease Factor
+          type: number
+        buy_prod_upd_factor:
+          title: Buy Prod Upd Factor
+          type: number
+        buy_research_upd_factor:
+          title: Buy Research Upd Factor
+          type: number
+        lease_hist_factor:
+          title: Lease Hist Factor
+          type: number
+        lease_upd_factor:
+          title: Lease Upd Factor
+          type: number
+        id:
+          title: Id
+          type: integer
+    DataGroupPricingOutAdmin:
+      title: DataGroupPricingOutAdmin
+      required:
+      - name
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        buy_annual_decrease_factor:
+          title: Buy Annual Decrease Factor
+          type: number
+        buy_prod_upd_factor:
+          title: Buy Prod Upd Factor
+          type: number
+        buy_research_upd_factor:
+          title: Buy Research Upd Factor
+          type: number
+        lease_hist_factor:
+          title: Lease Hist Factor
+          type: number
+        lease_upd_factor:
+          title: Lease Upd Factor
+          type: number
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
+    DataGroupPricingCreate:
+      title: DataGroupPricingCreate
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        buy_annual_decrease_factor:
+          title: Buy Annual Decrease Factor
+          type: number
+        buy_prod_upd_factor:
+          title: Buy Prod Upd Factor
+          type: number
+        buy_research_upd_factor:
+          title: Buy Research Upd Factor
+          type: number
+        lease_hist_factor:
+          title: Lease Hist Factor
+          type: number
+        lease_upd_factor:
+          title: Lease Upd Factor
+          type: number
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+  securitySchemes:
+    HTTPBearer:
+      type: http
+      scheme: bearer

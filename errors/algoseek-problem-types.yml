@@ -1,0 +1,17 @@
+generated: '2026-07-22'
+method: derived
+format: fastapi-validation
+source: openapi/ (all 33 per-tag specs)
+note: The spec declares only 200 and 422 responses (422 on 221 of 241 operations). Auth failures (401/403)
+  on HTTPBearer-protected operations are not declared in the contract.
+envelope:
+  media_type: application/json
+  schema: HTTPValidationError
+  shape: 'detail: [ {loc: [string|integer], msg: string, type: string} ]'
+problems:
+- status: 422
+  title: Validation Error
+  description: FastAPI request-validation failure; detail[] lists each invalid field with location, message,
+    and error type
+  schema: HTTPValidationError
+  operations_declaring: 221

@@ -2,16 +2,25 @@ aid: algoseek
 url: https://raw.githubusercontent.com/api-evangelist/algoseek/refs/heads/main/apis.yml
 name: AlgoSeek
 kind: company
-description: AlgoSeek, LLC is a New York-based financial market data vendor (spun
-  off from a trading fund) selling historical intraday US market data - equities,
-  ETFs, equity options with Greeks and IV, futures, futures options, and reference
-  data (security masters, adjustment factors, IPOs, index components) - plus real-time
-  feeds. Delivery is data-platform-first rather than API-first, through S3 flat-file
-  buckets, the ArdaDB managed ClickHouse cloud database queried via the open-source
-  algoseek-connector Python library, ultra-low-latency real-time feeds via colocated
-  MultiCast/TCP, and a REST Metadata Services API with a public OpenAPI/Swagger surface.
-  Sales-led commercially, with a customer console at console.algoseek.com.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+description: AlgoSeek, LLC is a New York-based financial market data vendor (spun off from a trading fund)
+  selling historical intraday US market data - equities, ETFs, equity options with Greeks and IV, futures,
+  futures options, and reference data (security masters, adjustment factors, IPOs, index components) -
+  plus real-time feeds. Delivery is data-platform-first rather than API-first, through S3 flat-file buckets,
+  the ArdaDB managed ClickHouse cloud database queried via the open-source algoseek-connector Python library,
+  ultra-low-latency real-time feeds via colocated MultiCast/TCP, and a REST Metadata Services API with
+  a public OpenAPI/Swagger surface. Sales-led commercially, with a customer console at console.algoseek.com.
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/algoseek.png
 tags:
 - Financial
 - Market Data
@@ -23,30 +32,9 @@ tags:
 - Real-Time
 - Trading
 created: '2026-07-21'
-modified: '2026-07-21'
+modified: '2026-07-22'
 specificationVersion: '0.19'
 apis:
-- aid: algoseek:algoseek-metadata-services-api
-  name: AlgoSeek Metadata Services API
-  tags:
-  - Metadata
-  - Datasets
-  - Reference Data
-  - Discovery
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://metadata-services.algoseek.com/docs
-  baseURL: https://metadata-services.algoseek.com/api/v1
-  properties:
-  - url: https://metadata-services.algoseek.com/docs
-    type: Documentation
-  - url: openapi/algoseek-metadata-services-openapi.json
-    type: OpenAPI
-  description: FastAPI-based REST API (metadata-api v1.2) describing AlgoSeek's dataset
-    catalog - data groups, datasets, pricing records, database objects and tables,
-    cloud storage buckets, documentation, vendors, and sample data. Publishes a live
-    Swagger UI and OpenAPI 3.0.2 document with 148 paths (56 public, 90 internal);
-    endpoints require HTTP Bearer authentication obtained via /api/v1/login/access_token/.
-    This is the metadata backend used by the algoseek-connector Python library.
 - aid: algoseek:algoseek-ardadb-query-service
   name: AlgoSeek ArdaDB Query Service
   tags:
@@ -62,12 +50,478 @@ apis:
     type: Documentation
   - url: https://algoseek-connector.readthedocs.io/
     type: Documentation
-  description: Managed ClickHouse-based columnar cloud database (AWS us-east-1) pre-loaded
-    with two petabytes of AlgoSeek historical and near-real-time market data, queried
-    with full SQL. Programmatic access is documented through the open-source algoseek-connector
-    Python library (SQL-like method-chaining queries, pandas DataFrames, streaming
-    results) using ArdaDB credentials; no public HTTP base URL is documented.
+  description: Managed ClickHouse-based columnar cloud database (AWS us-east-1) pre-loaded with two petabytes
+    of AlgoSeek historical and near-real-time market data, queried with full SQL. Programmatic access
+    is documented through the open-source algoseek-connector Python library (SQL-like method-chaining
+    queries, pandas DataFrames, streaming results) using ArdaDB credentials; no public HTTP base URL is
+    documented.
+- aid: algoseek:algoseek-awsaccount-api
+  name: AlgoSeek AWSAccount API
+  description: The AWSAccount API from AlgoSeek — 3 operation(s) for awsaccount.
+  humanURL: https://metadata-services.algoseek.com/docs
+  baseURL: https://metadata-services.algoseek.com/api/v1
+  tags:
+  - AWSAccount
+  properties:
+  - type: OpenAPI
+    url: openapi/algoseek-awsaccount-api-openapi.yml
+  - type: Documentation
+    url: https://metadata-services.algoseek.com/docs
+  - type: Overlay
+    url: overlays/algoseek-awsaccount-api-overlay.yaml
+- aid: algoseek:algoseek-awsresourcetype-api
+  name: AlgoSeek AWSResourceType API
+  description: The AWSResourceType API from AlgoSeek — 3 operation(s) for awsresourcetype.
+  humanURL: https://metadata-services.algoseek.com/docs
+  baseURL: https://metadata-services.algoseek.com/api/v1
+  tags:
+  - AWSResourceType
+  properties:
+  - type: OpenAPI
+    url: openapi/algoseek-awsresourcetype-api-openapi.yml
+  - type: Documentation
+    url: https://metadata-services.algoseek.com/docs
+  - type: Overlay
+    url: overlays/algoseek-awsresourcetype-api-overlay.yaml
+- aid: algoseek:algoseek-bucketgroup-api
+  name: AlgoSeek BucketGroup API
+  description: The BucketGroup API from AlgoSeek — 7 operation(s) for bucketgroup.
+  humanURL: https://metadata-services.algoseek.com/docs
+  baseURL: https://metadata-services.algoseek.com/api/v1
+  tags:
+  - BucketGroup
+  properties:
+  - type: OpenAPI
+    url: openapi/algoseek-bucketgroup-api-openapi.yml
+  - type: Documentation
+    url: https://metadata-services.algoseek.com/docs
+  - type: Overlay
+    url: overlays/algoseek-bucketgroup-api-overlay.yaml
+- aid: algoseek:algoseek-bucketmonitoring-api
+  name: AlgoSeek BucketMonitoring API
+  description: The BucketMonitoring API from AlgoSeek — 2 operation(s) for bucketmonitoring.
+  humanURL: https://metadata-services.algoseek.com/docs
+  baseURL: https://metadata-services.algoseek.com/api/v1
+  tags:
+  - BucketMonitoring
+  properties:
+  - type: OpenAPI
+    url: openapi/algoseek-bucketmonitoring-api-openapi.yml
+  - type: Documentation
+    url: https://metadata-services.algoseek.com/docs
+  - type: Overlay
+    url: overlays/algoseek-bucketmonitoring-api-overlay.yaml
+- aid: algoseek:algoseek-bucketsource-api
+  name: AlgoSeek BucketSource API
+  description: The BucketSource API from AlgoSeek — 3 operation(s) for bucketsource.
+  humanURL: https://metadata-services.algoseek.com/docs
+  baseURL: https://metadata-services.algoseek.com/api/v1
+  tags:
+  - BucketSource
+  properties:
+  - type: OpenAPI
+    url: openapi/algoseek-bucketsource-api-openapi.yml
+  - type: Documentation
+    url: https://metadata-services.algoseek.com/docs
+  - type: Overlay
+    url: overlays/algoseek-bucketsource-api-overlay.yaml
+- aid: algoseek:algoseek-bucketupdate-api
+  name: AlgoSeek BucketUpdate API
+  description: The BucketUpdate API from AlgoSeek — 4 operation(s) for bucketupdate.
+  humanURL: https://metadata-services.algoseek.com/docs
+  baseURL: https://metadata-services.algoseek.com/api/v1
+  tags:
+  - BucketUpdate
+  properties:
+  - type: OpenAPI
+    url: openapi/algoseek-bucketupdate-api-openapi.yml
+  - type: Documentation
+    url: https://metadata-services.algoseek.com/docs
+  - type: Overlay
+    url: overlays/algoseek-bucketupdate-api-overlay.yaml
+- aid: algoseek:algoseek-cloudstorage-api
+  name: AlgoSeek CloudStorage API
+  description: The CloudStorage API from AlgoSeek — 6 operation(s) for cloudstorage.
+  humanURL: https://metadata-services.algoseek.com/docs
+  baseURL: https://metadata-services.algoseek.com/api/v1
+  tags:
+  - CloudStorage
+  properties:
+  - type: OpenAPI
+    url: openapi/algoseek-cloudstorage-api-openapi.yml
+  - type: Documentation
+    url: https://metadata-services.algoseek.com/docs
+  - type: Overlay
+    url: overlays/algoseek-cloudstorage-api-overlay.yaml
+- aid: algoseek:algoseek-csvcolumn-api
+  name: AlgoSeek CSVColumn API
+  description: The CSVColumn API from AlgoSeek — 4 operation(s) for csvcolumn.
+  humanURL: https://metadata-services.algoseek.com/docs
+  baseURL: https://metadata-services.algoseek.com/api/v1
+  tags:
+  - CSVColumn
+  properties:
+  - type: OpenAPI
+    url: openapi/algoseek-csvcolumn-api-openapi.yml
+  - type: Documentation
+    url: https://metadata-services.algoseek.com/docs
+  - type: Overlay
+    url: overlays/algoseek-csvcolumn-api-overlay.yaml
+- aid: algoseek:algoseek-databaseobject-api
+  name: AlgoSeek DatabaseObject API
+  description: The DatabaseObject API from AlgoSeek — 7 operation(s) for databaseobject.
+  humanURL: https://metadata-services.algoseek.com/docs
+  baseURL: https://metadata-services.algoseek.com/api/v1
+  tags:
+  - DatabaseObject
+  properties:
+  - type: OpenAPI
+    url: openapi/algoseek-databaseobject-api-openapi.yml
+  - type: Documentation
+    url: https://metadata-services.algoseek.com/docs
+  - type: Overlay
+    url: overlays/algoseek-databaseobject-api-overlay.yaml
+- aid: algoseek:algoseek-databasetable-api
+  name: AlgoSeek DatabaseTable API
+  description: The DatabaseTable API from AlgoSeek — 7 operation(s) for databasetable.
+  humanURL: https://metadata-services.algoseek.com/docs
+  baseURL: https://metadata-services.algoseek.com/api/v1
+  tags:
+  - DatabaseTable
+  properties:
+  - type: OpenAPI
+    url: openapi/algoseek-databasetable-api-openapi.yml
+  - type: Documentation
+    url: https://metadata-services.algoseek.com/docs
+  - type: Overlay
+    url: overlays/algoseek-databasetable-api-overlay.yaml
+- aid: algoseek:algoseek-dataclass-api
+  name: AlgoSeek DataClass API
+  description: The DataClass API from AlgoSeek — 5 operation(s) for dataclass.
+  humanURL: https://metadata-services.algoseek.com/docs
+  baseURL: https://metadata-services.algoseek.com/api/v1
+  tags:
+  - DataClass
+  properties:
+  - type: OpenAPI
+    url: openapi/algoseek-dataclass-api-openapi.yml
+  - type: Documentation
+    url: https://metadata-services.algoseek.com/docs
+  - type: Overlay
+    url: overlays/algoseek-dataclass-api-overlay.yaml
+- aid: algoseek:algoseek-dataformat-api
+  name: AlgoSeek DataFormat API
+  description: The DataFormat API from AlgoSeek — 5 operation(s) for dataformat.
+  humanURL: https://metadata-services.algoseek.com/docs
+  baseURL: https://metadata-services.algoseek.com/api/v1
+  tags:
+  - DataFormat
+  properties:
+  - type: OpenAPI
+    url: openapi/algoseek-dataformat-api-openapi.yml
+  - type: Documentation
+    url: https://metadata-services.algoseek.com/docs
+  - type: Overlay
+    url: overlays/algoseek-dataformat-api-overlay.yaml
+- aid: algoseek:algoseek-datagroup-api
+  name: AlgoSeek DataGroup API
+  description: The DataGroup API from AlgoSeek — 5 operation(s) for datagroup.
+  humanURL: https://metadata-services.algoseek.com/docs
+  baseURL: https://metadata-services.algoseek.com/api/v1
+  tags:
+  - DataGroup
+  properties:
+  - type: OpenAPI
+    url: openapi/algoseek-datagroup-api-openapi.yml
+  - type: Documentation
+    url: https://metadata-services.algoseek.com/docs
+  - type: Overlay
+    url: overlays/algoseek-datagroup-api-overlay.yaml
+- aid: algoseek:algoseek-datagrouppricing-api
+  name: AlgoSeek DataGroupPricing API
+  description: The DataGroupPricing API from AlgoSeek — 4 operation(s) for datagrouppricing.
+  humanURL: https://metadata-services.algoseek.com/docs
+  baseURL: https://metadata-services.algoseek.com/api/v1
+  tags:
+  - DataGroupPricing
+  properties:
+  - type: OpenAPI
+    url: openapi/algoseek-datagrouppricing-api-openapi.yml
+  - type: Documentation
+    url: https://metadata-services.algoseek.com/docs
+  - type: Overlay
+    url: overlays/algoseek-datagrouppricing-api-overlay.yaml
+- aid: algoseek:algoseek-dataset-api
+  name: AlgoSeek Dataset API
+  description: The Dataset API from AlgoSeek — 10 operation(s) for dataset.
+  humanURL: https://metadata-services.algoseek.com/docs
+  baseURL: https://metadata-services.algoseek.com/api/v1
+  tags:
+  - Dataset
+  properties:
+  - type: OpenAPI
+    url: openapi/algoseek-dataset-api-openapi.yml
+  - type: Documentation
+    url: https://metadata-services.algoseek.com/docs
+  - type: Overlay
+    url: overlays/algoseek-dataset-api-overlay.yaml
+- aid: algoseek:algoseek-datasetchange-api
+  name: AlgoSeek DatasetChange API
+  description: The DatasetChange API from AlgoSeek — 2 operation(s) for datasetchange.
+  humanURL: https://metadata-services.algoseek.com/docs
+  baseURL: https://metadata-services.algoseek.com/api/v1
+  tags:
+  - DatasetChange
+  properties:
+  - type: OpenAPI
+    url: openapi/algoseek-datasetchange-api-openapi.yml
+  - type: Documentation
+    url: https://metadata-services.algoseek.com/docs
+  - type: Overlay
+    url: overlays/algoseek-datasetchange-api-overlay.yaml
+- aid: algoseek:algoseek-datatype-api
+  name: AlgoSeek DataType API
+  description: The DataType API from AlgoSeek — 5 operation(s) for datatype.
+  humanURL: https://metadata-services.algoseek.com/docs
+  baseURL: https://metadata-services.algoseek.com/api/v1
+  tags:
+  - DataType
+  properties:
+  - type: OpenAPI
+    url: openapi/algoseek-datatype-api-openapi.yml
+  - type: Documentation
+    url: https://metadata-services.algoseek.com/docs
+  - type: Overlay
+    url: overlays/algoseek-datatype-api-overlay.yaml
+- aid: algoseek:algoseek-dbobjecttype-api
+  name: AlgoSeek DBObjectType API
+  description: The DBObjectType API from AlgoSeek — 5 operation(s) for dbobjecttype.
+  humanURL: https://metadata-services.algoseek.com/docs
+  baseURL: https://metadata-services.algoseek.com/api/v1
+  tags:
+  - DBObjectType
+  properties:
+  - type: OpenAPI
+    url: openapi/algoseek-dbobjecttype-api-openapi.yml
+  - type: Documentation
+    url: https://metadata-services.algoseek.com/docs
+  - type: Overlay
+    url: overlays/algoseek-dbobjecttype-api-overlay.yaml
+- aid: algoseek:algoseek-deliverymethod-api
+  name: AlgoSeek DeliveryMethod API
+  description: The DeliveryMethod API from AlgoSeek — 5 operation(s) for deliverymethod.
+  humanURL: https://metadata-services.algoseek.com/docs
+  baseURL: https://metadata-services.algoseek.com/api/v1
+  tags:
+  - DeliveryMethod
+  properties:
+  - type: OpenAPI
+    url: openapi/algoseek-deliverymethod-api-openapi.yml
+  - type: Documentation
+    url: https://metadata-services.algoseek.com/docs
+  - type: Overlay
+    url: overlays/algoseek-deliverymethod-api-overlay.yaml
+- aid: algoseek:algoseek-documentation-api
+  name: AlgoSeek Documentation API
+  description: The Documentation API from AlgoSeek — 5 operation(s) for documentation.
+  humanURL: https://metadata-services.algoseek.com/docs
+  baseURL: https://metadata-services.algoseek.com/api/v1
+  tags:
+  - Documentation
+  properties:
+  - type: OpenAPI
+    url: openapi/algoseek-documentation-api-openapi.yml
+  - type: Documentation
+    url: https://metadata-services.algoseek.com/docs
+  - type: Overlay
+    url: overlays/algoseek-documentation-api-overlay.yaml
+- aid: algoseek:algoseek-healthcheck-api
+  name: AlgoSeek Healthcheck API
+  description: The Healthcheck API from AlgoSeek — 1 operation(s) for healthcheck.
+  humanURL: https://metadata-services.algoseek.com/docs
+  baseURL: https://metadata-services.algoseek.com/api/v1
+  tags:
+  - Healthcheck
+  properties:
+  - type: OpenAPI
+    url: openapi/algoseek-healthcheck-api-openapi.yml
+  - type: Documentation
+    url: https://metadata-services.algoseek.com/docs
+  - type: Overlay
+    url: overlays/algoseek-healthcheck-api-overlay.yaml
+- aid: algoseek:algoseek-identity-api
+  name: AlgoSeek Identity API
+  description: The Identity API from AlgoSeek — 2 operation(s) for identity.
+  humanURL: https://metadata-services.algoseek.com/docs
+  baseURL: https://metadata-services.algoseek.com/api/v1
+  tags:
+  - Identity
+  properties:
+  - type: OpenAPI
+    url: openapi/algoseek-identity-api-openapi.yml
+  - type: Documentation
+    url: https://metadata-services.algoseek.com/docs
+  - type: Overlay
+    url: overlays/algoseek-identity-api-overlay.yaml
+- aid: algoseek:algoseek-login-api
+  name: AlgoSeek Login API
+  description: The Login API from AlgoSeek — 1 operation(s) for login.
+  humanURL: https://metadata-services.algoseek.com/docs
+  baseURL: https://metadata-services.algoseek.com/api/v1
+  tags:
+  - Login
+  properties:
+  - type: OpenAPI
+    url: openapi/algoseek-login-api-openapi.yml
+  - type: Documentation
+    url: https://metadata-services.algoseek.com/docs
+  - type: Overlay
+    url: overlays/algoseek-login-api-overlay.yaml
+- aid: algoseek:algoseek-person-api
+  name: AlgoSeek Person API
+  description: The Person API from AlgoSeek — 4 operation(s) for person.
+  humanURL: https://metadata-services.algoseek.com/docs
+  baseURL: https://metadata-services.algoseek.com/api/v1
+  tags:
+  - Person
+  properties:
+  - type: OpenAPI
+    url: openapi/algoseek-person-api-openapi.yml
+  - type: Documentation
+    url: https://metadata-services.algoseek.com/docs
+  - type: Overlay
+    url: overlays/algoseek-person-api-overlay.yaml
+- aid: algoseek:algoseek-region-api
+  name: AlgoSeek Region API
+  description: The Region API from AlgoSeek — 5 operation(s) for region.
+  humanURL: https://metadata-services.algoseek.com/docs
+  baseURL: https://metadata-services.algoseek.com/api/v1
+  tags:
+  - Region
+  properties:
+  - type: OpenAPI
+    url: openapi/algoseek-region-api-openapi.yml
+  - type: Documentation
+    url: https://metadata-services.algoseek.com/docs
+  - type: Overlay
+    url: overlays/algoseek-region-api-overlay.yaml
+- aid: algoseek:algoseek-s3object-api
+  name: AlgoSeek S3Object API
+  description: The S3Object API from AlgoSeek — 5 operation(s) for s3object.
+  humanURL: https://metadata-services.algoseek.com/docs
+  baseURL: https://metadata-services.algoseek.com/api/v1
+  tags:
+  - S3Object
+  properties:
+  - type: OpenAPI
+    url: openapi/algoseek-s3object-api-openapi.yml
+  - type: Documentation
+    url: https://metadata-services.algoseek.com/docs
+  - type: Overlay
+    url: overlays/algoseek-s3object-api-overlay.yaml
+- aid: algoseek:algoseek-sampledata-api
+  name: AlgoSeek SampleData API
+  description: The SampleData API from AlgoSeek — 5 operation(s) for sampledata.
+  humanURL: https://metadata-services.algoseek.com/docs
+  baseURL: https://metadata-services.algoseek.com/api/v1
+  tags:
+  - SampleData
+  properties:
+  - type: OpenAPI
+    url: openapi/algoseek-sampledata-api-openapi.yml
+  - type: Documentation
+    url: https://metadata-services.algoseek.com/docs
+  - type: Overlay
+    url: overlays/algoseek-sampledata-api-overlay.yaml
+- aid: algoseek:algoseek-sqlcolumn-api
+  name: AlgoSeek SQLColumn API
+  description: The SQLColumn API from AlgoSeek — 4 operation(s) for sqlcolumn.
+  humanURL: https://metadata-services.algoseek.com/docs
+  baseURL: https://metadata-services.algoseek.com/api/v1
+  tags:
+  - SQLColumn
+  properties:
+  - type: OpenAPI
+    url: openapi/algoseek-sqlcolumn-api-openapi.yml
+  - type: Documentation
+    url: https://metadata-services.algoseek.com/docs
+  - type: Overlay
+    url: overlays/algoseek-sqlcolumn-api-overlay.yaml
+- aid: algoseek:algoseek-status-api
+  name: AlgoSeek Status API
+  description: The Status API from AlgoSeek — 5 operation(s) for status.
+  humanURL: https://metadata-services.algoseek.com/docs
+  baseURL: https://metadata-services.algoseek.com/api/v1
+  tags:
+  - Status
+  properties:
+  - type: OpenAPI
+    url: openapi/algoseek-status-api-openapi.yml
+  - type: Documentation
+    url: https://metadata-services.algoseek.com/docs
+  - type: Overlay
+    url: overlays/algoseek-status-api-overlay.yaml
+- aid: algoseek:algoseek-storagetype-api
+  name: AlgoSeek StorageType API
+  description: The StorageType API from AlgoSeek — 5 operation(s) for storagetype.
+  humanURL: https://metadata-services.algoseek.com/docs
+  baseURL: https://metadata-services.algoseek.com/api/v1
+  tags:
+  - StorageType
+  properties:
+  - type: OpenAPI
+    url: openapi/algoseek-storagetype-api-openapi.yml
+  - type: Documentation
+    url: https://metadata-services.algoseek.com/docs
+  - type: Overlay
+    url: overlays/algoseek-storagetype-api-overlay.yaml
+- aid: algoseek:algoseek-timegranularity-api
+  name: AlgoSeek TimeGranularity API
+  description: The TimeGranularity API from AlgoSeek — 5 operation(s) for timegranularity.
+  humanURL: https://metadata-services.algoseek.com/docs
+  baseURL: https://metadata-services.algoseek.com/api/v1
+  tags:
+  - TimeGranularity
+  properties:
+  - type: OpenAPI
+    url: openapi/algoseek-timegranularity-api-openapi.yml
+  - type: Documentation
+    url: https://metadata-services.algoseek.com/docs
+  - type: Overlay
+    url: overlays/algoseek-timegranularity-api-overlay.yaml
+- aid: algoseek:algoseek-ttlperiodtype-api
+  name: AlgoSeek TTLPeriodType API
+  description: The TTLPeriodType API from AlgoSeek — 5 operation(s) for ttlperiodtype.
+  humanURL: https://metadata-services.algoseek.com/docs
+  baseURL: https://metadata-services.algoseek.com/api/v1
+  tags:
+  - TTLPeriodType
+  properties:
+  - type: OpenAPI
+    url: openapi/algoseek-ttlperiodtype-api-openapi.yml
+  - type: Documentation
+    url: https://metadata-services.algoseek.com/docs
+  - type: Overlay
+    url: overlays/algoseek-ttlperiodtype-api-overlay.yaml
+- aid: algoseek:algoseek-vendor-api
+  name: AlgoSeek Vendor API
+  description: The Vendor API from AlgoSeek — 4 operation(s) for vendor.
+  humanURL: https://metadata-services.algoseek.com/docs
+  baseURL: https://metadata-services.algoseek.com/api/v1
+  tags:
+  - Vendor
+  properties:
+  - type: OpenAPI
+    url: openapi/algoseek-vendor-api-openapi.yml
+  - type: Documentation
+    url: https://metadata-services.algoseek.com/docs
+  - type: Overlay
+    url: overlays/algoseek-vendor-api-overlay.yaml
 common:
+- type: DomainSecurity
+  url: security/algoseek-domain-security.yml
+- type: Authentication
+  url: authentication/algoseek-authentication.yml
 - type: Website
   url: https://algoseek.com/
 - type: Portal
@@ -86,6 +540,40 @@ common:
   url: https://console.algoseek.com/auth/register
 - type: Support
   url: https://algoseek.com/contact-us
+- type: Packages
+  url: packages/algoseek-packages.yml
+- type: SDKs
+  url: packages/algoseek-packages.yml
+- type: MCPServer
+  url: mcp/algoseek-mcp.yml
+- type: LLMsTxt
+  url: llms/algoseek-llms.txt
+- type: Conformance
+  url: conformance/algoseek-conformance.yml
+- type: ErrorCatalog
+  url: errors/algoseek-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/algoseek-lifecycle.yml
+- type: Conventions
+  url: conventions/algoseek-conventions.yml
+- type: ChangeLog
+  url: changelog/algoseek-changelog.yml
+- type: ChangeLog
+  url: https://github.com/algoseekgit/algoseek-connector/blob/master/CHANGELOG.md
+- type: Components
+  url: components/algoseek-components.yml
+- type: DataModel
+  url: data-model/algoseek-data-model.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: TermsOfService
+  url: https://algoseek.com/terms-of-use
+- type: PrivacyPolicy
+  url: https://algoseek.com/privacy-cookies
+- type: APIReference
+  url: https://metadata-services.algoseek.com/docs
+- type: GettingStarted
+  url: https://algoseek-connector.readthedocs.io/en/latest/algoseek_connector/tutorials.html
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

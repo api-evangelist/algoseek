@@ -1,0 +1,229 @@
+generated: '2026-07-22'
+method: derived
+source: openapi/ component schemas ($ref links and *_id reference fields across the 33 per-tag specs)
+note: 'Entity graph of the AlgoSeek Metadata Services catalog: Dataset is the hub, classified by DataGroup/DataFormat/DataClass/DataType/TimeGranularity/Region
+  and delivered via CloudStorage (S3 buckets, CSVColumn layout) and DatabaseTable (ArdaDB, SQLColumn layout).'
+entities:
+- AWSAccount
+- AWSResourceType
+- BucketGroup
+- BucketMonitoring
+- BucketSource
+- BucketUpdate
+- CSVColumn
+- CloudStorage
+- DBObjectType
+- DataClass
+- DataFormat
+- DataGroup
+- DataGroupPricing
+- DataType
+- DatabaseObject
+- DatabaseTable
+- Dataset
+- DatasetChange
+- DeliveryMethod
+- Documentation
+- Person
+- Region
+- S3Object
+- SQLColumn
+- SampleData
+- Status
+- StorageType
+- TTLPeriodType
+- TimeGranularity
+- Vendor
+relationships:
+- from: Dataset
+  to: DataGroup
+  kind: belongs_to
+  via: datagroup_id
+- from: Dataset
+  to: DataFormat
+  kind: belongs_to
+  via: data_format_id
+- from: Dataset
+  to: DataClass
+  kind: belongs_to
+  via: data_class_id
+- from: Dataset
+  to: DataType
+  kind: belongs_to
+  via: data_type_id
+- from: Dataset
+  to: TimeGranularity
+  kind: belongs_to
+  via: time_granularity_id
+- from: Dataset
+  to: Region
+  kind: belongs_to
+  via: region_id
+- from: Dataset
+  to: Status
+  kind: belongs_to
+  via: status_id
+- from: Dataset
+  to: Documentation
+  kind: belongs_to
+  via: documentation_id
+- from: Dataset
+  to: Vendor
+  kind: belongs_to
+  via: vendor_id
+- from: Dataset
+  to: DeliveryMethod
+  kind: has_many
+  via: delivery_methods
+- from: Dataset
+  to: CloudStorage
+  kind: has_many
+  via: cloud_storage
+- from: Dataset
+  to: DatasetChange
+  kind: has_many
+  via: dataset_changes
+- from: Dataset
+  to: DatabaseTable
+  kind: has_many
+  via: database_table
+- from: DataGroup
+  to: Status
+  kind: belongs_to
+  via: status_id
+- from: DataGroup
+  to: Region
+  kind: belongs_to
+  via: region_id
+- from: DataGroup
+  to: DataGroupPricing
+  kind: belongs_to
+  via: pricing_id
+- from: DatasetChange
+  to: Dataset
+  kind: belongs_to
+  via: dataset_id
+- from: DatabaseTable
+  to: Dataset
+  kind: belongs_to
+  via: dataset_id
+- from: DatabaseTable
+  to: BucketGroup
+  kind: belongs_to
+  via: bucket_group_id
+- from: DatabaseTable
+  to: DBObjectType
+  kind: belongs_to
+  via: db_object_type_id
+- from: DatabaseTable
+  to: Status
+  kind: belongs_to
+  via: status_id
+- from: DatabaseTable
+  to: TTLPeriodType
+  kind: belongs_to
+  via: ttl_type_id
+- from: DatabaseTable
+  to: SQLColumn
+  kind: has_many
+  via: sql_columns
+- from: SQLColumn
+  to: DatabaseTable
+  kind: belongs_to
+  via: table_id
+- from: DatabaseObject
+  to: DBObjectType
+  kind: belongs_to
+  via: db_object_type_id
+- from: DatabaseObject
+  to: Status
+  kind: belongs_to
+  via: status_id
+- from: CloudStorage
+  to: Dataset
+  kind: belongs_to
+  via: dataset_id
+- from: CloudStorage
+  to: SampleData
+  kind: belongs_to
+  via: sample_file_id
+- from: CloudStorage
+  to: CSVColumn
+  kind: has_many
+  via: csv_columns
+- from: CSVColumn
+  to: CloudStorage
+  kind: belongs_to
+  via: cloud_storage_id
+- from: BucketGroup
+  to: CloudStorage
+  kind: belongs_to
+  via: cloud_storage_id
+- from: BucketGroup
+  to: Status
+  kind: belongs_to
+  via: status_id
+- from: BucketGroup
+  to: BucketUpdate
+  kind: belongs_to
+  via: updates_id
+- from: BucketGroup
+  to: SampleData
+  kind: belongs_to
+  via: sample_data_id
+- from: BucketGroup
+  to: StorageType
+  kind: belongs_to
+  via: storage_type_id
+- from: BucketGroup
+  to: AWSAccount
+  kind: belongs_to
+  via: aws_account_id
+- from: BucketGroup
+  to: Person
+  kind: belongs_to
+  via: author_id
+- from: BucketGroup
+  to: Person
+  kind: belongs_to
+  via: maintainer_id
+- from: BucketGroup
+  to: BucketMonitoring
+  kind: belongs_to
+  via: monitoring_id
+- from: BucketGroup
+  to: BucketSource
+  kind: belongs_to
+  via: bucket_source_id
+- from: BucketSource
+  to: AWSResourceType
+  kind: belongs_to
+  via: aws_resource_type_id
+- from: BucketSource
+  to: Person
+  kind: belongs_to
+  via: author_id
+- from: Documentation
+  to: S3Object
+  kind: belongs_to
+  via: s3_location_id
+- from: Documentation
+  to: Person
+  kind: belongs_to
+  via: author_id
+- from: S3Object
+  to: AWSAccount
+  kind: belongs_to
+  via: aws_account_id
+- from: SampleData
+  to: AWSAccount
+  kind: belongs_to
+  via: aws_account_id
+- from: Person
+  to: Vendor
+  kind: belongs_to
+  via: vendor_id
+- from: Vendor
+  to: Person
+  kind: has_many
+  via: persons

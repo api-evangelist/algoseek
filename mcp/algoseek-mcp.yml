@@ -1,0 +1,186 @@
+generated: '2026-07-22'
+method: derived
+status: candidate
+source: openapi/ (Metadata Services API public operations); no official AlgoSeek MCP server found in the
+  MCP registry, npm, or docs
+server:
+  name: algoseek-metadata-services
+  transport: http
+note: Candidate tool list derived from the 58 public (unauthenticated-namespace) operations of the AlgoSeek
+  Metadata Services API (public/* catalog reads, login, healthcheck). The 183 internal/* administrative
+  operations are excluded. AlgoSeek publishes no MCP server as of 2026-07-22.
+tools:
+- name: get_bucket_group_public
+  description: Get Bucket Group
+  source_operation: openapi/algoseek-bucketgroup-api-openapi.yml#get_bucket_group_public_api_v1_public_bucket_group__bucket_group_id___get
+- name: get_bucket_group_by_text_id_public
+  description: Get Bucket Group
+  source_operation: openapi/algoseek-bucketgroup-api-openapi.yml#get_bucket_group_by_text_id_public_api_v1_public_bucket_group_text_id__text_id___get
+- name: get_bucket_groups_public
+  description: List Bucket Groups
+  source_operation: openapi/algoseek-bucketgroup-api-openapi.yml#get_bucket_groups_public_api_v1_public_bucket_group__get
+- name: get_bucket_updates_public
+  description: Get Bucket Updates
+  source_operation: openapi/algoseek-bucketupdate-api-openapi.yml#get_bucket_updates_public_api_v1_public_bucket_update__bucket_updates_id___get
+- name: get_buckets_updates_public
+  description: List Bucket Updates
+  source_operation: openapi/algoseek-bucketupdate-api-openapi.yml#get_buckets_updates_public_api_v1_public_bucket_update__get
+- name: get_cloud_storage_public
+  description: Get Cloud Storage
+  source_operation: openapi/algoseek-cloudstorage-api-openapi.yml#get_cloud_storage_public_api_v1_public_cloud_storage__cloud_storage_id___get
+- name: get_cloud_storage_by_text_id_public
+  description: Get Cloud Storage
+  source_operation: openapi/algoseek-cloudstorage-api-openapi.yml#get_cloud_storage_by_text_id_public_api_v1_public_cloud_storage_text_id__text_id___get
+- name: get_cloud_storages_public
+  description: List Cloud Storages
+  source_operation: openapi/algoseek-cloudstorage-api-openapi.yml#get_cloud_storages_public_api_v1_public_cloud_storage__get
+- name: get_csv_column_public
+  description: Get CSV Column
+  source_operation: openapi/algoseek-csvcolumn-api-openapi.yml#get_csv_column_public_api_v1_public_csv_column__csv_column_id___get
+- name: get_csv_columns_public
+  description: List CSV Columns
+  source_operation: openapi/algoseek-csvcolumn-api-openapi.yml#get_csv_columns_public_api_v1_public_csv_column__get
+- name: get_database_object_public
+  description: Get Database Object
+  source_operation: openapi/algoseek-databaseobject-api-openapi.yml#get_database_object_public_api_v1_public_database_object__database_object_id___get
+- name: get_database_object_by_object_name_public
+  description: Get Database Object
+  source_operation: openapi/algoseek-databaseobject-api-openapi.yml#get_database_object_by_object_name_public_api_v1_public_database_object_object_name__object_name___get
+- name: get_database_objects_public
+  description: List Database Objects
+  source_operation: openapi/algoseek-databaseobject-api-openapi.yml#get_database_objects_public_api_v1_public_database_object__get
+- name: get_database_table_public
+  description: Get Database Table
+  source_operation: openapi/algoseek-databasetable-api-openapi.yml#get_database_table_public_api_v1_public_database_table__database_table_id___get
+- name: get_database_table_by_table_name_public
+  description: Get Database Table
+  source_operation: openapi/algoseek-databasetable-api-openapi.yml#get_database_table_by_table_name_public_api_v1_public_database_table_table_name__table_name___get
+- name: get_database_tables_public
+  description: List Database Tables
+  source_operation: openapi/algoseek-databasetable-api-openapi.yml#get_database_tables_public_api_v1_public_database_table__get
+- name: get_data_class_public
+  description: Get Data Class
+  source_operation: openapi/algoseek-dataclass-api-openapi.yml#get_data_class_public_api_v1_public_data_class__data_class_id___get
+- name: get_data_classes_public
+  description: List Data Classes
+  source_operation: openapi/algoseek-dataclass-api-openapi.yml#get_data_classes_public_api_v1_public_data_class__get
+- name: get_data_format_public
+  description: Get Data Format
+  source_operation: openapi/algoseek-dataformat-api-openapi.yml#get_data_format_public_api_v1_public_data_format__data_format_id___get
+- name: get_data_formats_public
+  description: List Data Formats
+  source_operation: openapi/algoseek-dataformat-api-openapi.yml#get_data_formats_public_api_v1_public_data_format__get
+- name: get_data_group_public
+  description: Get Data Group
+  source_operation: openapi/algoseek-datagroup-api-openapi.yml#get_data_group_public_api_v1_public_data_group__data_group_id___get
+- name: get_data_groups_public
+  description: List Data Groups
+  source_operation: openapi/algoseek-datagroup-api-openapi.yml#get_data_groups_public_api_v1_public_data_group__get
+- name: get_data_group_pricing_public
+  description: Get Data Group Pricing
+  source_operation: openapi/algoseek-datagrouppricing-api-openapi.yml#get_data_group_pricing_public_api_v1_public_data_group_pricing__data_group_pricing_id___get
+- name: get_data_group_pricings_public
+  description: List Data Group Pricing
+  source_operation: openapi/algoseek-datagrouppricing-api-openapi.yml#get_data_group_pricings_public_api_v1_public_data_group_pricing__get
+- name: get_dataset_public
+  description: Get Dataset
+  source_operation: openapi/algoseek-dataset-api-openapi.yml#get_dataset_public_api_v1_public_dataset__dataset_id___get
+- name: get_platform_frontend_dataset_by_text_id_public
+  description: Get Dataset for Platform Frontend
+  source_operation: openapi/algoseek-dataset-api-openapi.yml#get_platform_frontend_dataset_by_text_id_public_api_v1_public_dataset_platform_frontend_text_id__text_id___get
+- name: get_platform_frontend_dataset_public
+  description: Get Dataset for Platform Frontend
+  source_operation: openapi/algoseek-dataset-api-openapi.yml#get_platform_frontend_dataset_public_api_v1_public_dataset_platform_frontend__dataset_id___get
+- name: get_platform_frontend_datasets_public
+  description: List Datasets for Platform Frontend
+  source_operation: openapi/algoseek-dataset-api-openapi.yml#get_platform_frontend_datasets_public_api_v1_public_dataset_platform_frontend__get
+- name: get_dataset_by_text_id_public
+  description: Get Dataset
+  source_operation: openapi/algoseek-dataset-api-openapi.yml#get_dataset_by_text_id_public_api_v1_public_dataset_text_id__text_id___get
+- name: get_datasets_public
+  description: List Datasets
+  source_operation: openapi/algoseek-dataset-api-openapi.yml#get_datasets_public_api_v1_public_dataset__get
+- name: get_data_type_public
+  description: Get Data Type
+  source_operation: openapi/algoseek-datatype-api-openapi.yml#get_data_type_public_api_v1_public_data_type__data_type_id___get
+- name: get_data_types_public
+  description: List Data Types
+  source_operation: openapi/algoseek-datatype-api-openapi.yml#get_data_types_public_api_v1_public_data_type__get
+- name: get_db_object_type_public
+  description: Get DB Object Type
+  source_operation: openapi/algoseek-dbobjecttype-api-openapi.yml#get_db_object_type_public_api_v1_public_db_object_type__db_object_type_id___get
+- name: get_db_object_types_public
+  description: List DB Object Types
+  source_operation: openapi/algoseek-dbobjecttype-api-openapi.yml#get_db_object_types_public_api_v1_public_db_object_type__get
+- name: get_delivery_method_public
+  description: Get Delivery Method
+  source_operation: openapi/algoseek-deliverymethod-api-openapi.yml#get_delivery_method_public_api_v1_public_delivery_method__delivery_method_id___get
+- name: get_delivery_methods_public
+  description: List Delivery Methods
+  source_operation: openapi/algoseek-deliverymethod-api-openapi.yml#get_delivery_methods_public_api_v1_public_delivery_method__get
+- name: get_documentation_public
+  description: Get Documentation
+  source_operation: openapi/algoseek-documentation-api-openapi.yml#get_documentation_public_api_v1_public_documentation__documentation_id___get
+- name: get_documentations_public
+  description: List Documentation
+  source_operation: openapi/algoseek-documentation-api-openapi.yml#get_documentations_public_api_v1_public_documentation__get
+- name: healthcheck
+  description: Healthcheck
+  source_operation: openapi/algoseek-healthcheck-api-openapi.yml#healthcheck_api_v1_healthcheck__get
+- name: apps_access_token
+  description: Apps Access Token
+  source_operation: openapi/algoseek-login-api-openapi.yml#apps_access_token_api_v1_login_access_token__post
+- name: get_region_public
+  description: Get Region
+  source_operation: openapi/algoseek-region-api-openapi.yml#get_region_public_api_v1_public_region__region_id___get
+- name: get_regions_public
+  description: List Regions
+  source_operation: openapi/algoseek-region-api-openapi.yml#get_regions_public_api_v1_public_region__get
+- name: get_s3object_public
+  description: Get S3 Object
+  source_operation: openapi/algoseek-s3object-api-openapi.yml#get_s3object_public_api_v1_public_s3object__s3object_id___get
+- name: get_s3objects_public
+  description: List S3 Object
+  source_operation: openapi/algoseek-s3object-api-openapi.yml#get_s3objects_public_api_v1_public_s3object__get
+- name: get_sample_data_public
+  description: Get Sample Data
+  source_operation: openapi/algoseek-sampledata-api-openapi.yml#get_sample_data_public_api_v1_public_sample_data__sample_data_id___get
+- name: get_samples_data_public
+  description: List Sample Data
+  source_operation: openapi/algoseek-sampledata-api-openapi.yml#get_samples_data_public_api_v1_public_sample_data__get
+- name: get_sql_column_public
+  description: Get SQL Column
+  source_operation: openapi/algoseek-sqlcolumn-api-openapi.yml#get_sql_column_public_api_v1_public_sql_column__sql_column_id___get
+- name: get_sql_columns_public
+  description: List SQL Columns
+  source_operation: openapi/algoseek-sqlcolumn-api-openapi.yml#get_sql_columns_public_api_v1_public_sql_column__get
+- name: get_status_public
+  description: Get Status
+  source_operation: openapi/algoseek-status-api-openapi.yml#get_status_public_api_v1_public_status__status_id___get
+- name: get_statuses_public
+  description: List statuses
+  source_operation: openapi/algoseek-status-api-openapi.yml#get_statuses_public_api_v1_public_status__get
+- name: get_storage_type_public
+  description: Get Storage Type
+  source_operation: openapi/algoseek-storagetype-api-openapi.yml#get_storage_type_public_api_v1_public_storage_type__storage_type_id___get
+- name: get_storage_types_public
+  description: List storage types
+  source_operation: openapi/algoseek-storagetype-api-openapi.yml#get_storage_types_public_api_v1_public_storage_type__get
+- name: get_time_granularity_public
+  description: Get Time Granularity
+  source_operation: openapi/algoseek-timegranularity-api-openapi.yml#get_time_granularity_public_api_v1_public_time_granularity__time_granularity_id___get
+- name: get_time_granularities_public
+  description: List Time Granularities
+  source_operation: openapi/algoseek-timegranularity-api-openapi.yml#get_time_granularities_public_api_v1_public_time_granularity__get
+- name: get_ttl_period_type_public
+  description: Get TTL Period Type
+  source_operation: openapi/algoseek-ttlperiodtype-api-openapi.yml#get_ttl_period_type_public_api_v1_public_ttl_period_type__ttl_period_type_id___get
+- name: get_ttl_period_types_public
+  description: List TTL Period Types
+  source_operation: openapi/algoseek-ttlperiodtype-api-openapi.yml#get_ttl_period_types_public_api_v1_public_ttl_period_type__get
+- name: get_vendor_public
+  description: Get vendor
+  source_operation: openapi/algoseek-vendor-api-openapi.yml#get_vendor_public_api_v1_public_vendor__vendor_id___get
+- name: get_vendors_public
+  description: List vendors
+  source_operation: openapi/algoseek-vendor-api-openapi.yml#get_vendors_public_api_v1_public_vendor__get

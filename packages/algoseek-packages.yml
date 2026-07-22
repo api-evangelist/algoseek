@@ -1,0 +1,33 @@
+generated: '2026-07-22'
+method: searched
+source: https://pypi.org/project/algoseek-connector/, https://www.npmjs.com/package/algoseek-design-system
+packages:
+- language: python
+  registry: pypi
+  name: algoseek-connector
+  url: https://pypi.org/project/algoseek-connector/
+  install: pip install algoseek-connector
+  official: true
+  version: 2.1.6
+  released: '2026-07-13'
+  description: A library for fetching Algoseek datasets using SQL-like queries (ArdaDB, Dataset API, S3)
+  repository: https://github.com/algoseekgit/algoseek-connector
+  documentation: https://algoseek-connector.readthedocs.io/
+- language: typescript
+  registry: npm
+  name: algoseek-design-system
+  url: https://www.npmjs.com/package/algoseek-design-system
+  install: npm install algoseek-design-system
+  official: true
+  version: 1.0.0
+  description: Angular component library built on PrimeNG (Aura theme) used by AlgoSeek web apps; published
+    by AlgoSeek CI (ci@algoseek.com)
+- language: typescript
+  registry: npm
+  name: algoseek-ui-design-system
+  url: https://www.npmjs.com/package/algoseek-ui-design-system
+  install: npm install algoseek-ui-design-system
+  official: false
+  version: 0.10.19
+  description: Earlier AlgoSeek Angular design-system package published from an individual developer account;
+    superseded by algoseek-design-system

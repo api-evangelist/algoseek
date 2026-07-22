@@ -1,0 +1,404 @@
+openapi: 3.0.2
+info:
+  title: metadata-api AWSAccount DataFormat API
+  version: '1.2'
+tags:
+- name: DataFormat
+paths:
+  /api/v1/internal/data_format/:
+    get:
+      tags:
+      - DataFormat
+      summary: List Data Format
+      description: Get a list of all data formats
+      operationId: get_data_formats_internal_api_v1_internal_data_format__get
+      parameters:
+      - required: false
+        schema:
+          title: Is Active
+          type: boolean
+        name: is_active
+        in: query
+      - required: false
+        schema:
+          title: Is Public
+          type: boolean
+        name: is_public
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Get Data Formats Internal Api V1 Internal Data Format  Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/EnumOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    post:
+      tags:
+      - DataFormat
+      summary: Add Data Format
+      description: Add a new data format
+      operationId: create_data_format_api_v1_internal_data_format__post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EnumCreate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnumOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/internal/data_format/{data_format_id}/:
+    get:
+      tags:
+      - DataFormat
+      summary: Get Data Format
+      description: Get Data Format details by id
+      operationId: get_data_format_internal_api_v1_internal_data_format__data_format_id___get
+      parameters:
+      - required: true
+        schema:
+          title: Data Format Id
+          type: integer
+        name: data_format_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnumOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    put:
+      tags:
+      - DataFormat
+      summary: Update data format
+      description: Update data format details by id
+      operationId: update_data_format_api_v1_internal_data_format__data_format_id___put
+      parameters:
+      - required: true
+        schema:
+          title: Data Format Id
+          type: integer
+        name: data_format_id
+        in: path
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EnumUpdate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnumOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    delete:
+      tags:
+      - DataFormat
+      summary: Delete data format
+      description: Delete a data format record
+      operationId: delete_data_format_api_v1_internal_data_format__data_format_id___delete
+      parameters:
+      - required: true
+        schema:
+          title: Data Format Id
+          type: integer
+        name: data_format_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnumOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/internal/data_format/text_id/{text_id}/:
+    get:
+      tags:
+      - DataFormat
+      summary: Get Data Format by text id
+      description: Get data format details by text_id
+      operationId: get_data_format_by_text_id_internal_api_v1_internal_data_format_text_id__text_id___get
+      parameters:
+      - required: true
+        schema:
+          title: Text Id
+          type: string
+        name: text_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnumOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/public/data_format/{data_format_id}/:
+    get:
+      tags:
+      - DataFormat
+      summary: Get Data Format
+      description: Get Data Format details by id
+      operationId: get_data_format_public_api_v1_public_data_format__data_format_id___get
+      parameters:
+      - required: true
+        schema:
+          title: Data Format Id
+          type: integer
+        name: data_format_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnumOutPublic'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/public/data_format/:
+    get:
+      tags:
+      - DataFormat
+      summary: List Data Formats
+      description: Get a list of all data formats
+      operationId: get_data_formats_public_api_v1_public_data_format__get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Get Data Formats Public Api V1 Public Data Format  Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/EnumOutPublic'
+      security:
+      - HTTPBearer: []
+components:
+  schemas:
+    EnumOutAdmin:
+      title: EnumOutAdmin
+      required:
+      - text_id
+      - internal_name
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        full_name:
+          title: Full Name
+          type: string
+        description:
+          title: Description
+          type: string
+        internal_name:
+          title: Internal Name
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    EnumCreate:
+      title: EnumCreate
+      required:
+      - text_id
+      - internal_name
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        full_name:
+          title: Full Name
+          type: string
+        description:
+          title: Description
+          type: string
+        internal_name:
+          title: Internal Name
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+    ValidationError:
+      title: ValidationError
+      required:
+      - loc
+      - msg
+      - type
+      type: object
+      properties:
+        loc:
+          title: Location
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
+    EnumOutPublic:
+      title: EnumOutPublic
+      required:
+      - text_id
+      - id
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        full_name:
+          title: Full Name
+          type: string
+        description:
+          title: Description
+          type: string
+        id:
+          title: Id
+          type: integer
+    EnumUpdate:
+      title: EnumUpdate
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        full_name:
+          title: Full Name
+          type: string
+        description:
+          title: Description
+          type: string
+        internal_name:
+          title: Internal Name
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+  securitySchemes:
+    HTTPBearer:
+      type: http
+      scheme: bearer

@@ -1,0 +1,1516 @@
+openapi: 3.0.2
+info:
+  title: metadata-api AWSAccount BucketGroup API
+  version: '1.2'
+tags:
+- name: BucketGroup
+paths:
+  /api/v1/internal/bucket_group/:
+    get:
+      tags:
+      - BucketGroup
+      summary: List Bucket Groups
+      description: Get a list of all bucket groups
+      operationId: get_bucket_groups_internal_api_v1_internal_bucket_group__get
+      parameters:
+      - required: false
+        schema:
+          title: Is Active
+          type: boolean
+        name: is_active
+        in: query
+      - required: false
+        schema:
+          title: Is Public
+          type: boolean
+        name: is_public
+        in: query
+      - required: false
+        schema:
+          title: Status Id
+          type: integer
+        name: status_id
+        in: query
+      - required: false
+        schema:
+          title: Aws Account Id
+          type: integer
+        name: aws_account_id
+        in: query
+      - required: false
+        schema:
+          title: Storage Type Id
+          type: integer
+        name: storage_type_id
+        in: query
+      - required: false
+        schema:
+          title: Author Id
+          type: integer
+        name: author_id
+        in: query
+      - required: false
+        schema:
+          title: Maintainer Id
+          type: integer
+        name: maintainer_id
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Get Bucket Groups Internal Api V1 Internal Bucket Group  Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/BucketGroupOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    post:
+      tags:
+      - BucketGroup
+      summary: Add Bucket Group
+      description: Add a new bucket group
+      operationId: create_bucket_group_api_v1_internal_bucket_group__post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BucketGroupCreate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BucketGroupOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/internal/bucket_group/{bucket_group_id}/:
+    get:
+      tags:
+      - BucketGroup
+      summary: Get Bucket Group
+      description: Get bucket group details by id
+      operationId: get_bucket_group_internal_api_v1_internal_bucket_group__bucket_group_id___get
+      parameters:
+      - required: true
+        schema:
+          title: Bucket Group Id
+          type: integer
+        name: bucket_group_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BucketGroupOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    put:
+      tags:
+      - BucketGroup
+      summary: Update Bucket Group
+      description: Update bucket group details by id
+      operationId: update_bucket_group_api_v1_internal_bucket_group__bucket_group_id___put
+      parameters:
+      - required: true
+        schema:
+          title: Bucket Group Id
+          type: integer
+        name: bucket_group_id
+        in: path
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BucketGroupUpdate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BucketGroupOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    delete:
+      tags:
+      - BucketGroup
+      summary: Delete Bucket Group
+      description: Delete a bucket group record
+      operationId: delete_bucket_group_api_v1_internal_bucket_group__bucket_group_id___delete
+      parameters:
+      - required: true
+        schema:
+          title: Bucket Group Id
+          type: integer
+        name: bucket_group_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BucketGroupOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/internal/bucket_group/text_id/{text_id}/:
+    get:
+      tags:
+      - BucketGroup
+      summary: Get Bucket Group
+      description: Get bucket group details by text_id
+      operationId: get_bucket_group_by_text_id_internal_api_v1_internal_bucket_group_text_id__text_id___get
+      parameters:
+      - required: true
+        schema:
+          title: Text Id
+          type: string
+        name: text_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BucketGroupOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/internal/bucket_group/ext/{bucket_group_id}/:
+    get:
+      tags:
+      - BucketGroup
+      summary: Get Extended Bucket Group
+      description: Get Extended Bucket Group details by id
+      operationId: get_ext_bucket_group_internal_api_v1_internal_bucket_group_ext__bucket_group_id___get
+      parameters:
+      - required: true
+        schema:
+          title: Bucket Group Id
+          type: integer
+        name: bucket_group_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExtBucketGroupOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/public/bucket_group/{bucket_group_id}/:
+    get:
+      tags:
+      - BucketGroup
+      summary: Get Bucket Group
+      description: Get bucket group details by id
+      operationId: get_bucket_group_public_api_v1_public_bucket_group__bucket_group_id___get
+      parameters:
+      - required: true
+        schema:
+          title: Bucket Group Id
+          type: integer
+        name: bucket_group_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BucketGroupOutPublic'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/public/bucket_group/text_id/{text_id}/:
+    get:
+      tags:
+      - BucketGroup
+      summary: Get Bucket Group
+      description: Get bucket group details by text_id
+      operationId: get_bucket_group_by_text_id_public_api_v1_public_bucket_group_text_id__text_id___get
+      parameters:
+      - required: true
+        schema:
+          title: Text Id
+          type: string
+        name: text_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BucketGroupOutPublic'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/public/bucket_group/:
+    get:
+      tags:
+      - BucketGroup
+      summary: List Bucket Groups
+      description: Get a list of all bucket groups
+      operationId: get_bucket_groups_public_api_v1_public_bucket_group__get
+      parameters:
+      - required: false
+        schema:
+          title: Status Id
+          type: integer
+        name: status_id
+        in: query
+      - required: false
+        schema:
+          title: Aws Account Id
+          type: integer
+        name: aws_account_id
+        in: query
+      - required: false
+        schema:
+          title: Storage Type Id
+          type: integer
+        name: storage_type_id
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Get Bucket Groups Public Api V1 Public Bucket Group  Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/BucketGroupOutPublic'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+components:
+  schemas:
+    BucketGroupCreate:
+      title: BucketGroupCreate
+      required:
+      - text_id
+      - bucket_name
+      - path_format
+      - aggregation
+      - aws_account_id
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        bucket_name:
+          title: Bucket Name
+          type: string
+        path_format:
+          title: Path Format
+          type: string
+        path_description:
+          title: Path Description
+          type: string
+        aggregation:
+          title: Aggregation
+          type: string
+        start_year:
+          title: Start Year
+          type: integer
+        end_year:
+          title: End Year
+          type: integer
+        indexed:
+          title: Indexed
+          type: boolean
+        is_primary:
+          title: Is Primary
+          type: boolean
+        bucket_size_human:
+          title: Bucket Size Human
+          type: string
+        total_size_human:
+          title: Total Size Human
+          type: string
+        bucket_num_objects:
+          title: Bucket Num Objects
+          type: integer
+        bucket_num_objects_human:
+          title: Bucket Num Objects Human
+          type: string
+        creation_date:
+          title: Creation Date
+          type: string
+          format: date
+        supplementary_bucket_group:
+          title: Supplementary Bucket Group
+          type: array
+          items:
+            type: string
+        cloud_storage_id:
+          title: Cloud Storage Id
+          type: integer
+        status_id:
+          title: Status Id
+          type: integer
+        updates_id:
+          title: Updates Id
+          type: integer
+        sample_data_id:
+          title: Sample Data Id
+          type: integer
+        storage_type_id:
+          title: Storage Type Id
+          type: integer
+        aws_account_id:
+          title: Aws Account Id
+          type: integer
+        bucket_size_bytes:
+          title: Bucket Size Bytes
+          type: integer
+        total_size_bytes:
+          title: Total Size Bytes
+          type: integer
+        versioning:
+          title: Versioning
+          type: boolean
+        requester_pays:
+          title: Requester Pays
+          type: boolean
+        author_id:
+          title: Author Id
+          type: integer
+        maintainer_id:
+          title: Maintainer Id
+          type: integer
+        monitoring_id:
+          title: Monitoring Id
+          type: integer
+        version:
+          title: Version
+          type: string
+        prev_version_expiration_interval_days:
+          title: Prev Version Expiration Interval Days
+          type: integer
+        archive_transition_interval_days:
+          title: Archive Transition Interval Days
+          type: integer
+        bucket_qa_id:
+          title: Bucket Qa Id
+          type: integer
+        bucket_source_id:
+          title: Bucket Source Id
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+    CSVColumnOutAdmin:
+      title: CSVColumnOutAdmin
+      required:
+      - cloud_storage_id
+      - ordering
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        data_type:
+          title: Data Type
+          type: string
+        description:
+          title: Description
+          type: string
+        cloud_storage_id:
+          title: Cloud Storage Id
+          type: integer
+        ordering:
+          title: Ordering
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    BucketSourceOutAdmin:
+      title: BucketSourceOutAdmin
+      required:
+      - author_id
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        account_name:
+          title: Account Name
+          type: string
+        resource_arn:
+          title: Resource Arn
+          type: string
+        source_code_url:
+          title: Source Code Url
+          type: string
+        code_location:
+          title: Code Location
+          type: string
+        logs_location:
+          title: Logs Location
+          type: string
+        aws_resource_type_id:
+          title: Aws Resource Type Id
+          type: integer
+        author_id:
+          title: Author Id
+          type: integer
+        maintainer_id:
+          title: Maintainer Id
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    BucketMonitoringOutAdmin:
+      title: BucketMonitoringOutAdmin
+      required:
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        delay_alert_minutes:
+          title: Delay Alert Minutes
+          type: integer
+        timeout_minutes:
+          title: Timeout Minutes
+          type: integer
+        check_period_minutes:
+          title: Check Period Minutes
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    ExtSampleDataOutAdmin:
+      title: ExtSampleDataOutAdmin
+      required:
+      - id
+      - is_active
+      - is_public
+      - created
+      - modified
+      type: object
+      properties:
+        bucket_name:
+          title: Bucket Name
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        description:
+          title: Description
+          type: string
+        id:
+          title: Id
+          type: integer
+        aws_account:
+          $ref: '#/components/schemas/EnumOutAdmin'
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    BucketUpdatesOutAdmin:
+      title: BucketUpdatesOutAdmin
+      required:
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        interval:
+          title: Interval
+          type: string
+        days_offset:
+          title: Days Offset
+          type: integer
+        public_time:
+          title: Public Time
+          type: string
+        size_human:
+          title: Size Human
+          type: string
+        num_objects_human:
+          title: Num Objects Human
+          type: string
+        expected_time:
+          title: Expected Time
+          type: string
+        intraday_period_minutes:
+          title: Intraday Period Minutes
+          type: integer
+        duration_minutes:
+          title: Duration Minutes
+          type: integer
+        source:
+          title: Source
+          type: string
+        size_bytes:
+          title: Size Bytes
+          type: integer
+        num_objects:
+          title: Num Objects
+          type: integer
+        path_prefix:
+          title: Path Prefix
+          type: string
+        regex_structure:
+          title: Regex Structure
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+        bucket_group:
+          title: Bucket Group
+          type: integer
+    ValidationError:
+      title: ValidationError
+      required:
+      - loc
+      - msg
+      - type
+      type: object
+      properties:
+        loc:
+          title: Location
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
+    CloudStorageOutAdmin:
+      title: CloudStorageOutAdmin
+      required:
+      - text_id
+      - dataset_id
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        sample_data_url:
+          title: Sample Data Url
+          type: string
+        sample_file_description:
+          title: Sample File Description
+          type: string
+        sample_file_id:
+          title: Sample File Id
+          type: integer
+        dataset_id:
+          title: Dataset Id
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        csv_columns:
+          title: Csv Columns
+          type: array
+          items:
+            $ref: '#/components/schemas/CSVColumnOutAdmin'
+        bucket_groups:
+          title: Bucket Groups
+          type: array
+          items:
+            type: integer
+        sample_file:
+          $ref: '#/components/schemas/ExtS3ObjectOutAdmin'
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    ExtVendorOutAdmin:
+      title: ExtVendorOutAdmin
+      required:
+      - text_id
+      - full_name
+      - display_name
+      - internal_name
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        full_name:
+          title: Full Name
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        description:
+          title: Description
+          type: string
+        website:
+          title: Website
+          type: string
+        logo_url:
+          title: Logo Url
+          type: string
+        icon_url:
+          title: Icon Url
+          type: string
+        internal_name:
+          title: Internal Name
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    BucketGroupOutPublic:
+      title: BucketGroupOutPublic
+      required:
+      - text_id
+      - bucket_name
+      - path_format
+      - aggregation
+      - id
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        bucket_name:
+          title: Bucket Name
+          type: string
+        path_format:
+          title: Path Format
+          type: string
+        path_description:
+          title: Path Description
+          type: string
+        aggregation:
+          title: Aggregation
+          type: string
+        start_year:
+          title: Start Year
+          type: integer
+        end_year:
+          title: End Year
+          type: integer
+        indexed:
+          title: Indexed
+          type: boolean
+        is_primary:
+          title: Is Primary
+          type: boolean
+        bucket_size_human:
+          title: Bucket Size Human
+          type: string
+        total_size_human:
+          title: Total Size Human
+          type: string
+        bucket_num_objects:
+          title: Bucket Num Objects
+          type: integer
+        bucket_num_objects_human:
+          title: Bucket Num Objects Human
+          type: string
+        creation_date:
+          title: Creation Date
+          type: string
+          format: date
+        supplementary_bucket_group:
+          title: Supplementary Bucket Group
+          type: array
+          items:
+            type: string
+        cloud_storage_id:
+          title: Cloud Storage Id
+          type: integer
+        status_id:
+          title: Status Id
+          type: integer
+        updates_id:
+          title: Updates Id
+          type: integer
+        sample_data_id:
+          title: Sample Data Id
+          type: integer
+        storage_type_id:
+          title: Storage Type Id
+          type: integer
+        id:
+          title: Id
+          type: integer
+    BucketGroupOutAdmin:
+      title: BucketGroupOutAdmin
+      required:
+      - text_id
+      - bucket_name
+      - path_format
+      - aggregation
+      - aws_account_id
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        bucket_name:
+          title: Bucket Name
+          type: string
+        path_format:
+          title: Path Format
+          type: string
+        path_description:
+          title: Path Description
+          type: string
+        aggregation:
+          title: Aggregation
+          type: string
+        start_year:
+          title: Start Year
+          type: integer
+        end_year:
+          title: End Year
+          type: integer
+        indexed:
+          title: Indexed
+          type: boolean
+        is_primary:
+          title: Is Primary
+          type: boolean
+        bucket_size_human:
+          title: Bucket Size Human
+          type: string
+        total_size_human:
+          title: Total Size Human
+          type: string
+        bucket_num_objects:
+          title: Bucket Num Objects
+          type: integer
+        bucket_num_objects_human:
+          title: Bucket Num Objects Human
+          type: string
+        creation_date:
+          title: Creation Date
+          type: string
+          format: date
+        supplementary_bucket_group:
+          title: Supplementary Bucket Group
+          type: array
+          items:
+            type: string
+        cloud_storage_id:
+          title: Cloud Storage Id
+          type: integer
+        status_id:
+          title: Status Id
+          type: integer
+        updates_id:
+          title: Updates Id
+          type: integer
+        sample_data_id:
+          title: Sample Data Id
+          type: integer
+        storage_type_id:
+          title: Storage Type Id
+          type: integer
+        aws_account_id:
+          title: Aws Account Id
+          type: integer
+        bucket_size_bytes:
+          title: Bucket Size Bytes
+          type: integer
+        total_size_bytes:
+          title: Total Size Bytes
+          type: integer
+        versioning:
+          title: Versioning
+          type: boolean
+        requester_pays:
+          title: Requester Pays
+          type: boolean
+        author_id:
+          title: Author Id
+          type: integer
+        maintainer_id:
+          title: Maintainer Id
+          type: integer
+        monitoring_id:
+          title: Monitoring Id
+          type: integer
+        version:
+          title: Version
+          type: string
+        prev_version_expiration_interval_days:
+          title: Prev Version Expiration Interval Days
+          type: integer
+        archive_transition_interval_days:
+          title: Archive Transition Interval Days
+          type: integer
+        bucket_qa_id:
+          title: Bucket Qa Id
+          type: integer
+        bucket_source_id:
+          title: Bucket Source Id
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
+    ExtS3ObjectOutAdmin:
+      title: ExtS3ObjectOutAdmin
+      required:
+      - aws_account_id
+      - bucket_name
+      - object_name
+      - region_name
+      - id
+      - is_active
+      - is_public
+      - created
+      - modified
+      type: object
+      properties:
+        aws_account_id:
+          title: Aws Account Id
+          type: integer
+        bucket_name:
+          title: Bucket Name
+          type: string
+        object_name:
+          title: Object Name
+          type: string
+        region_name:
+          title: Region Name
+          type: string
+        id:
+          title: Id
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        aws_account:
+          $ref: '#/components/schemas/EnumOutAdmin'
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    BucketQAOutAdmin:
+      title: BucketQAOutAdmin
+      required:
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        row_1:
+          title: Row 1
+          type: string
+        row_2:
+          title: Row 2
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    ExtBucketGroupOutAdmin:
+      title: ExtBucketGroupOutAdmin
+      required:
+      - text_id
+      - bucket_name
+      - path_format
+      - aggregation
+      - id
+      - aws_account
+      - is_active
+      - is_public
+      - created
+      - modified
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        bucket_name:
+          title: Bucket Name
+          type: string
+        path_format:
+          title: Path Format
+          type: string
+        path_description:
+          title: Path Description
+          type: string
+        aggregation:
+          title: Aggregation
+          type: string
+        start_year:
+          title: Start Year
+          type: integer
+        end_year:
+          title: End Year
+          type: integer
+        indexed:
+          title: Indexed
+          type: boolean
+        is_primary:
+          title: Is Primary
+          type: boolean
+        bucket_size_human:
+          title: Bucket Size Human
+          type: string
+        total_size_human:
+          title: Total Size Human
+          type: string
+        bucket_num_objects:
+          title: Bucket Num Objects
+          type: integer
+        bucket_num_objects_human:
+          title: Bucket Num Objects Human
+          type: string
+        creation_date:
+          title: Creation Date
+          type: string
+          format: date
+        supplementary_bucket_group:
+          title: Supplementary Bucket Group
+          type: array
+          items:
+            type: string
+        cloud_storage:
+          $ref: '#/components/schemas/CloudStorageOutAdmin'
+        status:
+          $ref: '#/components/schemas/EnumOutAdmin'
+        updates:
+          $ref: '#/components/schemas/BucketUpdatesOutAdmin'
+        sample_data:
+          $ref: '#/components/schemas/ExtSampleDataOutAdmin'
+        storage_type:
+          $ref: '#/components/schemas/EnumOutAdmin'
+        id:
+          title: Id
+          type: integer
+        aws_account:
+          $ref: '#/components/schemas/EnumOutAdmin'
+        bucket_size_bytes:
+          title: Bucket Size Bytes
+          type: integer
+        total_size_bytes:
+          title: Total Size Bytes
+          type: integer
+        versioning:
+          title: Versioning
+          type: boolean
+        requester_pays:
+          title: Requester Pays
+          type: boolean
+        author:
+          $ref: '#/components/schemas/ExtPersonOutAdmin'
+        maintainer:
+          $ref: '#/components/schemas/ExtPersonOutAdmin'
+        monitoring:
+          $ref: '#/components/schemas/BucketMonitoringOutAdmin'
+        version:
+          title: Version
+          type: string
+        prev_version_expiration_interval_days:
+          title: Prev Version Expiration Interval Days
+          type: integer
+        archive_transition_interval_days:
+          title: Archive Transition Interval Days
+          type: integer
+        bucket_qa:
+          $ref: '#/components/schemas/BucketQAOutAdmin'
+        bucket_source:
+          $ref: '#/components/schemas/BucketSourceOutAdmin'
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    BucketGroupUpdate:
+      title: BucketGroupUpdate
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        bucket_name:
+          title: Bucket Name
+          type: string
+        path_format:
+          title: Path Format
+          type: string
+        path_description:
+          title: Path Description
+          type: string
+        aggregation:
+          title: Aggregation
+          type: string
+        start_year:
+          title: Start Year
+          type: integer
+        end_year:
+          title: End Year
+          type: integer
+        indexed:
+          title: Indexed
+          type: boolean
+        is_primary:
+          title: Is Primary
+          type: boolean
+        bucket_size_human:
+          title: Bucket Size Human
+          type: string
+        total_size_human:
+          title: Total Size Human
+          type: string
+        bucket_num_objects:
+          title: Bucket Num Objects
+          type: integer
+        bucket_num_objects_human:
+          title: Bucket Num Objects Human
+          type: string
+        creation_date:
+          title: Creation Date
+          type: string
+          format: date
+        supplementary_bucket_group:
+          title: Supplementary Bucket Group
+          type: array
+          items:
+            type: string
+        cloud_storage_id:
+          title: Cloud Storage Id
+          type: integer
+        status_id:
+          title: Status Id
+          type: integer
+        updates_id:
+          title: Updates Id
+          type: integer
+        sample_data_id:
+          title: Sample Data Id
+          type: integer
+        storage_type_id:
+          title: Storage Type Id
+          type: integer
+        aws_account_id:
+          title: Aws Account Id
+          type: integer
+        bucket_size_bytes:
+          title: Bucket Size Bytes
+          type: integer
+        total_size_bytes:
+          title: Total Size Bytes
+          type: integer
+        versioning:
+          title: Versioning
+          type: boolean
+        requester_pays:
+          title: Requester Pays
+          type: boolean
+        author_id:
+          title: Author Id
+          type: integer
+        maintainer_id:
+          title: Maintainer Id
+          type: integer
+        monitoring_id:
+          title: Monitoring Id
+          type: integer
+        version:
+          title: Version
+          type: string
+        prev_version_expiration_interval_days:
+          title: Prev Version Expiration Interval Days
+          type: integer
+        archive_transition_interval_days:
+          title: Archive Transition Interval Days
+          type: integer
+        bucket_qa_id:
+          title: Bucket Qa Id
+          type: integer
+        bucket_source_id:
+          title: Bucket Source Id
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+    ExtPersonOutAdmin:
+      title: ExtPersonOutAdmin
+      required:
+      - first_name
+      - last_name
+      - email
+      - id
+      - is_active
+      - is_public
+      - created
+      - modified
+      type: object
+      properties:
+        first_name:
+          title: First Name
+          type: string
+        last_name:
+          title: Last Name
+          type: string
+        email:
+          title: Email
+          type: string
+        phone:
+          title: Phone
+          type: string
+        role:
+          title: Role
+          type: string
+        id:
+          title: Id
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+        vendor:
+          $ref: '#/components/schemas/ExtVendorOutAdmin'
+    EnumOutAdmin:
+      title: EnumOutAdmin
+      required:
+      - text_id
+      - internal_name
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        full_name:
+          title: Full Name
+          type: string
+        description:
+          title: Description
+          type: string
+        internal_name:
+          title: Internal Name
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+  securitySchemes:
+    HTTPBearer:
+      type: http
+      scheme: bearer

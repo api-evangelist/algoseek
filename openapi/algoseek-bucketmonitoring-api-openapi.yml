@@ -1,0 +1,282 @@
+openapi: 3.0.2
+info:
+  title: metadata-api AWSAccount BucketMonitoring API
+  version: '1.2'
+tags:
+- name: BucketMonitoring
+paths:
+  /api/v1/internal/bucket_monitoring/:
+    get:
+      tags:
+      - BucketMonitoring
+      summary: List Buckets Monitoring
+      description: Get a list of all buckets monitoring
+      operationId: get_buckets_monitoring_internal_api_v1_internal_bucket_monitoring__get
+      parameters:
+      - required: false
+        schema:
+          title: Is Active
+          type: boolean
+        name: is_active
+        in: query
+      - required: false
+        schema:
+          title: Is Public
+          type: boolean
+        name: is_public
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Get Buckets Monitoring Internal Api V1 Internal Bucket Monitoring  Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/BucketMonitoringOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    post:
+      tags:
+      - BucketMonitoring
+      summary: Add Bucket Monitoring
+      description: Add a new bucket monitoring
+      operationId: create_bucket_monitoring_api_v1_internal_bucket_monitoring__post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BucketMonitoringCreate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BucketMonitoringOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/internal/bucket_monitoring/{bucket_monitoring_id}/:
+    get:
+      tags:
+      - BucketMonitoring
+      summary: Get Bucket Monitoring
+      description: Get Bucket Monitoring details by id
+      operationId: get_bucket_monitoring_internal_api_v1_internal_bucket_monitoring__bucket_monitoring_id___get
+      parameters:
+      - required: true
+        schema:
+          title: Bucket Monitoring Id
+          type: integer
+        name: bucket_monitoring_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BucketMonitoringOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    put:
+      tags:
+      - BucketMonitoring
+      summary: Update bucket monitoring
+      description: Update bucket monitoring details by id
+      operationId: update_bucket_monitoring_api_v1_internal_bucket_monitoring__bucket_monitoring_id___put
+      parameters:
+      - required: true
+        schema:
+          title: Bucket Monitoring Id
+          type: integer
+        name: bucket_monitoring_id
+        in: path
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BucketMonitoringUpdate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BucketMonitoringOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    delete:
+      tags:
+      - BucketMonitoring
+      summary: Delete bucket monitoring
+      description: Delete a bucket monitoring record
+      operationId: delete_bucket_monitoring_api_v1_internal_bucket_monitoring__bucket_monitoring_id___delete
+      parameters:
+      - required: true
+        schema:
+          title: Bucket Monitoring Id
+          type: integer
+        name: bucket_monitoring_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BucketMonitoringOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+components:
+  schemas:
+    BucketMonitoringOutAdmin:
+      title: BucketMonitoringOutAdmin
+      required:
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        delay_alert_minutes:
+          title: Delay Alert Minutes
+          type: integer
+        timeout_minutes:
+          title: Timeout Minutes
+          type: integer
+        check_period_minutes:
+          title: Check Period Minutes
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    ValidationError:
+      title: ValidationError
+      required:
+      - loc
+      - msg
+      - type
+      type: object
+      properties:
+        loc:
+          title: Location
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
+    BucketMonitoringUpdate:
+      title: BucketMonitoringUpdate
+      type: object
+      properties:
+        delay_alert_minutes:
+          title: Delay Alert Minutes
+          type: integer
+        timeout_minutes:
+          title: Timeout Minutes
+          type: integer
+        check_period_minutes:
+          title: Check Period Minutes
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+    BucketMonitoringCreate:
+      title: BucketMonitoringCreate
+      type: object
+      properties:
+        delay_alert_minutes:
+          title: Delay Alert Minutes
+          type: integer
+        timeout_minutes:
+          title: Timeout Minutes
+          type: integer
+        check_period_minutes:
+          title: Check Period Minutes
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+  securitySchemes:
+    HTTPBearer:
+      type: http
+      scheme: bearer

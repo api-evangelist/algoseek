@@ -1,0 +1,27 @@
+generated: '2026-07-22'
+method: generated
+skills:
+- file: algoseek-authenticate-and-list-datasets.md
+  name: Authenticate and list AlgoSeek datasets
+  api: openapi/algoseek-dataset-api-openapi.yml
+  operations:
+  - apps_access_token_api_v1_login_access_token__post
+  - get_datasets_public_api_v1_public_dataset__get
+  - get_dataset_public_api_v1_public_dataset__dataset_id___get
+  - get_dataset_by_text_id_public_api_v1_public_dataset_text_id__text_id___get
+- file: algoseek-browse-data-catalog.md
+  name: Browse data groups, pricing, and documentation
+  api: openapi/algoseek-datagroup-api-openapi.yml
+  operations:
+  - get_data_groups_public_api_v1_public_data_group__get
+  - get_data_group_public_api_v1_public_data_group__data_group_id___get
+  - get_data_group_pricings_public_api_v1_public_data_group_pricing__get
+  - get_documentations_public_api_v1_public_documentation__get
+- file: algoseek-resolve-dataset-storage.md
+  name: Resolve where a dataset lives (S3 and ArdaDB)
+  api: openapi/algoseek-cloudstorage-api-openapi.yml
+  operations:
+  - get_cloud_storages_public_api_v1_public_cloud_storage__get
+  - get_csv_columns_public_api_v1_public_csv_column__get
+  - get_database_tables_public_api_v1_public_database_table__get
+  - get_sql_columns_public_api_v1_public_sql_column__get

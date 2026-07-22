@@ -1,0 +1,658 @@
+openapi: 3.0.2
+info:
+  title: metadata-api AWSAccount CloudStorage API
+  version: '1.2'
+tags:
+- name: CloudStorage
+paths:
+  /api/v1/internal/cloud_storage/:
+    get:
+      tags:
+      - CloudStorage
+      summary: List Cloud Storages
+      description: Get a list of all cloud storages
+      operationId: get_cloud_storages_internal_api_v1_internal_cloud_storage__get
+      parameters:
+      - required: false
+        schema:
+          title: Is Active
+          type: boolean
+        name: is_active
+        in: query
+      - required: false
+        schema:
+          title: Is Public
+          type: boolean
+        name: is_public
+        in: query
+      - required: false
+        schema:
+          title: Dataset Id
+          type: integer
+        name: dataset_id
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Get Cloud Storages Internal Api V1 Internal Cloud Storage  Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/CloudStorageOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    post:
+      tags:
+      - CloudStorage
+      summary: Add Cloud Storage
+      description: Add a new cloud storage
+      operationId: create_cloud_storage_api_v1_internal_cloud_storage__post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CloudStorageCreate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CloudStorageOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/internal/cloud_storage/{cloud_storage_id}/:
+    get:
+      tags:
+      - CloudStorage
+      summary: Get Cloud Storage
+      description: Get cloud storage details by id
+      operationId: get_cloud_storage_internal_api_v1_internal_cloud_storage__cloud_storage_id___get
+      parameters:
+      - required: true
+        schema:
+          title: Cloud Storage Id
+          type: integer
+        name: cloud_storage_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CloudStorageOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    put:
+      tags:
+      - CloudStorage
+      summary: Update Cloud Storage
+      description: Update cloud storage details by id
+      operationId: update_cloud_storage_api_v1_internal_cloud_storage__cloud_storage_id___put
+      parameters:
+      - required: true
+        schema:
+          title: Cloud Storage Id
+          type: integer
+        name: cloud_storage_id
+        in: path
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CloudStorageUpdate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CloudStorageOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    delete:
+      tags:
+      - CloudStorage
+      summary: Delete Cloud Storage
+      description: Delete a cloud storage record
+      operationId: delete_cloud_storage_api_v1_internal_cloud_storage__cloud_storage_id___delete
+      parameters:
+      - required: true
+        schema:
+          title: Cloud Storage Id
+          type: integer
+        name: cloud_storage_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CloudStorageOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/internal/cloud_storage/text_id/{text_id}/:
+    get:
+      tags:
+      - CloudStorage
+      summary: Get Cloud Storage
+      description: Get cloud storage details by text_id
+      operationId: get_cloud_storage_by_text_id_internal_api_v1_internal_cloud_storage_text_id__text_id___get
+      parameters:
+      - required: true
+        schema:
+          title: Text Id
+          type: string
+        name: text_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CloudStorageOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/public/cloud_storage/{cloud_storage_id}/:
+    get:
+      tags:
+      - CloudStorage
+      summary: Get Cloud Storage
+      description: Get cloud storage details by id
+      operationId: get_cloud_storage_public_api_v1_public_cloud_storage__cloud_storage_id___get
+      parameters:
+      - required: true
+        schema:
+          title: Cloud Storage Id
+          type: integer
+        name: cloud_storage_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CloudStorageOutPublic'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/public/cloud_storage/text_id/{text_id}/:
+    get:
+      tags:
+      - CloudStorage
+      summary: Get Cloud Storage
+      description: Get cloud storage details by text_id
+      operationId: get_cloud_storage_by_text_id_public_api_v1_public_cloud_storage_text_id__text_id___get
+      parameters:
+      - required: true
+        schema:
+          title: Text Id
+          type: string
+        name: text_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CloudStorageOutPublic'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/public/cloud_storage/:
+    get:
+      tags:
+      - CloudStorage
+      summary: List Cloud Storages
+      description: Get a list of all cloud storages
+      operationId: get_cloud_storages_public_api_v1_public_cloud_storage__get
+      parameters:
+      - required: false
+        schema:
+          title: Is Active
+          type: boolean
+        name: is_active
+        in: query
+      - required: false
+        schema:
+          title: Is Public
+          type: boolean
+        name: is_public
+        in: query
+      - required: false
+        schema:
+          title: Dataset Id
+          type: integer
+        name: dataset_id
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Get Cloud Storages Public Api V1 Public Cloud Storage  Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/CloudStorageOutPublic'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+components:
+  schemas:
+    CSVColumnOutAdmin:
+      title: CSVColumnOutAdmin
+      required:
+      - cloud_storage_id
+      - ordering
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        data_type:
+          title: Data Type
+          type: string
+        description:
+          title: Description
+          type: string
+        cloud_storage_id:
+          title: Cloud Storage Id
+          type: integer
+        ordering:
+          title: Ordering
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    ValidationError:
+      title: ValidationError
+      required:
+      - loc
+      - msg
+      - type
+      type: object
+      properties:
+        loc:
+          title: Location
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
+    CloudStorageOutAdmin:
+      title: CloudStorageOutAdmin
+      required:
+      - text_id
+      - dataset_id
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        sample_data_url:
+          title: Sample Data Url
+          type: string
+        sample_file_description:
+          title: Sample File Description
+          type: string
+        sample_file_id:
+          title: Sample File Id
+          type: integer
+        dataset_id:
+          title: Dataset Id
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        csv_columns:
+          title: Csv Columns
+          type: array
+          items:
+            $ref: '#/components/schemas/CSVColumnOutAdmin'
+        bucket_groups:
+          title: Bucket Groups
+          type: array
+          items:
+            type: integer
+        sample_file:
+          $ref: '#/components/schemas/ExtS3ObjectOutAdmin'
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    CSVColumnOutPublic:
+      title: CSVColumnOutPublic
+      required:
+      - cloud_storage_id
+      - ordering
+      - id
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        data_type:
+          title: Data Type
+          type: string
+        description:
+          title: Description
+          type: string
+        cloud_storage_id:
+          title: Cloud Storage Id
+          type: integer
+        ordering:
+          title: Ordering
+          type: integer
+        id:
+          title: Id
+          type: integer
+    CloudStorageCreate:
+      title: CloudStorageCreate
+      required:
+      - text_id
+      - dataset_id
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        sample_data_url:
+          title: Sample Data Url
+          type: string
+        sample_file_description:
+          title: Sample File Description
+          type: string
+        sample_file_id:
+          title: Sample File Id
+          type: integer
+        dataset_id:
+          title: Dataset Id
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+    CloudStorageUpdate:
+      title: CloudStorageUpdate
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        sample_data_url:
+          title: Sample Data Url
+          type: string
+        sample_file_description:
+          title: Sample File Description
+          type: string
+        sample_file_id:
+          title: Sample File Id
+          type: integer
+        dataset_id:
+          title: Dataset Id
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
+    CloudStorageOutPublic:
+      title: CloudStorageOutPublic
+      required:
+      - text_id
+      - dataset_id
+      - id
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        sample_data_url:
+          title: Sample Data Url
+          type: string
+        sample_file_description:
+          title: Sample File Description
+          type: string
+        sample_file_id:
+          title: Sample File Id
+          type: integer
+        dataset_id:
+          title: Dataset Id
+          type: integer
+        id:
+          title: Id
+          type: integer
+        csv_columns:
+          title: Csv Columns
+          type: array
+          items:
+            $ref: '#/components/schemas/CSVColumnOutPublic'
+        bucket_groups:
+          title: Bucket Groups
+          type: array
+          items:
+            type: integer
+    ExtS3ObjectOutAdmin:
+      title: ExtS3ObjectOutAdmin
+      required:
+      - aws_account_id
+      - bucket_name
+      - object_name
+      - region_name
+      - id
+      - is_active
+      - is_public
+      - created
+      - modified
+      type: object
+      properties:
+        aws_account_id:
+          title: Aws Account Id
+          type: integer
+        bucket_name:
+          title: Bucket Name
+          type: string
+        object_name:
+          title: Object Name
+          type: string
+        region_name:
+          title: Region Name
+          type: string
+        id:
+          title: Id
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        aws_account:
+          $ref: '#/components/schemas/EnumOutAdmin'
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    EnumOutAdmin:
+      title: EnumOutAdmin
+      required:
+      - text_id
+      - internal_name
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        full_name:
+          title: Full Name
+          type: string
+        description:
+          title: Description
+          type: string
+        internal_name:
+          title: Internal Name
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+  securitySchemes:
+    HTTPBearer:
+      type: http
+      scheme: bearer

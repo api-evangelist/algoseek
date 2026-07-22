@@ -1,0 +1,49 @@
+generated: '2026-07-22'
+method: derived
+source: openapi/algoseek-awsaccount-api-openapi.yml, openapi/algoseek-awsresourcetype-api-openapi.yml,
+  openapi/algoseek-bucketgroup-api-openapi.yml, openapi/algoseek-bucketmonitoring-api-openapi.yml,
+  openapi/algoseek-bucketsource-api-openapi.yml, openapi/algoseek-bucketupdate-api-openapi.yml,
+  openapi/algoseek-cloudstorage-api-openapi.yml, openapi/algoseek-csvcolumn-api-openapi.yml,
+  openapi/algoseek-databaseobject-api-openapi.yml, openapi/algoseek-databasetable-api-openapi.yml,
+  openapi/algoseek-dataclass-api-openapi.yml, openapi/algoseek-dataformat-api-openapi.yml ...
+summary:
+  types:
+  - http
+schemes:
+- name: HTTPBearer
+  type: http
+  scheme: bearer
+  sources:
+  - openapi/algoseek-awsaccount-api-openapi.yml
+  - openapi/algoseek-awsresourcetype-api-openapi.yml
+  - openapi/algoseek-bucketgroup-api-openapi.yml
+  - openapi/algoseek-bucketmonitoring-api-openapi.yml
+  - openapi/algoseek-bucketsource-api-openapi.yml
+  - openapi/algoseek-bucketupdate-api-openapi.yml
+  - openapi/algoseek-cloudstorage-api-openapi.yml
+  - openapi/algoseek-csvcolumn-api-openapi.yml
+  - openapi/algoseek-databaseobject-api-openapi.yml
+  - openapi/algoseek-databasetable-api-openapi.yml
+  - openapi/algoseek-dataclass-api-openapi.yml
+  - openapi/algoseek-dataformat-api-openapi.yml
+  - openapi/algoseek-datagroup-api-openapi.yml
+  - openapi/algoseek-datagrouppricing-api-openapi.yml
+  - openapi/algoseek-dataset-api-openapi.yml
+  - openapi/algoseek-datasetchange-api-openapi.yml
+  - openapi/algoseek-datatype-api-openapi.yml
+  - openapi/algoseek-dbobjecttype-api-openapi.yml
+  - openapi/algoseek-deliverymethod-api-openapi.yml
+  - openapi/algoseek-documentation-api-openapi.yml
+  - openapi/algoseek-healthcheck-api-openapi.yml
+  - openapi/algoseek-identity-api-openapi.yml
+  - openapi/algoseek-login-api-openapi.yml
+  - openapi/algoseek-person-api-openapi.yml
+  - openapi/algoseek-region-api-openapi.yml
+  - openapi/algoseek-s3object-api-openapi.yml
+  - openapi/algoseek-sampledata-api-openapi.yml
+  - openapi/algoseek-sqlcolumn-api-openapi.yml
+  - openapi/algoseek-status-api-openapi.yml
+  - openapi/algoseek-storagetype-api-openapi.yml
+  - openapi/algoseek-timegranularity-api-openapi.yml
+  - openapi/algoseek-ttlperiodtype-api-openapi.yml
+  - openapi/algoseek-vendor-api-openapi.yml

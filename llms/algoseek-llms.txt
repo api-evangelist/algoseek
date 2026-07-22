@@ -1,0 +1,57 @@
+# AlgoSeek
+
+> AlgoSeek, LLC is a New York-based financial market data vendor selling historical intraday US market data — equities, ETFs, equity options with Greeks and IV, futures, futures options, and reference data — plus real-time feeds. Delivery is data-platform-first: S3 flat files, the ArdaDB managed ClickHouse cloud database (queried via the open-source algoseek-connector Python library), colocated MultiCast/TCP real-time feeds, and a REST Metadata Services API with a public OpenAPI 3.0.2 document.
+
+## APIs
+
+- [Metadata Services API (Swagger UI)](https://metadata-services.algoseek.com/docs): FastAPI metadata-api v1.2 — 148 paths (56 public catalog reads, 90 internal) covering datasets, data groups, pricing records, database tables, cloud storage buckets, documentation, vendors, and sample data. HTTP Bearer auth via POST /api/v1/login/access_token/.
+- [Live OpenAPI 3.0.2 document](https://metadata-services.algoseek.com/api/v1/openapi.json): machine-readable contract for the Metadata Services API.
+- [ArdaDB Query Service](https://algoseek.com/ardadb): managed ClickHouse cloud database (AWS us-east-1) pre-loaded with two petabytes of historical market data, queried with full SQL via the algoseek-connector Python library; no public HTTP base URL.
+
+## Specs
+
+- [AlgoSeek AWSAccount API](https://raw.githubusercontent.com/api-evangelist/algoseek/refs/heads/main/openapi/algoseek-awsaccount-api-openapi.yml): per-tag OpenAPI extracted from the live spec
+- [AlgoSeek AWSResourceType API](https://raw.githubusercontent.com/api-evangelist/algoseek/refs/heads/main/openapi/algoseek-awsresourcetype-api-openapi.yml): per-tag OpenAPI extracted from the live spec
+- [AlgoSeek BucketGroup API](https://raw.githubusercontent.com/api-evangelist/algoseek/refs/heads/main/openapi/algoseek-bucketgroup-api-openapi.yml): per-tag OpenAPI extracted from the live spec
+- [AlgoSeek BucketMonitoring API](https://raw.githubusercontent.com/api-evangelist/algoseek/refs/heads/main/openapi/algoseek-bucketmonitoring-api-openapi.yml): per-tag OpenAPI extracted from the live spec
+- [AlgoSeek BucketSource API](https://raw.githubusercontent.com/api-evangelist/algoseek/refs/heads/main/openapi/algoseek-bucketsource-api-openapi.yml): per-tag OpenAPI extracted from the live spec
+- [AlgoSeek BucketUpdate API](https://raw.githubusercontent.com/api-evangelist/algoseek/refs/heads/main/openapi/algoseek-bucketupdate-api-openapi.yml): per-tag OpenAPI extracted from the live spec
+- [AlgoSeek CloudStorage API](https://raw.githubusercontent.com/api-evangelist/algoseek/refs/heads/main/openapi/algoseek-cloudstorage-api-openapi.yml): per-tag OpenAPI extracted from the live spec
+- [AlgoSeek CSVColumn API](https://raw.githubusercontent.com/api-evangelist/algoseek/refs/heads/main/openapi/algoseek-csvcolumn-api-openapi.yml): per-tag OpenAPI extracted from the live spec
+- [AlgoSeek DatabaseObject API](https://raw.githubusercontent.com/api-evangelist/algoseek/refs/heads/main/openapi/algoseek-databaseobject-api-openapi.yml): per-tag OpenAPI extracted from the live spec
+- [AlgoSeek DatabaseTable API](https://raw.githubusercontent.com/api-evangelist/algoseek/refs/heads/main/openapi/algoseek-databasetable-api-openapi.yml): per-tag OpenAPI extracted from the live spec
+- [AlgoSeek DataClass API](https://raw.githubusercontent.com/api-evangelist/algoseek/refs/heads/main/openapi/algoseek-dataclass-api-openapi.yml): per-tag OpenAPI extracted from the live spec
+- [AlgoSeek DataFormat API](https://raw.githubusercontent.com/api-evangelist/algoseek/refs/heads/main/openapi/algoseek-dataformat-api-openapi.yml): per-tag OpenAPI extracted from the live spec
+- [AlgoSeek DataGroup API](https://raw.githubusercontent.com/api-evangelist/algoseek/refs/heads/main/openapi/algoseek-datagroup-api-openapi.yml): per-tag OpenAPI extracted from the live spec
+- [AlgoSeek DataGroupPricing API](https://raw.githubusercontent.com/api-evangelist/algoseek/refs/heads/main/openapi/algoseek-datagrouppricing-api-openapi.yml): per-tag OpenAPI extracted from the live spec
+- [AlgoSeek Dataset API](https://raw.githubusercontent.com/api-evangelist/algoseek/refs/heads/main/openapi/algoseek-dataset-api-openapi.yml): per-tag OpenAPI extracted from the live spec
+- [AlgoSeek DatasetChange API](https://raw.githubusercontent.com/api-evangelist/algoseek/refs/heads/main/openapi/algoseek-datasetchange-api-openapi.yml): per-tag OpenAPI extracted from the live spec
+- [AlgoSeek DataType API](https://raw.githubusercontent.com/api-evangelist/algoseek/refs/heads/main/openapi/algoseek-datatype-api-openapi.yml): per-tag OpenAPI extracted from the live spec
+- [AlgoSeek DBObjectType API](https://raw.githubusercontent.com/api-evangelist/algoseek/refs/heads/main/openapi/algoseek-dbobjecttype-api-openapi.yml): per-tag OpenAPI extracted from the live spec
+- [AlgoSeek DeliveryMethod API](https://raw.githubusercontent.com/api-evangelist/algoseek/refs/heads/main/openapi/algoseek-deliverymethod-api-openapi.yml): per-tag OpenAPI extracted from the live spec
+- [AlgoSeek Documentation API](https://raw.githubusercontent.com/api-evangelist/algoseek/refs/heads/main/openapi/algoseek-documentation-api-openapi.yml): per-tag OpenAPI extracted from the live spec
+- [AlgoSeek Healthcheck API](https://raw.githubusercontent.com/api-evangelist/algoseek/refs/heads/main/openapi/algoseek-healthcheck-api-openapi.yml): per-tag OpenAPI extracted from the live spec
+- [AlgoSeek Identity API](https://raw.githubusercontent.com/api-evangelist/algoseek/refs/heads/main/openapi/algoseek-identity-api-openapi.yml): per-tag OpenAPI extracted from the live spec
+- [AlgoSeek Login API](https://raw.githubusercontent.com/api-evangelist/algoseek/refs/heads/main/openapi/algoseek-login-api-openapi.yml): per-tag OpenAPI extracted from the live spec
+- [AlgoSeek Person API](https://raw.githubusercontent.com/api-evangelist/algoseek/refs/heads/main/openapi/algoseek-person-api-openapi.yml): per-tag OpenAPI extracted from the live spec
+- [AlgoSeek Region API](https://raw.githubusercontent.com/api-evangelist/algoseek/refs/heads/main/openapi/algoseek-region-api-openapi.yml): per-tag OpenAPI extracted from the live spec
+- [AlgoSeek S3Object API](https://raw.githubusercontent.com/api-evangelist/algoseek/refs/heads/main/openapi/algoseek-s3object-api-openapi.yml): per-tag OpenAPI extracted from the live spec
+- [AlgoSeek SampleData API](https://raw.githubusercontent.com/api-evangelist/algoseek/refs/heads/main/openapi/algoseek-sampledata-api-openapi.yml): per-tag OpenAPI extracted from the live spec
+- [AlgoSeek SQLColumn API](https://raw.githubusercontent.com/api-evangelist/algoseek/refs/heads/main/openapi/algoseek-sqlcolumn-api-openapi.yml): per-tag OpenAPI extracted from the live spec
+- [AlgoSeek Status API](https://raw.githubusercontent.com/api-evangelist/algoseek/refs/heads/main/openapi/algoseek-status-api-openapi.yml): per-tag OpenAPI extracted from the live spec
+- [AlgoSeek StorageType API](https://raw.githubusercontent.com/api-evangelist/algoseek/refs/heads/main/openapi/algoseek-storagetype-api-openapi.yml): per-tag OpenAPI extracted from the live spec
+- [AlgoSeek TimeGranularity API](https://raw.githubusercontent.com/api-evangelist/algoseek/refs/heads/main/openapi/algoseek-timegranularity-api-openapi.yml): per-tag OpenAPI extracted from the live spec
+- [AlgoSeek TTLPeriodType API](https://raw.githubusercontent.com/api-evangelist/algoseek/refs/heads/main/openapi/algoseek-ttlperiodtype-api-openapi.yml): per-tag OpenAPI extracted from the live spec
+- [AlgoSeek Vendor API](https://raw.githubusercontent.com/api-evangelist/algoseek/refs/heads/main/openapi/algoseek-vendor-api-openapi.yml): per-tag OpenAPI extracted from the live spec
+
+## Docs
+
+- [algoseek-connector documentation](https://algoseek-connector.readthedocs.io/): Python entry point for AlgoSeek datasets (tutorials, configuration, API reference)
+- [algoseek-connector on PyPI](https://pypi.org/project/algoseek-connector/): pip install algoseek-connector
+- [algoseek-connector changelog](https://github.com/algoseekgit/algoseek-connector/blob/master/CHANGELOG.md): dated release notes (semantic-release)
+- [Dataset catalog](https://algoseek.com/data-sets/list): browseable list of every dataset with per-dataset docs pages
+- [Data packages](https://algoseek.com/financial-data/packages): commercial data packages (sales-led)
+- [Customer console](https://console.algoseek.com/): account console and registration
+- [GitHub organization](https://github.com/algoseekgit): algoseek-connector, algoseek-public sample notebooks
+- [Terms of use](https://algoseek.com/terms-of-use)
+- [Privacy & cookies](https://algoseek.com/privacy-cookies)

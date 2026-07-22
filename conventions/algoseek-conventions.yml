@@ -1,0 +1,40 @@
+generated: '2026-07-22'
+method: derived
+source: openapi/ (metadata-api v1.2), https://algoseek-connector.readthedocs.io/
+authentication:
+  style: http-bearer
+  token_endpoint: POST /api/v1/login/access_token/ (JSON AppsTokenQuery body -> Token)
+  artifact: authentication/algoseek-authentication.yml
+namespaces:
+  public: /api/v1/public/* — read-only catalog endpoints (list + get by id)
+  internal: /api/v1/internal/* — administrative CRUD endpoints (183 of 241 operations)
+resource_lookup: Most resources are addressable by numeric id and alternately by text_id (e.g. /public/dataset/text_id/{text_id}/)
+  or natural key (table_name, object_name)
+paths:
+  style: snake_case segments with trailing slash
+fields:
+  casing: snake_case
+versioning:
+  scheme: uri-path
+  current: v1
+pagination:
+  supported: false
+  note: List endpoints declare no pagination parameters; collections return in full
+idempotency:
+  supported: false
+  note: No idempotency-key contract documented
+expansion:
+  supported: false
+  note: No field-expansion or sparse-field parameters; ext/ variants of internal endpoints return embedded
+    related objects
+request_tracing:
+  supported: false
+  note: No request-id header documented
+rate_limits:
+  documented: false
+errors:
+  envelope: FastAPI HTTPValidationError (422); see errors/algoseek-problem-types.yml
+cross_links:
+- errors/algoseek-problem-types.yml
+- lifecycle/algoseek-lifecycle.yml
+- authentication/algoseek-authentication.yml

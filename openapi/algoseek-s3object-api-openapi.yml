@@ -1,0 +1,507 @@
+openapi: 3.0.2
+info:
+  title: metadata-api AWSAccount S3Object API
+  version: '1.2'
+tags:
+- name: S3Object
+paths:
+  /api/v1/internal/s3object/:
+    get:
+      tags:
+      - S3Object
+      summary: List S3 Object
+      description: Get a list of all s3 objects
+      operationId: get_s3objects_internal_api_v1_internal_s3object__get
+      parameters:
+      - required: false
+        schema:
+          title: Is Active
+          type: boolean
+        name: is_active
+        in: query
+      - required: false
+        schema:
+          title: Is Public
+          type: boolean
+        name: is_public
+        in: query
+      - required: false
+        schema:
+          title: Aws Account Id
+          type: integer
+        name: aws_account_id
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Get S3Objects Internal Api V1 Internal S3Object  Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/S3ObjectOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    post:
+      tags:
+      - S3Object
+      summary: Add S3 Object
+      description: Add a new s3 object
+      operationId: create_s3object_api_v1_internal_s3object__post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/S3ObjectCreate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/S3ObjectOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/internal/s3object/{s3object_id}/:
+    get:
+      tags:
+      - S3Object
+      summary: Get S3 Object
+      description: Get S3 Object details by id
+      operationId: get_s3object_internal_api_v1_internal_s3object__s3object_id___get
+      parameters:
+      - required: true
+        schema:
+          title: S3Object Id
+          type: integer
+        name: s3object_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/S3ObjectOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    put:
+      tags:
+      - S3Object
+      summary: Update s3 object
+      description: Update s3 object details by id
+      operationId: update_s3object_api_v1_internal_s3object__s3object_id___put
+      parameters:
+      - required: true
+        schema:
+          title: S3Object Id
+          type: integer
+        name: s3object_id
+        in: path
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/S3ObjectUpdate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/S3ObjectOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    delete:
+      tags:
+      - S3Object
+      summary: Delete s3 object
+      description: Delete a s3 object record
+      operationId: delete_s3object_api_v1_internal_s3object__s3object_id___delete
+      parameters:
+      - required: true
+        schema:
+          title: S3Object Id
+          type: integer
+        name: s3object_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/S3ObjectOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/internal/s3object/ext/{s3object_id}/:
+    get:
+      tags:
+      - S3Object
+      summary: Get S3 Object
+      description: Get S3 Object details by id
+      operationId: get_ext_s3object_internal_api_v1_internal_s3object_ext__s3object_id___get
+      parameters:
+      - required: true
+        schema:
+          title: S3Object Id
+          type: integer
+        name: s3object_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExtS3ObjectOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/public/s3object/{s3object_id}/:
+    get:
+      tags:
+      - S3Object
+      summary: Get S3 Object
+      description: Get S3 Object details by id
+      operationId: get_s3object_public_api_v1_public_s3object__s3object_id___get
+      parameters:
+      - required: true
+        schema:
+          title: S3Object Id
+          type: integer
+        name: s3object_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/S3ObjectOutPublic'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/public/s3object/:
+    get:
+      tags:
+      - S3Object
+      summary: List S3 Object
+      description: Get a list of all s3 objects
+      operationId: get_s3objects_public_api_v1_public_s3object__get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Get S3Objects Public Api V1 Public S3Object  Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/S3ObjectOutPublic'
+      security:
+      - HTTPBearer: []
+components:
+  schemas:
+    S3ObjectOutPublic:
+      title: S3ObjectOutPublic
+      required:
+      - aws_account_id
+      - bucket_name
+      - object_name
+      - region_name
+      type: object
+      properties:
+        aws_account_id:
+          title: Aws Account Id
+          type: integer
+        bucket_name:
+          title: Bucket Name
+          type: string
+        object_name:
+          title: Object Name
+          type: string
+        region_name:
+          title: Region Name
+          type: string
+        id:
+          title: Id
+          type: integer
+        obj_http_url:
+          title: Obj Http Url
+          type: string
+        obj_s3_uri:
+          title: Obj S3 Uri
+          type: string
+    S3ObjectCreate:
+      title: S3ObjectCreate
+      required:
+      - aws_account_id
+      - bucket_name
+      - object_name
+      - region_name
+      type: object
+      properties:
+        aws_account_id:
+          title: Aws Account Id
+          type: integer
+        bucket_name:
+          title: Bucket Name
+          type: string
+        object_name:
+          title: Object Name
+          type: string
+        region_name:
+          title: Region Name
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+    ValidationError:
+      title: ValidationError
+      required:
+      - loc
+      - msg
+      - type
+      type: object
+      properties:
+        loc:
+          title: Location
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
+    S3ObjectUpdate:
+      title: S3ObjectUpdate
+      type: object
+      properties:
+        aws_account_id:
+          title: Aws Account Id
+          type: integer
+        bucket_name:
+          title: Bucket Name
+          type: string
+        object_name:
+          title: Object Name
+          type: string
+        region_name:
+          title: Region Name
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+    ExtS3ObjectOutAdmin:
+      title: ExtS3ObjectOutAdmin
+      required:
+      - aws_account_id
+      - bucket_name
+      - object_name
+      - region_name
+      - id
+      - is_active
+      - is_public
+      - created
+      - modified
+      type: object
+      properties:
+        aws_account_id:
+          title: Aws Account Id
+          type: integer
+        bucket_name:
+          title: Bucket Name
+          type: string
+        object_name:
+          title: Object Name
+          type: string
+        region_name:
+          title: Region Name
+          type: string
+        id:
+          title: Id
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        aws_account:
+          $ref: '#/components/schemas/EnumOutAdmin'
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    S3ObjectOutAdmin:
+      title: S3ObjectOutAdmin
+      required:
+      - aws_account_id
+      - bucket_name
+      - object_name
+      - region_name
+      - is_active
+      - is_public
+      - created
+      - modified
+      type: object
+      properties:
+        aws_account_id:
+          title: Aws Account Id
+          type: integer
+        bucket_name:
+          title: Bucket Name
+          type: string
+        object_name:
+          title: Object Name
+          type: string
+        region_name:
+          title: Region Name
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    EnumOutAdmin:
+      title: EnumOutAdmin
+      required:
+      - text_id
+      - internal_name
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        full_name:
+          title: Full Name
+          type: string
+        description:
+          title: Description
+          type: string
+        internal_name:
+          title: Internal Name
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+  securitySchemes:
+    HTTPBearer:
+      type: http
+      scheme: bearer

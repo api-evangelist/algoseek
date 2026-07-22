@@ -1,0 +1,17 @@
+generated: '2026-07-22'
+method: derived
+source: openapi/ (metadata-api v1.2), algoseek.com sitemap, live subdomain probes
+versioning:
+  scheme: uri-path
+  current: v1
+  api_version: '1.2'
+  evidence: All paths under /api/v1/; info.version 1.2
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: No published deprecation policy; no deprecated:true operations in the spec
+sla: null
+status_page: null
+status_page_note: No public status page found (status.algoseek.com does not resolve; algoseek.statuspage.io
+  is an unclaimed redirect to statuspage.io). The Metadata Services API exposes GET /api/v1/healthcheck/.
+deprecated_operations: []

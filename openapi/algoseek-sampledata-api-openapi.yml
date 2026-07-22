@@ -1,0 +1,480 @@
+openapi: 3.0.2
+info:
+  title: metadata-api AWSAccount SampleData API
+  version: '1.2'
+tags:
+- name: SampleData
+paths:
+  /api/v1/internal/sample_data/:
+    get:
+      tags:
+      - SampleData
+      summary: List Sample Data
+      description: Get a list of all sample data
+      operationId: get_samples_data_internal_api_v1_internal_sample_data__get
+      parameters:
+      - required: false
+        schema:
+          title: Is Active
+          type: boolean
+        name: is_active
+        in: query
+      - required: false
+        schema:
+          title: Is Public
+          type: boolean
+        name: is_public
+        in: query
+      - required: false
+        schema:
+          title: Aws Account Id
+          type: integer
+        name: aws_account_id
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Get Samples Data Internal Api V1 Internal Sample Data  Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/SampleDataOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    post:
+      tags:
+      - SampleData
+      summary: Add Sample Data
+      description: Add a new sample data
+      operationId: create_sample_data_api_v1_internal_sample_data__post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SampleDataCreate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SampleDataOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/internal/sample_data/{sample_data_id}/:
+    get:
+      tags:
+      - SampleData
+      summary: Get Sample Data
+      description: Get Sample Data details by id
+      operationId: get_sample_data_internal_api_v1_internal_sample_data__sample_data_id___get
+      parameters:
+      - required: true
+        schema:
+          title: Sample Data Id
+          type: integer
+        name: sample_data_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SampleDataOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    put:
+      tags:
+      - SampleData
+      summary: Update sample data
+      description: Update sample data details by id
+      operationId: update_sample_data_api_v1_internal_sample_data__sample_data_id___put
+      parameters:
+      - required: true
+        schema:
+          title: Sample Data Id
+          type: integer
+        name: sample_data_id
+        in: path
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SampleDataUpdate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SampleDataOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    delete:
+      tags:
+      - SampleData
+      summary: Delete sample data
+      description: Delete a sample data record
+      operationId: delete_sample_data_api_v1_internal_sample_data__sample_data_id___delete
+      parameters:
+      - required: true
+        schema:
+          title: Sample Data Id
+          type: integer
+        name: sample_data_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SampleDataOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/internal/sample_data/ext/{sample_data_id}/:
+    get:
+      tags:
+      - SampleData
+      summary: Get Sample Data
+      description: Get Sample Data details by id
+      operationId: get_ext_sample_data_internal_api_v1_internal_sample_data_ext__sample_data_id___get
+      parameters:
+      - required: true
+        schema:
+          title: Sample Data Id
+          type: integer
+        name: sample_data_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExtSampleDataOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/public/sample_data/{sample_data_id}/:
+    get:
+      tags:
+      - SampleData
+      summary: Get Sample Data
+      description: Get Sample Data details by id
+      operationId: get_sample_data_public_api_v1_public_sample_data__sample_data_id___get
+      parameters:
+      - required: true
+        schema:
+          title: Sample Data Id
+          type: integer
+        name: sample_data_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SampleDataOutPublic'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/public/sample_data/:
+    get:
+      tags:
+      - SampleData
+      summary: List Sample Data
+      description: Get a list of all sample data
+      operationId: get_samples_data_public_api_v1_public_sample_data__get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Get Samples Data Public Api V1 Public Sample Data  Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/SampleDataOutPublic'
+      security:
+      - HTTPBearer: []
+components:
+  schemas:
+    SampleDataOutAdmin:
+      title: SampleDataOutAdmin
+      required:
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        bucket_name:
+          title: Bucket Name
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        description:
+          title: Description
+          type: string
+        aws_account_id:
+          title: Aws Account Id
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    ExtSampleDataOutAdmin:
+      title: ExtSampleDataOutAdmin
+      required:
+      - id
+      - is_active
+      - is_public
+      - created
+      - modified
+      type: object
+      properties:
+        bucket_name:
+          title: Bucket Name
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        description:
+          title: Description
+          type: string
+        id:
+          title: Id
+          type: integer
+        aws_account:
+          $ref: '#/components/schemas/EnumOutAdmin'
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    SampleDataOutPublic:
+      title: SampleDataOutPublic
+      required:
+      - id
+      type: object
+      properties:
+        bucket_name:
+          title: Bucket Name
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        description:
+          title: Description
+          type: string
+        id:
+          title: Id
+          type: integer
+    ValidationError:
+      title: ValidationError
+      required:
+      - loc
+      - msg
+      - type
+      type: object
+      properties:
+        loc:
+          title: Location
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
+    SampleDataCreate:
+      title: SampleDataCreate
+      type: object
+      properties:
+        bucket_name:
+          title: Bucket Name
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        description:
+          title: Description
+          type: string
+        aws_account_id:
+          title: Aws Account Id
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
+    SampleDataUpdate:
+      title: SampleDataUpdate
+      type: object
+      properties:
+        bucket_name:
+          title: Bucket Name
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        description:
+          title: Description
+          type: string
+        aws_account_id:
+          title: Aws Account Id
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+    EnumOutAdmin:
+      title: EnumOutAdmin
+      required:
+      - text_id
+      - internal_name
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        full_name:
+          title: Full Name
+          type: string
+        description:
+          title: Description
+          type: string
+        internal_name:
+          title: Internal Name
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+  securitySchemes:
+    HTTPBearer:
+      type: http
+      scheme: bearer

@@ -1,0 +1,322 @@
+openapi: 3.0.2
+info:
+  title: metadata-api AWSAccount DatasetChange API
+  version: '1.2'
+tags:
+- name: DatasetChange
+paths:
+  /api/v1/internal/dataset_change/:
+    get:
+      tags:
+      - DatasetChange
+      summary: List Dataset Changes
+      description: Get a list of all dataset changes
+      operationId: get_list_of_dataset_changes_internal_api_v1_internal_dataset_change__get
+      parameters:
+      - required: false
+        schema:
+          title: Is Active
+          type: boolean
+        name: is_active
+        in: query
+      - required: false
+        schema:
+          title: Is Public
+          type: boolean
+        name: is_public
+        in: query
+      - required: false
+        schema:
+          title: Dataset Id
+          type: integer
+        name: dataset_id
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Get List Of Dataset Changes Internal Api V1 Internal Dataset Change  Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/DatasetChangeOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    post:
+      tags:
+      - DatasetChange
+      summary: Add Dataset Changes
+      description: Add a new dataset changes
+      operationId: create_dataset_change_api_v1_internal_dataset_change__post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DatasetChangeCreate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DatasetChangeOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/internal/dataset_change/{dataset_change_id}/:
+    get:
+      tags:
+      - DatasetChange
+      summary: Get Dataset Changes
+      description: Get Dataset Chnages details by id
+      operationId: get_dataset_change_internal_api_v1_internal_dataset_change__dataset_change_id___get
+      parameters:
+      - required: true
+        schema:
+          title: Dataset Change Id
+          type: integer
+        name: dataset_change_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DatasetChangeOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    put:
+      tags:
+      - DatasetChange
+      summary: Update dataset changes
+      description: Update dataset changes details by id
+      operationId: update_dataset_change_api_v1_internal_dataset_change__dataset_change_id___put
+      parameters:
+      - required: true
+        schema:
+          title: Dataset Change Id
+          type: integer
+        name: dataset_change_id
+        in: path
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DatasetChangeUpdate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DatasetChangeOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    delete:
+      tags:
+      - DatasetChange
+      summary: Delete dataset changes
+      description: Delete a dataset changes record
+      operationId: delete_dataset_change_api_v1_internal_dataset_change__dataset_change_id___delete
+      parameters:
+      - required: true
+        schema:
+          title: Dataset Change Id
+          type: integer
+        name: dataset_change_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DatasetChangeOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+components:
+  schemas:
+    DatasetChangeUpdate:
+      title: DatasetChangeUpdate
+      type: object
+      properties:
+        dataset_id:
+          title: Dataset Id
+          type: integer
+        effective_date:
+          title: Effective Date
+          type: string
+          format: date
+        start_date:
+          title: Start Date
+          type: string
+          format: date
+        end_date:
+          title: End Date
+          type: string
+          format: date
+        description:
+          title: Description
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+    ValidationError:
+      title: ValidationError
+      required:
+      - loc
+      - msg
+      - type
+      type: object
+      properties:
+        loc:
+          title: Location
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
+    DatasetChangeCreate:
+      title: DatasetChangeCreate
+      required:
+      - dataset_id
+      - effective_date
+      - description
+      type: object
+      properties:
+        dataset_id:
+          title: Dataset Id
+          type: integer
+        effective_date:
+          title: Effective Date
+          type: string
+          format: date
+        start_date:
+          title: Start Date
+          type: string
+          format: date
+        end_date:
+          title: End Date
+          type: string
+          format: date
+        description:
+          title: Description
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+    DatasetChangeOutAdmin:
+      title: DatasetChangeOutAdmin
+      required:
+      - dataset_id
+      - effective_date
+      - description
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        dataset_id:
+          title: Dataset Id
+          type: integer
+        effective_date:
+          title: Effective Date
+          type: string
+          format: date
+        start_date:
+          title: Start Date
+          type: string
+          format: date
+        end_date:
+          title: End Date
+          type: string
+          format: date
+        description:
+          title: Description
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+  securitySchemes:
+    HTTPBearer:
+      type: http
+      scheme: bearer

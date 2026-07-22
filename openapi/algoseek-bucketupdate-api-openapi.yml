@@ -1,0 +1,450 @@
+openapi: 3.0.2
+info:
+  title: metadata-api AWSAccount BucketUpdate API
+  version: '1.2'
+tags:
+- name: BucketUpdate
+paths:
+  /api/v1/internal/bucket_update/:
+    get:
+      tags:
+      - BucketUpdate
+      summary: List Bucket Updates
+      description: Get a list of all bucket updates
+      operationId: get_buckets_updates_internal_api_v1_internal_bucket_update__get
+      parameters:
+      - required: false
+        schema:
+          title: Is Active
+          type: boolean
+        name: is_active
+        in: query
+      - required: false
+        schema:
+          title: Is Public
+          type: boolean
+        name: is_public
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Get Buckets Updates Internal Api V1 Internal Bucket Update  Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/BucketUpdatesOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    post:
+      tags:
+      - BucketUpdate
+      summary: Add Bucket Updates
+      description: Add a new bucket updates
+      operationId: create_bucket_updates_api_v1_internal_bucket_update__post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BucketUpdatesCreate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BucketUpdatesOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/internal/bucket_update/{bucket_updates_id}/:
+    get:
+      tags:
+      - BucketUpdate
+      summary: Get Bucket Updates
+      description: Get Bucket Updates details by id
+      operationId: get_bucket_updates_internal_api_v1_internal_bucket_update__bucket_updates_id___get
+      parameters:
+      - required: true
+        schema:
+          title: Bucket Updates Id
+          type: integer
+        name: bucket_updates_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BucketUpdatesOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    put:
+      tags:
+      - BucketUpdate
+      summary: Update bucket updates
+      description: Update bucket updates details by id
+      operationId: update_bucket_updates_api_v1_internal_bucket_update__bucket_updates_id___put
+      parameters:
+      - required: true
+        schema:
+          title: Bucket Updates Id
+          type: integer
+        name: bucket_updates_id
+        in: path
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BucketUpdatesUpdate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BucketUpdatesOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+    delete:
+      tags:
+      - BucketUpdate
+      summary: Delete bucket updates
+      description: Delete a bucket updates record
+      operationId: delete_bucket_updates_api_v1_internal_bucket_update__bucket_updates_id___delete
+      parameters:
+      - required: true
+        schema:
+          title: Bucket Updates Id
+          type: integer
+        name: bucket_updates_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BucketUpdatesOutAdmin'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/public/bucket_update/{bucket_updates_id}/:
+    get:
+      tags:
+      - BucketUpdate
+      summary: Get Bucket Updates
+      description: Get Bucket Updates details by id
+      operationId: get_bucket_updates_public_api_v1_public_bucket_update__bucket_updates_id___get
+      parameters:
+      - required: true
+        schema:
+          title: Bucket Updates Id
+          type: integer
+        name: bucket_updates_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BucketUpdatesOutPublic'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBearer: []
+  /api/v1/public/bucket_update/:
+    get:
+      tags:
+      - BucketUpdate
+      summary: List Bucket Updates
+      description: Get a list of all bucket updates
+      operationId: get_buckets_updates_public_api_v1_public_bucket_update__get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Get Buckets Updates Public Api V1 Public Bucket Update  Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/BucketUpdatesOutPublic'
+      security:
+      - HTTPBearer: []
+components:
+  schemas:
+    BucketUpdatesOutAdmin:
+      title: BucketUpdatesOutAdmin
+      required:
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        interval:
+          title: Interval
+          type: string
+        days_offset:
+          title: Days Offset
+          type: integer
+        public_time:
+          title: Public Time
+          type: string
+        size_human:
+          title: Size Human
+          type: string
+        num_objects_human:
+          title: Num Objects Human
+          type: string
+        expected_time:
+          title: Expected Time
+          type: string
+        intraday_period_minutes:
+          title: Intraday Period Minutes
+          type: integer
+        duration_minutes:
+          title: Duration Minutes
+          type: integer
+        source:
+          title: Source
+          type: string
+        size_bytes:
+          title: Size Bytes
+          type: integer
+        num_objects:
+          title: Num Objects
+          type: integer
+        path_prefix:
+          title: Path Prefix
+          type: string
+        regex_structure:
+          title: Regex Structure
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+        bucket_group:
+          title: Bucket Group
+          type: integer
+    ValidationError:
+      title: ValidationError
+      required:
+      - loc
+      - msg
+      - type
+      type: object
+      properties:
+        loc:
+          title: Location
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
+    BucketUpdatesCreate:
+      title: BucketUpdatesCreate
+      type: object
+      properties:
+        interval:
+          title: Interval
+          type: string
+        days_offset:
+          title: Days Offset
+          type: integer
+        public_time:
+          title: Public Time
+          type: string
+        size_human:
+          title: Size Human
+          type: string
+        num_objects_human:
+          title: Num Objects Human
+          type: string
+        expected_time:
+          title: Expected Time
+          type: string
+        intraday_period_minutes:
+          title: Intraday Period Minutes
+          type: integer
+        duration_minutes:
+          title: Duration Minutes
+          type: integer
+        source:
+          title: Source
+          type: string
+        size_bytes:
+          title: Size Bytes
+          type: integer
+        num_objects:
+          title: Num Objects
+          type: integer
+        path_prefix:
+          title: Path Prefix
+          type: string
+        regex_structure:
+          title: Regex Structure
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+    BucketUpdatesUpdate:
+      title: BucketUpdatesUpdate
+      type: object
+      properties:
+        interval:
+          title: Interval
+          type: string
+        days_offset:
+          title: Days Offset
+          type: integer
+        public_time:
+          title: Public Time
+          type: string
+        size_human:
+          title: Size Human
+          type: string
+        num_objects_human:
+          title: Num Objects Human
+          type: string
+        expected_time:
+          title: Expected Time
+          type: string
+        intraday_period_minutes:
+          title: Intraday Period Minutes
+          type: integer
+        duration_minutes:
+          title: Duration Minutes
+          type: integer
+        source:
+          title: Source
+          type: string
+        size_bytes:
+          title: Size Bytes
+          type: integer
+        num_objects:
+          title: Num Objects
+          type: integer
+        path_prefix:
+          title: Path Prefix
+          type: string
+        regex_structure:
+          title: Regex Structure
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
+    BucketUpdatesOutPublic:
+      title: BucketUpdatesOutPublic
+      required:
+      - id
+      type: object
+      properties:
+        interval:
+          title: Interval
+          type: string
+        days_offset:
+          title: Days Offset
+          type: integer
+        public_time:
+          title: Public Time
+          type: string
+        size_human:
+          title: Size Human
+          type: string
+        num_objects_human:
+          title: Num Objects Human
+          type: string
+        id:
+          title: Id
+          type: integer
+        bucket_group:
+          title: Bucket Group
+          type: integer
+  securitySchemes:
+    HTTPBearer:
+      type: http
+      scheme: bearer

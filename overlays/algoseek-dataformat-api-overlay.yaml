@@ -1,0 +1,19 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for AlgoSeek metadata-api AWSAccount DataFormat API
+  version: 1.0.0
+extends: openapi/algoseek-dataformat-api-openapi.yml
+actions:
+- target: $
+  update:
+    servers:
+    - url: https://metadata-services.algoseek.com/api/v1
+      description: AlgoSeek Metadata Services production host (the harvested spec omits servers[])
+- target: $.info
+  update:
+    x-apievangelist:
+      provider: algoseek
+      harvested: '2026-07-22'
+      source: https://metadata-services.algoseek.com/api/v1/openapi.json
+      notes: Split per-tag from the live metadata-api v1.2 OpenAPI 3.0.2 document; bearer token obtained
+        via POST /api/v1/login/access_token/.
