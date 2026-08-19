@@ -1,0 +1,188 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "metadata-api AWSAccount Person API",
+    "version": "1.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Person",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Persons",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/person/",
+            "params": [
+              {
+                "name": "is_active",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "is_public",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "vendor_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "role",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get a list of all persons"
+        },
+        {
+          "info": {
+            "name": "Add Person",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/person/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Add a new person"
+        },
+        {
+          "info": {
+            "name": "Get Person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/person/:person_id/",
+            "params": [
+              {
+                "name": "person_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get Person details by id"
+        },
+        {
+          "info": {
+            "name": "Update person",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/person/:person_id/",
+            "params": [
+              {
+                "name": "person_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update person details by id"
+        },
+        {
+          "info": {
+            "name": "Delete person",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/person/:person_id/",
+            "params": [
+              {
+                "name": "person_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete a person record"
+        },
+        {
+          "info": {
+            "name": "Get Person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/person/email/:email/",
+            "params": [
+              {
+                "name": "email",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get Person details by email"
+        },
+        {
+          "info": {
+            "name": "Get Extended Person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/person/ext/:person_id/",
+            "params": [
+              {
+                "name": "person_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get Extended Person details by id"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

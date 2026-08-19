@@ -1,0 +1,193 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "metadata-api AWSAccount TimeGranularity API",
+    "version": "1.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "TimeGranularity",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Time Granularities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/time_granularity/",
+            "params": [
+              {
+                "name": "is_active",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "is_public",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get a list of all time granularities"
+        },
+        {
+          "info": {
+            "name": "Add Time Granularity",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/time_granularity/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Add a new time granularity"
+        },
+        {
+          "info": {
+            "name": "Get Time Granularity",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/time_granularity/:time_granularity_id/",
+            "params": [
+              {
+                "name": "time_granularity_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get Time Granularity details by id"
+        },
+        {
+          "info": {
+            "name": "Update Time Granularity",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/time_granularity/:time_granularity_id/",
+            "params": [
+              {
+                "name": "time_granularity_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update time granularity details by id"
+        },
+        {
+          "info": {
+            "name": "Delete Time Granularity",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/time_granularity/:time_granularity_id/",
+            "params": [
+              {
+                "name": "time_granularity_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete a time granularity record"
+        },
+        {
+          "info": {
+            "name": "Get Time Granularity by text id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/time_granularity/text_id/:text_id/",
+            "params": [
+              {
+                "name": "text_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get time granularity details by text_id"
+        },
+        {
+          "info": {
+            "name": "Get Time Granularity",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/public/time_granularity/:time_granularity_id/",
+            "params": [
+              {
+                "name": "time_granularity_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get Time Granularity details by id"
+        },
+        {
+          "info": {
+            "name": "List Time Granularities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/public/time_granularity/",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get a list of all time granularities"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,193 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "metadata-api AWSAccount DataType API",
+    "version": "1.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "DataType",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Data Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/data_type/",
+            "params": [
+              {
+                "name": "is_active",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "is_public",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get a list of all data types"
+        },
+        {
+          "info": {
+            "name": "Add Data Type",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/data_type/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Add a new data type"
+        },
+        {
+          "info": {
+            "name": "Get Data Type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/data_type/:data_type_id/",
+            "params": [
+              {
+                "name": "data_type_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get Data Type details by id"
+        },
+        {
+          "info": {
+            "name": "Update data type",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/data_type/:data_type_id/",
+            "params": [
+              {
+                "name": "data_type_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update data type details by id"
+        },
+        {
+          "info": {
+            "name": "Delete data type",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/data_type/:data_type_id/",
+            "params": [
+              {
+                "name": "data_type_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete a data type record"
+        },
+        {
+          "info": {
+            "name": "Get Data Type by text id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/data_type/text_id/:text_id/",
+            "params": [
+              {
+                "name": "text_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get data type details by text_id"
+        },
+        {
+          "info": {
+            "name": "Get Data Type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/public/data_type/:data_type_id/",
+            "params": [
+              {
+                "name": "data_type_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get Data Type details by id"
+        },
+        {
+          "info": {
+            "name": "List Data Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/public/data_type/",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get a list of all data types"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

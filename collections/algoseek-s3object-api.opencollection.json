@@ -1,0 +1,198 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "metadata-api AWSAccount S3Object API",
+    "version": "1.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "S3Object",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List S3 Object",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/s3object/",
+            "params": [
+              {
+                "name": "is_active",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "is_public",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "aws_account_id",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get a list of all s3 objects"
+        },
+        {
+          "info": {
+            "name": "Add S3 Object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/s3object/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Add a new s3 object"
+        },
+        {
+          "info": {
+            "name": "Get S3 Object",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/s3object/:s3object_id/",
+            "params": [
+              {
+                "name": "s3object_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get S3 Object details by id"
+        },
+        {
+          "info": {
+            "name": "Update s3 object",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/s3object/:s3object_id/",
+            "params": [
+              {
+                "name": "s3object_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update s3 object details by id"
+        },
+        {
+          "info": {
+            "name": "Delete s3 object",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/s3object/:s3object_id/",
+            "params": [
+              {
+                "name": "s3object_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete a s3 object record"
+        },
+        {
+          "info": {
+            "name": "Get S3 Object",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/s3object/ext/:s3object_id/",
+            "params": [
+              {
+                "name": "s3object_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get S3 Object details by id"
+        },
+        {
+          "info": {
+            "name": "Get S3 Object",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/public/s3object/:s3object_id/",
+            "params": [
+              {
+                "name": "s3object_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get S3 Object details by id"
+        },
+        {
+          "info": {
+            "name": "List S3 Object",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/public/s3object/",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get a list of all s3 objects"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

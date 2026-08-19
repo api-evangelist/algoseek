@@ -1,0 +1,139 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "metadata-api AWSAccount DatasetChange API",
+    "version": "1.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "DatasetChange",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Dataset Changes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/dataset_change/",
+            "params": [
+              {
+                "name": "is_active",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "is_public",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "dataset_id",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get a list of all dataset changes"
+        },
+        {
+          "info": {
+            "name": "Add Dataset Changes",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/dataset_change/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Add a new dataset changes"
+        },
+        {
+          "info": {
+            "name": "Get Dataset Changes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/dataset_change/:dataset_change_id/",
+            "params": [
+              {
+                "name": "dataset_change_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get Dataset Chnages details by id"
+        },
+        {
+          "info": {
+            "name": "Update dataset changes",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/dataset_change/:dataset_change_id/",
+            "params": [
+              {
+                "name": "dataset_change_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update dataset changes details by id"
+        },
+        {
+          "info": {
+            "name": "Delete dataset changes",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/dataset_change/:dataset_change_id/",
+            "params": [
+              {
+                "name": "dataset_change_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete a dataset changes record"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

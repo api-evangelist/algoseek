@@ -1,0 +1,156 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "metadata-api AWSAccount AWSResourceType API",
+    "version": "1.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "AWSResourceType",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List AWS Resource Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/aws_resource_type/",
+            "params": [
+              {
+                "name": "is_active",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "is_public",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get a list of all AWS resource types"
+        },
+        {
+          "info": {
+            "name": "Add AWS Resource Type",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/aws_resource_type/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Add a new AWS resource type"
+        },
+        {
+          "info": {
+            "name": "Get AWS Resource Type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/aws_resource_type/:aws_resource_type_id/",
+            "params": [
+              {
+                "name": "aws_resource_type_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get AWS resource type details by id"
+        },
+        {
+          "info": {
+            "name": "Update AWS resource type",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/aws_resource_type/:aws_resource_type_id/",
+            "params": [
+              {
+                "name": "aws_resource_type_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update AWS resource type details by id"
+        },
+        {
+          "info": {
+            "name": "Delete AWS resource type",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/aws_resource_type/:aws_resource_type_id/",
+            "params": [
+              {
+                "name": "aws_resource_type_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete a AWS resource type record"
+        },
+        {
+          "info": {
+            "name": "Get AWS Resource Type by text id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/aws_resource_type/text_id/:text_id/",
+            "params": [
+              {
+                "name": "text_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get aws resource type details by text_id"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

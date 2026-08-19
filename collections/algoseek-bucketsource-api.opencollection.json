@@ -1,0 +1,156 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "metadata-api AWSAccount BucketSource API",
+    "version": "1.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "BucketSource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Buckets Source",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/bucket_source/",
+            "params": [
+              {
+                "name": "is_active",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "is_public",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get a list of all bucket sources"
+        },
+        {
+          "info": {
+            "name": "Add Bucket Source",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/bucket_source/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Add a new bucket source"
+        },
+        {
+          "info": {
+            "name": "Get Bucket Source",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/bucket_source/:bucket_source_id/",
+            "params": [
+              {
+                "name": "bucket_source_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get Bucket Source details by id"
+        },
+        {
+          "info": {
+            "name": "Update bucket source",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/bucket_source/:bucket_source_id/",
+            "params": [
+              {
+                "name": "bucket_source_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update bucket source details by id"
+        },
+        {
+          "info": {
+            "name": "Delete bucket source",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/bucket_source/:bucket_source_id/",
+            "params": [
+              {
+                "name": "bucket_source_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete a bucket source record"
+        },
+        {
+          "info": {
+            "name": "Get Extended Bucket Source",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/bucket_source/ext/:bucket_source_id/",
+            "params": [
+              {
+                "name": "bucket_source_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get Extended bucket source details by id"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

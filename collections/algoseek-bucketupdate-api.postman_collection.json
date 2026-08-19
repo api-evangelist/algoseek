@@ -1,0 +1,1167 @@
+{
+  "item": [
+    {
+      "id": "63c105e1-bd22-4139-a2a2-6adeee5edfc7",
+      "name": "BucketUpdate",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3331f60e-52fc-4303-ad6e-349b8e0cf3d5",
+          "name": "List Bucket Updates",
+          "request": {
+            "name": "List Bucket Updates",
+            "description": {
+              "content": "Get a list of all bucket updates",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "internal",
+                "bucket_update",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "is_active",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "is_public",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ae0c6bd3-755a-456a-a8e9-4ec314ae0980",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "internal",
+                    "bucket_update",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "is_active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "is_public",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"is_active\": true,\n    \"is_public\": false,\n    \"id\": 6690,\n    \"created\": \"1970-09-02T11:22:01.103Z\",\n    \"modified\": \"1966-01-02T22:59:13.833Z\",\n    \"interval\": \"string\",\n    \"days_offset\": 8743,\n    \"public_time\": \"string\",\n    \"size_human\": \"string\",\n    \"num_objects_human\": \"string\",\n    \"expected_time\": \"string\",\n    \"intraday_period_minutes\": 9977,\n    \"duration_minutes\": 4476,\n    \"source\": \"string\",\n    \"size_bytes\": 7844,\n    \"num_objects\": 7389,\n    \"path_prefix\": \"string\",\n    \"regex_structure\": \"string\",\n    \"notes\": \"string\",\n    \"bucket_group\": 3309\n  },\n  {\n    \"is_active\": true,\n    \"is_public\": false,\n    \"id\": 1841,\n    \"created\": \"1973-06-04T09:51:46.061Z\",\n    \"modified\": \"1991-06-21T00:44:27.592Z\",\n    \"interval\": \"string\",\n    \"days_offset\": 8560,\n    \"public_time\": \"string\",\n    \"size_human\": \"string\",\n    \"num_objects_human\": \"string\",\n    \"expected_time\": \"string\",\n    \"intraday_period_minutes\": 2350,\n    \"duration_minutes\": 7851,\n    \"source\": \"string\",\n    \"size_bytes\": 1919,\n    \"num_objects\": 3556,\n    \"path_prefix\": \"string\",\n    \"regex_structure\": \"string\",\n    \"notes\": \"string\",\n    \"bucket_group\": 3412\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b7f8445f-09aa-4339-85f1-419094ddc2fd",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "internal",
+                    "bucket_update",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "is_active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "is_public",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ca578185-d44e-4f52-9a19-5668d4bbbe7b",
+          "name": "Add Bucket Updates",
+          "request": {
+            "name": "Add Bucket Updates",
+            "description": {
+              "content": "Add a new bucket updates",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "internal",
+                "bucket_update",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"interval\": \"<string>\",\n  \"days_offset\": \"<integer>\",\n  \"public_time\": \"<string>\",\n  \"size_human\": \"<string>\",\n  \"num_objects_human\": \"<string>\",\n  \"expected_time\": \"<string>\",\n  \"intraday_period_minutes\": \"<integer>\",\n  \"duration_minutes\": \"<integer>\",\n  \"source\": \"<string>\",\n  \"size_bytes\": \"<integer>\",\n  \"num_objects\": \"<integer>\",\n  \"path_prefix\": \"<string>\",\n  \"regex_structure\": \"<string>\",\n  \"is_active\": \"<boolean>\",\n  \"is_public\": \"<boolean>\",\n  \"notes\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "81818eb2-47bc-40f9-8c03-b9a8f79daed2",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "internal",
+                    "bucket_update",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"interval\": \"<string>\",\n  \"days_offset\": \"<integer>\",\n  \"public_time\": \"<string>\",\n  \"size_human\": \"<string>\",\n  \"num_objects_human\": \"<string>\",\n  \"expected_time\": \"<string>\",\n  \"intraday_period_minutes\": \"<integer>\",\n  \"duration_minutes\": \"<integer>\",\n  \"source\": \"<string>\",\n  \"size_bytes\": \"<integer>\",\n  \"num_objects\": \"<integer>\",\n  \"path_prefix\": \"<string>\",\n  \"regex_structure\": \"<string>\",\n  \"is_active\": \"<boolean>\",\n  \"is_public\": \"<boolean>\",\n  \"notes\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"is_active\": false,\n  \"is_public\": true,\n  \"id\": 1288,\n  \"created\": \"1983-03-20T03:49:23.846Z\",\n  \"modified\": \"1966-08-29T17:00:42.929Z\",\n  \"interval\": \"string\",\n  \"days_offset\": 8949,\n  \"public_time\": \"string\",\n  \"size_human\": \"string\",\n  \"num_objects_human\": \"string\",\n  \"expected_time\": \"string\",\n  \"intraday_period_minutes\": 9952,\n  \"duration_minutes\": 1012,\n  \"source\": \"string\",\n  \"size_bytes\": 2978,\n  \"num_objects\": 8395,\n  \"path_prefix\": \"string\",\n  \"regex_structure\": \"string\",\n  \"notes\": \"string\",\n  \"bucket_group\": 7712\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4ce00fac-c45e-40e5-844e-ad6a3d195763",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "internal",
+                    "bucket_update",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"interval\": \"<string>\",\n  \"days_offset\": \"<integer>\",\n  \"public_time\": \"<string>\",\n  \"size_human\": \"<string>\",\n  \"num_objects_human\": \"<string>\",\n  \"expected_time\": \"<string>\",\n  \"intraday_period_minutes\": \"<integer>\",\n  \"duration_minutes\": \"<integer>\",\n  \"source\": \"<string>\",\n  \"size_bytes\": \"<integer>\",\n  \"num_objects\": \"<integer>\",\n  \"path_prefix\": \"<string>\",\n  \"regex_structure\": \"<string>\",\n  \"is_active\": \"<boolean>\",\n  \"is_public\": \"<boolean>\",\n  \"notes\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d7c31179-faac-4e3e-9797-b33da2a21928",
+          "name": "Get Bucket Updates",
+          "request": {
+            "name": "Get Bucket Updates",
+            "description": {
+              "content": "Get Bucket Updates details by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "internal",
+                "bucket_update",
+                ":bucket_updates_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "bucket_updates_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6cb4fbce-5d99-4428-bed3-78645c3fc1c6",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "internal",
+                    "bucket_update",
+                    ":bucket_updates_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "bucket_updates_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"is_active\": false,\n  \"is_public\": true,\n  \"id\": 1288,\n  \"created\": \"1983-03-20T03:49:23.846Z\",\n  \"modified\": \"1966-08-29T17:00:42.929Z\",\n  \"interval\": \"string\",\n  \"days_offset\": 8949,\n  \"public_time\": \"string\",\n  \"size_human\": \"string\",\n  \"num_objects_human\": \"string\",\n  \"expected_time\": \"string\",\n  \"intraday_period_minutes\": 9952,\n  \"duration_minutes\": 1012,\n  \"source\": \"string\",\n  \"size_bytes\": 2978,\n  \"num_objects\": 8395,\n  \"path_prefix\": \"string\",\n  \"regex_structure\": \"string\",\n  \"notes\": \"string\",\n  \"bucket_group\": 7712\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "52622e2d-7ac7-45fd-b02d-b4fe2e645769",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "internal",
+                    "bucket_update",
+                    ":bucket_updates_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "bucket_updates_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0c5684b2-db22-4727-bbfc-52f38b980b82",
+          "name": "Update bucket updates",
+          "request": {
+            "name": "Update bucket updates",
+            "description": {
+              "content": "Update bucket updates details by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "internal",
+                "bucket_update",
+                ":bucket_updates_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "bucket_updates_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"interval\": \"<string>\",\n  \"days_offset\": \"<integer>\",\n  \"public_time\": \"<string>\",\n  \"size_human\": \"<string>\",\n  \"num_objects_human\": \"<string>\",\n  \"expected_time\": \"<string>\",\n  \"intraday_period_minutes\": \"<integer>\",\n  \"duration_minutes\": \"<integer>\",\n  \"source\": \"<string>\",\n  \"size_bytes\": \"<integer>\",\n  \"num_objects\": \"<integer>\",\n  \"path_prefix\": \"<string>\",\n  \"regex_structure\": \"<string>\",\n  \"is_active\": \"<boolean>\",\n  \"is_public\": \"<boolean>\",\n  \"notes\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "83560a0a-b8d1-4e71-9a70-645acc240a55",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "internal",
+                    "bucket_update",
+                    ":bucket_updates_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "bucket_updates_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"interval\": \"<string>\",\n  \"days_offset\": \"<integer>\",\n  \"public_time\": \"<string>\",\n  \"size_human\": \"<string>\",\n  \"num_objects_human\": \"<string>\",\n  \"expected_time\": \"<string>\",\n  \"intraday_period_minutes\": \"<integer>\",\n  \"duration_minutes\": \"<integer>\",\n  \"source\": \"<string>\",\n  \"size_bytes\": \"<integer>\",\n  \"num_objects\": \"<integer>\",\n  \"path_prefix\": \"<string>\",\n  \"regex_structure\": \"<string>\",\n  \"is_active\": \"<boolean>\",\n  \"is_public\": \"<boolean>\",\n  \"notes\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"is_active\": false,\n  \"is_public\": true,\n  \"id\": 1288,\n  \"created\": \"1983-03-20T03:49:23.846Z\",\n  \"modified\": \"1966-08-29T17:00:42.929Z\",\n  \"interval\": \"string\",\n  \"days_offset\": 8949,\n  \"public_time\": \"string\",\n  \"size_human\": \"string\",\n  \"num_objects_human\": \"string\",\n  \"expected_time\": \"string\",\n  \"intraday_period_minutes\": 9952,\n  \"duration_minutes\": 1012,\n  \"source\": \"string\",\n  \"size_bytes\": 2978,\n  \"num_objects\": 8395,\n  \"path_prefix\": \"string\",\n  \"regex_structure\": \"string\",\n  \"notes\": \"string\",\n  \"bucket_group\": 7712\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e707c404-3a70-443c-99e1-ebcc7bfbf22c",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "internal",
+                    "bucket_update",
+                    ":bucket_updates_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "bucket_updates_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"interval\": \"<string>\",\n  \"days_offset\": \"<integer>\",\n  \"public_time\": \"<string>\",\n  \"size_human\": \"<string>\",\n  \"num_objects_human\": \"<string>\",\n  \"expected_time\": \"<string>\",\n  \"intraday_period_minutes\": \"<integer>\",\n  \"duration_minutes\": \"<integer>\",\n  \"source\": \"<string>\",\n  \"size_bytes\": \"<integer>\",\n  \"num_objects\": \"<integer>\",\n  \"path_prefix\": \"<string>\",\n  \"regex_structure\": \"<string>\",\n  \"is_active\": \"<boolean>\",\n  \"is_public\": \"<boolean>\",\n  \"notes\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2281093c-e0e4-4a26-a656-ac05d2a65391",
+          "name": "Delete bucket updates",
+          "request": {
+            "name": "Delete bucket updates",
+            "description": {
+              "content": "Delete a bucket updates record",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "internal",
+                "bucket_update",
+                ":bucket_updates_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "bucket_updates_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ef1850ec-c726-4bb6-974f-3997cbf2f5e6",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "internal",
+                    "bucket_update",
+                    ":bucket_updates_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "bucket_updates_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"is_active\": false,\n  \"is_public\": true,\n  \"id\": 1288,\n  \"created\": \"1983-03-20T03:49:23.846Z\",\n  \"modified\": \"1966-08-29T17:00:42.929Z\",\n  \"interval\": \"string\",\n  \"days_offset\": 8949,\n  \"public_time\": \"string\",\n  \"size_human\": \"string\",\n  \"num_objects_human\": \"string\",\n  \"expected_time\": \"string\",\n  \"intraday_period_minutes\": 9952,\n  \"duration_minutes\": 1012,\n  \"source\": \"string\",\n  \"size_bytes\": 2978,\n  \"num_objects\": 8395,\n  \"path_prefix\": \"string\",\n  \"regex_structure\": \"string\",\n  \"notes\": \"string\",\n  \"bucket_group\": 7712\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2f69aa53-4c85-42f3-b9c1-6e1e75081608",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "internal",
+                    "bucket_update",
+                    ":bucket_updates_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "bucket_updates_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1adb1e1a-2b03-4352-abd4-afc57389c843",
+          "name": "Get Bucket Updates",
+          "request": {
+            "name": "Get Bucket Updates",
+            "description": {
+              "content": "Get Bucket Updates details by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "public",
+                "bucket_update",
+                ":bucket_updates_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "bucket_updates_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "cf191a53-0d84-41d8-b4d2-db1e7ef14ffb",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "public",
+                    "bucket_update",
+                    ":bucket_updates_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "bucket_updates_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1123,\n  \"interval\": \"string\",\n  \"days_offset\": 9622,\n  \"public_time\": \"string\",\n  \"size_human\": \"string\",\n  \"num_objects_human\": \"string\",\n  \"bucket_group\": 4272\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b33ecc7b-8169-4027-928d-9e4f4300efdf",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "public",
+                    "bucket_update",
+                    ":bucket_updates_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "bucket_updates_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8f23a3b8-4f04-49de-a33c-d529e94b2474",
+          "name": "List Bucket Updates",
+          "request": {
+            "name": "List Bucket Updates",
+            "description": {
+              "content": "Get a list of all bucket updates",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "public",
+                "bucket_update",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "433180c1-fe6b-484a-8ef8-a0f8c24023ad",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "public",
+                    "bucket_update",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 2076,\n    \"interval\": \"string\",\n    \"days_offset\": 8876,\n    \"public_time\": \"string\",\n    \"size_human\": \"string\",\n    \"num_objects_human\": \"string\",\n    \"bucket_group\": 3635\n  },\n  {\n    \"id\": 7574,\n    \"interval\": \"string\",\n    \"days_offset\": 9131,\n    \"public_time\": \"string\",\n    \"size_human\": \"string\",\n    \"num_objects_human\": \"string\",\n    \"bucket_group\": 6833\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://metadata-services.algoseek.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "778882a7-8ff3-4669-b128-69d56505f2dc",
+    "name": "metadata-api AWSAccount BucketUpdate API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

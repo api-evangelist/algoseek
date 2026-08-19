@@ -1,0 +1,171 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "metadata-api AWSAccount DataGroupPricing API",
+    "version": "1.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "DataGroupPricing",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Data Group Pricing",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/data_group_pricing/",
+            "params": [
+              {
+                "name": "is_active",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "is_public",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get a list of all data group pricing"
+        },
+        {
+          "info": {
+            "name": "Add Data Group Pricing",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/data_group_pricing/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Add a new data group pricing"
+        },
+        {
+          "info": {
+            "name": "Get Data Group Pricing",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/data_group_pricing/:data_group_pricing_id/",
+            "params": [
+              {
+                "name": "data_group_pricing_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get Data Group Pricing details by id"
+        },
+        {
+          "info": {
+            "name": "Update data group pricing",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/data_group_pricing/:data_group_pricing_id/",
+            "params": [
+              {
+                "name": "data_group_pricing_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update data group pricing details by id"
+        },
+        {
+          "info": {
+            "name": "Delete data group pricing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/data_group_pricing/:data_group_pricing_id/",
+            "params": [
+              {
+                "name": "data_group_pricing_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete a data group pricing record"
+        },
+        {
+          "info": {
+            "name": "Get Data Group Pricing",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/public/data_group_pricing/:data_group_pricing_id/",
+            "params": [
+              {
+                "name": "data_group_pricing_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get Data Group Pricing details by id"
+        },
+        {
+          "info": {
+            "name": "List Data Group Pricing",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/public/data_group_pricing/",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get a list of all data group pricing"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

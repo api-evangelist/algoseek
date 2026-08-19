@@ -1,0 +1,1364 @@
+{
+  "item": [
+    {
+      "id": "b475fde1-88a7-4592-928d-0a5b6aff5ad3",
+      "name": "DataGroup",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d7e94d17-7647-4c8f-9a01-5b0b9546c4b6",
+          "name": "List Data Group",
+          "request": {
+            "name": "List Data Group",
+            "description": {
+              "content": "Get a list of all data groups",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "internal",
+                "data_group",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "is_active",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "is_public",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "status_id",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "region_id",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "db7aa171-6fda-48ab-be2a-e83b6ffc7162",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "internal",
+                    "data_group",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "is_active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "is_public",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "status_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "region_id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"text_id\": \"string\",\n    \"status_id\": 5852,\n    \"region_id\": 7983,\n    \"pricing_id\": 34,\n    \"internal_name\": \"string\",\n    \"is_active\": false,\n    \"is_public\": true,\n    \"id\": 3633,\n    \"created\": \"1957-01-03T11:47:34.783Z\",\n    \"modified\": \"1951-02-13T01:20:03.996Z\",\n    \"display_name\": \"string\",\n    \"full_name\": \"string\",\n    \"description\": \"string\",\n    \"universe_size\": 4572,\n    \"universe_description\": \"string\",\n    \"universe_components\": [\n      \"string\",\n      \"string\"\n    ],\n    \"symbols_per_component\": [\n      6830,\n      2185\n    ],\n    \"tags\": [\n      \"string\",\n      \"string\"\n    ],\n    \"notes\": \"string\"\n  },\n  {\n    \"text_id\": \"string\",\n    \"status_id\": 1381,\n    \"region_id\": 5320,\n    \"pricing_id\": 3903,\n    \"internal_name\": \"string\",\n    \"is_active\": false,\n    \"is_public\": true,\n    \"id\": 5068,\n    \"created\": \"2017-12-19T10:45:54.245Z\",\n    \"modified\": \"2014-07-28T10:30:05.769Z\",\n    \"display_name\": \"string\",\n    \"full_name\": \"string\",\n    \"description\": \"string\",\n    \"universe_size\": 9129,\n    \"universe_description\": \"string\",\n    \"universe_components\": [\n      \"string\",\n      \"string\"\n    ],\n    \"symbols_per_component\": [\n      4725,\n      4407\n    ],\n    \"tags\": [\n      \"string\",\n      \"string\"\n    ],\n    \"notes\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f22e5514-a4f6-4583-9ae0-a8900206bfeb",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "internal",
+                    "data_group",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "is_active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "is_public",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "status_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "region_id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "86978f06-a1ac-43a5-9ba2-11c3d09c5aa9",
+          "name": "Add Data Group",
+          "request": {
+            "name": "Add Data Group",
+            "description": {
+              "content": "Add a new data group",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "internal",
+                "data_group",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"text_id\": \"<string>\",\n  \"status_id\": \"<integer>\",\n  \"region_id\": \"<integer>\",\n  \"pricing_id\": \"<integer>\",\n  \"internal_name\": \"<string>\",\n  \"display_name\": \"<string>\",\n  \"full_name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"universe_size\": \"<integer>\",\n  \"universe_description\": \"<string>\",\n  \"universe_components\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"symbols_per_component\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"is_active\": \"<boolean>\",\n  \"is_public\": \"<boolean>\",\n  \"notes\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "eba70fdd-5aa3-4c1c-826d-76e608e20072",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "internal",
+                    "data_group",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"text_id\": \"<string>\",\n  \"status_id\": \"<integer>\",\n  \"region_id\": \"<integer>\",\n  \"pricing_id\": \"<integer>\",\n  \"internal_name\": \"<string>\",\n  \"display_name\": \"<string>\",\n  \"full_name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"universe_size\": \"<integer>\",\n  \"universe_description\": \"<string>\",\n  \"universe_components\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"symbols_per_component\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"is_active\": \"<boolean>\",\n  \"is_public\": \"<boolean>\",\n  \"notes\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text_id\": \"string\",\n  \"status_id\": 8547,\n  \"region_id\": 157,\n  \"pricing_id\": 430,\n  \"internal_name\": \"string\",\n  \"is_active\": true,\n  \"is_public\": false,\n  \"id\": 453,\n  \"created\": \"2014-08-20T17:31:16.747Z\",\n  \"modified\": \"1973-10-11T21:58:13.867Z\",\n  \"display_name\": \"string\",\n  \"full_name\": \"string\",\n  \"description\": \"string\",\n  \"universe_size\": 172,\n  \"universe_description\": \"string\",\n  \"universe_components\": [\n    \"string\",\n    \"string\"\n  ],\n  \"symbols_per_component\": [\n    5394,\n    2579\n  ],\n  \"tags\": [\n    \"string\",\n    \"string\"\n  ],\n  \"notes\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "43a7fcc7-56eb-4c6c-881d-e2bbccf0ca67",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "internal",
+                    "data_group",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"text_id\": \"<string>\",\n  \"status_id\": \"<integer>\",\n  \"region_id\": \"<integer>\",\n  \"pricing_id\": \"<integer>\",\n  \"internal_name\": \"<string>\",\n  \"display_name\": \"<string>\",\n  \"full_name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"universe_size\": \"<integer>\",\n  \"universe_description\": \"<string>\",\n  \"universe_components\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"symbols_per_component\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"is_active\": \"<boolean>\",\n  \"is_public\": \"<boolean>\",\n  \"notes\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b7735ce3-3956-4ebf-a09d-e76895cbe137",
+          "name": "Get Data Group",
+          "request": {
+            "name": "Get Data Group",
+            "description": {
+              "content": "Get Data Group details by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "internal",
+                "data_group",
+                ":data_group_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "data_group_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "cc097d5b-3983-415b-9369-a572d6fc7145",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "internal",
+                    "data_group",
+                    ":data_group_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "data_group_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text_id\": \"string\",\n  \"status_id\": 8547,\n  \"region_id\": 157,\n  \"pricing_id\": 430,\n  \"internal_name\": \"string\",\n  \"is_active\": true,\n  \"is_public\": false,\n  \"id\": 453,\n  \"created\": \"2014-08-20T17:31:16.747Z\",\n  \"modified\": \"1973-10-11T21:58:13.867Z\",\n  \"display_name\": \"string\",\n  \"full_name\": \"string\",\n  \"description\": \"string\",\n  \"universe_size\": 172,\n  \"universe_description\": \"string\",\n  \"universe_components\": [\n    \"string\",\n    \"string\"\n  ],\n  \"symbols_per_component\": [\n    5394,\n    2579\n  ],\n  \"tags\": [\n    \"string\",\n    \"string\"\n  ],\n  \"notes\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a207607d-8dfe-46e5-8675-916c0c65ac29",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "internal",
+                    "data_group",
+                    ":data_group_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "data_group_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ed027c40-2cb3-40da-beda-dee7b5f04bad",
+          "name": "Update data group",
+          "request": {
+            "name": "Update data group",
+            "description": {
+              "content": "Update data group details by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "internal",
+                "data_group",
+                ":data_group_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "data_group_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"text_id\": \"<string>\",\n  \"display_name\": \"<string>\",\n  \"full_name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"universe_size\": \"<integer>\",\n  \"universe_description\": \"<string>\",\n  \"universe_components\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"symbols_per_component\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"status_id\": \"<integer>\",\n  \"region_id\": \"<integer>\",\n  \"pricing_id\": \"<integer>\",\n  \"internal_name\": \"<string>\",\n  \"is_active\": \"<boolean>\",\n  \"is_public\": \"<boolean>\",\n  \"notes\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "699cfa0d-1224-46ce-aee6-c96e2cd22a28",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "internal",
+                    "data_group",
+                    ":data_group_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "data_group_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"text_id\": \"<string>\",\n  \"display_name\": \"<string>\",\n  \"full_name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"universe_size\": \"<integer>\",\n  \"universe_description\": \"<string>\",\n  \"universe_components\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"symbols_per_component\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"status_id\": \"<integer>\",\n  \"region_id\": \"<integer>\",\n  \"pricing_id\": \"<integer>\",\n  \"internal_name\": \"<string>\",\n  \"is_active\": \"<boolean>\",\n  \"is_public\": \"<boolean>\",\n  \"notes\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text_id\": \"string\",\n  \"status_id\": 8547,\n  \"region_id\": 157,\n  \"pricing_id\": 430,\n  \"internal_name\": \"string\",\n  \"is_active\": true,\n  \"is_public\": false,\n  \"id\": 453,\n  \"created\": \"2014-08-20T17:31:16.747Z\",\n  \"modified\": \"1973-10-11T21:58:13.867Z\",\n  \"display_name\": \"string\",\n  \"full_name\": \"string\",\n  \"description\": \"string\",\n  \"universe_size\": 172,\n  \"universe_description\": \"string\",\n  \"universe_components\": [\n    \"string\",\n    \"string\"\n  ],\n  \"symbols_per_component\": [\n    5394,\n    2579\n  ],\n  \"tags\": [\n    \"string\",\n    \"string\"\n  ],\n  \"notes\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "56f69bfa-9a76-4d8b-926e-b74802d86cb9",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "internal",
+                    "data_group",
+                    ":data_group_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "data_group_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"text_id\": \"<string>\",\n  \"display_name\": \"<string>\",\n  \"full_name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"universe_size\": \"<integer>\",\n  \"universe_description\": \"<string>\",\n  \"universe_components\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"symbols_per_component\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"status_id\": \"<integer>\",\n  \"region_id\": \"<integer>\",\n  \"pricing_id\": \"<integer>\",\n  \"internal_name\": \"<string>\",\n  \"is_active\": \"<boolean>\",\n  \"is_public\": \"<boolean>\",\n  \"notes\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "06cd9eed-48ee-4219-a1cf-82b8a35c304f",
+          "name": "Delete data group",
+          "request": {
+            "name": "Delete data group",
+            "description": {
+              "content": "Delete a data group record",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "internal",
+                "data_group",
+                ":data_group_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "data_group_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "29f1b523-dd8b-46b5-954c-595f611567fb",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "internal",
+                    "data_group",
+                    ":data_group_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "data_group_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text_id\": \"string\",\n  \"status_id\": 8547,\n  \"region_id\": 157,\n  \"pricing_id\": 430,\n  \"internal_name\": \"string\",\n  \"is_active\": true,\n  \"is_public\": false,\n  \"id\": 453,\n  \"created\": \"2014-08-20T17:31:16.747Z\",\n  \"modified\": \"1973-10-11T21:58:13.867Z\",\n  \"display_name\": \"string\",\n  \"full_name\": \"string\",\n  \"description\": \"string\",\n  \"universe_size\": 172,\n  \"universe_description\": \"string\",\n  \"universe_components\": [\n    \"string\",\n    \"string\"\n  ],\n  \"symbols_per_component\": [\n    5394,\n    2579\n  ],\n  \"tags\": [\n    \"string\",\n    \"string\"\n  ],\n  \"notes\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d2ba471a-9910-4c20-b365-3613d46c9174",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "internal",
+                    "data_group",
+                    ":data_group_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "data_group_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "45d8e3c9-e553-4267-b1bb-2a17ebe8d8d1",
+          "name": "Get Extended Data Group",
+          "request": {
+            "name": "Get Extended Data Group",
+            "description": {
+              "content": "Get Extended Data Group details by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "internal",
+                "data_group",
+                "ext",
+                ":data_group_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "data_group_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e05b1659-a4c2-4525-9a6b-6581b16f5343",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "internal",
+                    "data_group",
+                    "ext",
+                    ":data_group_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "data_group_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text_id\": \"string\",\n  \"status\": {\n    \"text_id\": \"string\",\n    \"internal_name\": \"string\",\n    \"is_active\": true,\n    \"is_public\": false,\n    \"id\": 3850,\n    \"created\": \"1960-10-22T06:28:16.167Z\",\n    \"modified\": \"1971-10-19T20:43:57.390Z\",\n    \"display_name\": \"string\",\n    \"full_name\": \"string\",\n    \"description\": \"string\",\n    \"notes\": \"string\"\n  },\n  \"region\": {\n    \"text_id\": \"string\",\n    \"internal_name\": \"string\",\n    \"is_active\": false,\n    \"is_public\": true,\n    \"id\": 8218,\n    \"created\": \"2012-02-23T18:58:39.055Z\",\n    \"modified\": \"2013-11-12T22:42:20.288Z\",\n    \"display_name\": \"string\",\n    \"full_name\": \"string\",\n    \"description\": \"string\",\n    \"notes\": \"string\"\n  },\n  \"pricing\": {\n    \"name\": \"string\",\n    \"is_active\": true,\n    \"is_public\": true,\n    \"id\": 8040,\n    \"created\": \"2008-11-14T02:36:53.579Z\",\n    \"modified\": \"1988-10-19T06:46:39.171Z\",\n    \"buy_annual_decrease_factor\": 7055.111351428749,\n    \"buy_prod_upd_factor\": 5375.181766641585,\n    \"buy_research_upd_factor\": 7596.747029160006,\n    \"lease_hist_factor\": 8833.767990209159,\n    \"lease_upd_factor\": 9006.4436116603,\n    \"notes\": \"string\"\n  },\n  \"id\": 5004,\n  \"internal_name\": \"string\",\n  \"is_active\": false,\n  \"is_public\": true,\n  \"created\": \"1962-06-07T21:40:14.556Z\",\n  \"modified\": \"1997-01-23T05:24:56.331Z\",\n  \"display_name\": \"string\",\n  \"full_name\": \"string\",\n  \"description\": \"string\",\n  \"universe_size\": 7923,\n  \"universe_description\": \"string\",\n  \"universe_components\": [\n    \"string\",\n    \"string\"\n  ],\n  \"symbols_per_component\": [\n    897,\n    9690\n  ],\n  \"tags\": [\n    \"string\",\n    \"string\"\n  ],\n  \"notes\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "98919ef3-987c-4b52-bd48-fab2a58a94f5",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "internal",
+                    "data_group",
+                    "ext",
+                    ":data_group_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "data_group_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "874f04f6-c91c-4f1d-b9b5-b0328ae89208",
+          "name": "Get Data Group",
+          "request": {
+            "name": "Get Data Group",
+            "description": {
+              "content": "Get Data Group details by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "public",
+                "data_group",
+                ":data_group_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "data_group_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "75c68f71-578f-4575-976e-cc337287e90b",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "public",
+                    "data_group",
+                    ":data_group_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "data_group_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text_id\": \"string\",\n  \"status_id\": 8199,\n  \"region_id\": 2230,\n  \"pricing_id\": 9412,\n  \"id\": 2311,\n  \"display_name\": \"string\",\n  \"full_name\": \"string\",\n  \"description\": \"string\",\n  \"universe_size\": 8014,\n  \"universe_description\": \"string\",\n  \"universe_components\": [\n    \"string\",\n    \"string\"\n  ],\n  \"symbols_per_component\": [\n    378,\n    8459\n  ],\n  \"tags\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "764cb1b5-48cb-45d2-ae08-94033f34d80c",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "public",
+                    "data_group",
+                    ":data_group_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "data_group_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "17875c22-3fe0-4125-a029-8720207824e2",
+          "name": "List Data Groups",
+          "request": {
+            "name": "List Data Groups",
+            "description": {
+              "content": "Get a list of all data groups",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "public",
+                "data_group",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4653dd0d-c7a0-4e78-8c69-ee07686af9bb",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "public",
+                    "data_group",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"text_id\": \"string\",\n    \"status_id\": 4455,\n    \"region_id\": 4758,\n    \"pricing_id\": 3430,\n    \"id\": 1496,\n    \"display_name\": \"string\",\n    \"full_name\": \"string\",\n    \"description\": \"string\",\n    \"universe_size\": 9395,\n    \"universe_description\": \"string\",\n    \"universe_components\": [\n      \"string\",\n      \"string\"\n    ],\n    \"symbols_per_component\": [\n      6991,\n      5005\n    ],\n    \"tags\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  {\n    \"text_id\": \"string\",\n    \"status_id\": 1522,\n    \"region_id\": 6427,\n    \"pricing_id\": 8360,\n    \"id\": 7492,\n    \"display_name\": \"string\",\n    \"full_name\": \"string\",\n    \"description\": \"string\",\n    \"universe_size\": 5679,\n    \"universe_description\": \"string\",\n    \"universe_components\": [\n      \"string\",\n      \"string\"\n    ],\n    \"symbols_per_component\": [\n      4034,\n      1901\n    ],\n    \"tags\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://metadata-services.algoseek.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "be334062-5f12-444e-bed1-96eac887dd35",
+    "name": "metadata-api AWSAccount DataGroup API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

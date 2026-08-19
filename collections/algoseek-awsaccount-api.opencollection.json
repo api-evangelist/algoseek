@@ -1,0 +1,156 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "metadata-api AWSAccount API",
+    "version": "1.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "AWSAccount",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List AWS Accounts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/aws_account/",
+            "params": [
+              {
+                "name": "is_active",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "is_public",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get a list of all AWS Accounts"
+        },
+        {
+          "info": {
+            "name": "Add AWS Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/aws_account/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Add a new aws account"
+        },
+        {
+          "info": {
+            "name": "Get AWS Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/aws_account/:aws_account_id/",
+            "params": [
+              {
+                "name": "aws_account_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get aws account details by id"
+        },
+        {
+          "info": {
+            "name": "Update AWS Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/aws_account/:aws_account_id/",
+            "params": [
+              {
+                "name": "aws_account_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update AWS Account details by id"
+        },
+        {
+          "info": {
+            "name": "Delete AWS Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/aws_account/:aws_account_id/",
+            "params": [
+              {
+                "name": "aws_account_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete an AWS Account record"
+        },
+        {
+          "info": {
+            "name": "Get AWS Account by text id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/aws_account/text_id/:text_id/",
+            "params": [
+              {
+                "name": "text_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get aws account details by text_id"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

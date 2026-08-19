@@ -1,0 +1,1611 @@
+{
+  "item": [
+    {
+      "id": "06486a38-f04e-4a8a-a28c-68b2d41479ea",
+      "name": "CloudStorage",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a6139114-831e-41c3-89b5-3c4d8c80bed2",
+          "name": "List Cloud Storages",
+          "request": {
+            "name": "List Cloud Storages",
+            "description": {
+              "content": "Get a list of all cloud storages",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "internal",
+                "cloud_storage",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "is_active",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "is_public",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "dataset_id",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "914b9cb9-ad1c-49c6-a005-98ab5480f42b",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "internal",
+                    "cloud_storage",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "is_active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "is_public",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "dataset_id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"text_id\": \"string\",\n    \"dataset_id\": 6027,\n    \"is_active\": true,\n    \"is_public\": false,\n    \"id\": 6173,\n    \"created\": \"1979-08-07T16:29:04.314Z\",\n    \"modified\": \"1990-03-18T03:24:17.776Z\",\n    \"sample_data_url\": \"string\",\n    \"sample_file_description\": \"string\",\n    \"sample_file_id\": 9345,\n    \"notes\": \"string\",\n    \"csv_columns\": [\n      {\n        \"cloud_storage_id\": 667,\n        \"ordering\": 4225,\n        \"is_active\": true,\n        \"is_public\": false,\n        \"id\": 9242,\n        \"created\": \"1957-07-31T14:06:13.656Z\",\n        \"modified\": \"2008-05-11T03:12:16.079Z\",\n        \"name\": \"string\",\n        \"data_type\": \"string\",\n        \"description\": \"string\",\n        \"notes\": \"string\"\n      },\n      {\n        \"cloud_storage_id\": 5829,\n        \"ordering\": 5792,\n        \"is_active\": true,\n        \"is_public\": false,\n        \"id\": 6569,\n        \"created\": \"1966-03-07T16:55:02.868Z\",\n        \"modified\": \"1968-12-29T16:31:44.697Z\",\n        \"name\": \"string\",\n        \"data_type\": \"string\",\n        \"description\": \"string\",\n        \"notes\": \"string\"\n      }\n    ],\n    \"bucket_groups\": [\n      7678,\n      6410\n    ],\n    \"sample_file\": {\n      \"aws_account_id\": 3540,\n      \"bucket_name\": \"string\",\n      \"object_name\": \"string\",\n      \"region_name\": \"string\",\n      \"id\": 8402,\n      \"is_active\": true,\n      \"is_public\": false,\n      \"created\": \"2019-11-05T00:28:02.732Z\",\n      \"modified\": \"2025-03-09T17:13:13.541Z\",\n      \"notes\": \"string\",\n      \"aws_account\": {\n        \"text_id\": \"string\",\n        \"internal_name\": \"string\",\n        \"is_active\": true,\n        \"is_public\": false,\n        \"id\": 483,\n        \"created\": \"1970-09-20T10:31:26.338Z\",\n        \"modified\": \"1966-03-10T12:10:55.718Z\",\n        \"display_name\": \"string\",\n        \"full_name\": \"string\",\n        \"description\": \"string\",\n        \"notes\": \"string\"\n      }\n    }\n  },\n  {\n    \"text_id\": \"string\",\n    \"dataset_id\": 1407,\n    \"is_active\": false,\n    \"is_public\": false,\n    \"id\": 1055,\n    \"created\": \"1970-08-27T11:45:17.329Z\",\n    \"modified\": \"2011-03-08T00:28:38.577Z\",\n    \"sample_data_url\": \"string\",\n    \"sample_file_description\": \"string\",\n    \"sample_file_id\": 7876,\n    \"notes\": \"string\",\n    \"csv_columns\": [\n      {\n        \"cloud_storage_id\": 590,\n        \"ordering\": 6907,\n        \"is_active\": false,\n        \"is_public\": false,\n        \"id\": 2958,\n        \"created\": \"1969-11-15T09:30:28.238Z\",\n        \"modified\": \"2017-07-25T16:48:22.219Z\",\n        \"name\": \"string\",\n        \"data_type\": \"string\",\n        \"description\": \"string\",\n        \"notes\": \"string\"\n      },\n      {\n        \"cloud_storage_id\": 6376,\n        \"ordering\": 6109,\n        \"is_active\": false,\n        \"is_public\": true,\n        \"id\": 7592,\n        \"created\": \"2014-04-16T19:28:36.753Z\",\n        \"modified\": \"1963-02-04T16:05:56.347Z\",\n        \"name\": \"string\",\n        \"data_type\": \"string\",\n        \"description\": \"string\",\n        \"notes\": \"string\"\n      }\n    ],\n    \"bucket_groups\": [\n      2339,\n      4146\n    ],\n    \"sample_file\": {\n      \"aws_account_id\": 6707,\n      \"bucket_name\": \"string\",\n      \"object_name\": \"string\",\n      \"region_name\": \"string\",\n      \"id\": 5738,\n      \"is_active\": true,\n      \"is_public\": false,\n      \"created\": \"1950-09-01T12:20:31.175Z\",\n      \"modified\": \"1961-09-03T06:19:28.739Z\",\n      \"notes\": \"string\",\n      \"aws_account\": {\n        \"text_id\": \"string\",\n        \"internal_name\": \"string\",\n        \"is_active\": true,\n        \"is_public\": false,\n        \"id\": 9916,\n        \"created\": \"1994-12-19T22:45:44.284Z\",\n        \"modified\": \"2015-02-14T12:08:15.340Z\",\n        \"display_name\": \"string\",\n        \"full_name\": \"string\",\n        \"description\": \"string\",\n        \"notes\": \"string\"\n      }\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "643e0c99-062e-4a46-9490-a9b489b6cb6e",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "internal",
+                    "cloud_storage",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "is_active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "is_public",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "dataset_id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fc209787-a73a-4607-b558-c7dab477fda0",
+          "name": "Add Cloud Storage",
+          "request": {
+            "name": "Add Cloud Storage",
+            "description": {
+              "content": "Add a new cloud storage",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "internal",
+                "cloud_storage",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"text_id\": \"<string>\",\n  \"dataset_id\": \"<integer>\",\n  \"sample_data_url\": \"<string>\",\n  \"sample_file_description\": \"<string>\",\n  \"sample_file_id\": \"<integer>\",\n  \"is_active\": \"<boolean>\",\n  \"is_public\": \"<boolean>\",\n  \"notes\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "22c0be16-b86b-4668-a8ad-b5c4d6112b36",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "internal",
+                    "cloud_storage",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"text_id\": \"<string>\",\n  \"dataset_id\": \"<integer>\",\n  \"sample_data_url\": \"<string>\",\n  \"sample_file_description\": \"<string>\",\n  \"sample_file_id\": \"<integer>\",\n  \"is_active\": \"<boolean>\",\n  \"is_public\": \"<boolean>\",\n  \"notes\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text_id\": \"string\",\n  \"dataset_id\": 2036,\n  \"is_active\": false,\n  \"is_public\": false,\n  \"id\": 42,\n  \"created\": \"1971-02-03T16:00:41.089Z\",\n  \"modified\": \"1986-02-15T11:27:09.949Z\",\n  \"sample_data_url\": \"string\",\n  \"sample_file_description\": \"string\",\n  \"sample_file_id\": 7264,\n  \"notes\": \"string\",\n  \"csv_columns\": [\n    {\n      \"cloud_storage_id\": 2712,\n      \"ordering\": 6642,\n      \"is_active\": true,\n      \"is_public\": false,\n      \"id\": 4760,\n      \"created\": \"2008-03-20T22:57:22.554Z\",\n      \"modified\": \"1954-12-14T21:14:06.770Z\",\n      \"name\": \"string\",\n      \"data_type\": \"string\",\n      \"description\": \"string\",\n      \"notes\": \"string\"\n    },\n    {\n      \"cloud_storage_id\": 3373,\n      \"ordering\": 208,\n      \"is_active\": true,\n      \"is_public\": false,\n      \"id\": 9402,\n      \"created\": \"1978-11-17T13:47:45.018Z\",\n      \"modified\": \"2005-05-17T15:26:40.423Z\",\n      \"name\": \"string\",\n      \"data_type\": \"string\",\n      \"description\": \"string\",\n      \"notes\": \"string\"\n    }\n  ],\n  \"bucket_groups\": [\n    3128,\n    2091\n  ],\n  \"sample_file\": {\n    \"aws_account_id\": 781,\n    \"bucket_name\": \"string\",\n    \"object_name\": \"string\",\n    \"region_name\": \"string\",\n    \"id\": 3192,\n    \"is_active\": true,\n    \"is_public\": false,\n    \"created\": \"1972-01-24T10:07:23.764Z\",\n    \"modified\": \"1976-10-27T14:02:10.114Z\",\n    \"notes\": \"string\",\n    \"aws_account\": {\n      \"text_id\": \"string\",\n      \"internal_name\": \"string\",\n      \"is_active\": true,\n      \"is_public\": true,\n      \"id\": 1021,\n      \"created\": \"1997-09-11T07:16:07.803Z\",\n      \"modified\": \"1946-10-11T08:51:27.730Z\",\n      \"display_name\": \"string\",\n      \"full_name\": \"string\",\n      \"description\": \"string\",\n      \"notes\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "70c8b0ca-c612-43a7-b56b-f1d2a120623f",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "internal",
+                    "cloud_storage",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"text_id\": \"<string>\",\n  \"dataset_id\": \"<integer>\",\n  \"sample_data_url\": \"<string>\",\n  \"sample_file_description\": \"<string>\",\n  \"sample_file_id\": \"<integer>\",\n  \"is_active\": \"<boolean>\",\n  \"is_public\": \"<boolean>\",\n  \"notes\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e1ee0652-b842-41a3-b575-421ae2d8f630",
+          "name": "Get Cloud Storage",
+          "request": {
+            "name": "Get Cloud Storage",
+            "description": {
+              "content": "Get cloud storage details by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "internal",
+                "cloud_storage",
+                ":cloud_storage_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "cloud_storage_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d261713b-5779-4c2d-ba0f-813e8db1695d",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "internal",
+                    "cloud_storage",
+                    ":cloud_storage_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cloud_storage_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text_id\": \"string\",\n  \"dataset_id\": 2036,\n  \"is_active\": false,\n  \"is_public\": false,\n  \"id\": 42,\n  \"created\": \"1971-02-03T16:00:41.089Z\",\n  \"modified\": \"1986-02-15T11:27:09.949Z\",\n  \"sample_data_url\": \"string\",\n  \"sample_file_description\": \"string\",\n  \"sample_file_id\": 7264,\n  \"notes\": \"string\",\n  \"csv_columns\": [\n    {\n      \"cloud_storage_id\": 2712,\n      \"ordering\": 6642,\n      \"is_active\": true,\n      \"is_public\": false,\n      \"id\": 4760,\n      \"created\": \"2008-03-20T22:57:22.554Z\",\n      \"modified\": \"1954-12-14T21:14:06.770Z\",\n      \"name\": \"string\",\n      \"data_type\": \"string\",\n      \"description\": \"string\",\n      \"notes\": \"string\"\n    },\n    {\n      \"cloud_storage_id\": 3373,\n      \"ordering\": 208,\n      \"is_active\": true,\n      \"is_public\": false,\n      \"id\": 9402,\n      \"created\": \"1978-11-17T13:47:45.018Z\",\n      \"modified\": \"2005-05-17T15:26:40.423Z\",\n      \"name\": \"string\",\n      \"data_type\": \"string\",\n      \"description\": \"string\",\n      \"notes\": \"string\"\n    }\n  ],\n  \"bucket_groups\": [\n    3128,\n    2091\n  ],\n  \"sample_file\": {\n    \"aws_account_id\": 781,\n    \"bucket_name\": \"string\",\n    \"object_name\": \"string\",\n    \"region_name\": \"string\",\n    \"id\": 3192,\n    \"is_active\": true,\n    \"is_public\": false,\n    \"created\": \"1972-01-24T10:07:23.764Z\",\n    \"modified\": \"1976-10-27T14:02:10.114Z\",\n    \"notes\": \"string\",\n    \"aws_account\": {\n      \"text_id\": \"string\",\n      \"internal_name\": \"string\",\n      \"is_active\": true,\n      \"is_public\": true,\n      \"id\": 1021,\n      \"created\": \"1997-09-11T07:16:07.803Z\",\n      \"modified\": \"1946-10-11T08:51:27.730Z\",\n      \"display_name\": \"string\",\n      \"full_name\": \"string\",\n      \"description\": \"string\",\n      \"notes\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "589b603f-9e53-4d92-a540-70ab3c51ccdc",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "internal",
+                    "cloud_storage",
+                    ":cloud_storage_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cloud_storage_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ff8d27d3-a0a5-4d0b-a6ff-35be05d06ecf",
+          "name": "Update Cloud Storage",
+          "request": {
+            "name": "Update Cloud Storage",
+            "description": {
+              "content": "Update cloud storage details by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "internal",
+                "cloud_storage",
+                ":cloud_storage_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "cloud_storage_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"text_id\": \"<string>\",\n  \"sample_data_url\": \"<string>\",\n  \"sample_file_description\": \"<string>\",\n  \"sample_file_id\": \"<integer>\",\n  \"dataset_id\": \"<integer>\",\n  \"is_active\": \"<boolean>\",\n  \"is_public\": \"<boolean>\",\n  \"notes\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f3a57135-2b0a-4703-86a0-dd930103835e",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "internal",
+                    "cloud_storage",
+                    ":cloud_storage_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cloud_storage_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"text_id\": \"<string>\",\n  \"sample_data_url\": \"<string>\",\n  \"sample_file_description\": \"<string>\",\n  \"sample_file_id\": \"<integer>\",\n  \"dataset_id\": \"<integer>\",\n  \"is_active\": \"<boolean>\",\n  \"is_public\": \"<boolean>\",\n  \"notes\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text_id\": \"string\",\n  \"dataset_id\": 2036,\n  \"is_active\": false,\n  \"is_public\": false,\n  \"id\": 42,\n  \"created\": \"1971-02-03T16:00:41.089Z\",\n  \"modified\": \"1986-02-15T11:27:09.949Z\",\n  \"sample_data_url\": \"string\",\n  \"sample_file_description\": \"string\",\n  \"sample_file_id\": 7264,\n  \"notes\": \"string\",\n  \"csv_columns\": [\n    {\n      \"cloud_storage_id\": 2712,\n      \"ordering\": 6642,\n      \"is_active\": true,\n      \"is_public\": false,\n      \"id\": 4760,\n      \"created\": \"2008-03-20T22:57:22.554Z\",\n      \"modified\": \"1954-12-14T21:14:06.770Z\",\n      \"name\": \"string\",\n      \"data_type\": \"string\",\n      \"description\": \"string\",\n      \"notes\": \"string\"\n    },\n    {\n      \"cloud_storage_id\": 3373,\n      \"ordering\": 208,\n      \"is_active\": true,\n      \"is_public\": false,\n      \"id\": 9402,\n      \"created\": \"1978-11-17T13:47:45.018Z\",\n      \"modified\": \"2005-05-17T15:26:40.423Z\",\n      \"name\": \"string\",\n      \"data_type\": \"string\",\n      \"description\": \"string\",\n      \"notes\": \"string\"\n    }\n  ],\n  \"bucket_groups\": [\n    3128,\n    2091\n  ],\n  \"sample_file\": {\n    \"aws_account_id\": 781,\n    \"bucket_name\": \"string\",\n    \"object_name\": \"string\",\n    \"region_name\": \"string\",\n    \"id\": 3192,\n    \"is_active\": true,\n    \"is_public\": false,\n    \"created\": \"1972-01-24T10:07:23.764Z\",\n    \"modified\": \"1976-10-27T14:02:10.114Z\",\n    \"notes\": \"string\",\n    \"aws_account\": {\n      \"text_id\": \"string\",\n      \"internal_name\": \"string\",\n      \"is_active\": true,\n      \"is_public\": true,\n      \"id\": 1021,\n      \"created\": \"1997-09-11T07:16:07.803Z\",\n      \"modified\": \"1946-10-11T08:51:27.730Z\",\n      \"display_name\": \"string\",\n      \"full_name\": \"string\",\n      \"description\": \"string\",\n      \"notes\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8e28484f-9507-4b81-8776-7808d3636725",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "internal",
+                    "cloud_storage",
+                    ":cloud_storage_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cloud_storage_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"text_id\": \"<string>\",\n  \"sample_data_url\": \"<string>\",\n  \"sample_file_description\": \"<string>\",\n  \"sample_file_id\": \"<integer>\",\n  \"dataset_id\": \"<integer>\",\n  \"is_active\": \"<boolean>\",\n  \"is_public\": \"<boolean>\",\n  \"notes\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d2e5caed-e1dc-4771-a889-f1204e3923a7",
+          "name": "Delete Cloud Storage",
+          "request": {
+            "name": "Delete Cloud Storage",
+            "description": {
+              "content": "Delete a cloud storage record",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "internal",
+                "cloud_storage",
+                ":cloud_storage_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "cloud_storage_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f182f54a-1d8a-4161-a6a3-76d57225e31a",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "internal",
+                    "cloud_storage",
+                    ":cloud_storage_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cloud_storage_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text_id\": \"string\",\n  \"dataset_id\": 2036,\n  \"is_active\": false,\n  \"is_public\": false,\n  \"id\": 42,\n  \"created\": \"1971-02-03T16:00:41.089Z\",\n  \"modified\": \"1986-02-15T11:27:09.949Z\",\n  \"sample_data_url\": \"string\",\n  \"sample_file_description\": \"string\",\n  \"sample_file_id\": 7264,\n  \"notes\": \"string\",\n  \"csv_columns\": [\n    {\n      \"cloud_storage_id\": 2712,\n      \"ordering\": 6642,\n      \"is_active\": true,\n      \"is_public\": false,\n      \"id\": 4760,\n      \"created\": \"2008-03-20T22:57:22.554Z\",\n      \"modified\": \"1954-12-14T21:14:06.770Z\",\n      \"name\": \"string\",\n      \"data_type\": \"string\",\n      \"description\": \"string\",\n      \"notes\": \"string\"\n    },\n    {\n      \"cloud_storage_id\": 3373,\n      \"ordering\": 208,\n      \"is_active\": true,\n      \"is_public\": false,\n      \"id\": 9402,\n      \"created\": \"1978-11-17T13:47:45.018Z\",\n      \"modified\": \"2005-05-17T15:26:40.423Z\",\n      \"name\": \"string\",\n      \"data_type\": \"string\",\n      \"description\": \"string\",\n      \"notes\": \"string\"\n    }\n  ],\n  \"bucket_groups\": [\n    3128,\n    2091\n  ],\n  \"sample_file\": {\n    \"aws_account_id\": 781,\n    \"bucket_name\": \"string\",\n    \"object_name\": \"string\",\n    \"region_name\": \"string\",\n    \"id\": 3192,\n    \"is_active\": true,\n    \"is_public\": false,\n    \"created\": \"1972-01-24T10:07:23.764Z\",\n    \"modified\": \"1976-10-27T14:02:10.114Z\",\n    \"notes\": \"string\",\n    \"aws_account\": {\n      \"text_id\": \"string\",\n      \"internal_name\": \"string\",\n      \"is_active\": true,\n      \"is_public\": true,\n      \"id\": 1021,\n      \"created\": \"1997-09-11T07:16:07.803Z\",\n      \"modified\": \"1946-10-11T08:51:27.730Z\",\n      \"display_name\": \"string\",\n      \"full_name\": \"string\",\n      \"description\": \"string\",\n      \"notes\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "23986ff9-f257-405c-ac80-771e8393b0be",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "internal",
+                    "cloud_storage",
+                    ":cloud_storage_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cloud_storage_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a92377ea-6f8a-4932-9937-e1e89c93d700",
+          "name": "Get Cloud Storage",
+          "request": {
+            "name": "Get Cloud Storage",
+            "description": {
+              "content": "Get cloud storage details by text_id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "internal",
+                "cloud_storage",
+                "text_id",
+                ":text_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "text_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "71bddfad-523e-4e2d-bb87-8fdb05831773",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "internal",
+                    "cloud_storage",
+                    "text_id",
+                    ":text_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "text_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text_id\": \"string\",\n  \"dataset_id\": 2036,\n  \"is_active\": false,\n  \"is_public\": false,\n  \"id\": 42,\n  \"created\": \"1971-02-03T16:00:41.089Z\",\n  \"modified\": \"1986-02-15T11:27:09.949Z\",\n  \"sample_data_url\": \"string\",\n  \"sample_file_description\": \"string\",\n  \"sample_file_id\": 7264,\n  \"notes\": \"string\",\n  \"csv_columns\": [\n    {\n      \"cloud_storage_id\": 2712,\n      \"ordering\": 6642,\n      \"is_active\": true,\n      \"is_public\": false,\n      \"id\": 4760,\n      \"created\": \"2008-03-20T22:57:22.554Z\",\n      \"modified\": \"1954-12-14T21:14:06.770Z\",\n      \"name\": \"string\",\n      \"data_type\": \"string\",\n      \"description\": \"string\",\n      \"notes\": \"string\"\n    },\n    {\n      \"cloud_storage_id\": 3373,\n      \"ordering\": 208,\n      \"is_active\": true,\n      \"is_public\": false,\n      \"id\": 9402,\n      \"created\": \"1978-11-17T13:47:45.018Z\",\n      \"modified\": \"2005-05-17T15:26:40.423Z\",\n      \"name\": \"string\",\n      \"data_type\": \"string\",\n      \"description\": \"string\",\n      \"notes\": \"string\"\n    }\n  ],\n  \"bucket_groups\": [\n    3128,\n    2091\n  ],\n  \"sample_file\": {\n    \"aws_account_id\": 781,\n    \"bucket_name\": \"string\",\n    \"object_name\": \"string\",\n    \"region_name\": \"string\",\n    \"id\": 3192,\n    \"is_active\": true,\n    \"is_public\": false,\n    \"created\": \"1972-01-24T10:07:23.764Z\",\n    \"modified\": \"1976-10-27T14:02:10.114Z\",\n    \"notes\": \"string\",\n    \"aws_account\": {\n      \"text_id\": \"string\",\n      \"internal_name\": \"string\",\n      \"is_active\": true,\n      \"is_public\": true,\n      \"id\": 1021,\n      \"created\": \"1997-09-11T07:16:07.803Z\",\n      \"modified\": \"1946-10-11T08:51:27.730Z\",\n      \"display_name\": \"string\",\n      \"full_name\": \"string\",\n      \"description\": \"string\",\n      \"notes\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5cbbb3b2-7576-42ae-a744-a03d33eca0f9",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "internal",
+                    "cloud_storage",
+                    "text_id",
+                    ":text_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "text_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a4444213-5834-4cd7-9fd0-3281ff4237e6",
+          "name": "Get Cloud Storage",
+          "request": {
+            "name": "Get Cloud Storage",
+            "description": {
+              "content": "Get cloud storage details by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "public",
+                "cloud_storage",
+                ":cloud_storage_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "cloud_storage_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2ff973e8-1374-411b-9b63-430b57cce0e6",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "public",
+                    "cloud_storage",
+                    ":cloud_storage_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cloud_storage_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text_id\": \"string\",\n  \"dataset_id\": 3764,\n  \"id\": 2375,\n  \"sample_data_url\": \"string\",\n  \"sample_file_description\": \"string\",\n  \"sample_file_id\": 5880,\n  \"csv_columns\": [\n    {\n      \"cloud_storage_id\": 9070,\n      \"ordering\": 6470,\n      \"id\": 5706,\n      \"name\": \"string\",\n      \"data_type\": \"string\",\n      \"description\": \"string\"\n    },\n    {\n      \"cloud_storage_id\": 8757,\n      \"ordering\": 1646,\n      \"id\": 419,\n      \"name\": \"string\",\n      \"data_type\": \"string\",\n      \"description\": \"string\"\n    }\n  ],\n  \"bucket_groups\": [\n    1440,\n    7255\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "827e245e-990b-4d25-a732-8ed5438dba3c",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "public",
+                    "cloud_storage",
+                    ":cloud_storage_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cloud_storage_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5498fc11-eb2f-4f03-944f-06264099b483",
+          "name": "Get Cloud Storage",
+          "request": {
+            "name": "Get Cloud Storage",
+            "description": {
+              "content": "Get cloud storage details by text_id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "public",
+                "cloud_storage",
+                "text_id",
+                ":text_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "text_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d660d236-35a3-4941-b0be-00f6e9d59f56",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "public",
+                    "cloud_storage",
+                    "text_id",
+                    ":text_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "text_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text_id\": \"string\",\n  \"dataset_id\": 490,\n  \"id\": 2068,\n  \"sample_data_url\": \"string\",\n  \"sample_file_description\": \"string\",\n  \"sample_file_id\": 7819,\n  \"csv_columns\": [\n    {\n      \"cloud_storage_id\": 3662,\n      \"ordering\": 8552,\n      \"id\": 9819,\n      \"name\": \"string\",\n      \"data_type\": \"string\",\n      \"description\": \"string\"\n    },\n    {\n      \"cloud_storage_id\": 6844,\n      \"ordering\": 9936,\n      \"id\": 3898,\n      \"name\": \"string\",\n      \"data_type\": \"string\",\n      \"description\": \"string\"\n    }\n  ],\n  \"bucket_groups\": [\n    6504,\n    5809\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9ba1f0a6-bf50-419c-8a27-fca4a86c51de",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "public",
+                    "cloud_storage",
+                    "text_id",
+                    ":text_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "text_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c948551a-f976-4c0b-8552-6a4a0a59b07c",
+          "name": "List Cloud Storages",
+          "request": {
+            "name": "List Cloud Storages",
+            "description": {
+              "content": "Get a list of all cloud storages",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "public",
+                "cloud_storage",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "is_active",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "is_public",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "dataset_id",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2f851dc0-dcdc-4d3f-9291-768fa8ef2733",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "public",
+                    "cloud_storage",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "is_active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "is_public",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "dataset_id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"text_id\": \"string\",\n    \"dataset_id\": 6710,\n    \"id\": 1431,\n    \"sample_data_url\": \"string\",\n    \"sample_file_description\": \"string\",\n    \"sample_file_id\": 1749,\n    \"csv_columns\": [\n      {\n        \"cloud_storage_id\": 2651,\n        \"ordering\": 5426,\n        \"id\": 5552,\n        \"name\": \"string\",\n        \"data_type\": \"string\",\n        \"description\": \"string\"\n      },\n      {\n        \"cloud_storage_id\": 1119,\n        \"ordering\": 6573,\n        \"id\": 2330,\n        \"name\": \"string\",\n        \"data_type\": \"string\",\n        \"description\": \"string\"\n      }\n    ],\n    \"bucket_groups\": [\n      5425,\n      7964\n    ]\n  },\n  {\n    \"text_id\": \"string\",\n    \"dataset_id\": 7709,\n    \"id\": 2108,\n    \"sample_data_url\": \"string\",\n    \"sample_file_description\": \"string\",\n    \"sample_file_id\": 4925,\n    \"csv_columns\": [\n      {\n        \"cloud_storage_id\": 992,\n        \"ordering\": 1508,\n        \"id\": 9780,\n        \"name\": \"string\",\n        \"data_type\": \"string\",\n        \"description\": \"string\"\n      },\n      {\n        \"cloud_storage_id\": 429,\n        \"ordering\": 7550,\n        \"id\": 3157,\n        \"name\": \"string\",\n        \"data_type\": \"string\",\n        \"description\": \"string\"\n      }\n    ],\n    \"bucket_groups\": [\n      1772,\n      3388\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "12189795-91c1-4833-b781-1f78d50ff00b",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "public",
+                    "cloud_storage",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "is_active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "is_public",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "dataset_id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://metadata-services.algoseek.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "4a8655c3-a9ab-424e-b827-9d65d8a4692d",
+    "name": "metadata-api AWSAccount CloudStorage API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

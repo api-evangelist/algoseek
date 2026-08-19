@@ -332,3 +332,6 @@ components:
     HTTPBearer:
       type: http
       scheme: bearer
+servers:
+- url: https://metadata-services.algoseek.com/api/v1
+  description: Base URL reconciled from apis.yml

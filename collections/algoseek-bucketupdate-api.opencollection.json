@@ -1,0 +1,171 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "metadata-api AWSAccount BucketUpdate API",
+    "version": "1.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "BucketUpdate",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Bucket Updates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/bucket_update/",
+            "params": [
+              {
+                "name": "is_active",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "is_public",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get a list of all bucket updates"
+        },
+        {
+          "info": {
+            "name": "Add Bucket Updates",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/bucket_update/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Add a new bucket updates"
+        },
+        {
+          "info": {
+            "name": "Get Bucket Updates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/bucket_update/:bucket_updates_id/",
+            "params": [
+              {
+                "name": "bucket_updates_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get Bucket Updates details by id"
+        },
+        {
+          "info": {
+            "name": "Update bucket updates",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/bucket_update/:bucket_updates_id/",
+            "params": [
+              {
+                "name": "bucket_updates_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update bucket updates details by id"
+        },
+        {
+          "info": {
+            "name": "Delete bucket updates",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/bucket_update/:bucket_updates_id/",
+            "params": [
+              {
+                "name": "bucket_updates_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete a bucket updates record"
+        },
+        {
+          "info": {
+            "name": "Get Bucket Updates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/public/bucket_update/:bucket_updates_id/",
+            "params": [
+              {
+                "name": "bucket_updates_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get Bucket Updates details by id"
+        },
+        {
+          "info": {
+            "name": "List Bucket Updates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/public/bucket_update/",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get a list of all bucket updates"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

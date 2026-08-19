@@ -1,0 +1,279 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "metadata-api AWSAccount BucketGroup API",
+    "version": "1.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "BucketGroup",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Bucket Groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/bucket_group/",
+            "params": [
+              {
+                "name": "is_active",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "is_public",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "status_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "aws_account_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "storage_type_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "author_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "maintainer_id",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get a list of all bucket groups"
+        },
+        {
+          "info": {
+            "name": "Add Bucket Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/bucket_group/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Add a new bucket group"
+        },
+        {
+          "info": {
+            "name": "Get Bucket Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/bucket_group/:bucket_group_id/",
+            "params": [
+              {
+                "name": "bucket_group_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get bucket group details by id"
+        },
+        {
+          "info": {
+            "name": "Update Bucket Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/bucket_group/:bucket_group_id/",
+            "params": [
+              {
+                "name": "bucket_group_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update bucket group details by id"
+        },
+        {
+          "info": {
+            "name": "Delete Bucket Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/bucket_group/:bucket_group_id/",
+            "params": [
+              {
+                "name": "bucket_group_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete a bucket group record"
+        },
+        {
+          "info": {
+            "name": "Get Bucket Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/bucket_group/text_id/:text_id/",
+            "params": [
+              {
+                "name": "text_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get bucket group details by text_id"
+        },
+        {
+          "info": {
+            "name": "Get Extended Bucket Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/bucket_group/ext/:bucket_group_id/",
+            "params": [
+              {
+                "name": "bucket_group_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get Extended Bucket Group details by id"
+        },
+        {
+          "info": {
+            "name": "Get Bucket Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/public/bucket_group/:bucket_group_id/",
+            "params": [
+              {
+                "name": "bucket_group_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get bucket group details by id"
+        },
+        {
+          "info": {
+            "name": "Get Bucket Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/public/bucket_group/text_id/:text_id/",
+            "params": [
+              {
+                "name": "text_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get bucket group details by text_id"
+        },
+        {
+          "info": {
+            "name": "List Bucket Groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/public/bucket_group/",
+            "params": [
+              {
+                "name": "status_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "aws_account_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "storage_type_id",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get a list of all bucket groups"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

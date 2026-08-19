@@ -1,0 +1,1706 @@
+{
+  "item": [
+    {
+      "id": "cd416b58-c2f5-44a5-b46b-7f9ddd9de8a5",
+      "name": "DatabaseTable",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "846a5ad0-c0a9-49b0-9778-74d2dd547455",
+          "name": "List Database Tables",
+          "request": {
+            "name": "List Database Tables",
+            "description": {
+              "content": "Get a list of all database tables",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "internal",
+                "database_table",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "is_active",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "is_public",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "status_id",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "db_object_type_id",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "951481bc-d544-4267-82a1-7f30e654ea12",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "internal",
+                    "database_table",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "is_active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "is_public",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "status_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "db_object_type_id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"table_name\": \"string\",\n    \"db_object_type_id\": 844,\n    \"is_active\": true,\n    \"is_public\": true,\n    \"id\": 2339,\n    \"created\": \"2000-02-19T09:11:33.851Z\",\n    \"modified\": \"1988-05-19T11:19:46.215Z\",\n    \"primary_date_column\": \"string\",\n    \"timestamp_column\": \"string\",\n    \"text_id_column\": \"string\",\n    \"sample_data_url\": \"string\",\n    \"dataset_id\": 5519,\n    \"bucket_group_id\": 955,\n    \"status_id\": 6873,\n    \"internal_id_column\": \"string\",\n    \"engine\": \"string\",\n    \"partition_column\": \"string\",\n    \"partition_expression\": \"string\",\n    \"ttl_type_id\": 8964,\n    \"ttl_period\": 8068,\n    \"ghost_table_name\": \"string\",\n    \"create_query\": \"string\",\n    \"select_query\": \"string\",\n    \"watch_waiter\": false,\n    \"table_dependencies\": [\n      6378,\n      52\n    ],\n    \"object_dependencies\": [\n      17,\n      1365\n    ],\n    \"notes\": \"string\",\n    \"ttl_type\": {\n      \"text_id\": \"string\",\n      \"internal_name\": \"string\",\n      \"is_active\": true,\n      \"is_public\": true,\n      \"id\": 3010,\n      \"created\": \"2006-09-23T04:33:49.933Z\",\n      \"modified\": \"2023-04-06T12:43:27.803Z\",\n      \"display_name\": \"string\",\n      \"full_name\": \"string\",\n      \"description\": \"string\",\n      \"notes\": \"string\"\n    },\n    \"sql_columns\": [\n      {\n        \"table_id\": 4856,\n        \"ordering\": 6548,\n        \"is_active\": true,\n        \"is_public\": false,\n        \"id\": 1295,\n        \"created\": \"1988-12-26T08:40:36.321Z\",\n        \"modified\": \"1972-06-30T15:00:37.186Z\",\n        \"name\": \"string\",\n        \"data_type_simple\": \"string\",\n        \"data_type_db\": \"string\",\n        \"compression\": \"string\",\n        \"endcoding\": \"string\",\n        \"description\": \"string\",\n        \"notes\": \"string\"\n      },\n      {\n        \"table_id\": 9589,\n        \"ordering\": 2021,\n        \"is_active\": true,\n        \"is_public\": false,\n        \"id\": 2390,\n        \"created\": \"2004-02-26T06:40:27.249Z\",\n        \"modified\": \"1960-06-10T08:38:40.760Z\",\n        \"name\": \"string\",\n        \"data_type_simple\": \"string\",\n        \"data_type_db\": \"string\",\n        \"compression\": \"string\",\n        \"endcoding\": \"string\",\n        \"description\": \"string\",\n        \"notes\": \"string\"\n      }\n    ]\n  },\n  {\n    \"table_name\": \"string\",\n    \"db_object_type_id\": 2950,\n    \"is_active\": true,\n    \"is_public\": false,\n    \"id\": 2276,\n    \"created\": \"1984-03-02T19:36:58.361Z\",\n    \"modified\": \"2009-01-05T13:13:14.834Z\",\n    \"primary_date_column\": \"string\",\n    \"timestamp_column\": \"string\",\n    \"text_id_column\": \"string\",\n    \"sample_data_url\": \"string\",\n    \"dataset_id\": 9736,\n    \"bucket_group_id\": 8323,\n    \"status_id\": 3290,\n    \"internal_id_column\": \"string\",\n    \"engine\": \"string\",\n    \"partition_column\": \"string\",\n    \"partition_expression\": \"string\",\n    \"ttl_type_id\": 4363,\n    \"ttl_period\": 6028,\n    \"ghost_table_name\": \"string\",\n    \"create_query\": \"string\",\n    \"select_query\": \"string\",\n    \"watch_waiter\": true,\n    \"table_dependencies\": [\n      3280,\n      544\n    ],\n    \"object_dependencies\": [\n      789,\n      5091\n    ],\n    \"notes\": \"string\",\n    \"ttl_type\": {\n      \"text_id\": \"string\",\n      \"internal_name\": \"string\",\n      \"is_active\": true,\n      \"is_public\": false,\n      \"id\": 4835,\n      \"created\": \"2021-03-18T13:37:21.471Z\",\n      \"modified\": \"1970-04-23T13:28:29.063Z\",\n      \"display_name\": \"string\",\n      \"full_name\": \"string\",\n      \"description\": \"string\",\n      \"notes\": \"string\"\n    },\n    \"sql_columns\": [\n      {\n        \"table_id\": 7157,\n        \"ordering\": 9673,\n        \"is_active\": true,\n        \"is_public\": true,\n        \"id\": 5499,\n        \"created\": \"1983-10-03T11:36:30.346Z\",\n        \"modified\": \"1946-10-16T13:43:53.536Z\",\n        \"name\": \"string\",\n        \"data_type_simple\": \"string\",\n        \"data_type_db\": \"string\",\n        \"compression\": \"string\",\n        \"endcoding\": \"string\",\n        \"description\": \"string\",\n        \"notes\": \"string\"\n      },\n      {\n        \"table_id\": 5067,\n        \"ordering\": 9452,\n        \"is_active\": true,\n        \"is_public\": false,\n        \"id\": 1580,\n        \"created\": \"2010-09-25T08:38:58.924Z\",\n        \"modified\": \"1963-10-03T19:47:48.547Z\",\n        \"name\": \"string\",\n        \"data_type_simple\": \"string\",\n        \"data_type_db\": \"string\",\n        \"compression\": \"string\",\n        \"endcoding\": \"string\",\n        \"description\": \"string\",\n        \"notes\": \"string\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8c88698c-ab85-4398-ae4b-9fb36523311c",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "internal",
+                    "database_table",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "is_active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "is_public",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "status_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "db_object_type_id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b7bf929b-86ad-4dc3-a482-a26a11ec6687",
+          "name": "Add Database Table",
+          "request": {
+            "name": "Add Database Table",
+            "description": {
+              "content": "Add a new database table",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "internal",
+                "database_table",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"table_name\": \"<string>\",\n  \"db_object_type_id\": \"<integer>\",\n  \"primary_date_column\": \"<string>\",\n  \"timestamp_column\": \"<string>\",\n  \"text_id_column\": \"<string>\",\n  \"sample_data_url\": \"<string>\",\n  \"dataset_id\": \"<integer>\",\n  \"bucket_group_id\": \"<integer>\",\n  \"status_id\": \"<integer>\",\n  \"internal_id_column\": \"<string>\",\n  \"engine\": \"<string>\",\n  \"partition_column\": \"<string>\",\n  \"partition_expression\": \"<string>\",\n  \"ttl_type_id\": \"<integer>\",\n  \"ttl_period\": \"<integer>\",\n  \"ghost_table_name\": \"<string>\",\n  \"create_query\": \"<string>\",\n  \"select_query\": \"<string>\",\n  \"watch_waiter\": \"<boolean>\",\n  \"table_dependencies\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"object_dependencies\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"is_active\": \"<boolean>\",\n  \"is_public\": \"<boolean>\",\n  \"notes\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8e626ebf-8cd2-4d0a-a945-a10b42d5499d",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "internal",
+                    "database_table",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"table_name\": \"<string>\",\n  \"db_object_type_id\": \"<integer>\",\n  \"primary_date_column\": \"<string>\",\n  \"timestamp_column\": \"<string>\",\n  \"text_id_column\": \"<string>\",\n  \"sample_data_url\": \"<string>\",\n  \"dataset_id\": \"<integer>\",\n  \"bucket_group_id\": \"<integer>\",\n  \"status_id\": \"<integer>\",\n  \"internal_id_column\": \"<string>\",\n  \"engine\": \"<string>\",\n  \"partition_column\": \"<string>\",\n  \"partition_expression\": \"<string>\",\n  \"ttl_type_id\": \"<integer>\",\n  \"ttl_period\": \"<integer>\",\n  \"ghost_table_name\": \"<string>\",\n  \"create_query\": \"<string>\",\n  \"select_query\": \"<string>\",\n  \"watch_waiter\": \"<boolean>\",\n  \"table_dependencies\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"object_dependencies\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"is_active\": \"<boolean>\",\n  \"is_public\": \"<boolean>\",\n  \"notes\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"table_name\": \"string\",\n  \"db_object_type_id\": 8422,\n  \"is_active\": false,\n  \"is_public\": true,\n  \"id\": 362,\n  \"created\": \"1952-10-26T07:01:27.726Z\",\n  \"modified\": \"1950-09-18T08:49:36.546Z\",\n  \"primary_date_column\": \"string\",\n  \"timestamp_column\": \"string\",\n  \"text_id_column\": \"string\",\n  \"sample_data_url\": \"string\",\n  \"dataset_id\": 5554,\n  \"bucket_group_id\": 6817,\n  \"status_id\": 2046,\n  \"internal_id_column\": \"string\",\n  \"engine\": \"string\",\n  \"partition_column\": \"string\",\n  \"partition_expression\": \"string\",\n  \"ttl_type_id\": 3224,\n  \"ttl_period\": 1194,\n  \"ghost_table_name\": \"string\",\n  \"create_query\": \"string\",\n  \"select_query\": \"string\",\n  \"watch_waiter\": false,\n  \"table_dependencies\": [\n    8316,\n    4408\n  ],\n  \"object_dependencies\": [\n    6843,\n    6291\n  ],\n  \"notes\": \"string\",\n  \"ttl_type\": {\n    \"text_id\": \"string\",\n    \"internal_name\": \"string\",\n    \"is_active\": false,\n    \"is_public\": false,\n    \"id\": 8459,\n    \"created\": \"1959-02-23T01:39:04.609Z\",\n    \"modified\": \"2006-12-08T05:14:09.334Z\",\n    \"display_name\": \"string\",\n    \"full_name\": \"string\",\n    \"description\": \"string\",\n    \"notes\": \"string\"\n  },\n  \"sql_columns\": [\n    {\n      \"table_id\": 1482,\n      \"ordering\": 1616,\n      \"is_active\": false,\n      \"is_public\": true,\n      \"id\": 9936,\n      \"created\": \"1977-09-27T10:17:49.652Z\",\n      \"modified\": \"2026-07-13T20:01:54.530Z\",\n      \"name\": \"string\",\n      \"data_type_simple\": \"string\",\n      \"data_type_db\": \"string\",\n      \"compression\": \"string\",\n      \"endcoding\": \"string\",\n      \"description\": \"string\",\n      \"notes\": \"string\"\n    },\n    {\n      \"table_id\": 7100,\n      \"ordering\": 540,\n      \"is_active\": true,\n      \"is_public\": true,\n      \"id\": 2253,\n      \"created\": \"2009-04-29T21:41:06.315Z\",\n      \"modified\": \"1975-01-02T21:41:29.508Z\",\n      \"name\": \"string\",\n      \"data_type_simple\": \"string\",\n      \"data_type_db\": \"string\",\n      \"compression\": \"string\",\n      \"endcoding\": \"string\",\n      \"description\": \"string\",\n      \"notes\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d022251b-43df-4cc8-9f0f-ea603095cd8c",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "internal",
+                    "database_table",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"table_name\": \"<string>\",\n  \"db_object_type_id\": \"<integer>\",\n  \"primary_date_column\": \"<string>\",\n  \"timestamp_column\": \"<string>\",\n  \"text_id_column\": \"<string>\",\n  \"sample_data_url\": \"<string>\",\n  \"dataset_id\": \"<integer>\",\n  \"bucket_group_id\": \"<integer>\",\n  \"status_id\": \"<integer>\",\n  \"internal_id_column\": \"<string>\",\n  \"engine\": \"<string>\",\n  \"partition_column\": \"<string>\",\n  \"partition_expression\": \"<string>\",\n  \"ttl_type_id\": \"<integer>\",\n  \"ttl_period\": \"<integer>\",\n  \"ghost_table_name\": \"<string>\",\n  \"create_query\": \"<string>\",\n  \"select_query\": \"<string>\",\n  \"watch_waiter\": \"<boolean>\",\n  \"table_dependencies\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"object_dependencies\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"is_active\": \"<boolean>\",\n  \"is_public\": \"<boolean>\",\n  \"notes\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "154a9d96-b4fb-41f8-aefb-c98e5c1ae505",
+          "name": "Get Database Table",
+          "request": {
+            "name": "Get Database Table",
+            "description": {
+              "content": "Get database table details by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "internal",
+                "database_table",
+                ":database_table_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "database_table_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6857a292-1328-41ac-99ac-7e7c84e43a88",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "internal",
+                    "database_table",
+                    ":database_table_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "database_table_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"table_name\": \"string\",\n  \"db_object_type_id\": 8422,\n  \"is_active\": false,\n  \"is_public\": true,\n  \"id\": 362,\n  \"created\": \"1952-10-26T07:01:27.726Z\",\n  \"modified\": \"1950-09-18T08:49:36.546Z\",\n  \"primary_date_column\": \"string\",\n  \"timestamp_column\": \"string\",\n  \"text_id_column\": \"string\",\n  \"sample_data_url\": \"string\",\n  \"dataset_id\": 5554,\n  \"bucket_group_id\": 6817,\n  \"status_id\": 2046,\n  \"internal_id_column\": \"string\",\n  \"engine\": \"string\",\n  \"partition_column\": \"string\",\n  \"partition_expression\": \"string\",\n  \"ttl_type_id\": 3224,\n  \"ttl_period\": 1194,\n  \"ghost_table_name\": \"string\",\n  \"create_query\": \"string\",\n  \"select_query\": \"string\",\n  \"watch_waiter\": false,\n  \"table_dependencies\": [\n    8316,\n    4408\n  ],\n  \"object_dependencies\": [\n    6843,\n    6291\n  ],\n  \"notes\": \"string\",\n  \"ttl_type\": {\n    \"text_id\": \"string\",\n    \"internal_name\": \"string\",\n    \"is_active\": false,\n    \"is_public\": false,\n    \"id\": 8459,\n    \"created\": \"1959-02-23T01:39:04.609Z\",\n    \"modified\": \"2006-12-08T05:14:09.334Z\",\n    \"display_name\": \"string\",\n    \"full_name\": \"string\",\n    \"description\": \"string\",\n    \"notes\": \"string\"\n  },\n  \"sql_columns\": [\n    {\n      \"table_id\": 1482,\n      \"ordering\": 1616,\n      \"is_active\": false,\n      \"is_public\": true,\n      \"id\": 9936,\n      \"created\": \"1977-09-27T10:17:49.652Z\",\n      \"modified\": \"2026-07-13T20:01:54.530Z\",\n      \"name\": \"string\",\n      \"data_type_simple\": \"string\",\n      \"data_type_db\": \"string\",\n      \"compression\": \"string\",\n      \"endcoding\": \"string\",\n      \"description\": \"string\",\n      \"notes\": \"string\"\n    },\n    {\n      \"table_id\": 7100,\n      \"ordering\": 540,\n      \"is_active\": true,\n      \"is_public\": true,\n      \"id\": 2253,\n      \"created\": \"2009-04-29T21:41:06.315Z\",\n      \"modified\": \"1975-01-02T21:41:29.508Z\",\n      \"name\": \"string\",\n      \"data_type_simple\": \"string\",\n      \"data_type_db\": \"string\",\n      \"compression\": \"string\",\n      \"endcoding\": \"string\",\n      \"description\": \"string\",\n      \"notes\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "348eb59f-32e9-4689-8aa6-9690685d6139",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "internal",
+                    "database_table",
+                    ":database_table_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "database_table_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4bbd67ab-8d66-4d07-a6d3-bb82ce4d9be8",
+          "name": "Update Database Table",
+          "request": {
+            "name": "Update Database Table",
+            "description": {
+              "content": "Update database table details by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "internal",
+                "database_table",
+                ":database_table_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "database_table_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"table_name\": \"<string>\",\n  \"primary_date_column\": \"<string>\",\n  \"timestamp_column\": \"<string>\",\n  \"text_id_column\": \"<string>\",\n  \"sample_data_url\": \"<string>\",\n  \"dataset_id\": \"<integer>\",\n  \"bucket_group_id\": \"<integer>\",\n  \"db_object_type_id\": \"<string>\",\n  \"status_id\": \"<integer>\",\n  \"internal_id_column\": \"<string>\",\n  \"engine\": \"<string>\",\n  \"partition_column\": \"<string>\",\n  \"partition_expression\": \"<string>\",\n  \"ttl_type_id\": \"<integer>\",\n  \"ttl_period\": \"<integer>\",\n  \"ghost_table_name\": \"<string>\",\n  \"create_query\": \"<string>\",\n  \"select_query\": \"<string>\",\n  \"watch_waiter\": \"<boolean>\",\n  \"table_dependencies\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"object_dependencies\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"is_active\": \"<boolean>\",\n  \"is_public\": \"<boolean>\",\n  \"notes\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e8cb1cba-4efc-43be-80bb-052ce78d5303",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "internal",
+                    "database_table",
+                    ":database_table_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "database_table_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"table_name\": \"<string>\",\n  \"primary_date_column\": \"<string>\",\n  \"timestamp_column\": \"<string>\",\n  \"text_id_column\": \"<string>\",\n  \"sample_data_url\": \"<string>\",\n  \"dataset_id\": \"<integer>\",\n  \"bucket_group_id\": \"<integer>\",\n  \"db_object_type_id\": \"<string>\",\n  \"status_id\": \"<integer>\",\n  \"internal_id_column\": \"<string>\",\n  \"engine\": \"<string>\",\n  \"partition_column\": \"<string>\",\n  \"partition_expression\": \"<string>\",\n  \"ttl_type_id\": \"<integer>\",\n  \"ttl_period\": \"<integer>\",\n  \"ghost_table_name\": \"<string>\",\n  \"create_query\": \"<string>\",\n  \"select_query\": \"<string>\",\n  \"watch_waiter\": \"<boolean>\",\n  \"table_dependencies\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"object_dependencies\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"is_active\": \"<boolean>\",\n  \"is_public\": \"<boolean>\",\n  \"notes\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"table_name\": \"string\",\n  \"db_object_type_id\": 8422,\n  \"is_active\": false,\n  \"is_public\": true,\n  \"id\": 362,\n  \"created\": \"1952-10-26T07:01:27.726Z\",\n  \"modified\": \"1950-09-18T08:49:36.546Z\",\n  \"primary_date_column\": \"string\",\n  \"timestamp_column\": \"string\",\n  \"text_id_column\": \"string\",\n  \"sample_data_url\": \"string\",\n  \"dataset_id\": 5554,\n  \"bucket_group_id\": 6817,\n  \"status_id\": 2046,\n  \"internal_id_column\": \"string\",\n  \"engine\": \"string\",\n  \"partition_column\": \"string\",\n  \"partition_expression\": \"string\",\n  \"ttl_type_id\": 3224,\n  \"ttl_period\": 1194,\n  \"ghost_table_name\": \"string\",\n  \"create_query\": \"string\",\n  \"select_query\": \"string\",\n  \"watch_waiter\": false,\n  \"table_dependencies\": [\n    8316,\n    4408\n  ],\n  \"object_dependencies\": [\n    6843,\n    6291\n  ],\n  \"notes\": \"string\",\n  \"ttl_type\": {\n    \"text_id\": \"string\",\n    \"internal_name\": \"string\",\n    \"is_active\": false,\n    \"is_public\": false,\n    \"id\": 8459,\n    \"created\": \"1959-02-23T01:39:04.609Z\",\n    \"modified\": \"2006-12-08T05:14:09.334Z\",\n    \"display_name\": \"string\",\n    \"full_name\": \"string\",\n    \"description\": \"string\",\n    \"notes\": \"string\"\n  },\n  \"sql_columns\": [\n    {\n      \"table_id\": 1482,\n      \"ordering\": 1616,\n      \"is_active\": false,\n      \"is_public\": true,\n      \"id\": 9936,\n      \"created\": \"1977-09-27T10:17:49.652Z\",\n      \"modified\": \"2026-07-13T20:01:54.530Z\",\n      \"name\": \"string\",\n      \"data_type_simple\": \"string\",\n      \"data_type_db\": \"string\",\n      \"compression\": \"string\",\n      \"endcoding\": \"string\",\n      \"description\": \"string\",\n      \"notes\": \"string\"\n    },\n    {\n      \"table_id\": 7100,\n      \"ordering\": 540,\n      \"is_active\": true,\n      \"is_public\": true,\n      \"id\": 2253,\n      \"created\": \"2009-04-29T21:41:06.315Z\",\n      \"modified\": \"1975-01-02T21:41:29.508Z\",\n      \"name\": \"string\",\n      \"data_type_simple\": \"string\",\n      \"data_type_db\": \"string\",\n      \"compression\": \"string\",\n      \"endcoding\": \"string\",\n      \"description\": \"string\",\n      \"notes\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1087ce67-d78d-4f26-b04d-49c87d974c7d",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "internal",
+                    "database_table",
+                    ":database_table_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "database_table_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"table_name\": \"<string>\",\n  \"primary_date_column\": \"<string>\",\n  \"timestamp_column\": \"<string>\",\n  \"text_id_column\": \"<string>\",\n  \"sample_data_url\": \"<string>\",\n  \"dataset_id\": \"<integer>\",\n  \"bucket_group_id\": \"<integer>\",\n  \"db_object_type_id\": \"<string>\",\n  \"status_id\": \"<integer>\",\n  \"internal_id_column\": \"<string>\",\n  \"engine\": \"<string>\",\n  \"partition_column\": \"<string>\",\n  \"partition_expression\": \"<string>\",\n  \"ttl_type_id\": \"<integer>\",\n  \"ttl_period\": \"<integer>\",\n  \"ghost_table_name\": \"<string>\",\n  \"create_query\": \"<string>\",\n  \"select_query\": \"<string>\",\n  \"watch_waiter\": \"<boolean>\",\n  \"table_dependencies\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"object_dependencies\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"is_active\": \"<boolean>\",\n  \"is_public\": \"<boolean>\",\n  \"notes\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c2ca45dc-b637-4ff3-b5de-c4b3a902b32c",
+          "name": "Delete Database Table",
+          "request": {
+            "name": "Delete Database Table",
+            "description": {
+              "content": "Delete a database table record",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "internal",
+                "database_table",
+                ":database_table_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "database_table_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a20bb40f-8d64-48d5-812b-de65d82ac3ea",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "internal",
+                    "database_table",
+                    ":database_table_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "database_table_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"table_name\": \"string\",\n  \"db_object_type_id\": 8422,\n  \"is_active\": false,\n  \"is_public\": true,\n  \"id\": 362,\n  \"created\": \"1952-10-26T07:01:27.726Z\",\n  \"modified\": \"1950-09-18T08:49:36.546Z\",\n  \"primary_date_column\": \"string\",\n  \"timestamp_column\": \"string\",\n  \"text_id_column\": \"string\",\n  \"sample_data_url\": \"string\",\n  \"dataset_id\": 5554,\n  \"bucket_group_id\": 6817,\n  \"status_id\": 2046,\n  \"internal_id_column\": \"string\",\n  \"engine\": \"string\",\n  \"partition_column\": \"string\",\n  \"partition_expression\": \"string\",\n  \"ttl_type_id\": 3224,\n  \"ttl_period\": 1194,\n  \"ghost_table_name\": \"string\",\n  \"create_query\": \"string\",\n  \"select_query\": \"string\",\n  \"watch_waiter\": false,\n  \"table_dependencies\": [\n    8316,\n    4408\n  ],\n  \"object_dependencies\": [\n    6843,\n    6291\n  ],\n  \"notes\": \"string\",\n  \"ttl_type\": {\n    \"text_id\": \"string\",\n    \"internal_name\": \"string\",\n    \"is_active\": false,\n    \"is_public\": false,\n    \"id\": 8459,\n    \"created\": \"1959-02-23T01:39:04.609Z\",\n    \"modified\": \"2006-12-08T05:14:09.334Z\",\n    \"display_name\": \"string\",\n    \"full_name\": \"string\",\n    \"description\": \"string\",\n    \"notes\": \"string\"\n  },\n  \"sql_columns\": [\n    {\n      \"table_id\": 1482,\n      \"ordering\": 1616,\n      \"is_active\": false,\n      \"is_public\": true,\n      \"id\": 9936,\n      \"created\": \"1977-09-27T10:17:49.652Z\",\n      \"modified\": \"2026-07-13T20:01:54.530Z\",\n      \"name\": \"string\",\n      \"data_type_simple\": \"string\",\n      \"data_type_db\": \"string\",\n      \"compression\": \"string\",\n      \"endcoding\": \"string\",\n      \"description\": \"string\",\n      \"notes\": \"string\"\n    },\n    {\n      \"table_id\": 7100,\n      \"ordering\": 540,\n      \"is_active\": true,\n      \"is_public\": true,\n      \"id\": 2253,\n      \"created\": \"2009-04-29T21:41:06.315Z\",\n      \"modified\": \"1975-01-02T21:41:29.508Z\",\n      \"name\": \"string\",\n      \"data_type_simple\": \"string\",\n      \"data_type_db\": \"string\",\n      \"compression\": \"string\",\n      \"endcoding\": \"string\",\n      \"description\": \"string\",\n      \"notes\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b7712db5-b1e8-4164-a070-3ea2f25e8569",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "internal",
+                    "database_table",
+                    ":database_table_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "database_table_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "28c2299a-6130-42fb-91a6-db3f82207083",
+          "name": "Get Database Table",
+          "request": {
+            "name": "Get Database Table",
+            "description": {
+              "content": "Get database table details by table_name",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "internal",
+                "database_table",
+                "table_name",
+                ":table_name",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "table_name",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0d24bf54-1927-49a7-b4f9-c101827f9cdf",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "internal",
+                    "database_table",
+                    "table_name",
+                    ":table_name",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "table_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"table_name\": \"string\",\n  \"db_object_type_id\": 8422,\n  \"is_active\": false,\n  \"is_public\": true,\n  \"id\": 362,\n  \"created\": \"1952-10-26T07:01:27.726Z\",\n  \"modified\": \"1950-09-18T08:49:36.546Z\",\n  \"primary_date_column\": \"string\",\n  \"timestamp_column\": \"string\",\n  \"text_id_column\": \"string\",\n  \"sample_data_url\": \"string\",\n  \"dataset_id\": 5554,\n  \"bucket_group_id\": 6817,\n  \"status_id\": 2046,\n  \"internal_id_column\": \"string\",\n  \"engine\": \"string\",\n  \"partition_column\": \"string\",\n  \"partition_expression\": \"string\",\n  \"ttl_type_id\": 3224,\n  \"ttl_period\": 1194,\n  \"ghost_table_name\": \"string\",\n  \"create_query\": \"string\",\n  \"select_query\": \"string\",\n  \"watch_waiter\": false,\n  \"table_dependencies\": [\n    8316,\n    4408\n  ],\n  \"object_dependencies\": [\n    6843,\n    6291\n  ],\n  \"notes\": \"string\",\n  \"ttl_type\": {\n    \"text_id\": \"string\",\n    \"internal_name\": \"string\",\n    \"is_active\": false,\n    \"is_public\": false,\n    \"id\": 8459,\n    \"created\": \"1959-02-23T01:39:04.609Z\",\n    \"modified\": \"2006-12-08T05:14:09.334Z\",\n    \"display_name\": \"string\",\n    \"full_name\": \"string\",\n    \"description\": \"string\",\n    \"notes\": \"string\"\n  },\n  \"sql_columns\": [\n    {\n      \"table_id\": 1482,\n      \"ordering\": 1616,\n      \"is_active\": false,\n      \"is_public\": true,\n      \"id\": 9936,\n      \"created\": \"1977-09-27T10:17:49.652Z\",\n      \"modified\": \"2026-07-13T20:01:54.530Z\",\n      \"name\": \"string\",\n      \"data_type_simple\": \"string\",\n      \"data_type_db\": \"string\",\n      \"compression\": \"string\",\n      \"endcoding\": \"string\",\n      \"description\": \"string\",\n      \"notes\": \"string\"\n    },\n    {\n      \"table_id\": 7100,\n      \"ordering\": 540,\n      \"is_active\": true,\n      \"is_public\": true,\n      \"id\": 2253,\n      \"created\": \"2009-04-29T21:41:06.315Z\",\n      \"modified\": \"1975-01-02T21:41:29.508Z\",\n      \"name\": \"string\",\n      \"data_type_simple\": \"string\",\n      \"data_type_db\": \"string\",\n      \"compression\": \"string\",\n      \"endcoding\": \"string\",\n      \"description\": \"string\",\n      \"notes\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "334c9180-23b7-4b86-90b4-4f1f2b8f9d41",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "internal",
+                    "database_table",
+                    "table_name",
+                    ":table_name",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "table_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2dbfe27a-7b00-4ddf-8314-ff9c4e2f8076",
+          "name": "Get Extended Dataset Table",
+          "request": {
+            "name": "Get Extended Dataset Table",
+            "description": {
+              "content": "Get Extended Dataset Table details by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "internal",
+                "database_table",
+                "ext",
+                ":database_table_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "database_table_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a44a6c73-fa72-4889-9eb1-2239357afe36",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "internal",
+                    "database_table",
+                    "ext",
+                    ":database_table_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "database_table_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"table_name\": \"string\",\n  \"db_object_type\": {\n    \"text_id\": \"string\",\n    \"internal_name\": \"string\",\n    \"is_active\": false,\n    \"is_public\": false,\n    \"id\": 5380,\n    \"created\": \"1963-09-14T16:00:55.816Z\",\n    \"modified\": \"2024-03-15T05:49:21.721Z\",\n    \"display_name\": \"string\",\n    \"full_name\": \"string\",\n    \"description\": \"string\",\n    \"notes\": \"string\"\n  },\n  \"id\": 6544,\n  \"ttl_type\": {\n    \"text_id\": \"string\",\n    \"internal_name\": \"string\",\n    \"is_active\": true,\n    \"is_public\": true,\n    \"id\": 5854,\n    \"created\": \"1995-06-26T09:23:26.965Z\",\n    \"modified\": \"2005-11-14T22:54:07.184Z\",\n    \"display_name\": \"string\",\n    \"full_name\": \"string\",\n    \"description\": \"string\",\n    \"notes\": \"string\"\n  },\n  \"is_active\": false,\n  \"is_public\": true,\n  \"created\": \"1972-01-06T20:44:53.987Z\",\n  \"modified\": \"1988-01-29T00:53:53.896Z\",\n  \"primary_date_column\": \"string\",\n  \"timestamp_column\": \"string\",\n  \"text_id_column\": \"string\",\n  \"sample_data_url\": \"string\",\n  \"dataset_id\": 6954,\n  \"bucket_group\": {\n    \"text_id\": \"string\",\n    \"bucket_name\": \"string\",\n    \"path_format\": \"string\",\n    \"aggregation\": \"string\",\n    \"id\": 46,\n    \"aws_account\": {\n      \"text_id\": \"string\",\n      \"internal_name\": \"string\",\n      \"is_active\": false,\n      \"is_public\": true,\n      \"id\": 2130,\n      \"created\": \"2015-10-20T14:32:21.272Z\",\n      \"modified\": \"2015-03-13T10:23:14.891Z\",\n      \"display_name\": \"string\",\n      \"full_name\": \"string\",\n      \"description\": \"string\",\n      \"notes\": \"string\"\n    },\n    \"is_active\": true,\n    \"is_public\": false,\n    \"created\": \"1970-02-09T19:45:08.101Z\",\n    \"modified\": \"1954-01-10T00:06:52.017Z\",\n    \"path_description\": \"string\",\n    \"start_year\": 5830,\n    \"end_year\": 4886,\n    \"indexed\": false,\n    \"is_primary\": true,\n    \"bucket_size_human\": \"string\",\n    \"total_size_human\": \"string\",\n    \"bucket_num_objects\": 4548,\n    \"bucket_num_objects_human\": \"string\",\n    \"creation_date\": \"2014-02-23\",\n    \"supplementary_bucket_group\": [\n      \"string\",\n      \"string\"\n    ],\n    \"cloud_storage\": {\n      \"text_id\": \"string\",\n      \"dataset_id\": 7604,\n      \"is_active\": false,\n      \"is_public\": false,\n      \"id\": 6867,\n      \"created\": \"1955-10-23T18:53:49.514Z\",\n      \"modified\": \"2001-04-02T02:36:22.730Z\",\n      \"sample_data_url\": \"string\",\n      \"sample_file_description\": \"string\",\n      \"sample_file_id\": 1247,\n      \"notes\": \"string\",\n      \"csv_columns\": [\n        {\n          \"cloud_storage_id\": 6749,\n          \"ordering\": 8247,\n          \"is_active\": true,\n          \"is_public\": true,\n          \"id\": 7671,\n          \"created\": \"2005-06-01T12:48:22.847Z\",\n          \"modified\": \"1993-12-29T01:28:11.797Z\",\n          \"name\": \"string\",\n          \"data_type\": \"string\",\n          \"description\": \"string\",\n          \"notes\": \"string\"\n        },\n        {\n          \"cloud_storage_id\": 9228,\n          \"ordering\": 8439,\n          \"is_active\": false,\n          \"is_public\": true,\n          \"id\": 8293,\n          \"created\": \"2014-12-29T04:16:39.559Z\",\n          \"modified\": \"1972-04-10T20:03:40.839Z\",\n          \"name\": \"string\",\n          \"data_type\": \"string\",\n          \"description\": \"string\",\n          \"notes\": \"string\"\n        }\n      ],\n      \"bucket_groups\": [\n        5223,\n        2492\n      ],\n      \"sample_file\": {\n        \"aws_account_id\": 6395,\n        \"bucket_name\": \"string\",\n        \"object_name\": \"string\",\n        \"region_name\": \"string\",\n        \"id\": 5398,\n        \"is_active\": false,\n        \"is_public\": true,\n        \"created\": \"1977-03-23T23:28:37.997Z\",\n        \"modified\": \"2001-12-11T22:49:35.652Z\",\n        \"notes\": \"string\",\n        \"aws_account\": {\n          \"text_id\": \"string\",\n          \"internal_name\": \"string\",\n          \"is_active\": true,\n          \"is_public\": true,\n          \"id\": 9297,\n          \"created\": \"2011-09-24T08:28:52.298Z\",\n          \"modified\": \"2026-06-05T09:29:08.319Z\",\n          \"display_name\": \"string\",\n          \"full_name\": \"string\",\n          \"description\": \"string\",\n          \"notes\": \"string\"\n        }\n      }\n    },\n    \"status\": {\n      \"text_id\": \"string\",\n      \"internal_name\": \"string\",\n      \"is_active\": false,\n      \"is_public\": false,\n      \"id\": 3194,\n      \"created\": \"1994-09-20T10:34:55.841Z\",\n      \"modified\": \"1947-07-19T22:31:28.404Z\",\n      \"display_name\": \"string\",\n      \"full_name\": \"string\",\n      \"description\": \"string\",\n      \"notes\": \"string\"\n    },\n    \"updates\": {\n      \"is_active\": true,\n      \"is_public\": true,\n      \"id\": 1134,\n      \"created\": \"1992-12-08T01:53:24.909Z\",\n      \"modified\": \"2011-12-06T07:00:56.683Z\",\n      \"interval\": \"string\",\n      \"days_offset\": 4646,\n      \"public_time\": \"string\",\n      \"size_human\": \"string\",\n      \"num_objects_human\": \"string\",\n      \"expected_time\": \"string\",\n      \"intraday_period_minutes\": 113,\n      \"duration_minutes\": 7874,\n      \"source\": \"string\",\n      \"size_bytes\": 900,\n      \"num_objects\": 1606,\n      \"path_prefix\": \"string\",\n      \"regex_structure\": \"string\",\n      \"notes\": \"string\",\n      \"bucket_group\": 2901\n    },\n    \"sample_data\": {\n      \"id\": 3583,\n      \"is_active\": false,\n      \"is_public\": true,\n      \"created\": \"2005-09-17T12:39:37.737Z\",\n      \"modified\": \"1947-05-11T20:19:34.354Z\",\n      \"bucket_name\": \"string\",\n      \"display_name\": \"string\",\n      \"description\": \"string\",\n      \"aws_account\": {\n        \"text_id\": \"string\",\n        \"internal_name\": \"string\",\n        \"is_active\": false,\n        \"is_public\": false,\n        \"id\": 2315,\n        \"created\": \"2025-08-29T22:51:07.057Z\",\n        \"modified\": \"2010-09-03T10:16:23.955Z\",\n        \"display_name\": \"string\",\n        \"full_name\": \"string\",\n        \"description\": \"string\",\n        \"notes\": \"string\"\n      },\n      \"notes\": \"string\"\n    },\n    \"storage_type\": {\n      \"text_id\": \"string\",\n      \"internal_name\": \"string\",\n      \"is_active\": false,\n      \"is_public\": false,\n      \"id\": 7731,\n      \"created\": \"1971-03-21T02:55:32.120Z\",\n      \"modified\": \"1964-09-03T21:06:44.553Z\",\n      \"display_name\": \"string\",\n      \"full_name\": \"string\",\n      \"description\": \"string\",\n      \"notes\": \"string\"\n    },\n    \"bucket_size_bytes\": 3310,\n    \"total_size_bytes\": 9844,\n    \"versioning\": true,\n    \"requester_pays\": true,\n    \"author\": {\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"email\": \"string\",\n      \"id\": 8054,\n      \"is_active\": false,\n      \"is_public\": false,\n      \"created\": \"2006-11-26T09:23:13.446Z\",\n      \"modified\": \"1999-02-09T02:23:04.037Z\",\n      \"phone\": \"string\",\n      \"role\": \"string\",\n      \"notes\": \"string\",\n      \"vendor\": {\n        \"text_id\": \"string\",\n        \"full_name\": \"string\",\n        \"display_name\": \"string\",\n        \"internal_name\": \"string\",\n        \"is_active\": false,\n        \"is_public\": true,\n        \"id\": 9643,\n        \"created\": \"2011-06-26T15:23:37.223Z\",\n        \"modified\": \"2019-02-06T17:07:46.678Z\",\n        \"description\": \"string\",\n        \"website\": \"string\",\n        \"logo_url\": \"string\",\n        \"icon_url\": \"string\",\n        \"notes\": \"string\"\n      }\n    },\n    \"maintainer\": {\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"email\": \"string\",\n      \"id\": 6237,\n      \"is_active\": true,\n      \"is_public\": true,\n      \"created\": \"2025-05-28T07:25:37.319Z\",\n      \"modified\": \"2005-02-06T12:44:43.375Z\",\n      \"phone\": \"string\",\n      \"role\": \"string\",\n      \"notes\": \"string\",\n      \"vendor\": {\n        \"text_id\": \"string\",\n        \"full_name\": \"string\",\n        \"display_name\": \"string\",\n        \"internal_name\": \"string\",\n        \"is_active\": false,\n        \"is_public\": true,\n        \"id\": 7554,\n        \"created\": \"1979-10-20T08:38:57.657Z\",\n        \"modified\": \"2014-09-13T19:40:24.670Z\",\n        \"description\": \"string\",\n        \"website\": \"string\",\n        \"logo_url\": \"string\",\n        \"icon_url\": \"string\",\n        \"notes\": \"string\"\n      }\n    },\n    \"monitoring\": {\n      \"is_active\": true,\n      \"is_public\": true,\n      \"id\": 2109,\n      \"created\": \"1997-01-25T20:01:39.784Z\",\n      \"modified\": \"1968-05-01T13:23:57.991Z\",\n      \"delay_alert_minutes\": 7598,\n      \"timeout_minutes\": 7818,\n      \"check_period_minutes\": 3949,\n      \"notes\": \"string\"\n    },\n    \"version\": \"string\",\n    \"prev_version_expiration_interval_days\": 2344,\n    \"archive_transition_interval_days\": 3233,\n    \"bucket_qa\": {\n      \"is_active\": true,\n      \"is_public\": true,\n      \"id\": 4892,\n      \"created\": \"1985-03-26T03:06:16.051Z\",\n      \"modified\": \"1950-07-22T09:41:41.895Z\",\n      \"row_1\": \"string\",\n      \"row_2\": \"string\",\n      \"notes\": \"string\"\n    },\n    \"bucket_source\": {\n      \"author_id\": 520,\n      \"is_active\": true,\n      \"is_public\": true,\n      \"id\": 9636,\n      \"created\": \"1950-08-22T06:14:05.353Z\",\n      \"modified\": \"1956-04-05T04:58:30.987Z\",\n      \"account_name\": \"string\",\n      \"resource_arn\": \"string\",\n      \"source_code_url\": \"string\",\n      \"code_location\": \"string\",\n      \"logs_location\": \"string\",\n      \"aws_resource_type_id\": 931,\n      \"maintainer_id\": 7518,\n      \"notes\": \"string\"\n    },\n    \"notes\": \"string\"\n  },\n  \"status\": {\n    \"text_id\": \"string\",\n    \"internal_name\": \"string\",\n    \"is_active\": false,\n    \"is_public\": true,\n    \"id\": 6469,\n    \"created\": \"2008-03-19T20:31:15.591Z\",\n    \"modified\": \"1980-07-22T07:18:10.612Z\",\n    \"display_name\": \"string\",\n    \"full_name\": \"string\",\n    \"description\": \"string\",\n    \"notes\": \"string\"\n  },\n  \"internal_id_column\": \"string\",\n  \"engine\": \"string\",\n  \"partition_column\": \"string\",\n  \"partition_expression\": \"string\",\n  \"ttl_period\": 981,\n  \"ghost_table_name\": \"string\",\n  \"create_query\": \"string\",\n  \"select_query\": \"string\",\n  \"sql_columns\": [\n    {\n      \"table_id\": 8829,\n      \"ordering\": 7423,\n      \"id\": 2416,\n      \"name\": \"string\",\n      \"data_type_simple\": \"string\",\n      \"data_type_db\": \"string\",\n      \"compression\": \"string\",\n      \"endcoding\": \"string\",\n      \"description\": \"string\"\n    },\n    {\n      \"table_id\": 5272,\n      \"ordering\": 4781,\n      \"id\": 3447,\n      \"name\": \"string\",\n      \"data_type_simple\": \"string\",\n      \"data_type_db\": \"string\",\n      \"compression\": \"string\",\n      \"endcoding\": \"string\",\n      \"description\": \"string\"\n    }\n  ],\n  \"watch_waiter\": false,\n  \"table_dependencies\": [\n    8816,\n    3535\n  ],\n  \"object_dependencies\": [\n    4961,\n    6742\n  ],\n  \"notes\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cc3d2d32-9e6e-48de-9ff2-385f6fdc36a1",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "internal",
+                    "database_table",
+                    "ext",
+                    ":database_table_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "database_table_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f84c6256-2df5-42bd-b80b-d440ebf78b9c",
+          "name": "Get Database Table",
+          "request": {
+            "name": "Get Database Table",
+            "description": {
+              "content": "Get database table details by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "public",
+                "database_table",
+                ":database_table_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "database_table_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3cfcbb8f-40be-4b56-afb8-6a8d676915b1",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "public",
+                    "database_table",
+                    ":database_table_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "database_table_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"table_name\": \"string\",\n  \"db_object_type_id\": 5631,\n  \"id\": 7481,\n  \"primary_date_column\": \"string\",\n  \"timestamp_column\": \"string\",\n  \"text_id_column\": \"string\",\n  \"sample_data_url\": \"string\",\n  \"dataset_id\": 9152,\n  \"bucket_group_id\": 4061,\n  \"status_id\": 7250,\n  \"ttl_type\": {\n    \"text_id\": \"string\",\n    \"internal_name\": \"string\",\n    \"is_active\": false,\n    \"is_public\": false,\n    \"id\": 2952,\n    \"created\": \"2006-08-15T23:37:55.168Z\",\n    \"modified\": \"1946-11-24T13:09:02.613Z\",\n    \"display_name\": \"string\",\n    \"full_name\": \"string\",\n    \"description\": \"string\",\n    \"notes\": \"string\"\n  },\n  \"ttl_period\": 4834,\n  \"sql_columns\": [\n    {\n      \"table_id\": 8580,\n      \"ordering\": 9169,\n      \"id\": 3243,\n      \"name\": \"string\",\n      \"data_type_simple\": \"string\",\n      \"data_type_db\": \"string\",\n      \"compression\": \"string\",\n      \"endcoding\": \"string\",\n      \"description\": \"string\"\n    },\n    {\n      \"table_id\": 9832,\n      \"ordering\": 9012,\n      \"id\": 1175,\n      \"name\": \"string\",\n      \"data_type_simple\": \"string\",\n      \"data_type_db\": \"string\",\n      \"compression\": \"string\",\n      \"endcoding\": \"string\",\n      \"description\": \"string\"\n    }\n  ],\n  \"create_query\": \"string\",\n  \"table_dependencies\": [\n    5751,\n    716\n  ],\n  \"object_dependencies\": [\n    6084,\n    6172\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b70c5b23-fbd3-4b6d-b3a9-2394b1bc1377",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "public",
+                    "database_table",
+                    ":database_table_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "database_table_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "64bea50e-6e85-4f2d-969b-774af9a0dcf5",
+          "name": "Get Database Table",
+          "request": {
+            "name": "Get Database Table",
+            "description": {
+              "content": "Get database table details by table_name",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "public",
+                "database_table",
+                "table_name",
+                ":table_name",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "table_name",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5a20104a-13c3-469f-8404-054e1fdf0ab6",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "public",
+                    "database_table",
+                    "table_name",
+                    ":table_name",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "table_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"table_name\": \"string\",\n  \"db_object_type_id\": 8991,\n  \"id\": 4927,\n  \"primary_date_column\": \"string\",\n  \"timestamp_column\": \"string\",\n  \"text_id_column\": \"string\",\n  \"sample_data_url\": \"string\",\n  \"dataset_id\": 3300,\n  \"bucket_group_id\": 630,\n  \"status_id\": 6507,\n  \"ttl_type\": {\n    \"text_id\": \"string\",\n    \"internal_name\": \"string\",\n    \"is_active\": true,\n    \"is_public\": false,\n    \"id\": 3408,\n    \"created\": \"1972-05-29T23:53:04.190Z\",\n    \"modified\": \"1965-06-10T12:49:21.052Z\",\n    \"display_name\": \"string\",\n    \"full_name\": \"string\",\n    \"description\": \"string\",\n    \"notes\": \"string\"\n  },\n  \"ttl_period\": 6385,\n  \"sql_columns\": [\n    {\n      \"table_id\": 4847,\n      \"ordering\": 3574,\n      \"id\": 8172,\n      \"name\": \"string\",\n      \"data_type_simple\": \"string\",\n      \"data_type_db\": \"string\",\n      \"compression\": \"string\",\n      \"endcoding\": \"string\",\n      \"description\": \"string\"\n    },\n    {\n      \"table_id\": 8320,\n      \"ordering\": 4730,\n      \"id\": 2683,\n      \"name\": \"string\",\n      \"data_type_simple\": \"string\",\n      \"data_type_db\": \"string\",\n      \"compression\": \"string\",\n      \"endcoding\": \"string\",\n      \"description\": \"string\"\n    }\n  ],\n  \"create_query\": \"string\",\n  \"table_dependencies\": [\n    7042,\n    3951\n  ],\n  \"object_dependencies\": [\n    3834,\n    3227\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "62ac90d8-1b20-4906-8cb2-3ce1419667b6",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "public",
+                    "database_table",
+                    "table_name",
+                    ":table_name",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "table_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e20c66a4-ba75-48ed-b98c-409de47fb547",
+          "name": "List Database Tables",
+          "request": {
+            "name": "List Database Tables",
+            "description": {
+              "content": "Get a list of all database tables",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "public",
+                "database_table",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3ba76b46-9a42-46ee-9362-59de315957d6",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "public",
+                    "database_table",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"table_name\": \"string\",\n    \"db_object_type_id\": 315,\n    \"id\": 6865,\n    \"primary_date_column\": \"string\",\n    \"timestamp_column\": \"string\",\n    \"text_id_column\": \"string\",\n    \"sample_data_url\": \"string\",\n    \"dataset_id\": 9331,\n    \"bucket_group_id\": 6186,\n    \"status_id\": 2551,\n    \"ttl_type\": {\n      \"text_id\": \"string\",\n      \"internal_name\": \"string\",\n      \"is_active\": false,\n      \"is_public\": false,\n      \"id\": 7525,\n      \"created\": \"2016-11-14T00:26:19.130Z\",\n      \"modified\": \"1974-04-09T18:49:42.265Z\",\n      \"display_name\": \"string\",\n      \"full_name\": \"string\",\n      \"description\": \"string\",\n      \"notes\": \"string\"\n    },\n    \"ttl_period\": 341,\n    \"sql_columns\": [\n      {\n        \"table_id\": 4853,\n        \"ordering\": 7132,\n        \"id\": 2869,\n        \"name\": \"string\",\n        \"data_type_simple\": \"string\",\n        \"data_type_db\": \"string\",\n        \"compression\": \"string\",\n        \"endcoding\": \"string\",\n        \"description\": \"string\"\n      },\n      {\n        \"table_id\": 435,\n        \"ordering\": 6029,\n        \"id\": 3055,\n        \"name\": \"string\",\n        \"data_type_simple\": \"string\",\n        \"data_type_db\": \"string\",\n        \"compression\": \"string\",\n        \"endcoding\": \"string\",\n        \"description\": \"string\"\n      }\n    ],\n    \"create_query\": \"string\",\n    \"table_dependencies\": [\n      6084,\n      5470\n    ],\n    \"object_dependencies\": [\n      4777,\n      5838\n    ]\n  },\n  {\n    \"table_name\": \"string\",\n    \"db_object_type_id\": 6203,\n    \"id\": 3600,\n    \"primary_date_column\": \"string\",\n    \"timestamp_column\": \"string\",\n    \"text_id_column\": \"string\",\n    \"sample_data_url\": \"string\",\n    \"dataset_id\": 2703,\n    \"bucket_group_id\": 6773,\n    \"status_id\": 4574,\n    \"ttl_type\": {\n      \"text_id\": \"string\",\n      \"internal_name\": \"string\",\n      \"is_active\": false,\n      \"is_public\": false,\n      \"id\": 6455,\n      \"created\": \"1992-08-10T00:13:11.763Z\",\n      \"modified\": \"1972-03-06T20:46:51.822Z\",\n      \"display_name\": \"string\",\n      \"full_name\": \"string\",\n      \"description\": \"string\",\n      \"notes\": \"string\"\n    },\n    \"ttl_period\": 2599,\n    \"sql_columns\": [\n      {\n        \"table_id\": 5627,\n        \"ordering\": 3997,\n        \"id\": 6149,\n        \"name\": \"string\",\n        \"data_type_simple\": \"string\",\n        \"data_type_db\": \"string\",\n        \"compression\": \"string\",\n        \"endcoding\": \"string\",\n        \"description\": \"string\"\n      },\n      {\n        \"table_id\": 6416,\n        \"ordering\": 6625,\n        \"id\": 482,\n        \"name\": \"string\",\n        \"data_type_simple\": \"string\",\n        \"data_type_db\": \"string\",\n        \"compression\": \"string\",\n        \"endcoding\": \"string\",\n        \"description\": \"string\"\n      }\n    ],\n    \"create_query\": \"string\",\n    \"table_dependencies\": [\n      7097,\n      5025\n    ],\n    \"object_dependencies\": [\n      5047,\n      8306\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://metadata-services.algoseek.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "706cee5f-bf97-4a6e-a9a5-91a8b7688412",
+    "name": "metadata-api AWSAccount DatabaseTable API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

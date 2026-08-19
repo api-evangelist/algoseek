@@ -184,3 +184,9 @@ tools:
 - name: get_vendors_public
   description: List vendors
   source_operation: openapi/algoseek-vendor-api-openapi.yml#get_vendors_public_api_v1_public_vendor__get
+deployment:
+  mode: none
+  verified: derived
+  tools: 58
+  checked: '2026-08-12'
+  source: catalog MCP census

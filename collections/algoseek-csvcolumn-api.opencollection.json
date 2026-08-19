@@ -1,0 +1,183 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "metadata-api AWSAccount CSVColumn API",
+    "version": "1.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "CSVColumn",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List CSV Columns",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/csv_column/",
+            "params": [
+              {
+                "name": "is_active",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "is_public",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cloud_storage_id",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get a list of all csv columns"
+        },
+        {
+          "info": {
+            "name": "Add CSV Column",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/csv_column/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Add a new csv column"
+        },
+        {
+          "info": {
+            "name": "Get CSV Column",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/csv_column/:csv_column_id/",
+            "params": [
+              {
+                "name": "csv_column_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get CSV Column details by id"
+        },
+        {
+          "info": {
+            "name": "Update csv column",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/csv_column/:csv_column_id/",
+            "params": [
+              {
+                "name": "csv_column_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update csv column details by id"
+        },
+        {
+          "info": {
+            "name": "Delete csv column",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/csv_column/:csv_column_id/",
+            "params": [
+              {
+                "name": "csv_column_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete a csv column record"
+        },
+        {
+          "info": {
+            "name": "Get CSV Column",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/public/csv_column/:csv_column_id/",
+            "params": [
+              {
+                "name": "csv_column_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get CSV Column details by id"
+        },
+        {
+          "info": {
+            "name": "List CSV Columns",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/public/csv_column/",
+            "params": [
+              {
+                "name": "cloud_storage_id",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get a list of all csv columns"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

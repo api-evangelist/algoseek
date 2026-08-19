@@ -1,0 +1,193 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "metadata-api AWSAccount TTLPeriodType API",
+    "version": "1.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "TTLPeriodType",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List TTL Period Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/ttl_period_type/",
+            "params": [
+              {
+                "name": "is_active",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "is_public",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get a list of all ttl period types"
+        },
+        {
+          "info": {
+            "name": "Add TTL Period Type",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/ttl_period_type/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Add a new ttl period type"
+        },
+        {
+          "info": {
+            "name": "Get TTL Period Type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/ttl_period_type/:ttl_period_type_id/",
+            "params": [
+              {
+                "name": "ttl_period_type_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get ttl period type details by id"
+        },
+        {
+          "info": {
+            "name": "Update TTL Period Type",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/ttl_period_type/:ttl_period_type_id/",
+            "params": [
+              {
+                "name": "ttl_period_type_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update ttl period type details by id"
+        },
+        {
+          "info": {
+            "name": "Delete TTL Period Type",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/ttl_period_type/:ttl_period_type_id/",
+            "params": [
+              {
+                "name": "ttl_period_type_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete a ttl period type record"
+        },
+        {
+          "info": {
+            "name": "Get TTL Period Type by text id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/internal/ttl_period_type/text_id/:text_id/",
+            "params": [
+              {
+                "name": "text_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get ttl period type details by text_id"
+        },
+        {
+          "info": {
+            "name": "Get TTL Period Type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/public/ttl_period_type/:ttl_period_type_id/",
+            "params": [
+              {
+                "name": "ttl_period_type_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get ttl period type details by id"
+        },
+        {
+          "info": {
+            "name": "List TTL Period Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://metadata-services.algoseek.com/api/v1/api/v1/public/ttl_period_type/",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get a list of all ttl period types"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
