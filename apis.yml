@@ -9,6 +9,18 @@ description: AlgoSeek, LLC is a New York-based financial market data vendor (spu
   the ArdaDB managed ClickHouse cloud database queried via the open-source algoseek-connector Python library,
   ultra-low-latency real-time feeds via colocated MultiCast/TCP, and a REST Metadata Services API with
   a public OpenAPI/Swagger surface. Sales-led commercially, with a customer console at console.algoseek.com.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: unknown
