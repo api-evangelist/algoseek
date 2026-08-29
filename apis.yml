@@ -540,6 +540,9 @@ apis:
   - type: Overlay
     url: overlays/algoseek-vendor-api-overlay.yaml
 common:
+- type: CapabilityMap
+  url: capabilities/algoseek-capability-edges.yml
+  name: AlgoSeek Business Capability Map
 - type: DomainSecurity
   url: security/algoseek-domain-security.yml
 - type: Authentication
