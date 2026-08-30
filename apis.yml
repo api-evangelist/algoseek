@@ -157,7 +157,7 @@ apis:
   humanURL: https://metadata-services.algoseek.com/docs
   baseURL: https://metadata-services.algoseek.com/api/v1
   tags:
-  - Cloud Storage
+  - CloudStorage
   tags_raw:
   - CloudStorage
   properties:
@@ -229,7 +229,7 @@ apis:
   humanURL: https://metadata-services.algoseek.com/docs
   baseURL: https://metadata-services.algoseek.com/api/v1
   tags:
-  - Data Format
+  - DataFormat
   tags_raw:
   - DataFormat
   properties:
@@ -357,7 +357,7 @@ apis:
   humanURL: https://metadata-services.algoseek.com/docs
   baseURL: https://metadata-services.algoseek.com/api/v1
   tags:
-  - Health Check
+  - Healthcheck
   tags_raw:
   - Healthcheck
   properties:
@@ -445,7 +445,7 @@ apis:
   humanURL: https://metadata-services.algoseek.com/docs
   baseURL: https://metadata-services.algoseek.com/api/v1
   tags:
-  - Sample Data
+  - SampleData
   tags_raw:
   - SampleData
   properties:
