@@ -62,11 +62,11 @@ apis:
     type: Documentation
   - url: https://algoseek-connector.readthedocs.io/
     type: Documentation
-  description: Managed ClickHouse-based columnar cloud database (AWS us-east-1) pre-loaded with two petabytes
-    of AlgoSeek historical and near-real-time market data, queried with full SQL. Programmatic access
-    is documented through the open-source algoseek-connector Python library (SQL-like method-chaining
-    queries, pandas DataFrames, streaming results) using ArdaDB credentials; no public HTTP base URL is
-    documented.
+  description: >-
+    Managed ClickHouse-based columnar cloud database (AWS us-east-1) pre-loaded with two petabytes of
+    AlgoSeek historical and near-real-time market data, queried with full SQL. Programmatic access is
+    documented through the open-source algoseek-connector Python library (SQL-like method-chaining queries,
+    pandas DataFrames, streaming results) using ArdaDB credentials; no public HTTP base URL is documented.
 - aid: algoseek:algoseek-awsaccount-api
   name: AlgoSeek AWSAccount API
   description: The AWSAccount API from AlgoSeek — 3 operation(s) for awsaccount.
@@ -151,22 +151,6 @@ apis:
     url: https://metadata-services.algoseek.com/docs
   - type: Overlay
     url: overlays/algoseek-bucketupdate-api-overlay.yaml
-- aid: algoseek:algoseek-cloudstorage-api
-  name: AlgoSeek CloudStorage API
-  description: The CloudStorage API from AlgoSeek — 6 operation(s) for cloudstorage.
-  humanURL: https://metadata-services.algoseek.com/docs
-  baseURL: https://metadata-services.algoseek.com/api/v1
-  tags:
-  - Cloud Storage
-  tags_raw:
-  - CloudStorage
-  properties:
-  - type: OpenAPI
-    url: openapi/algoseek-cloudstorage-api-openapi.yml
-  - type: Documentation
-    url: https://metadata-services.algoseek.com/docs
-  - type: Overlay
-    url: overlays/algoseek-cloudstorage-api-overlay.yaml
 - aid: algoseek:algoseek-csvcolumn-api
   name: AlgoSeek CSVColumn API
   description: The CSVColumn API from AlgoSeek — 4 operation(s) for csvcolumn.
@@ -351,22 +335,6 @@ apis:
     url: https://metadata-services.algoseek.com/docs
   - type: Overlay
     url: overlays/algoseek-documentation-api-overlay.yaml
-- aid: algoseek:algoseek-healthcheck-api
-  name: AlgoSeek Healthcheck API
-  description: The Healthcheck API from AlgoSeek — 1 operation(s) for healthcheck.
-  humanURL: https://metadata-services.algoseek.com/docs
-  baseURL: https://metadata-services.algoseek.com/api/v1
-  tags:
-  - Health Check
-  tags_raw:
-  - Healthcheck
-  properties:
-  - type: OpenAPI
-    url: openapi/algoseek-healthcheck-api-openapi.yml
-  - type: Documentation
-    url: https://metadata-services.algoseek.com/docs
-  - type: Overlay
-    url: overlays/algoseek-healthcheck-api-overlay.yaml
 - aid: algoseek:algoseek-identity-api
   name: AlgoSeek Identity API
   description: The Identity API from AlgoSeek — 2 operation(s) for identity.
@@ -439,22 +407,6 @@ apis:
     url: https://metadata-services.algoseek.com/docs
   - type: Overlay
     url: overlays/algoseek-s3object-api-overlay.yaml
-- aid: algoseek:algoseek-sampledata-api
-  name: AlgoSeek SampleData API
-  description: The SampleData API from AlgoSeek — 5 operation(s) for sampledata.
-  humanURL: https://metadata-services.algoseek.com/docs
-  baseURL: https://metadata-services.algoseek.com/api/v1
-  tags:
-  - Sample Data
-  tags_raw:
-  - SampleData
-  properties:
-  - type: OpenAPI
-    url: openapi/algoseek-sampledata-api-openapi.yml
-  - type: Documentation
-    url: https://metadata-services.algoseek.com/docs
-  - type: Overlay
-    url: overlays/algoseek-sampledata-api-overlay.yaml
 - aid: algoseek:algoseek-sqlcolumn-api
   name: AlgoSeek SQLColumn API
   description: The SQLColumn API from AlgoSeek — 4 operation(s) for sqlcolumn.
@@ -539,7 +491,49 @@ apis:
     url: https://metadata-services.algoseek.com/docs
   - type: Overlay
     url: overlays/algoseek-vendor-api-overlay.yaml
+- aid: algoseek:algoseek-cloud-storage-api
+  name: AlgoSeek Cloud Storage API
+  description: The Cloud Storage API from AlgoSeek — 6 operation(s) for cloud storage.
+  humanURL: https://algoseek.com/ardadb
+  baseURL: https://metadata-services.algoseek.com/api/v1
+  tags:
+  - Cloud Storage
+  properties:
+  - type: OpenAPI
+    url: openapi/algoseek-cloud-storage-api-openapi.yml
+  - type: Documentation
+    url: https://metadata-services.algoseek.com/docs
+- aid: algoseek:algoseek-health-check-api
+  name: AlgoSeek Health Check API
+  description: The Health Check API from AlgoSeek — 1 operation(s) for health check.
+  humanURL: https://algoseek.com/ardadb
+  baseURL: https://metadata-services.algoseek.com/api/v1
+  tags:
+  - Health Check
+  properties:
+  - type: OpenAPI
+    url: openapi/algoseek-health-check-api-openapi.yml
+  - type: Documentation
+    url: https://metadata-services.algoseek.com/docs
+- aid: algoseek:algoseek-sample-data-api
+  name: AlgoSeek Sample Data API
+  description: The Sample Data API from AlgoSeek — 5 operation(s) for sample data.
+  humanURL: https://algoseek.com/ardadb
+  baseURL: https://metadata-services.algoseek.com/api/v1
+  tags:
+  - Sample Data
+  properties:
+  - type: OpenAPI
+    url: openapi/algoseek-sample-data-api-openapi.yml
+  - type: Documentation
+    url: https://metadata-services.algoseek.com/docs
 common:
+- type: Overlay
+  url: overlays/algoseek-cloudstorage-api-overlay.yaml
+- type: Overlay
+  url: overlays/algoseek-healthcheck-api-overlay.yaml
+- type: Overlay
+  url: overlays/algoseek-sampledata-api-overlay.yaml
 - type: CapabilityMap
   url: capabilities/algoseek-capability-edges.yml
   name: AlgoSeek Business Capability Map
