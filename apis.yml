@@ -257,6 +257,8 @@ apis:
   humanURL: https://metadata-services.algoseek.com/docs
   baseURL: https://metadata-services.algoseek.com/api/v1
   tags:
+  - Datasets
+  tags_raw:
   - Dataset
   properties:
   - type: OpenAPI
