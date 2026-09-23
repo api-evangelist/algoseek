@@ -1,6 +1,6 @@
-openapi: 3.0.2
+openapi: 3.2.0
 info:
-  title: metadata-api AWSAccount Dataset API
+  title: metadata-api Dataset API
   version: '1.2'
 tags:
 - name: Dataset
@@ -684,655 +684,6 @@ components:
           title: Modified
           type: string
           format: date-time
-    ValidationError:
-      title: ValidationError
-      required:
-      - loc
-      - msg
-      - type
-      type: object
-      properties:
-        loc:
-          title: Location
-          type: array
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-        msg:
-          title: Message
-          type: string
-        type:
-          title: Error Type
-          type: string
-    ExtDataGroupOutAdmin:
-      title: ExtDataGroupOutAdmin
-      required:
-      - text_id
-      - status
-      - region
-      - pricing
-      - id
-      - internal_name
-      - is_active
-      - is_public
-      - created
-      - modified
-      type: object
-      properties:
-        text_id:
-          title: Text Id
-          type: string
-        display_name:
-          title: Display Name
-          type: string
-        full_name:
-          title: Full Name
-          type: string
-        description:
-          title: Description
-          type: string
-        universe_size:
-          title: Universe Size
-          type: integer
-        universe_description:
-          title: Universe Description
-          type: string
-        universe_components:
-          title: Universe Components
-          type: array
-          items:
-            type: string
-        symbols_per_component:
-          title: Symbols Per Component
-          type: array
-          items:
-            type: integer
-        tags:
-          title: Tags
-          type: array
-          items:
-            type: string
-        status:
-          $ref: '#/components/schemas/EnumOutAdmin'
-        region:
-          $ref: '#/components/schemas/EnumOutAdmin'
-        pricing:
-          $ref: '#/components/schemas/DataGroupPricingOutAdmin'
-        id:
-          title: Id
-          type: integer
-        internal_name:
-          title: Internal Name
-          type: string
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
-        created:
-          title: Created
-          type: string
-          format: date-time
-        modified:
-          title: Modified
-          type: string
-          format: date-time
-    CSVColumnOutPublic:
-      title: CSVColumnOutPublic
-      required:
-      - cloud_storage_id
-      - ordering
-      - id
-      type: object
-      properties:
-        name:
-          title: Name
-          type: string
-        data_type:
-          title: Data Type
-          type: string
-        description:
-          title: Description
-          type: string
-        cloud_storage_id:
-          title: Cloud Storage Id
-          type: integer
-        ordering:
-          title: Ordering
-          type: integer
-        id:
-          title: Id
-          type: integer
-    HTTPValidationError:
-      title: HTTPValidationError
-      type: object
-      properties:
-        detail:
-          title: Detail
-          type: array
-          items:
-            $ref: '#/components/schemas/ValidationError'
-    CloudStorageOutPublic:
-      title: CloudStorageOutPublic
-      required:
-      - text_id
-      - dataset_id
-      - id
-      type: object
-      properties:
-        text_id:
-          title: Text Id
-          type: string
-        sample_data_url:
-          title: Sample Data Url
-          type: string
-        sample_file_description:
-          title: Sample File Description
-          type: string
-        sample_file_id:
-          title: Sample File Id
-          type: integer
-        dataset_id:
-          title: Dataset Id
-          type: integer
-        id:
-          title: Id
-          type: integer
-        csv_columns:
-          title: Csv Columns
-          type: array
-          items:
-            $ref: '#/components/schemas/CSVColumnOutPublic'
-        bucket_groups:
-          title: Bucket Groups
-          type: array
-          items:
-            type: integer
-    ExtS3ObjectOutAdmin:
-      title: ExtS3ObjectOutAdmin
-      required:
-      - aws_account_id
-      - bucket_name
-      - object_name
-      - region_name
-      - id
-      - is_active
-      - is_public
-      - created
-      - modified
-      type: object
-      properties:
-        aws_account_id:
-          title: Aws Account Id
-          type: integer
-        bucket_name:
-          title: Bucket Name
-          type: string
-        object_name:
-          title: Object Name
-          type: string
-        region_name:
-          title: Region Name
-          type: string
-        id:
-          title: Id
-          type: integer
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
-        aws_account:
-          $ref: '#/components/schemas/EnumOutAdmin'
-        created:
-          title: Created
-          type: string
-          format: date-time
-        modified:
-          title: Modified
-          type: string
-          format: date-time
-    PlatformFrontendDatasetOutPublic:
-      title: PlatformFrontendDatasetOutPublic
-      required:
-      - id
-      - listing_priority
-      - internal_id
-      - text_id
-      type: object
-      properties:
-        id:
-          title: Id
-          type: integer
-        status_id:
-          title: Status Id
-          type: integer
-        cloud_storage_id:
-          title: Cloud Storage Id
-          type: integer
-        database_table_id:
-          title: Database Table Id
-          type: integer
-        full_name:
-          title: Full Name
-          type: string
-        short_name:
-          title: Short Name
-          type: string
-        description:
-          title: Description
-          type: string
-        sample_data_description:
-          title: Sample Data Description
-          type: string
-        sample_data_url:
-          title: Sample Data Url
-          type: string
-        bucket_size:
-          title: Bucket Size
-          type: string
-        bucket_name:
-          title: Bucket Name
-          type: string
-        bucket_path_format:
-          title: Bucket Path Format
-          type: string
-        bucket_path_description:
-          title: Bucket Path Description
-          type: string
-        start_year:
-          title: Start Year
-          type: integer
-        end_year:
-          title: End Year
-          type: integer
-        updates_interval:
-          title: Updates Interval
-          type: string
-        updates_expected_time:
-          title: Updates Expected Time
-          type: string
-        updates_size:
-          title: Updates Size
-          type: string
-        delivery_methods:
-          title: Delivery Methods
-          type: array
-          items:
-            type: string
-        data_class_id:
-          title: Data Class Id
-          type: integer
-        data_type_id:
-          title: Data Type Id
-          type: integer
-        vendor_id:
-          title: Vendor Id
-          type: integer
-        region_id:
-          title: Region Id
-          type: integer
-        documentation_link:
-          title: Documentation Link
-          type: string
-        listing_priority:
-          title: Listing Priority
-          type: integer
-        internal_id:
-          title: Internal Id
-          type: string
-        text_id:
-          title: Text Id
-          type: string
-        data_format_id:
-          title: Data Format Id
-          type: integer
-        time_granularity_id:
-          title: Time Granularity Id
-          type: integer
-        start_date:
-          title: Start Date
-          type: string
-          format: date
-        creation_date:
-          title: Creation Date
-          type: string
-          format: date
-        long_description:
-          title: Long Description
-          type: string
-        db_table_name:
-          title: Db Table Name
-          type: string
-        db_table_text_id_column:
-          title: Db Table Text Id Column
-          type: string
-        db_table_partition_column:
-          title: Db Table Partition Column
-          type: string
-        db_table_partition_expression:
-          title: Db Table Partition Expression
-          type: string
-        db_table_sort_columns:
-          title: Db Table Sort Columns
-          type: array
-          items:
-            type: string
-        universe_description:
-          title: Universe Description
-          type: string
-    ExtVendorOutAdmin:
-      title: ExtVendorOutAdmin
-      required:
-      - text_id
-      - full_name
-      - display_name
-      - internal_name
-      - is_active
-      - is_public
-      - id
-      - created
-      - modified
-      type: object
-      properties:
-        text_id:
-          title: Text Id
-          type: string
-        full_name:
-          title: Full Name
-          type: string
-        display_name:
-          title: Display Name
-          type: string
-        description:
-          title: Description
-          type: string
-        website:
-          title: Website
-          type: string
-        logo_url:
-          title: Logo Url
-          type: string
-        icon_url:
-          title: Icon Url
-          type: string
-        internal_name:
-          title: Internal Name
-          type: string
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
-        id:
-          title: Id
-          type: integer
-        created:
-          title: Created
-          type: string
-          format: date-time
-        modified:
-          title: Modified
-          type: string
-          format: date-time
-    DatasetChangeOutAdmin:
-      title: DatasetChangeOutAdmin
-      required:
-      - dataset_id
-      - effective_date
-      - description
-      - is_active
-      - is_public
-      - id
-      - created
-      - modified
-      type: object
-      properties:
-        dataset_id:
-          title: Dataset Id
-          type: integer
-        effective_date:
-          title: Effective Date
-          type: string
-          format: date
-        start_date:
-          title: Start Date
-          type: string
-          format: date
-        end_date:
-          title: End Date
-          type: string
-          format: date
-        description:
-          title: Description
-          type: string
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
-        id:
-          title: Id
-          type: integer
-        created:
-          title: Created
-          type: string
-          format: date-time
-        modified:
-          title: Modified
-          type: string
-          format: date-time
-    ExtPersonOutAdmin:
-      title: ExtPersonOutAdmin
-      required:
-      - first_name
-      - last_name
-      - email
-      - id
-      - is_active
-      - is_public
-      - created
-      - modified
-      type: object
-      properties:
-        first_name:
-          title: First Name
-          type: string
-        last_name:
-          title: Last Name
-          type: string
-        email:
-          title: Email
-          type: string
-        phone:
-          title: Phone
-          type: string
-        role:
-          title: Role
-          type: string
-        id:
-          title: Id
-          type: integer
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
-        created:
-          title: Created
-          type: string
-          format: date-time
-        modified:
-          title: Modified
-          type: string
-          format: date-time
-        vendor:
-          $ref: '#/components/schemas/ExtVendorOutAdmin'
-    DatasetUpdate:
-      title: DatasetUpdate
-      type: object
-      properties:
-        text_id:
-          title: Text Id
-          type: string
-        full_name:
-          title: Full Name
-          type: string
-        display_name:
-          title: Display Name
-          type: string
-        description:
-          title: Description
-          type: string
-        long_description:
-          title: Long Description
-          type: string
-        creation_date:
-          title: Creation Date
-          type: string
-          format: date
-        start_date:
-          title: Start Date
-          type: string
-          format: date
-        end_date:
-          title: End Date
-          type: string
-          format: date
-        price_per_year:
-          title: Price Per Year
-          type: number
-        price_per_symbol:
-          title: Price Per Symbol
-          type: number
-        listing_priority:
-          title: Listing Priority
-          type: integer
-        tags:
-          title: Tags
-          type: array
-          items: {}
-        datagroup_id:
-          title: Datagroup Id
-          type: integer
-        data_format_id:
-          title: Data Format Id
-          type: integer
-        data_class_id:
-          title: Data Class Id
-          type: integer
-        data_type_id:
-          title: Data Type Id
-          type: integer
-        time_granularity_id:
-          title: Time Granularity Id
-          type: integer
-        region_id:
-          title: Region Id
-          type: integer
-        status_id:
-          title: Status Id
-          type: integer
-        publisher_id:
-          title: Publisher Id
-          type: integer
-        documentation_id:
-          title: Documentation Id
-          type: integer
-        delivery_methods:
-          title: Delivery Methods
-          type: array
-          items:
-            type: integer
-        internal_id:
-          title: Internal Id
-          type: string
-        internal_name:
-          title: Internal Name
-          type: string
-        short_name:
-          title: Short Name
-          type: string
-        vendor_id:
-          title: Vendor Id
-          type: integer
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
-    EnumOutAdmin:
-      title: EnumOutAdmin
-      required:
-      - text_id
-      - internal_name
-      - is_active
-      - is_public
-      - id
-      - created
-      - modified
-      type: object
-      properties:
-        text_id:
-          title: Text Id
-          type: string
-        display_name:
-          title: Display Name
-          type: string
-        full_name:
-          title: Full Name
-          type: string
-        description:
-          title: Description
-          type: string
-        internal_name:
-          title: Internal Name
-          type: string
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
-        id:
-          title: Id
-          type: integer
-        created:
-          title: Created
-          type: string
-          format: date-time
-        modified:
-          title: Modified
-          type: string
-          format: date-time
     DatasetOutAdmin:
       title: DatasetOutAdmin
       required:
@@ -1459,16 +810,238 @@ components:
           title: Modified
           type: string
           format: date-time
-    CSVColumnOutAdmin:
-      title: CSVColumnOutAdmin
+    DatabaseTableOutAdmin:
+      title: DatabaseTableOutAdmin
       required:
-      - cloud_storage_id
-      - ordering
+      - table_name
+      - db_object_type_id
       - is_active
       - is_public
       - id
       - created
       - modified
+      type: object
+      properties:
+        table_name:
+          title: Table Name
+          type: string
+        primary_date_column:
+          title: Primary Date Column
+          type: string
+        timestamp_column:
+          title: Timestamp Column
+          type: string
+        text_id_column:
+          title: Text Id Column
+          type: string
+        sample_data_url:
+          title: Sample Data Url
+          type: string
+        dataset_id:
+          title: Dataset Id
+          type: integer
+        bucket_group_id:
+          title: Bucket Group Id
+          type: integer
+        db_object_type_id:
+          title: Db Object Type Id
+          type: integer
+        status_id:
+          title: Status Id
+          type: integer
+        internal_id_column:
+          title: Internal Id Column
+          type: string
+        engine:
+          title: Engine
+          type: string
+        partition_column:
+          title: Partition Column
+          type: string
+        partition_expression:
+          title: Partition Expression
+          type: string
+        sort_columns:
+          title: Sort Columns
+          type: array
+          items: {}
+        constraints:
+          title: Constraints
+          type: array
+          items: {}
+        ttl_type_id:
+          title: Ttl Type Id
+          type: integer
+        ttl_period:
+          title: Ttl Period
+          type: integer
+        ghost_table_name:
+          title: Ghost Table Name
+          type: string
+        create_query:
+          title: Create Query
+          type: string
+        select_query:
+          title: Select Query
+          type: string
+        watch_waiter:
+          title: Watch Waiter
+          type: boolean
+        table_dependencies:
+          title: Table Dependencies
+          type: array
+          items:
+            type: integer
+        object_dependencies:
+          title: Object Dependencies
+          type: array
+          items:
+            type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        ttl_type:
+          $ref: '#/components/schemas/EnumOutAdmin'
+        sql_columns:
+          title: Sql Columns
+          type: array
+          items:
+            $ref: '#/components/schemas/SQLColumnOutAdmin'
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    DatasetChangeOutAdmin:
+      title: DatasetChangeOutAdmin
+      required:
+      - dataset_id
+      - effective_date
+      - description
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        dataset_id:
+          title: Dataset Id
+          type: integer
+        effective_date:
+          title: Effective Date
+          type: string
+          format: date
+        start_date:
+          title: Start Date
+          type: string
+          format: date
+        end_date:
+          title: End Date
+          type: string
+          format: date
+        description:
+          title: Description
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    DatabaseTableOutPublic:
+      title: DatabaseTableOutPublic
+      required:
+      - table_name
+      - db_object_type_id
+      - id
+      type: object
+      properties:
+        table_name:
+          title: Table Name
+          type: string
+        primary_date_column:
+          title: Primary Date Column
+          type: string
+        timestamp_column:
+          title: Timestamp Column
+          type: string
+        text_id_column:
+          title: Text Id Column
+          type: string
+        sample_data_url:
+          title: Sample Data Url
+          type: string
+        dataset_id:
+          title: Dataset Id
+          type: integer
+        bucket_group_id:
+          title: Bucket Group Id
+          type: integer
+        db_object_type_id:
+          title: Db Object Type Id
+          type: integer
+        status_id:
+          title: Status Id
+          type: integer
+        id:
+          title: Id
+          type: integer
+        ttl_type:
+          $ref: '#/components/schemas/EnumOutAdmin'
+        ttl_period:
+          title: Ttl Period
+          type: integer
+        sql_columns:
+          title: Sql Columns
+          type: array
+          items:
+            $ref: '#/components/schemas/SQLColumnOutPublic'
+        create_query:
+          title: Create Query
+          type: string
+        table_dependencies:
+          title: Table Dependencies
+          type: array
+          items:
+            type: integer
+        object_dependencies:
+          title: Object Dependencies
+          type: array
+          items:
+            type: integer
+    CSVColumnOutPublic:
+      title: CSVColumnOutPublic
+      required:
+      - cloud_storage_id
+      - ordering
+      - id
       type: object
       properties:
         name:
@@ -1486,6 +1059,69 @@ components:
         ordering:
           title: Ordering
           type: integer
+        id:
+          title: Id
+          type: integer
+    ExtDataGroupOutAdmin:
+      title: ExtDataGroupOutAdmin
+      required:
+      - text_id
+      - status
+      - region
+      - pricing
+      - id
+      - internal_name
+      - is_active
+      - is_public
+      - created
+      - modified
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        full_name:
+          title: Full Name
+          type: string
+        description:
+          title: Description
+          type: string
+        universe_size:
+          title: Universe Size
+          type: integer
+        universe_description:
+          title: Universe Description
+          type: string
+        universe_components:
+          title: Universe Components
+          type: array
+          items:
+            type: string
+        symbols_per_component:
+          title: Symbols Per Component
+          type: array
+          items:
+            type: integer
+        tags:
+          title: Tags
+          type: array
+          items:
+            type: string
+        status:
+          $ref: '#/components/schemas/EnumOutAdmin'
+        region:
+          $ref: '#/components/schemas/EnumOutAdmin'
+        pricing:
+          $ref: '#/components/schemas/DataGroupPricingOutAdmin'
+        id:
+          title: Id
+          type: integer
+        internal_name:
+          title: Internal Name
+          type: string
         is_active:
           title: Is Active
           type: boolean
@@ -1495,9 +1131,6 @@ components:
         notes:
           title: Notes
           type: string
-        id:
-          title: Id
-          type: integer
         created:
           title: Created
           type: string
@@ -1695,6 +1328,74 @@ components:
         notes:
           title: Notes
           type: string
+    ValidationError:
+      title: ValidationError
+      required:
+      - loc
+      - msg
+      - type
+      type: object
+      properties:
+        loc:
+          title: Location
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
+    CSVColumnOutAdmin:
+      title: CSVColumnOutAdmin
+      required:
+      - cloud_storage_id
+      - ordering
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        data_type:
+          title: Data Type
+          type: string
+        description:
+          title: Description
+          type: string
+        cloud_storage_id:
+          title: Cloud Storage Id
+          type: integer
+        ordering:
+          title: Ordering
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
     ExtDocumentationOutAdmin:
       title: ExtDocumentationOutAdmin
       required:
@@ -1755,6 +1456,585 @@ components:
           title: Modified
           type: string
           format: date-time
+    ExtVendorOutAdmin:
+      title: ExtVendorOutAdmin
+      required:
+      - text_id
+      - full_name
+      - display_name
+      - internal_name
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        full_name:
+          title: Full Name
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        description:
+          title: Description
+          type: string
+        website:
+          title: Website
+          type: string
+        logo_url:
+          title: Logo Url
+          type: string
+        icon_url:
+          title: Icon Url
+          type: string
+        internal_name:
+          title: Internal Name
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    SQLColumnOutAdmin:
+      title: SQLColumnOutAdmin
+      required:
+      - table_id
+      - ordering
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        data_type_simple:
+          title: Data Type Simple
+          type: string
+        data_type_db:
+          title: Data Type Db
+          type: string
+        compression:
+          title: Compression
+          type: string
+        endcoding:
+          title: Endcoding
+          type: string
+        description:
+          title: Description
+          type: string
+        table_id:
+          title: Table Id
+          type: integer
+        ordering:
+          title: Ordering
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    PlatformFrontendDatasetOutPublic:
+      title: PlatformFrontendDatasetOutPublic
+      required:
+      - id
+      - listing_priority
+      - internal_id
+      - text_id
+      type: object
+      properties:
+        id:
+          title: Id
+          type: integer
+        status_id:
+          title: Status Id
+          type: integer
+        cloud_storage_id:
+          title: Cloud Storage Id
+          type: integer
+        database_table_id:
+          title: Database Table Id
+          type: integer
+        full_name:
+          title: Full Name
+          type: string
+        short_name:
+          title: Short Name
+          type: string
+        description:
+          title: Description
+          type: string
+        sample_data_description:
+          title: Sample Data Description
+          type: string
+        sample_data_url:
+          title: Sample Data Url
+          type: string
+        bucket_size:
+          title: Bucket Size
+          type: string
+        bucket_name:
+          title: Bucket Name
+          type: string
+        bucket_path_format:
+          title: Bucket Path Format
+          type: string
+        bucket_path_description:
+          title: Bucket Path Description
+          type: string
+        start_year:
+          title: Start Year
+          type: integer
+        end_year:
+          title: End Year
+          type: integer
+        updates_interval:
+          title: Updates Interval
+          type: string
+        updates_expected_time:
+          title: Updates Expected Time
+          type: string
+        updates_size:
+          title: Updates Size
+          type: string
+        delivery_methods:
+          title: Delivery Methods
+          type: array
+          items:
+            type: string
+        data_class_id:
+          title: Data Class Id
+          type: integer
+        data_type_id:
+          title: Data Type Id
+          type: integer
+        vendor_id:
+          title: Vendor Id
+          type: integer
+        region_id:
+          title: Region Id
+          type: integer
+        documentation_link:
+          title: Documentation Link
+          type: string
+        listing_priority:
+          title: Listing Priority
+          type: integer
+        internal_id:
+          title: Internal Id
+          type: string
+        text_id:
+          title: Text Id
+          type: string
+        data_format_id:
+          title: Data Format Id
+          type: integer
+        time_granularity_id:
+          title: Time Granularity Id
+          type: integer
+        start_date:
+          title: Start Date
+          type: string
+          format: date
+        creation_date:
+          title: Creation Date
+          type: string
+          format: date
+        long_description:
+          title: Long Description
+          type: string
+        db_table_name:
+          title: Db Table Name
+          type: string
+        db_table_text_id_column:
+          title: Db Table Text Id Column
+          type: string
+        db_table_partition_column:
+          title: Db Table Partition Column
+          type: string
+        db_table_partition_expression:
+          title: Db Table Partition Expression
+          type: string
+        db_table_sort_columns:
+          title: Db Table Sort Columns
+          type: array
+          items:
+            type: string
+        universe_description:
+          title: Universe Description
+          type: string
+    CloudStorageOutPublic:
+      title: CloudStorageOutPublic
+      required:
+      - text_id
+      - dataset_id
+      - id
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        sample_data_url:
+          title: Sample Data Url
+          type: string
+        sample_file_description:
+          title: Sample File Description
+          type: string
+        sample_file_id:
+          title: Sample File Id
+          type: integer
+        dataset_id:
+          title: Dataset Id
+          type: integer
+        id:
+          title: Id
+          type: integer
+        csv_columns:
+          title: Csv Columns
+          type: array
+          items:
+            $ref: '#/components/schemas/CSVColumnOutPublic'
+        bucket_groups:
+          title: Bucket Groups
+          type: array
+          items:
+            type: integer
+    DataGroupPricingOutAdmin:
+      title: DataGroupPricingOutAdmin
+      required:
+      - name
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        buy_annual_decrease_factor:
+          title: Buy Annual Decrease Factor
+          type: number
+        buy_prod_upd_factor:
+          title: Buy Prod Upd Factor
+          type: number
+        buy_research_upd_factor:
+          title: Buy Research Upd Factor
+          type: number
+        lease_hist_factor:
+          title: Lease Hist Factor
+          type: number
+        lease_upd_factor:
+          title: Lease Upd Factor
+          type: number
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    EnumOutAdmin:
+      title: EnumOutAdmin
+      required:
+      - text_id
+      - internal_name
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        full_name:
+          title: Full Name
+          type: string
+        description:
+          title: Description
+          type: string
+        internal_name:
+          title: Internal Name
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    DatasetUpdate:
+      title: DatasetUpdate
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        full_name:
+          title: Full Name
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        description:
+          title: Description
+          type: string
+        long_description:
+          title: Long Description
+          type: string
+        creation_date:
+          title: Creation Date
+          type: string
+          format: date
+        start_date:
+          title: Start Date
+          type: string
+          format: date
+        end_date:
+          title: End Date
+          type: string
+          format: date
+        price_per_year:
+          title: Price Per Year
+          type: number
+        price_per_symbol:
+          title: Price Per Symbol
+          type: number
+        listing_priority:
+          title: Listing Priority
+          type: integer
+        tags:
+          title: Tags
+          type: array
+          items: {}
+        datagroup_id:
+          title: Datagroup Id
+          type: integer
+        data_format_id:
+          title: Data Format Id
+          type: integer
+        data_class_id:
+          title: Data Class Id
+          type: integer
+        data_type_id:
+          title: Data Type Id
+          type: integer
+        time_granularity_id:
+          title: Time Granularity Id
+          type: integer
+        region_id:
+          title: Region Id
+          type: integer
+        status_id:
+          title: Status Id
+          type: integer
+        publisher_id:
+          title: Publisher Id
+          type: integer
+        documentation_id:
+          title: Documentation Id
+          type: integer
+        delivery_methods:
+          title: Delivery Methods
+          type: array
+          items:
+            type: integer
+        internal_id:
+          title: Internal Id
+          type: string
+        internal_name:
+          title: Internal Name
+          type: string
+        short_name:
+          title: Short Name
+          type: string
+        vendor_id:
+          title: Vendor Id
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
+    ExtS3ObjectOutAdmin:
+      title: ExtS3ObjectOutAdmin
+      required:
+      - aws_account_id
+      - bucket_name
+      - object_name
+      - region_name
+      - id
+      - is_active
+      - is_public
+      - created
+      - modified
+      type: object
+      properties:
+        aws_account_id:
+          title: Aws Account Id
+          type: integer
+        bucket_name:
+          title: Bucket Name
+          type: string
+        object_name:
+          title: Object Name
+          type: string
+        region_name:
+          title: Region Name
+          type: string
+        id:
+          title: Id
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        aws_account:
+          $ref: '#/components/schemas/EnumOutAdmin'
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    ExtPersonOutAdmin:
+      title: ExtPersonOutAdmin
+      required:
+      - first_name
+      - last_name
+      - email
+      - id
+      - is_active
+      - is_public
+      - created
+      - modified
+      type: object
+      properties:
+        first_name:
+          title: First Name
+          type: string
+        last_name:
+          title: Last Name
+          type: string
+        email:
+          title: Email
+          type: string
+        phone:
+          title: Phone
+          type: string
+        role:
+          title: Role
+          type: string
+        id:
+          title: Id
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+        vendor:
+          $ref: '#/components/schemas/ExtVendorOutAdmin'
     CloudStorageOutAdmin:
       title: CloudStorageOutAdmin
       required:
@@ -1814,290 +2094,7 @@ components:
           title: Modified
           type: string
           format: date-time
-    DatabaseTableOutAdmin:
-      title: DatabaseTableOutAdmin
-      required:
-      - table_name
-      - db_object_type_id
-      - is_active
-      - is_public
-      - id
-      - created
-      - modified
-      type: object
-      properties:
-        table_name:
-          title: Table Name
-          type: string
-        primary_date_column:
-          title: Primary Date Column
-          type: string
-        timestamp_column:
-          title: Timestamp Column
-          type: string
-        text_id_column:
-          title: Text Id Column
-          type: string
-        sample_data_url:
-          title: Sample Data Url
-          type: string
-        dataset_id:
-          title: Dataset Id
-          type: integer
-        bucket_group_id:
-          title: Bucket Group Id
-          type: integer
-        db_object_type_id:
-          title: Db Object Type Id
-          type: integer
-        status_id:
-          title: Status Id
-          type: integer
-        internal_id_column:
-          title: Internal Id Column
-          type: string
-        engine:
-          title: Engine
-          type: string
-        partition_column:
-          title: Partition Column
-          type: string
-        partition_expression:
-          title: Partition Expression
-          type: string
-        sort_columns:
-          title: Sort Columns
-          type: array
-          items: {}
-        constraints:
-          title: Constraints
-          type: array
-          items: {}
-        ttl_type_id:
-          title: Ttl Type Id
-          type: integer
-        ttl_period:
-          title: Ttl Period
-          type: integer
-        ghost_table_name:
-          title: Ghost Table Name
-          type: string
-        create_query:
-          title: Create Query
-          type: string
-        select_query:
-          title: Select Query
-          type: string
-        watch_waiter:
-          title: Watch Waiter
-          type: boolean
-        table_dependencies:
-          title: Table Dependencies
-          type: array
-          items:
-            type: integer
-        object_dependencies:
-          title: Object Dependencies
-          type: array
-          items:
-            type: integer
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
-        id:
-          title: Id
-          type: integer
-        ttl_type:
-          $ref: '#/components/schemas/EnumOutAdmin'
-        sql_columns:
-          title: Sql Columns
-          type: array
-          items:
-            $ref: '#/components/schemas/SQLColumnOutAdmin'
-        created:
-          title: Created
-          type: string
-          format: date-time
-        modified:
-          title: Modified
-          type: string
-          format: date-time
-    DataGroupPricingOutAdmin:
-      title: DataGroupPricingOutAdmin
-      required:
-      - name
-      - is_active
-      - is_public
-      - id
-      - created
-      - modified
-      type: object
-      properties:
-        name:
-          title: Name
-          type: string
-        buy_annual_decrease_factor:
-          title: Buy Annual Decrease Factor
-          type: number
-        buy_prod_upd_factor:
-          title: Buy Prod Upd Factor
-          type: number
-        buy_research_upd_factor:
-          title: Buy Research Upd Factor
-          type: number
-        lease_hist_factor:
-          title: Lease Hist Factor
-          type: number
-        lease_upd_factor:
-          title: Lease Upd Factor
-          type: number
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
-        id:
-          title: Id
-          type: integer
-        created:
-          title: Created
-          type: string
-          format: date-time
-        modified:
-          title: Modified
-          type: string
-          format: date-time
-    DatabaseTableOutPublic:
-      title: DatabaseTableOutPublic
-      required:
-      - table_name
-      - db_object_type_id
-      - id
-      type: object
-      properties:
-        table_name:
-          title: Table Name
-          type: string
-        primary_date_column:
-          title: Primary Date Column
-          type: string
-        timestamp_column:
-          title: Timestamp Column
-          type: string
-        text_id_column:
-          title: Text Id Column
-          type: string
-        sample_data_url:
-          title: Sample Data Url
-          type: string
-        dataset_id:
-          title: Dataset Id
-          type: integer
-        bucket_group_id:
-          title: Bucket Group Id
-          type: integer
-        db_object_type_id:
-          title: Db Object Type Id
-          type: integer
-        status_id:
-          title: Status Id
-          type: integer
-        id:
-          title: Id
-          type: integer
-        ttl_type:
-          $ref: '#/components/schemas/EnumOutAdmin'
-        ttl_period:
-          title: Ttl Period
-          type: integer
-        sql_columns:
-          title: Sql Columns
-          type: array
-          items:
-            $ref: '#/components/schemas/SQLColumnOutPublic'
-        create_query:
-          title: Create Query
-          type: string
-        table_dependencies:
-          title: Table Dependencies
-          type: array
-          items:
-            type: integer
-        object_dependencies:
-          title: Object Dependencies
-          type: array
-          items:
-            type: integer
-    SQLColumnOutAdmin:
-      title: SQLColumnOutAdmin
-      required:
-      - table_id
-      - ordering
-      - is_active
-      - is_public
-      - id
-      - created
-      - modified
-      type: object
-      properties:
-        name:
-          title: Name
-          type: string
-        data_type_simple:
-          title: Data Type Simple
-          type: string
-        data_type_db:
-          title: Data Type Db
-          type: string
-        compression:
-          title: Compression
-          type: string
-        endcoding:
-          title: Endcoding
-          type: string
-        description:
-          title: Description
-          type: string
-        table_id:
-          title: Table Id
-          type: integer
-        ordering:
-          title: Ordering
-          type: integer
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
-        id:
-          title: Id
-          type: integer
-        created:
-          title: Created
-          type: string
-          format: date-time
-        modified:
-          title: Modified
-          type: string
-          format: date-time
   securitySchemes:
     HTTPBearer:
       type: http
       scheme: bearer
-servers:
-- url: https://metadata-services.algoseek.com/api/v1
-  description: Base URL reconciled from apis.yml

@@ -1,6 +1,6 @@
-openapi: 3.0.2
+openapi: 3.2.0
 info:
-  title: metadata-api AWSAccount Login API
+  title: metadata-api Login API
   version: '1.2'
 tags:
 - name: Login
@@ -32,20 +32,28 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
-    Token:
-      title: Token
-      required:
-      - token
-      - expiry_date
+    HTTPValidationError:
+      title: HTTPValidationError
       type: object
       properties:
-        token:
-          title: Token
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
+    AppsTokenQuery:
+      title: AppsTokenQuery
+      required:
+      - name
+      - secret
+      type: object
+      properties:
+        name:
+          title: Name
           type: string
-        expiry_date:
-          title: Expiry Date
+        secret:
+          title: Secret
           type: string
-          format: date-time
     ValidationError:
       title: ValidationError
       required:
@@ -67,32 +75,21 @@ components:
         type:
           title: Error Type
           type: string
-    AppsTokenQuery:
-      title: AppsTokenQuery
+    Token:
+      title: Token
       required:
-      - name
-      - secret
+      - token
+      - expiry_date
       type: object
       properties:
-        name:
-          title: Name
+        token:
+          title: Token
           type: string
-        secret:
-          title: Secret
+        expiry_date:
+          title: Expiry Date
           type: string
-    HTTPValidationError:
-      title: HTTPValidationError
-      type: object
-      properties:
-        detail:
-          title: Detail
-          type: array
-          items:
-            $ref: '#/components/schemas/ValidationError'
+          format: date-time
   securitySchemes:
     HTTPBearer:
       type: http
       scheme: bearer
-servers:
-- url: https://metadata-services.algoseek.com/api/v1
-  description: Base URL reconciled from apis.yml

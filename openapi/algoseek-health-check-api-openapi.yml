@@ -1,9 +1,9 @@
-openapi: 3.0.2
+openapi: 3.2.0
 info:
-  title: metadata-api AWSAccount Healthcheck API
+  title: metadata-api Healthcheck API
   version: '1.2'
 tags:
-- name: Healthcheck
+- name: Health Check
 paths:
   /api/v1/healthcheck/:
     get:
@@ -16,12 +16,9 @@ paths:
             application/json:
               schema: {}
       tags:
-      - Healthcheck
+      - Health Check
 components:
   securitySchemes:
     HTTPBearer:
       type: http
       scheme: bearer
-servers:
-- url: https://metadata-services.algoseek.com/api/v1
-  description: Base URL reconciled from apis.yml

@@ -1,6 +1,6 @@
-openapi: 3.0.2
+openapi: 3.2.0
 info:
-  title: metadata-api AWSAccount BucketMonitoring API
+  title: metadata-api Bucket Monitoring API
   version: '1.2'
 tags:
 - name: BucketMonitoring
@@ -202,36 +202,6 @@ components:
           title: Modified
           type: string
           format: date-time
-    ValidationError:
-      title: ValidationError
-      required:
-      - loc
-      - msg
-      - type
-      type: object
-      properties:
-        loc:
-          title: Location
-          type: array
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-        msg:
-          title: Message
-          type: string
-        type:
-          title: Error Type
-          type: string
-    HTTPValidationError:
-      title: HTTPValidationError
-      type: object
-      properties:
-        detail:
-          title: Detail
-          type: array
-          items:
-            $ref: '#/components/schemas/ValidationError'
     BucketMonitoringUpdate:
       title: BucketMonitoringUpdate
       type: object
@@ -253,6 +223,27 @@ components:
           type: boolean
         notes:
           title: Notes
+          type: string
+    ValidationError:
+      title: ValidationError
+      required:
+      - loc
+      - msg
+      - type
+      type: object
+      properties:
+        loc:
+          title: Location
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
           type: string
     BucketMonitoringCreate:
       title: BucketMonitoringCreate
@@ -276,10 +267,16 @@ components:
         notes:
           title: Notes
           type: string
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
   securitySchemes:
     HTTPBearer:
       type: http
       scheme: bearer
-servers:
-- url: https://metadata-services.algoseek.com/api/v1
-  description: Base URL reconciled from apis.yml

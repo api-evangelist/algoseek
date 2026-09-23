@@ -1,6 +1,6 @@
-openapi: 3.0.2
+openapi: 3.2.0
 info:
-  title: metadata-api AWSAccount DatabaseObject API
+  title: metadata-api Database Object API
   version: '1.2'
 tags:
 - name: DatabaseObject
@@ -310,30 +310,72 @@ paths:
       - HTTPBearer: []
 components:
   schemas:
-    ExtDatabaseObjectOutAdmin:
-      title: ExtDatabaseObjectOutAdmin
+    ValidationError:
+      title: ValidationError
+      required:
+      - loc
+      - msg
+      - type
+      type: object
+      properties:
+        loc:
+          title: Location
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
+    DatabaseObjectCreate:
+      title: DatabaseObjectCreate
       required:
       - object_name
-      - db_object_type
-      - id
-      - is_active
-      - is_public
-      - created
-      - modified
+      - db_object_type_id
       type: object
       properties:
         object_name:
           title: Object Name
           type: string
-        db_object_type:
-          $ref: '#/components/schemas/EnumOutAdmin'
-        status:
-          $ref: '#/components/schemas/EnumOutAdmin'
-        id:
-          title: Id
+        db_object_type_id:
+          title: Db Object Type Id
+          type: integer
+        status_id:
+          title: Status Id
           type: integer
         signature:
           title: Signature
+          type: string
+        arguments:
+          title: Arguments
+          type: array
+          items:
+            type: string
+          default: []
+        arguments_types:
+          title: Arguments Types
+          type: array
+          items:
+            type: string
+          default: []
+        return_values:
+          title: Return Values
+          type: array
+          items:
+            type: string
+          default: []
+        return_value_types:
+          title: Return Value Types
+          type: array
+          items:
+            type: string
+          default: []
+        create_query:
+          title: Create Query
           type: string
         description:
           title: Description
@@ -357,6 +399,45 @@ components:
         notes:
           title: Notes
           type: string
+    EnumOutAdmin:
+      title: EnumOutAdmin
+      required:
+      - text_id
+      - internal_name
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        full_name:
+          title: Full Name
+          type: string
+        description:
+          title: Description
+          type: string
+        internal_name:
+          title: Internal Name
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
         created:
           title: Created
           type: string
@@ -365,26 +446,70 @@ components:
           title: Modified
           type: string
           format: date-time
-    ValidationError:
-      title: ValidationError
-      required:
-      - loc
-      - msg
-      - type
+    DatabaseObjectUpdate:
+      title: DatabaseObjectUpdate
       type: object
       properties:
-        loc:
-          title: Location
+        object_name:
+          title: Object Name
+          type: string
+        db_object_type_id:
+          title: Db Object Type Id
+          type: string
+        status_id:
+          title: Status Id
+          type: integer
+        signature:
+          title: Signature
+          type: string
+        arguments:
+          title: Arguments
           type: array
           items:
-            anyOf:
-            - type: string
-            - type: integer
-        msg:
-          title: Message
+            type: string
+          default: []
+        arguments_types:
+          title: Arguments Types
+          type: array
+          items:
+            type: string
+          default: []
+        return_values:
+          title: Return Values
+          type: array
+          items:
+            type: string
+          default: []
+        return_value_types:
+          title: Return Value Types
+          type: array
+          items:
+            type: string
+          default: []
+        create_query:
+          title: Create Query
           type: string
-        type:
-          title: Error Type
+        description:
+          title: Description
+          type: string
+        table_dependencies:
+          title: Table Dependencies
+          type: array
+          items:
+            type: integer
+        object_dependencies:
+          title: Object Dependencies
+          type: array
+          items:
+            type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
           type: string
     DatabaseObjectOutAdmin:
       title: DatabaseObjectOutAdmin
@@ -470,139 +595,15 @@ components:
           title: Modified
           type: string
           format: date-time
-    DatabaseObjectCreate:
-      title: DatabaseObjectCreate
-      required:
-      - object_name
-      - db_object_type_id
+    HTTPValidationError:
+      title: HTTPValidationError
       type: object
       properties:
-        object_name:
-          title: Object Name
-          type: string
-        db_object_type_id:
-          title: Db Object Type Id
-          type: integer
-        status_id:
-          title: Status Id
-          type: integer
-        signature:
-          title: Signature
-          type: string
-        arguments:
-          title: Arguments
+        detail:
+          title: Detail
           type: array
           items:
-            type: string
-          default: []
-        arguments_types:
-          title: Arguments Types
-          type: array
-          items:
-            type: string
-          default: []
-        return_values:
-          title: Return Values
-          type: array
-          items:
-            type: string
-          default: []
-        return_value_types:
-          title: Return Value Types
-          type: array
-          items:
-            type: string
-          default: []
-        create_query:
-          title: Create Query
-          type: string
-        description:
-          title: Description
-          type: string
-        table_dependencies:
-          title: Table Dependencies
-          type: array
-          items:
-            type: integer
-        object_dependencies:
-          title: Object Dependencies
-          type: array
-          items:
-            type: integer
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
-    DatabaseObjectUpdate:
-      title: DatabaseObjectUpdate
-      type: object
-      properties:
-        object_name:
-          title: Object Name
-          type: string
-        db_object_type_id:
-          title: Db Object Type Id
-          type: string
-        status_id:
-          title: Status Id
-          type: integer
-        signature:
-          title: Signature
-          type: string
-        arguments:
-          title: Arguments
-          type: array
-          items:
-            type: string
-          default: []
-        arguments_types:
-          title: Arguments Types
-          type: array
-          items:
-            type: string
-          default: []
-        return_values:
-          title: Return Values
-          type: array
-          items:
-            type: string
-          default: []
-        return_value_types:
-          title: Return Value Types
-          type: array
-          items:
-            type: string
-          default: []
-        create_query:
-          title: Create Query
-          type: string
-        description:
-          title: Description
-          type: string
-        table_dependencies:
-          title: Table Dependencies
-          type: array
-          items:
-            type: integer
-        object_dependencies:
-          title: Object Dependencies
-          type: array
-          items:
-            type: integer
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
+            $ref: '#/components/schemas/ValidationError'
     DatabaseObjectOutPublic:
       title: DatabaseObjectOutPublic
       required:
@@ -675,42 +676,44 @@ components:
         id:
           title: Id
           type: integer
-    HTTPValidationError:
-      title: HTTPValidationError
-      type: object
-      properties:
-        detail:
-          title: Detail
-          type: array
-          items:
-            $ref: '#/components/schemas/ValidationError'
-    EnumOutAdmin:
-      title: EnumOutAdmin
+    ExtDatabaseObjectOutAdmin:
+      title: ExtDatabaseObjectOutAdmin
       required:
-      - text_id
-      - internal_name
+      - object_name
+      - db_object_type
+      - id
       - is_active
       - is_public
-      - id
       - created
       - modified
       type: object
       properties:
-        text_id:
-          title: Text Id
+        object_name:
+          title: Object Name
           type: string
-        display_name:
-          title: Display Name
-          type: string
-        full_name:
-          title: Full Name
+        db_object_type:
+          $ref: '#/components/schemas/EnumOutAdmin'
+        status:
+          $ref: '#/components/schemas/EnumOutAdmin'
+        id:
+          title: Id
+          type: integer
+        signature:
+          title: Signature
           type: string
         description:
           title: Description
           type: string
-        internal_name:
-          title: Internal Name
-          type: string
+        table_dependencies:
+          title: Table Dependencies
+          type: array
+          items:
+            type: integer
+        object_dependencies:
+          title: Object Dependencies
+          type: array
+          items:
+            type: integer
         is_active:
           title: Is Active
           type: boolean
@@ -720,9 +723,6 @@ components:
         notes:
           title: Notes
           type: string
-        id:
-          title: Id
-          type: integer
         created:
           title: Created
           type: string
@@ -735,6 +735,3 @@ components:
     HTTPBearer:
       type: http
       scheme: bearer
-servers:
-- url: https://metadata-services.algoseek.com/api/v1
-  description: Base URL reconciled from apis.yml

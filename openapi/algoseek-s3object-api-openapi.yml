@@ -1,6 +1,6 @@
-openapi: 3.0.2
+openapi: 3.2.0
 info:
-  title: metadata-api AWSAccount S3Object API
+  title: metadata-api S3 Object API
   version: '1.2'
 tags:
 - name: S3Object
@@ -246,36 +246,6 @@ paths:
       - HTTPBearer: []
 components:
   schemas:
-    S3ObjectOutPublic:
-      title: S3ObjectOutPublic
-      required:
-      - aws_account_id
-      - bucket_name
-      - object_name
-      - region_name
-      type: object
-      properties:
-        aws_account_id:
-          title: Aws Account Id
-          type: integer
-        bucket_name:
-          title: Bucket Name
-          type: string
-        object_name:
-          title: Object Name
-          type: string
-        region_name:
-          title: Region Name
-          type: string
-        id:
-          title: Id
-          type: integer
-        obj_http_url:
-          title: Obj Http Url
-          type: string
-        obj_s3_uri:
-          title: Obj S3 Uri
-          type: string
     S3ObjectCreate:
       title: S3ObjectCreate
       required:
@@ -327,30 +297,32 @@ components:
         type:
           title: Error Type
           type: string
-    HTTPValidationError:
-      title: HTTPValidationError
+    EnumOutAdmin:
+      title: EnumOutAdmin
+      required:
+      - text_id
+      - internal_name
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
       type: object
       properties:
-        detail:
-          title: Detail
-          type: array
-          items:
-            $ref: '#/components/schemas/ValidationError'
-    S3ObjectUpdate:
-      title: S3ObjectUpdate
-      type: object
-      properties:
-        aws_account_id:
-          title: Aws Account Id
-          type: integer
-        bucket_name:
-          title: Bucket Name
+        text_id:
+          title: Text Id
           type: string
-        object_name:
-          title: Object Name
+        display_name:
+          title: Display Name
           type: string
-        region_name:
-          title: Region Name
+        full_name:
+          title: Full Name
+          type: string
+        description:
+          title: Description
+          type: string
+        internal_name:
+          title: Internal Name
           type: string
         is_active:
           title: Is Active
@@ -361,6 +333,26 @@ components:
         notes:
           title: Notes
           type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
     ExtS3ObjectOutAdmin:
       title: ExtS3ObjectOutAdmin
       required:
@@ -409,6 +401,31 @@ components:
           title: Modified
           type: string
           format: date-time
+    S3ObjectUpdate:
+      title: S3ObjectUpdate
+      type: object
+      properties:
+        aws_account_id:
+          title: Aws Account Id
+          type: integer
+        bucket_name:
+          title: Bucket Name
+          type: string
+        object_name:
+          title: Object Name
+          type: string
+        region_name:
+          title: Region Name
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
     S3ObjectOutAdmin:
       title: S3ObjectOutAdmin
       required:
@@ -454,57 +471,37 @@ components:
           title: Modified
           type: string
           format: date-time
-    EnumOutAdmin:
-      title: EnumOutAdmin
+    S3ObjectOutPublic:
+      title: S3ObjectOutPublic
       required:
-      - text_id
-      - internal_name
-      - is_active
-      - is_public
-      - id
-      - created
-      - modified
+      - aws_account_id
+      - bucket_name
+      - object_name
+      - region_name
       type: object
       properties:
-        text_id:
-          title: Text Id
+        aws_account_id:
+          title: Aws Account Id
+          type: integer
+        bucket_name:
+          title: Bucket Name
           type: string
-        display_name:
-          title: Display Name
+        object_name:
+          title: Object Name
           type: string
-        full_name:
-          title: Full Name
-          type: string
-        description:
-          title: Description
-          type: string
-        internal_name:
-          title: Internal Name
-          type: string
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
+        region_name:
+          title: Region Name
           type: string
         id:
           title: Id
           type: integer
-        created:
-          title: Created
+        obj_http_url:
+          title: Obj Http Url
           type: string
-          format: date-time
-        modified:
-          title: Modified
+        obj_s3_uri:
+          title: Obj S3 Uri
           type: string
-          format: date-time
   securitySchemes:
     HTTPBearer:
       type: http
       scheme: bearer
-servers:
-- url: https://metadata-services.algoseek.com/api/v1
-  description: Base URL reconciled from apis.yml

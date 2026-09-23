@@ -1,6 +1,6 @@
-openapi: 3.0.2
+openapi: 3.2.0
 info:
-  title: metadata-api AWSAccount CSVColumn API
+  title: metadata-api CSV Column API
   version: '1.2'
 tags:
 - name: CSVColumn
@@ -230,6 +230,27 @@ paths:
       - HTTPBearer: []
 components:
   schemas:
+    ValidationError:
+      title: ValidationError
+      required:
+      - loc
+      - msg
+      - type
+      type: object
+      properties:
+        loc:
+          title: Location
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
     CSVColumnOutAdmin:
       title: CSVColumnOutAdmin
       required:
@@ -277,34 +298,6 @@ components:
           title: Modified
           type: string
           format: date-time
-    CSVColumnUpdate:
-      title: CSVColumnUpdate
-      type: object
-      properties:
-        name:
-          title: Name
-          type: string
-        data_type:
-          title: Data Type
-          type: string
-        description:
-          title: Description
-          type: string
-        cloud_storage_id:
-          title: Cloud Storage Id
-          type: integer
-        ordering:
-          title: Ordering
-          type: integer
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
     CSVColumnCreate:
       title: CSVColumnCreate
       required:
@@ -336,27 +329,43 @@ components:
         notes:
           title: Notes
           type: string
-    ValidationError:
-      title: ValidationError
-      required:
-      - loc
-      - msg
-      - type
+    CSVColumnUpdate:
+      title: CSVColumnUpdate
       type: object
       properties:
-        loc:
-          title: Location
+        name:
+          title: Name
+          type: string
+        data_type:
+          title: Data Type
+          type: string
+        description:
+          title: Description
+          type: string
+        cloud_storage_id:
+          title: Cloud Storage Id
+          type: integer
+        ordering:
+          title: Ordering
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
           type: array
           items:
-            anyOf:
-            - type: string
-            - type: integer
-        msg:
-          title: Message
-          type: string
-        type:
-          title: Error Type
-          type: string
+            $ref: '#/components/schemas/ValidationError'
     CSVColumnOutPublic:
       title: CSVColumnOutPublic
       required:
@@ -383,19 +392,7 @@ components:
         id:
           title: Id
           type: integer
-    HTTPValidationError:
-      title: HTTPValidationError
-      type: object
-      properties:
-        detail:
-          title: Detail
-          type: array
-          items:
-            $ref: '#/components/schemas/ValidationError'
   securitySchemes:
     HTTPBearer:
       type: http
       scheme: bearer
-servers:
-- url: https://metadata-services.algoseek.com/api/v1
-  description: Base URL reconciled from apis.yml

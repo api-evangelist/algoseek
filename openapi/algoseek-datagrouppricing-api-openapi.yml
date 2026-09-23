@@ -1,6 +1,6 @@
-openapi: 3.0.2
+openapi: 3.2.0
 info:
-  title: metadata-api AWSAccount DataGroupPricing API
+  title: metadata-api Data Group Pricing API
   version: '1.2'
 tags:
 - name: DataGroupPricing
@@ -211,39 +211,6 @@ paths:
       - HTTPBearer: []
 components:
   schemas:
-    DataGroupPricingUpdate:
-      title: DataGroupPricingUpdate
-      required:
-      - name
-      type: object
-      properties:
-        name:
-          title: Name
-          type: string
-        buy_annual_decrease_factor:
-          title: Buy Annual Decrease Factor
-          type: number
-        buy_prod_upd_factor:
-          title: Buy Prod Upd Factor
-          type: number
-        buy_research_upd_factor:
-          title: Buy Research Upd Factor
-          type: number
-        lease_hist_factor:
-          title: Lease Hist Factor
-          type: number
-        lease_upd_factor:
-          title: Lease Upd Factor
-          type: number
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
     ValidationError:
       title: ValidationError
       required:
@@ -265,34 +232,6 @@ components:
         type:
           title: Error Type
           type: string
-    DataGroupPricingOutPublic:
-      title: DataGroupPricingOutPublic
-      required:
-      - name
-      - id
-      type: object
-      properties:
-        name:
-          title: Name
-          type: string
-        buy_annual_decrease_factor:
-          title: Buy Annual Decrease Factor
-          type: number
-        buy_prod_upd_factor:
-          title: Buy Prod Upd Factor
-          type: number
-        buy_research_upd_factor:
-          title: Buy Research Upd Factor
-          type: number
-        lease_hist_factor:
-          title: Lease Hist Factor
-          type: number
-        lease_upd_factor:
-          title: Lease Upd Factor
-          type: number
-        id:
-          title: Id
-          type: integer
     DataGroupPricingOutAdmin:
       title: DataGroupPricingOutAdmin
       required:
@@ -342,6 +281,39 @@ components:
           title: Modified
           type: string
           format: date-time
+    DataGroupPricingCreate:
+      title: DataGroupPricingCreate
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        buy_annual_decrease_factor:
+          title: Buy Annual Decrease Factor
+          type: number
+        buy_prod_upd_factor:
+          title: Buy Prod Upd Factor
+          type: number
+        buy_research_upd_factor:
+          title: Buy Research Upd Factor
+          type: number
+        lease_hist_factor:
+          title: Lease Hist Factor
+          type: number
+        lease_upd_factor:
+          title: Lease Upd Factor
+          type: number
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
     HTTPValidationError:
       title: HTTPValidationError
       type: object
@@ -351,8 +323,36 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ValidationError'
-    DataGroupPricingCreate:
-      title: DataGroupPricingCreate
+    DataGroupPricingOutPublic:
+      title: DataGroupPricingOutPublic
+      required:
+      - name
+      - id
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        buy_annual_decrease_factor:
+          title: Buy Annual Decrease Factor
+          type: number
+        buy_prod_upd_factor:
+          title: Buy Prod Upd Factor
+          type: number
+        buy_research_upd_factor:
+          title: Buy Research Upd Factor
+          type: number
+        lease_hist_factor:
+          title: Lease Hist Factor
+          type: number
+        lease_upd_factor:
+          title: Lease Upd Factor
+          type: number
+        id:
+          title: Id
+          type: integer
+    DataGroupPricingUpdate:
+      title: DataGroupPricingUpdate
       required:
       - name
       type: object
@@ -388,6 +388,3 @@ components:
     HTTPBearer:
       type: http
       scheme: bearer
-servers:
-- url: https://metadata-services.algoseek.com/api/v1
-  description: Base URL reconciled from apis.yml

@@ -1,14 +1,14 @@
-openapi: 3.0.2
+openapi: 3.2.0
 info:
-  title: metadata-api AWSAccount CloudStorage API
+  title: metadata-api Cloud Storage API
   version: '1.2'
 tags:
-- name: CloudStorage
+- name: Cloud Storage
 paths:
   /api/v1/internal/cloud_storage/:
     get:
       tags:
-      - CloudStorage
+      - Cloud Storage
       summary: List Cloud Storages
       description: Get a list of all cloud storages
       operationId: get_cloud_storages_internal_api_v1_internal_cloud_storage__get
@@ -51,7 +51,7 @@ paths:
       - HTTPBearer: []
     post:
       tags:
-      - CloudStorage
+      - Cloud Storage
       summary: Add Cloud Storage
       description: Add a new cloud storage
       operationId: create_cloud_storage_api_v1_internal_cloud_storage__post
@@ -79,7 +79,7 @@ paths:
   /api/v1/internal/cloud_storage/{cloud_storage_id}/:
     get:
       tags:
-      - CloudStorage
+      - Cloud Storage
       summary: Get Cloud Storage
       description: Get cloud storage details by id
       operationId: get_cloud_storage_internal_api_v1_internal_cloud_storage__cloud_storage_id___get
@@ -107,7 +107,7 @@ paths:
       - HTTPBearer: []
     put:
       tags:
-      - CloudStorage
+      - Cloud Storage
       summary: Update Cloud Storage
       description: Update cloud storage details by id
       operationId: update_cloud_storage_api_v1_internal_cloud_storage__cloud_storage_id___put
@@ -141,7 +141,7 @@ paths:
       - HTTPBearer: []
     delete:
       tags:
-      - CloudStorage
+      - Cloud Storage
       summary: Delete Cloud Storage
       description: Delete a cloud storage record
       operationId: delete_cloud_storage_api_v1_internal_cloud_storage__cloud_storage_id___delete
@@ -170,7 +170,7 @@ paths:
   /api/v1/internal/cloud_storage/text_id/{text_id}/:
     get:
       tags:
-      - CloudStorage
+      - Cloud Storage
       summary: Get Cloud Storage
       description: Get cloud storage details by text_id
       operationId: get_cloud_storage_by_text_id_internal_api_v1_internal_cloud_storage_text_id__text_id___get
@@ -199,7 +199,7 @@ paths:
   /api/v1/public/cloud_storage/{cloud_storage_id}/:
     get:
       tags:
-      - CloudStorage
+      - Cloud Storage
       summary: Get Cloud Storage
       description: Get cloud storage details by id
       operationId: get_cloud_storage_public_api_v1_public_cloud_storage__cloud_storage_id___get
@@ -228,7 +228,7 @@ paths:
   /api/v1/public/cloud_storage/text_id/{text_id}/:
     get:
       tags:
-      - CloudStorage
+      - Cloud Storage
       summary: Get Cloud Storage
       description: Get cloud storage details by text_id
       operationId: get_cloud_storage_by_text_id_public_api_v1_public_cloud_storage_text_id__text_id___get
@@ -257,7 +257,7 @@ paths:
   /api/v1/public/cloud_storage/:
     get:
       tags:
-      - CloudStorage
+      - Cloud Storage
       summary: List Cloud Storages
       description: Get a list of all cloud storages
       operationId: get_cloud_storages_public_api_v1_public_cloud_storage__get
@@ -300,6 +300,55 @@ paths:
       - HTTPBearer: []
 components:
   schemas:
+    CloudStorageUpdate:
+      title: CloudStorageUpdate
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        sample_data_url:
+          title: Sample Data Url
+          type: string
+        sample_file_description:
+          title: Sample File Description
+          type: string
+        sample_file_id:
+          title: Sample File Id
+          type: integer
+        dataset_id:
+          title: Dataset Id
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+    ValidationError:
+      title: ValidationError
+      required:
+      - loc
+      - msg
+      - type
+      type: object
+      properties:
+        loc:
+          title: Location
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
     CSVColumnOutAdmin:
       title: CSVColumnOutAdmin
       required:
@@ -347,32 +396,11 @@ components:
           title: Modified
           type: string
           format: date-time
-    ValidationError:
-      title: ValidationError
-      required:
-      - loc
-      - msg
-      - type
-      type: object
-      properties:
-        loc:
-          title: Location
-          type: array
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-        msg:
-          title: Message
-          type: string
-        type:
-          title: Error Type
-          type: string
-    CloudStorageOutAdmin:
-      title: CloudStorageOutAdmin
+    EnumOutAdmin:
+      title: EnumOutAdmin
       required:
       - text_id
-      - dataset_id
+      - internal_name
       - is_active
       - is_public
       - id
@@ -383,18 +411,18 @@ components:
         text_id:
           title: Text Id
           type: string
-        sample_data_url:
-          title: Sample Data Url
+        display_name:
+          title: Display Name
           type: string
-        sample_file_description:
-          title: Sample File Description
+        full_name:
+          title: Full Name
           type: string
-        sample_file_id:
-          title: Sample File Id
-          type: integer
-        dataset_id:
-          title: Dataset Id
-          type: integer
+        description:
+          title: Description
+          type: string
+        internal_name:
+          title: Internal Name
+          type: string
         is_active:
           title: Is Active
           type: boolean
@@ -407,18 +435,6 @@ components:
         id:
           title: Id
           type: integer
-        csv_columns:
-          title: Csv Columns
-          type: array
-          items:
-            $ref: '#/components/schemas/CSVColumnOutAdmin'
-        bucket_groups:
-          title: Bucket Groups
-          type: array
-          items:
-            type: integer
-        sample_file:
-          $ref: '#/components/schemas/ExtS3ObjectOutAdmin'
         created:
           title: Created
           type: string
@@ -427,6 +443,15 @@ components:
           title: Modified
           type: string
           format: date-time
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
     CSVColumnOutPublic:
       title: CSVColumnOutPublic
       required:
@@ -484,43 +509,6 @@ components:
         notes:
           title: Notes
           type: string
-    CloudStorageUpdate:
-      title: CloudStorageUpdate
-      type: object
-      properties:
-        text_id:
-          title: Text Id
-          type: string
-        sample_data_url:
-          title: Sample Data Url
-          type: string
-        sample_file_description:
-          title: Sample File Description
-          type: string
-        sample_file_id:
-          title: Sample File Id
-          type: integer
-        dataset_id:
-          title: Dataset Id
-          type: integer
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
-    HTTPValidationError:
-      title: HTTPValidationError
-      type: object
-      properties:
-        detail:
-          title: Detail
-          type: array
-          items:
-            $ref: '#/components/schemas/ValidationError'
     CloudStorageOutPublic:
       title: CloudStorageOutPublic
       required:
@@ -605,11 +593,11 @@ components:
           title: Modified
           type: string
           format: date-time
-    EnumOutAdmin:
-      title: EnumOutAdmin
+    CloudStorageOutAdmin:
+      title: CloudStorageOutAdmin
       required:
       - text_id
-      - internal_name
+      - dataset_id
       - is_active
       - is_public
       - id
@@ -620,18 +608,18 @@ components:
         text_id:
           title: Text Id
           type: string
-        display_name:
-          title: Display Name
+        sample_data_url:
+          title: Sample Data Url
           type: string
-        full_name:
-          title: Full Name
+        sample_file_description:
+          title: Sample File Description
           type: string
-        description:
-          title: Description
-          type: string
-        internal_name:
-          title: Internal Name
-          type: string
+        sample_file_id:
+          title: Sample File Id
+          type: integer
+        dataset_id:
+          title: Dataset Id
+          type: integer
         is_active:
           title: Is Active
           type: boolean
@@ -644,6 +632,18 @@ components:
         id:
           title: Id
           type: integer
+        csv_columns:
+          title: Csv Columns
+          type: array
+          items:
+            $ref: '#/components/schemas/CSVColumnOutAdmin'
+        bucket_groups:
+          title: Bucket Groups
+          type: array
+          items:
+            type: integer
+        sample_file:
+          $ref: '#/components/schemas/ExtS3ObjectOutAdmin'
         created:
           title: Created
           type: string
@@ -656,6 +656,3 @@ components:
     HTTPBearer:
       type: http
       scheme: bearer
-servers:
-- url: https://metadata-services.algoseek.com/api/v1
-  description: Base URL reconciled from apis.yml

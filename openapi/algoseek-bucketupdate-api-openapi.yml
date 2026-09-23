@@ -1,6 +1,6 @@
-openapi: 3.0.2
+openapi: 3.2.0
 info:
-  title: metadata-api AWSAccount BucketUpdate API
+  title: metadata-api Bucket Update API
   version: '1.2'
 tags:
 - name: BucketUpdate
@@ -211,6 +211,167 @@ paths:
       - HTTPBearer: []
 components:
   schemas:
+    ValidationError:
+      title: ValidationError
+      required:
+      - loc
+      - msg
+      - type
+      type: object
+      properties:
+        loc:
+          title: Location
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
+    BucketUpdatesUpdate:
+      title: BucketUpdatesUpdate
+      type: object
+      properties:
+        interval:
+          title: Interval
+          type: string
+        days_offset:
+          title: Days Offset
+          type: integer
+        public_time:
+          title: Public Time
+          type: string
+        size_human:
+          title: Size Human
+          type: string
+        num_objects_human:
+          title: Num Objects Human
+          type: string
+        expected_time:
+          title: Expected Time
+          type: string
+        intraday_period_minutes:
+          title: Intraday Period Minutes
+          type: integer
+        duration_minutes:
+          title: Duration Minutes
+          type: integer
+        source:
+          title: Source
+          type: string
+        size_bytes:
+          title: Size Bytes
+          type: integer
+        num_objects:
+          title: Num Objects
+          type: integer
+        path_prefix:
+          title: Path Prefix
+          type: string
+        regex_structure:
+          title: Regex Structure
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+    BucketUpdatesOutPublic:
+      title: BucketUpdatesOutPublic
+      required:
+      - id
+      type: object
+      properties:
+        interval:
+          title: Interval
+          type: string
+        days_offset:
+          title: Days Offset
+          type: integer
+        public_time:
+          title: Public Time
+          type: string
+        size_human:
+          title: Size Human
+          type: string
+        num_objects_human:
+          title: Num Objects Human
+          type: string
+        id:
+          title: Id
+          type: integer
+        bucket_group:
+          title: Bucket Group
+          type: integer
+    BucketUpdatesCreate:
+      title: BucketUpdatesCreate
+      type: object
+      properties:
+        interval:
+          title: Interval
+          type: string
+        days_offset:
+          title: Days Offset
+          type: integer
+        public_time:
+          title: Public Time
+          type: string
+        size_human:
+          title: Size Human
+          type: string
+        num_objects_human:
+          title: Num Objects Human
+          type: string
+        expected_time:
+          title: Expected Time
+          type: string
+        intraday_period_minutes:
+          title: Intraday Period Minutes
+          type: integer
+        duration_minutes:
+          title: Duration Minutes
+          type: integer
+        source:
+          title: Source
+          type: string
+        size_bytes:
+          title: Size Bytes
+          type: integer
+        num_objects:
+          title: Num Objects
+          type: integer
+        path_prefix:
+          title: Path Prefix
+          type: string
+        regex_structure:
+          title: Regex Structure
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
     BucketUpdatesOutAdmin:
       title: BucketUpdatesOutAdmin
       required:
@@ -283,171 +444,7 @@ components:
         bucket_group:
           title: Bucket Group
           type: integer
-    ValidationError:
-      title: ValidationError
-      required:
-      - loc
-      - msg
-      - type
-      type: object
-      properties:
-        loc:
-          title: Location
-          type: array
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-        msg:
-          title: Message
-          type: string
-        type:
-          title: Error Type
-          type: string
-    BucketUpdatesCreate:
-      title: BucketUpdatesCreate
-      type: object
-      properties:
-        interval:
-          title: Interval
-          type: string
-        days_offset:
-          title: Days Offset
-          type: integer
-        public_time:
-          title: Public Time
-          type: string
-        size_human:
-          title: Size Human
-          type: string
-        num_objects_human:
-          title: Num Objects Human
-          type: string
-        expected_time:
-          title: Expected Time
-          type: string
-        intraday_period_minutes:
-          title: Intraday Period Minutes
-          type: integer
-        duration_minutes:
-          title: Duration Minutes
-          type: integer
-        source:
-          title: Source
-          type: string
-        size_bytes:
-          title: Size Bytes
-          type: integer
-        num_objects:
-          title: Num Objects
-          type: integer
-        path_prefix:
-          title: Path Prefix
-          type: string
-        regex_structure:
-          title: Regex Structure
-          type: string
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
-    BucketUpdatesUpdate:
-      title: BucketUpdatesUpdate
-      type: object
-      properties:
-        interval:
-          title: Interval
-          type: string
-        days_offset:
-          title: Days Offset
-          type: integer
-        public_time:
-          title: Public Time
-          type: string
-        size_human:
-          title: Size Human
-          type: string
-        num_objects_human:
-          title: Num Objects Human
-          type: string
-        expected_time:
-          title: Expected Time
-          type: string
-        intraday_period_minutes:
-          title: Intraday Period Minutes
-          type: integer
-        duration_minutes:
-          title: Duration Minutes
-          type: integer
-        source:
-          title: Source
-          type: string
-        size_bytes:
-          title: Size Bytes
-          type: integer
-        num_objects:
-          title: Num Objects
-          type: integer
-        path_prefix:
-          title: Path Prefix
-          type: string
-        regex_structure:
-          title: Regex Structure
-          type: string
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
-    HTTPValidationError:
-      title: HTTPValidationError
-      type: object
-      properties:
-        detail:
-          title: Detail
-          type: array
-          items:
-            $ref: '#/components/schemas/ValidationError'
-    BucketUpdatesOutPublic:
-      title: BucketUpdatesOutPublic
-      required:
-      - id
-      type: object
-      properties:
-        interval:
-          title: Interval
-          type: string
-        days_offset:
-          title: Days Offset
-          type: integer
-        public_time:
-          title: Public Time
-          type: string
-        size_human:
-          title: Size Human
-          type: string
-        num_objects_human:
-          title: Num Objects Human
-          type: string
-        id:
-          title: Id
-          type: integer
-        bucket_group:
-          title: Bucket Group
-          type: integer
   securitySchemes:
     HTTPBearer:
       type: http
       scheme: bearer
-servers:
-- url: https://metadata-services.algoseek.com/api/v1
-  description: Base URL reconciled from apis.yml
