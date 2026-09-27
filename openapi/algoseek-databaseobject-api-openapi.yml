@@ -310,95 +310,6 @@ paths:
       - HTTPBearer: []
 components:
   schemas:
-    ValidationError:
-      title: ValidationError
-      required:
-      - loc
-      - msg
-      - type
-      type: object
-      properties:
-        loc:
-          title: Location
-          type: array
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-        msg:
-          title: Message
-          type: string
-        type:
-          title: Error Type
-          type: string
-    DatabaseObjectCreate:
-      title: DatabaseObjectCreate
-      required:
-      - object_name
-      - db_object_type_id
-      type: object
-      properties:
-        object_name:
-          title: Object Name
-          type: string
-        db_object_type_id:
-          title: Db Object Type Id
-          type: integer
-        status_id:
-          title: Status Id
-          type: integer
-        signature:
-          title: Signature
-          type: string
-        arguments:
-          title: Arguments
-          type: array
-          items:
-            type: string
-          default: []
-        arguments_types:
-          title: Arguments Types
-          type: array
-          items:
-            type: string
-          default: []
-        return_values:
-          title: Return Values
-          type: array
-          items:
-            type: string
-          default: []
-        return_value_types:
-          title: Return Value Types
-          type: array
-          items:
-            type: string
-          default: []
-        create_query:
-          title: Create Query
-          type: string
-        description:
-          title: Description
-          type: string
-        table_dependencies:
-          title: Table Dependencies
-          type: array
-          items:
-            type: integer
-        object_dependencies:
-          title: Object Dependencies
-          type: array
-          items:
-            type: integer
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
     EnumOutAdmin:
       title: EnumOutAdmin
       required:
@@ -446,6 +357,36 @@ components:
           title: Modified
           type: string
           format: date-time
+    ValidationError:
+      title: ValidationError
+      required:
+      - loc
+      - msg
+      - type
+      type: object
+      properties:
+        loc:
+          title: Location
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
     DatabaseObjectUpdate:
       title: DatabaseObjectUpdate
       type: object
@@ -595,15 +536,129 @@ components:
           title: Modified
           type: string
           format: date-time
-    HTTPValidationError:
-      title: HTTPValidationError
+    DatabaseObjectCreate:
+      title: DatabaseObjectCreate
+      required:
+      - object_name
+      - db_object_type_id
       type: object
       properties:
-        detail:
-          title: Detail
+        object_name:
+          title: Object Name
+          type: string
+        db_object_type_id:
+          title: Db Object Type Id
+          type: integer
+        status_id:
+          title: Status Id
+          type: integer
+        signature:
+          title: Signature
+          type: string
+        arguments:
+          title: Arguments
           type: array
           items:
-            $ref: '#/components/schemas/ValidationError'
+            type: string
+          default: []
+        arguments_types:
+          title: Arguments Types
+          type: array
+          items:
+            type: string
+          default: []
+        return_values:
+          title: Return Values
+          type: array
+          items:
+            type: string
+          default: []
+        return_value_types:
+          title: Return Value Types
+          type: array
+          items:
+            type: string
+          default: []
+        create_query:
+          title: Create Query
+          type: string
+        description:
+          title: Description
+          type: string
+        table_dependencies:
+          title: Table Dependencies
+          type: array
+          items:
+            type: integer
+        object_dependencies:
+          title: Object Dependencies
+          type: array
+          items:
+            type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+    ExtDatabaseObjectOutAdmin:
+      title: ExtDatabaseObjectOutAdmin
+      required:
+      - object_name
+      - db_object_type
+      - id
+      - is_active
+      - is_public
+      - created
+      - modified
+      type: object
+      properties:
+        object_name:
+          title: Object Name
+          type: string
+        db_object_type:
+          $ref: '#/components/schemas/EnumOutAdmin'
+        status:
+          $ref: '#/components/schemas/EnumOutAdmin'
+        id:
+          title: Id
+          type: integer
+        signature:
+          title: Signature
+          type: string
+        description:
+          title: Description
+          type: string
+        table_dependencies:
+          title: Table Dependencies
+          type: array
+          items:
+            type: integer
+        object_dependencies:
+          title: Object Dependencies
+          type: array
+          items:
+            type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
     DatabaseObjectOutPublic:
       title: DatabaseObjectOutPublic
       required:
@@ -676,61 +731,6 @@ components:
         id:
           title: Id
           type: integer
-    ExtDatabaseObjectOutAdmin:
-      title: ExtDatabaseObjectOutAdmin
-      required:
-      - object_name
-      - db_object_type
-      - id
-      - is_active
-      - is_public
-      - created
-      - modified
-      type: object
-      properties:
-        object_name:
-          title: Object Name
-          type: string
-        db_object_type:
-          $ref: '#/components/schemas/EnumOutAdmin'
-        status:
-          $ref: '#/components/schemas/EnumOutAdmin'
-        id:
-          title: Id
-          type: integer
-        signature:
-          title: Signature
-          type: string
-        description:
-          title: Description
-          type: string
-        table_dependencies:
-          title: Table Dependencies
-          type: array
-          items:
-            type: integer
-        object_dependencies:
-          title: Object Dependencies
-          type: array
-          items:
-            type: integer
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
-        created:
-          title: Created
-          type: string
-          format: date-time
-        modified:
-          title: Modified
-          type: string
-          format: date-time
   securitySchemes:
     HTTPBearer:
       type: http

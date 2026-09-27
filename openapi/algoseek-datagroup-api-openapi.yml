@@ -332,10 +332,11 @@ components:
           title: Modified
           type: string
           format: date-time
-    DataGroupPricingOutAdmin:
-      title: DataGroupPricingOutAdmin
+    EnumOutAdmin:
+      title: EnumOutAdmin
       required:
-      - name
+      - text_id
+      - internal_name
       - is_active
       - is_public
       - id
@@ -343,24 +344,21 @@ components:
       - modified
       type: object
       properties:
-        name:
-          title: Name
+        text_id:
+          title: Text Id
           type: string
-        buy_annual_decrease_factor:
-          title: Buy Annual Decrease Factor
-          type: number
-        buy_prod_upd_factor:
-          title: Buy Prod Upd Factor
-          type: number
-        buy_research_upd_factor:
-          title: Buy Research Upd Factor
-          type: number
-        lease_hist_factor:
-          title: Lease Hist Factor
-          type: number
-        lease_upd_factor:
-          title: Lease Upd Factor
-          type: number
+        display_name:
+          title: Display Name
+          type: string
+        full_name:
+          title: Full Name
+          type: string
+        description:
+          title: Description
+          type: string
+        internal_name:
+          title: Internal Name
+          type: string
         is_active:
           title: Is Active
           type: boolean
@@ -381,27 +379,6 @@ components:
           title: Modified
           type: string
           format: date-time
-    ValidationError:
-      title: ValidationError
-      required:
-      - loc
-      - msg
-      - type
-      type: object
-      properties:
-        loc:
-          title: Location
-          type: array
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-        msg:
-          title: Message
-          type: string
-        type:
-          title: Error Type
-          type: string
     DataGroupOutPublic:
       title: DataGroupOutPublic
       required:
@@ -457,120 +434,6 @@ components:
         id:
           title: Id
           type: integer
-    EnumOutAdmin:
-      title: EnumOutAdmin
-      required:
-      - text_id
-      - internal_name
-      - is_active
-      - is_public
-      - id
-      - created
-      - modified
-      type: object
-      properties:
-        text_id:
-          title: Text Id
-          type: string
-        display_name:
-          title: Display Name
-          type: string
-        full_name:
-          title: Full Name
-          type: string
-        description:
-          title: Description
-          type: string
-        internal_name:
-          title: Internal Name
-          type: string
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
-        id:
-          title: Id
-          type: integer
-        created:
-          title: Created
-          type: string
-          format: date-time
-        modified:
-          title: Modified
-          type: string
-          format: date-time
-    DataGroupUpdate:
-      title: DataGroupUpdate
-      type: object
-      properties:
-        text_id:
-          title: Text Id
-          type: string
-        display_name:
-          title: Display Name
-          type: string
-        full_name:
-          title: Full Name
-          type: string
-        description:
-          title: Description
-          type: string
-        universe_size:
-          title: Universe Size
-          type: integer
-        universe_description:
-          title: Universe Description
-          type: string
-        universe_components:
-          title: Universe Components
-          type: array
-          items:
-            type: string
-        symbols_per_component:
-          title: Symbols Per Component
-          type: array
-          items:
-            type: integer
-        tags:
-          title: Tags
-          type: array
-          items:
-            type: string
-        status_id:
-          title: Status Id
-          type: integer
-        region_id:
-          title: Region Id
-          type: integer
-        pricing_id:
-          title: Pricing Id
-          type: integer
-        internal_name:
-          title: Internal Name
-          type: string
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
-    HTTPValidationError:
-      title: HTTPValidationError
-      type: object
-      properties:
-        detail:
-          title: Detail
-          type: array
-          items:
-            $ref: '#/components/schemas/ValidationError'
     DataGroupCreate:
       title: DataGroupCreate
       required:
@@ -712,6 +575,143 @@ components:
           title: Modified
           type: string
           format: date-time
+    DataGroupPricingOutAdmin:
+      title: DataGroupPricingOutAdmin
+      required:
+      - name
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        buy_annual_decrease_factor:
+          title: Buy Annual Decrease Factor
+          type: number
+        buy_prod_upd_factor:
+          title: Buy Prod Upd Factor
+          type: number
+        buy_research_upd_factor:
+          title: Buy Research Upd Factor
+          type: number
+        lease_hist_factor:
+          title: Lease Hist Factor
+          type: number
+        lease_upd_factor:
+          title: Lease Upd Factor
+          type: number
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    ValidationError:
+      title: ValidationError
+      required:
+      - loc
+      - msg
+      - type
+      type: object
+      properties:
+        loc:
+          title: Location
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
+    DataGroupUpdate:
+      title: DataGroupUpdate
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        full_name:
+          title: Full Name
+          type: string
+        description:
+          title: Description
+          type: string
+        universe_size:
+          title: Universe Size
+          type: integer
+        universe_description:
+          title: Universe Description
+          type: string
+        universe_components:
+          title: Universe Components
+          type: array
+          items:
+            type: string
+        symbols_per_component:
+          title: Symbols Per Component
+          type: array
+          items:
+            type: integer
+        tags:
+          title: Tags
+          type: array
+          items:
+            type: string
+        status_id:
+          title: Status Id
+          type: integer
+        region_id:
+          title: Region Id
+          type: integer
+        pricing_id:
+          title: Pricing Id
+          type: integer
+        internal_name:
+          title: Internal Name
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
   securitySchemes:
     HTTPBearer:
       type: http

@@ -211,36 +211,48 @@ paths:
       - HTTPBearer: []
 components:
   schemas:
-    ValidationError:
-      title: ValidationError
+    VendorCreate:
+      title: VendorCreate
       required:
-      - loc
-      - msg
-      - type
+      - text_id
+      - full_name
+      - display_name
+      - internal_name
       type: object
       properties:
-        loc:
-          title: Location
-          type: array
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-        msg:
-          title: Message
+        text_id:
+          title: Text Id
           type: string
-        type:
-          title: Error Type
+        full_name:
+          title: Full Name
           type: string
-    HTTPValidationError:
-      title: HTTPValidationError
-      type: object
-      properties:
-        detail:
-          title: Detail
-          type: array
-          items:
-            $ref: '#/components/schemas/ValidationError'
+        display_name:
+          title: Display Name
+          type: string
+        description:
+          title: Description
+          type: string
+        website:
+          title: Website
+          type: string
+        logo_url:
+          title: Logo Url
+          type: string
+        icon_url:
+          title: Icon Url
+          type: string
+        internal_name:
+          title: Internal Name
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
     VendorOutAdmin:
       title: VendorOutAdmin
       required:
@@ -304,6 +316,27 @@ components:
           title: Modified
           type: string
           format: date-time
+    ValidationError:
+      title: ValidationError
+      required:
+      - loc
+      - msg
+      - type
+      type: object
+      properties:
+        loc:
+          title: Location
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
     VendorUpdate:
       title: VendorUpdate
       type: object
@@ -341,39 +374,15 @@ components:
         notes:
           title: Notes
           type: string
-    VendorOutPublic:
-      title: VendorOutPublic
-      required:
-      - text_id
-      - full_name
-      - display_name
-      - id
+    HTTPValidationError:
+      title: HTTPValidationError
       type: object
       properties:
-        text_id:
-          title: Text Id
-          type: string
-        full_name:
-          title: Full Name
-          type: string
-        display_name:
-          title: Display Name
-          type: string
-        description:
-          title: Description
-          type: string
-        website:
-          title: Website
-          type: string
-        logo_url:
-          title: Logo Url
-          type: string
-        icon_url:
-          title: Icon Url
-          type: string
-        id:
-          title: Id
-          type: integer
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
     PersonOutAdmin:
       title: PersonOutAdmin
       required:
@@ -426,13 +435,13 @@ components:
           title: Modified
           type: string
           format: date-time
-    VendorCreate:
-      title: VendorCreate
+    VendorOutPublic:
+      title: VendorOutPublic
       required:
       - text_id
       - full_name
       - display_name
-      - internal_name
+      - id
       type: object
       properties:
         text_id:
@@ -456,18 +465,9 @@ components:
         icon_url:
           title: Icon Url
           type: string
-        internal_name:
-          title: Internal Name
-          type: string
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
+        id:
+          title: Id
+          type: integer
   securitySchemes:
     HTTPBearer:
       type: http

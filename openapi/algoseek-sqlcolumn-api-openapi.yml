@@ -230,33 +230,8 @@ paths:
       - HTTPBearer: []
 components:
   schemas:
-    ValidationError:
-      title: ValidationError
-      required:
-      - loc
-      - msg
-      - type
-      type: object
-      properties:
-        loc:
-          title: Location
-          type: array
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-        msg:
-          title: Message
-          type: string
-        type:
-          title: Error Type
-          type: string
-    SQLColumnOutPublic:
-      title: SQLColumnOutPublic
-      required:
-      - table_id
-      - ordering
-      - id
+    SQLColumnUpdate:
+      title: SQLColumnUpdate
       type: object
       properties:
         name:
@@ -283,9 +258,15 @@ components:
         ordering:
           title: Ordering
           type: integer
-        id:
-          title: Id
-          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
     SQLColumnOutAdmin:
       title: SQLColumnOutAdmin
       required:
@@ -342,43 +323,6 @@ components:
           title: Modified
           type: string
           format: date-time
-    SQLColumnUpdate:
-      title: SQLColumnUpdate
-      type: object
-      properties:
-        name:
-          title: Name
-          type: string
-        data_type_simple:
-          title: Data Type Simple
-          type: string
-        data_type_db:
-          title: Data Type Db
-          type: string
-        compression:
-          title: Compression
-          type: string
-        endcoding:
-          title: Endcoding
-          type: string
-        description:
-          title: Description
-          type: string
-        table_id:
-          title: Table Id
-          type: integer
-        ordering:
-          title: Ordering
-          type: integer
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
     SQLColumnCreate:
       title: SQLColumnCreate
       required:
@@ -419,6 +363,27 @@ components:
         notes:
           title: Notes
           type: string
+    ValidationError:
+      title: ValidationError
+      required:
+      - loc
+      - msg
+      - type
+      type: object
+      properties:
+        loc:
+          title: Location
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
     HTTPValidationError:
       title: HTTPValidationError
       type: object
@@ -428,6 +393,41 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ValidationError'
+    SQLColumnOutPublic:
+      title: SQLColumnOutPublic
+      required:
+      - table_id
+      - ordering
+      - id
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        data_type_simple:
+          title: Data Type Simple
+          type: string
+        data_type_db:
+          title: Data Type Db
+          type: string
+        compression:
+          title: Compression
+          type: string
+        endcoding:
+          title: Endcoding
+          type: string
+        description:
+          title: Description
+          type: string
+        table_id:
+          title: Table Id
+          type: integer
+        ordering:
+          title: Ordering
+          type: integer
+        id:
+          title: Id
+          type: integer
   securitySchemes:
     HTTPBearer:
       type: http

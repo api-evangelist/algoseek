@@ -240,58 +240,6 @@ paths:
       - HTTPBearer: []
 components:
   schemas:
-    EnumCreate:
-      title: EnumCreate
-      required:
-      - text_id
-      - internal_name
-      type: object
-      properties:
-        text_id:
-          title: Text Id
-          type: string
-        display_name:
-          title: Display Name
-          type: string
-        full_name:
-          title: Full Name
-          type: string
-        description:
-          title: Description
-          type: string
-        internal_name:
-          title: Internal Name
-          type: string
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
-    ValidationError:
-      title: ValidationError
-      required:
-      - loc
-      - msg
-      - type
-      type: object
-      properties:
-        loc:
-          title: Location
-          type: array
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-        msg:
-          title: Message
-          type: string
-        type:
-          title: Error Type
-          type: string
     EnumOutAdmin:
       title: EnumOutAdmin
       required:
@@ -339,15 +287,37 @@ components:
           title: Modified
           type: string
           format: date-time
-    HTTPValidationError:
-      title: HTTPValidationError
+    EnumCreate:
+      title: EnumCreate
+      required:
+      - text_id
+      - internal_name
       type: object
       properties:
-        detail:
-          title: Detail
-          type: array
-          items:
-            $ref: '#/components/schemas/ValidationError'
+        text_id:
+          title: Text Id
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        full_name:
+          title: Full Name
+          type: string
+        description:
+          title: Description
+          type: string
+        internal_name:
+          title: Internal Name
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
     EnumUpdate:
       title: EnumUpdate
       type: object
@@ -376,6 +346,36 @@ components:
         notes:
           title: Notes
           type: string
+    ValidationError:
+      title: ValidationError
+      required:
+      - loc
+      - msg
+      - type
+      type: object
+      properties:
+        loc:
+          title: Location
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
     EnumOutPublic:
       title: EnumOutPublic
       required:

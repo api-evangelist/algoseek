@@ -300,6 +300,205 @@ paths:
       - HTTPBearer: []
 components:
   schemas:
+    EnumOutAdmin:
+      title: EnumOutAdmin
+      required:
+      - text_id
+      - internal_name
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        full_name:
+          title: Full Name
+          type: string
+        description:
+          title: Description
+          type: string
+        internal_name:
+          title: Internal Name
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    ExtS3ObjectOutAdmin:
+      title: ExtS3ObjectOutAdmin
+      required:
+      - aws_account_id
+      - bucket_name
+      - object_name
+      - region_name
+      - id
+      - is_active
+      - is_public
+      - created
+      - modified
+      type: object
+      properties:
+        aws_account_id:
+          title: Aws Account Id
+          type: integer
+        bucket_name:
+          title: Bucket Name
+          type: string
+        object_name:
+          title: Object Name
+          type: string
+        region_name:
+          title: Region Name
+          type: string
+        id:
+          title: Id
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        aws_account:
+          $ref: '#/components/schemas/EnumOutAdmin'
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    CloudStorageCreate:
+      title: CloudStorageCreate
+      required:
+      - text_id
+      - dataset_id
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        sample_data_url:
+          title: Sample Data Url
+          type: string
+        sample_file_description:
+          title: Sample File Description
+          type: string
+        sample_file_id:
+          title: Sample File Id
+          type: integer
+        dataset_id:
+          title: Dataset Id
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+    CSVColumnOutAdmin:
+      title: CSVColumnOutAdmin
+      required:
+      - cloud_storage_id
+      - ordering
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        data_type:
+          title: Data Type
+          type: string
+        description:
+          title: Description
+          type: string
+        cloud_storage_id:
+          title: Cloud Storage Id
+          type: integer
+        ordering:
+          title: Ordering
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    CSVColumnOutPublic:
+      title: CSVColumnOutPublic
+      required:
+      - cloud_storage_id
+      - ordering
+      - id
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        data_type:
+          title: Data Type
+          type: string
+        description:
+          title: Description
+          type: string
+        cloud_storage_id:
+          title: Cloud Storage Id
+          type: integer
+        ordering:
+          title: Ordering
+          type: integer
+        id:
+          title: Id
+          type: integer
     CloudStorageUpdate:
       title: CloudStorageUpdate
       type: object
@@ -349,166 +548,6 @@ components:
         type:
           title: Error Type
           type: string
-    CSVColumnOutAdmin:
-      title: CSVColumnOutAdmin
-      required:
-      - cloud_storage_id
-      - ordering
-      - is_active
-      - is_public
-      - id
-      - created
-      - modified
-      type: object
-      properties:
-        name:
-          title: Name
-          type: string
-        data_type:
-          title: Data Type
-          type: string
-        description:
-          title: Description
-          type: string
-        cloud_storage_id:
-          title: Cloud Storage Id
-          type: integer
-        ordering:
-          title: Ordering
-          type: integer
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
-        id:
-          title: Id
-          type: integer
-        created:
-          title: Created
-          type: string
-          format: date-time
-        modified:
-          title: Modified
-          type: string
-          format: date-time
-    EnumOutAdmin:
-      title: EnumOutAdmin
-      required:
-      - text_id
-      - internal_name
-      - is_active
-      - is_public
-      - id
-      - created
-      - modified
-      type: object
-      properties:
-        text_id:
-          title: Text Id
-          type: string
-        display_name:
-          title: Display Name
-          type: string
-        full_name:
-          title: Full Name
-          type: string
-        description:
-          title: Description
-          type: string
-        internal_name:
-          title: Internal Name
-          type: string
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
-        id:
-          title: Id
-          type: integer
-        created:
-          title: Created
-          type: string
-          format: date-time
-        modified:
-          title: Modified
-          type: string
-          format: date-time
-    HTTPValidationError:
-      title: HTTPValidationError
-      type: object
-      properties:
-        detail:
-          title: Detail
-          type: array
-          items:
-            $ref: '#/components/schemas/ValidationError'
-    CSVColumnOutPublic:
-      title: CSVColumnOutPublic
-      required:
-      - cloud_storage_id
-      - ordering
-      - id
-      type: object
-      properties:
-        name:
-          title: Name
-          type: string
-        data_type:
-          title: Data Type
-          type: string
-        description:
-          title: Description
-          type: string
-        cloud_storage_id:
-          title: Cloud Storage Id
-          type: integer
-        ordering:
-          title: Ordering
-          type: integer
-        id:
-          title: Id
-          type: integer
-    CloudStorageCreate:
-      title: CloudStorageCreate
-      required:
-      - text_id
-      - dataset_id
-      type: object
-      properties:
-        text_id:
-          title: Text Id
-          type: string
-        sample_data_url:
-          title: Sample Data Url
-          type: string
-        sample_file_description:
-          title: Sample File Description
-          type: string
-        sample_file_id:
-          title: Sample File Id
-          type: integer
-        dataset_id:
-          title: Dataset Id
-          type: integer
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
     CloudStorageOutPublic:
       title: CloudStorageOutPublic
       required:
@@ -545,54 +584,15 @@ components:
           type: array
           items:
             type: integer
-    ExtS3ObjectOutAdmin:
-      title: ExtS3ObjectOutAdmin
-      required:
-      - aws_account_id
-      - bucket_name
-      - object_name
-      - region_name
-      - id
-      - is_active
-      - is_public
-      - created
-      - modified
+    HTTPValidationError:
+      title: HTTPValidationError
       type: object
       properties:
-        aws_account_id:
-          title: Aws Account Id
-          type: integer
-        bucket_name:
-          title: Bucket Name
-          type: string
-        object_name:
-          title: Object Name
-          type: string
-        region_name:
-          title: Region Name
-          type: string
-        id:
-          title: Id
-          type: integer
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
-        aws_account:
-          $ref: '#/components/schemas/EnumOutAdmin'
-        created:
-          title: Created
-          type: string
-          format: date-time
-        modified:
-          title: Modified
-          type: string
-          format: date-time
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
     CloudStorageOutAdmin:
       title: CloudStorageOutAdmin
       required:
