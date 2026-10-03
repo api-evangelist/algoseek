@@ -163,45 +163,15 @@ paths:
       - HTTPBearer: []
 components:
   schemas:
-    BucketMonitoringOutAdmin:
-      title: BucketMonitoringOutAdmin
-      required:
-      - is_active
-      - is_public
-      - id
-      - created
-      - modified
+    HTTPValidationError:
+      title: HTTPValidationError
       type: object
       properties:
-        delay_alert_minutes:
-          title: Delay Alert Minutes
-          type: integer
-        timeout_minutes:
-          title: Timeout Minutes
-          type: integer
-        check_period_minutes:
-          title: Check Period Minutes
-          type: integer
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
-        id:
-          title: Id
-          type: integer
-        created:
-          title: Created
-          type: string
-          format: date-time
-        modified:
-          title: Modified
-          type: string
-          format: date-time
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
     BucketMonitoringCreate:
       title: BucketMonitoringCreate
       type: object
@@ -246,6 +216,45 @@ components:
         notes:
           title: Notes
           type: string
+    BucketMonitoringOutAdmin:
+      title: BucketMonitoringOutAdmin
+      required:
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        delay_alert_minutes:
+          title: Delay Alert Minutes
+          type: integer
+        timeout_minutes:
+          title: Timeout Minutes
+          type: integer
+        check_period_minutes:
+          title: Check Period Minutes
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
     ValidationError:
       title: ValidationError
       required:
@@ -267,15 +276,6 @@ components:
         type:
           title: Error Type
           type: string
-    HTTPValidationError:
-      title: HTTPValidationError
-      type: object
-      properties:
-        detail:
-          title: Detail
-          type: array
-          items:
-            $ref: '#/components/schemas/ValidationError'
   securitySchemes:
     HTTPBearer:
       type: http

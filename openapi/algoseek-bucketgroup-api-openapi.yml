@@ -353,6 +353,847 @@ paths:
       - HTTPBearer: []
 components:
   schemas:
+    ExtSampleDataOutAdmin:
+      title: ExtSampleDataOutAdmin
+      required:
+      - id
+      - is_active
+      - is_public
+      - created
+      - modified
+      type: object
+      properties:
+        bucket_name:
+          title: Bucket Name
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        description:
+          title: Description
+          type: string
+        id:
+          title: Id
+          type: integer
+        aws_account:
+          $ref: '#/components/schemas/EnumOutAdmin'
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    BucketQAOutAdmin:
+      title: BucketQAOutAdmin
+      required:
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        row_1:
+          title: Row 1
+          type: string
+        row_2:
+          title: Row 2
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    ExtVendorOutAdmin:
+      title: ExtVendorOutAdmin
+      required:
+      - text_id
+      - full_name
+      - display_name
+      - internal_name
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        full_name:
+          title: Full Name
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        description:
+          title: Description
+          type: string
+        website:
+          title: Website
+          type: string
+        logo_url:
+          title: Logo Url
+          type: string
+        icon_url:
+          title: Icon Url
+          type: string
+        internal_name:
+          title: Internal Name
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    BucketGroupOutPublic:
+      title: BucketGroupOutPublic
+      required:
+      - text_id
+      - bucket_name
+      - path_format
+      - aggregation
+      - id
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        bucket_name:
+          title: Bucket Name
+          type: string
+        path_format:
+          title: Path Format
+          type: string
+        path_description:
+          title: Path Description
+          type: string
+        aggregation:
+          title: Aggregation
+          type: string
+        start_year:
+          title: Start Year
+          type: integer
+        end_year:
+          title: End Year
+          type: integer
+        indexed:
+          title: Indexed
+          type: boolean
+        is_primary:
+          title: Is Primary
+          type: boolean
+        bucket_size_human:
+          title: Bucket Size Human
+          type: string
+        total_size_human:
+          title: Total Size Human
+          type: string
+        bucket_num_objects:
+          title: Bucket Num Objects
+          type: integer
+        bucket_num_objects_human:
+          title: Bucket Num Objects Human
+          type: string
+        creation_date:
+          title: Creation Date
+          type: string
+          format: date
+        supplementary_bucket_group:
+          title: Supplementary Bucket Group
+          type: array
+          items:
+            type: string
+        cloud_storage_id:
+          title: Cloud Storage Id
+          type: integer
+        status_id:
+          title: Status Id
+          type: integer
+        updates_id:
+          title: Updates Id
+          type: integer
+        sample_data_id:
+          title: Sample Data Id
+          type: integer
+        storage_type_id:
+          title: Storage Type Id
+          type: integer
+        id:
+          title: Id
+          type: integer
+    BucketSourceOutAdmin:
+      title: BucketSourceOutAdmin
+      required:
+      - author_id
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        account_name:
+          title: Account Name
+          type: string
+        resource_arn:
+          title: Resource Arn
+          type: string
+        source_code_url:
+          title: Source Code Url
+          type: string
+        code_location:
+          title: Code Location
+          type: string
+        logs_location:
+          title: Logs Location
+          type: string
+        aws_resource_type_id:
+          title: Aws Resource Type Id
+          type: integer
+        author_id:
+          title: Author Id
+          type: integer
+        maintainer_id:
+          title: Maintainer Id
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
+    BucketGroupUpdate:
+      title: BucketGroupUpdate
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        bucket_name:
+          title: Bucket Name
+          type: string
+        path_format:
+          title: Path Format
+          type: string
+        path_description:
+          title: Path Description
+          type: string
+        aggregation:
+          title: Aggregation
+          type: string
+        start_year:
+          title: Start Year
+          type: integer
+        end_year:
+          title: End Year
+          type: integer
+        indexed:
+          title: Indexed
+          type: boolean
+        is_primary:
+          title: Is Primary
+          type: boolean
+        bucket_size_human:
+          title: Bucket Size Human
+          type: string
+        total_size_human:
+          title: Total Size Human
+          type: string
+        bucket_num_objects:
+          title: Bucket Num Objects
+          type: integer
+        bucket_num_objects_human:
+          title: Bucket Num Objects Human
+          type: string
+        creation_date:
+          title: Creation Date
+          type: string
+          format: date
+        supplementary_bucket_group:
+          title: Supplementary Bucket Group
+          type: array
+          items:
+            type: string
+        cloud_storage_id:
+          title: Cloud Storage Id
+          type: integer
+        status_id:
+          title: Status Id
+          type: integer
+        updates_id:
+          title: Updates Id
+          type: integer
+        sample_data_id:
+          title: Sample Data Id
+          type: integer
+        storage_type_id:
+          title: Storage Type Id
+          type: integer
+        aws_account_id:
+          title: Aws Account Id
+          type: integer
+        bucket_size_bytes:
+          title: Bucket Size Bytes
+          type: integer
+        total_size_bytes:
+          title: Total Size Bytes
+          type: integer
+        versioning:
+          title: Versioning
+          type: boolean
+        requester_pays:
+          title: Requester Pays
+          type: boolean
+        author_id:
+          title: Author Id
+          type: integer
+        maintainer_id:
+          title: Maintainer Id
+          type: integer
+        monitoring_id:
+          title: Monitoring Id
+          type: integer
+        version:
+          title: Version
+          type: string
+        prev_version_expiration_interval_days:
+          title: Prev Version Expiration Interval Days
+          type: integer
+        archive_transition_interval_days:
+          title: Archive Transition Interval Days
+          type: integer
+        bucket_qa_id:
+          title: Bucket Qa Id
+          type: integer
+        bucket_source_id:
+          title: Bucket Source Id
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+    ExtBucketGroupOutAdmin:
+      title: ExtBucketGroupOutAdmin
+      required:
+      - text_id
+      - bucket_name
+      - path_format
+      - aggregation
+      - id
+      - aws_account
+      - is_active
+      - is_public
+      - created
+      - modified
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        bucket_name:
+          title: Bucket Name
+          type: string
+        path_format:
+          title: Path Format
+          type: string
+        path_description:
+          title: Path Description
+          type: string
+        aggregation:
+          title: Aggregation
+          type: string
+        start_year:
+          title: Start Year
+          type: integer
+        end_year:
+          title: End Year
+          type: integer
+        indexed:
+          title: Indexed
+          type: boolean
+        is_primary:
+          title: Is Primary
+          type: boolean
+        bucket_size_human:
+          title: Bucket Size Human
+          type: string
+        total_size_human:
+          title: Total Size Human
+          type: string
+        bucket_num_objects:
+          title: Bucket Num Objects
+          type: integer
+        bucket_num_objects_human:
+          title: Bucket Num Objects Human
+          type: string
+        creation_date:
+          title: Creation Date
+          type: string
+          format: date
+        supplementary_bucket_group:
+          title: Supplementary Bucket Group
+          type: array
+          items:
+            type: string
+        cloud_storage:
+          $ref: '#/components/schemas/CloudStorageOutAdmin'
+        status:
+          $ref: '#/components/schemas/EnumOutAdmin'
+        updates:
+          $ref: '#/components/schemas/BucketUpdatesOutAdmin'
+        sample_data:
+          $ref: '#/components/schemas/ExtSampleDataOutAdmin'
+        storage_type:
+          $ref: '#/components/schemas/EnumOutAdmin'
+        id:
+          title: Id
+          type: integer
+        aws_account:
+          $ref: '#/components/schemas/EnumOutAdmin'
+        bucket_size_bytes:
+          title: Bucket Size Bytes
+          type: integer
+        total_size_bytes:
+          title: Total Size Bytes
+          type: integer
+        versioning:
+          title: Versioning
+          type: boolean
+        requester_pays:
+          title: Requester Pays
+          type: boolean
+        author:
+          $ref: '#/components/schemas/ExtPersonOutAdmin'
+        maintainer:
+          $ref: '#/components/schemas/ExtPersonOutAdmin'
+        monitoring:
+          $ref: '#/components/schemas/BucketMonitoringOutAdmin'
+        version:
+          title: Version
+          type: string
+        prev_version_expiration_interval_days:
+          title: Prev Version Expiration Interval Days
+          type: integer
+        archive_transition_interval_days:
+          title: Archive Transition Interval Days
+          type: integer
+        bucket_qa:
+          $ref: '#/components/schemas/BucketQAOutAdmin'
+        bucket_source:
+          $ref: '#/components/schemas/BucketSourceOutAdmin'
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    CloudStorageOutAdmin:
+      title: CloudStorageOutAdmin
+      required:
+      - text_id
+      - dataset_id
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        sample_data_url:
+          title: Sample Data Url
+          type: string
+        sample_file_description:
+          title: Sample File Description
+          type: string
+        sample_file_id:
+          title: Sample File Id
+          type: integer
+        dataset_id:
+          title: Dataset Id
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        csv_columns:
+          title: Csv Columns
+          type: array
+          items:
+            $ref: '#/components/schemas/CSVColumnOutAdmin'
+        bucket_groups:
+          title: Bucket Groups
+          type: array
+          items:
+            type: integer
+        sample_file:
+          $ref: '#/components/schemas/ExtS3ObjectOutAdmin'
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    ExtPersonOutAdmin:
+      title: ExtPersonOutAdmin
+      required:
+      - first_name
+      - last_name
+      - email
+      - id
+      - is_active
+      - is_public
+      - created
+      - modified
+      type: object
+      properties:
+        first_name:
+          title: First Name
+          type: string
+        last_name:
+          title: Last Name
+          type: string
+        email:
+          title: Email
+          type: string
+        phone:
+          title: Phone
+          type: string
+        role:
+          title: Role
+          type: string
+        id:
+          title: Id
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+        vendor:
+          $ref: '#/components/schemas/ExtVendorOutAdmin'
+    EnumOutAdmin:
+      title: EnumOutAdmin
+      required:
+      - text_id
+      - internal_name
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        full_name:
+          title: Full Name
+          type: string
+        description:
+          title: Description
+          type: string
+        internal_name:
+          title: Internal Name
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    ExtS3ObjectOutAdmin:
+      title: ExtS3ObjectOutAdmin
+      required:
+      - aws_account_id
+      - bucket_name
+      - object_name
+      - region_name
+      - id
+      - is_active
+      - is_public
+      - created
+      - modified
+      type: object
+      properties:
+        aws_account_id:
+          title: Aws Account Id
+          type: integer
+        bucket_name:
+          title: Bucket Name
+          type: string
+        object_name:
+          title: Object Name
+          type: string
+        region_name:
+          title: Region Name
+          type: string
+        id:
+          title: Id
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        aws_account:
+          $ref: '#/components/schemas/EnumOutAdmin'
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    BucketGroupCreate:
+      title: BucketGroupCreate
+      required:
+      - text_id
+      - bucket_name
+      - path_format
+      - aggregation
+      - aws_account_id
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        bucket_name:
+          title: Bucket Name
+          type: string
+        path_format:
+          title: Path Format
+          type: string
+        path_description:
+          title: Path Description
+          type: string
+        aggregation:
+          title: Aggregation
+          type: string
+        start_year:
+          title: Start Year
+          type: integer
+        end_year:
+          title: End Year
+          type: integer
+        indexed:
+          title: Indexed
+          type: boolean
+        is_primary:
+          title: Is Primary
+          type: boolean
+        bucket_size_human:
+          title: Bucket Size Human
+          type: string
+        total_size_human:
+          title: Total Size Human
+          type: string
+        bucket_num_objects:
+          title: Bucket Num Objects
+          type: integer
+        bucket_num_objects_human:
+          title: Bucket Num Objects Human
+          type: string
+        creation_date:
+          title: Creation Date
+          type: string
+          format: date
+        supplementary_bucket_group:
+          title: Supplementary Bucket Group
+          type: array
+          items:
+            type: string
+        cloud_storage_id:
+          title: Cloud Storage Id
+          type: integer
+        status_id:
+          title: Status Id
+          type: integer
+        updates_id:
+          title: Updates Id
+          type: integer
+        sample_data_id:
+          title: Sample Data Id
+          type: integer
+        storage_type_id:
+          title: Storage Type Id
+          type: integer
+        aws_account_id:
+          title: Aws Account Id
+          type: integer
+        bucket_size_bytes:
+          title: Bucket Size Bytes
+          type: integer
+        total_size_bytes:
+          title: Total Size Bytes
+          type: integer
+        versioning:
+          title: Versioning
+          type: boolean
+        requester_pays:
+          title: Requester Pays
+          type: boolean
+        author_id:
+          title: Author Id
+          type: integer
+        maintainer_id:
+          title: Maintainer Id
+          type: integer
+        monitoring_id:
+          title: Monitoring Id
+          type: integer
+        version:
+          title: Version
+          type: string
+        prev_version_expiration_interval_days:
+          title: Prev Version Expiration Interval Days
+          type: integer
+        archive_transition_interval_days:
+          title: Archive Transition Interval Days
+          type: integer
+        bucket_qa_id:
+          title: Bucket Qa Id
+          type: integer
+        bucket_source_id:
+          title: Bucket Source Id
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
     BucketGroupOutAdmin:
       title: BucketGroupOutAdmin
       required:
@@ -490,274 +1331,6 @@ components:
           title: Modified
           type: string
           format: date-time
-    BucketGroupUpdate:
-      title: BucketGroupUpdate
-      type: object
-      properties:
-        text_id:
-          title: Text Id
-          type: string
-        bucket_name:
-          title: Bucket Name
-          type: string
-        path_format:
-          title: Path Format
-          type: string
-        path_description:
-          title: Path Description
-          type: string
-        aggregation:
-          title: Aggregation
-          type: string
-        start_year:
-          title: Start Year
-          type: integer
-        end_year:
-          title: End Year
-          type: integer
-        indexed:
-          title: Indexed
-          type: boolean
-        is_primary:
-          title: Is Primary
-          type: boolean
-        bucket_size_human:
-          title: Bucket Size Human
-          type: string
-        total_size_human:
-          title: Total Size Human
-          type: string
-        bucket_num_objects:
-          title: Bucket Num Objects
-          type: integer
-        bucket_num_objects_human:
-          title: Bucket Num Objects Human
-          type: string
-        creation_date:
-          title: Creation Date
-          type: string
-          format: date
-        supplementary_bucket_group:
-          title: Supplementary Bucket Group
-          type: array
-          items:
-            type: string
-        cloud_storage_id:
-          title: Cloud Storage Id
-          type: integer
-        status_id:
-          title: Status Id
-          type: integer
-        updates_id:
-          title: Updates Id
-          type: integer
-        sample_data_id:
-          title: Sample Data Id
-          type: integer
-        storage_type_id:
-          title: Storage Type Id
-          type: integer
-        aws_account_id:
-          title: Aws Account Id
-          type: integer
-        bucket_size_bytes:
-          title: Bucket Size Bytes
-          type: integer
-        total_size_bytes:
-          title: Total Size Bytes
-          type: integer
-        versioning:
-          title: Versioning
-          type: boolean
-        requester_pays:
-          title: Requester Pays
-          type: boolean
-        author_id:
-          title: Author Id
-          type: integer
-        maintainer_id:
-          title: Maintainer Id
-          type: integer
-        monitoring_id:
-          title: Monitoring Id
-          type: integer
-        version:
-          title: Version
-          type: string
-        prev_version_expiration_interval_days:
-          title: Prev Version Expiration Interval Days
-          type: integer
-        archive_transition_interval_days:
-          title: Archive Transition Interval Days
-          type: integer
-        bucket_qa_id:
-          title: Bucket Qa Id
-          type: integer
-        bucket_source_id:
-          title: Bucket Source Id
-          type: integer
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
-    EnumOutAdmin:
-      title: EnumOutAdmin
-      required:
-      - text_id
-      - internal_name
-      - is_active
-      - is_public
-      - id
-      - created
-      - modified
-      type: object
-      properties:
-        text_id:
-          title: Text Id
-          type: string
-        display_name:
-          title: Display Name
-          type: string
-        full_name:
-          title: Full Name
-          type: string
-        description:
-          title: Description
-          type: string
-        internal_name:
-          title: Internal Name
-          type: string
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
-        id:
-          title: Id
-          type: integer
-        created:
-          title: Created
-          type: string
-          format: date-time
-        modified:
-          title: Modified
-          type: string
-          format: date-time
-    ExtVendorOutAdmin:
-      title: ExtVendorOutAdmin
-      required:
-      - text_id
-      - full_name
-      - display_name
-      - internal_name
-      - is_active
-      - is_public
-      - id
-      - created
-      - modified
-      type: object
-      properties:
-        text_id:
-          title: Text Id
-          type: string
-        full_name:
-          title: Full Name
-          type: string
-        display_name:
-          title: Display Name
-          type: string
-        description:
-          title: Description
-          type: string
-        website:
-          title: Website
-          type: string
-        logo_url:
-          title: Logo Url
-          type: string
-        icon_url:
-          title: Icon Url
-          type: string
-        internal_name:
-          title: Internal Name
-          type: string
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
-        id:
-          title: Id
-          type: integer
-        created:
-          title: Created
-          type: string
-          format: date-time
-        modified:
-          title: Modified
-          type: string
-          format: date-time
-    ExtS3ObjectOutAdmin:
-      title: ExtS3ObjectOutAdmin
-      required:
-      - aws_account_id
-      - bucket_name
-      - object_name
-      - region_name
-      - id
-      - is_active
-      - is_public
-      - created
-      - modified
-      type: object
-      properties:
-        aws_account_id:
-          title: Aws Account Id
-          type: integer
-        bucket_name:
-          title: Bucket Name
-          type: string
-        object_name:
-          title: Object Name
-          type: string
-        region_name:
-          title: Region Name
-          type: string
-        id:
-          title: Id
-          type: integer
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
-        aws_account:
-          $ref: '#/components/schemas/EnumOutAdmin'
-        created:
-          title: Created
-          type: string
-          format: date-time
-        modified:
-          title: Modified
-          type: string
-          format: date-time
     BucketMonitoringOutAdmin:
       title: BucketMonitoringOutAdmin
       required:
@@ -797,103 +1370,27 @@ components:
           title: Modified
           type: string
           format: date-time
-    CSVColumnOutAdmin:
-      title: CSVColumnOutAdmin
+    ValidationError:
+      title: ValidationError
       required:
-      - cloud_storage_id
-      - ordering
-      - is_active
-      - is_public
-      - id
-      - created
-      - modified
+      - loc
+      - msg
+      - type
       type: object
       properties:
-        name:
-          title: Name
+        loc:
+          title: Location
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+        msg:
+          title: Message
           type: string
-        data_type:
-          title: Data Type
+        type:
+          title: Error Type
           type: string
-        description:
-          title: Description
-          type: string
-        cloud_storage_id:
-          title: Cloud Storage Id
-          type: integer
-        ordering:
-          title: Ordering
-          type: integer
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
-        id:
-          title: Id
-          type: integer
-        created:
-          title: Created
-          type: string
-          format: date-time
-        modified:
-          title: Modified
-          type: string
-          format: date-time
-    ExtPersonOutAdmin:
-      title: ExtPersonOutAdmin
-      required:
-      - first_name
-      - last_name
-      - email
-      - id
-      - is_active
-      - is_public
-      - created
-      - modified
-      type: object
-      properties:
-        first_name:
-          title: First Name
-          type: string
-        last_name:
-          title: Last Name
-          type: string
-        email:
-          title: Email
-          type: string
-        phone:
-          title: Phone
-          type: string
-        role:
-          title: Role
-          type: string
-        id:
-          title: Id
-          type: integer
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
-        created:
-          title: Created
-          type: string
-          format: date-time
-        modified:
-          title: Modified
-          type: string
-          format: date-time
-        vendor:
-          $ref: '#/components/schemas/ExtVendorOutAdmin'
     BucketUpdatesOutAdmin:
       title: BucketUpdatesOutAdmin
       required:
@@ -966,10 +1463,11 @@ components:
         bucket_group:
           title: Bucket Group
           type: integer
-    BucketSourceOutAdmin:
-      title: BucketSourceOutAdmin
+    CSVColumnOutAdmin:
+      title: CSVColumnOutAdmin
       required:
-      - author_id
+      - cloud_storage_id
+      - ordering
       - is_active
       - is_public
       - id
@@ -977,522 +1475,21 @@ components:
       - modified
       type: object
       properties:
-        account_name:
-          title: Account Name
+        name:
+          title: Name
           type: string
-        resource_arn:
-          title: Resource Arn
-          type: string
-        source_code_url:
-          title: Source Code Url
-          type: string
-        code_location:
-          title: Code Location
-          type: string
-        logs_location:
-          title: Logs Location
-          type: string
-        aws_resource_type_id:
-          title: Aws Resource Type Id
-          type: integer
-        author_id:
-          title: Author Id
-          type: integer
-        maintainer_id:
-          title: Maintainer Id
-          type: integer
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
-        id:
-          title: Id
-          type: integer
-        created:
-          title: Created
-          type: string
-          format: date-time
-        modified:
-          title: Modified
-          type: string
-          format: date-time
-    ValidationError:
-      title: ValidationError
-      required:
-      - loc
-      - msg
-      - type
-      type: object
-      properties:
-        loc:
-          title: Location
-          type: array
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-        msg:
-          title: Message
-          type: string
-        type:
-          title: Error Type
-          type: string
-    HTTPValidationError:
-      title: HTTPValidationError
-      type: object
-      properties:
-        detail:
-          title: Detail
-          type: array
-          items:
-            $ref: '#/components/schemas/ValidationError'
-    ExtBucketGroupOutAdmin:
-      title: ExtBucketGroupOutAdmin
-      required:
-      - text_id
-      - bucket_name
-      - path_format
-      - aggregation
-      - id
-      - aws_account
-      - is_active
-      - is_public
-      - created
-      - modified
-      type: object
-      properties:
-        text_id:
-          title: Text Id
-          type: string
-        bucket_name:
-          title: Bucket Name
-          type: string
-        path_format:
-          title: Path Format
-          type: string
-        path_description:
-          title: Path Description
-          type: string
-        aggregation:
-          title: Aggregation
-          type: string
-        start_year:
-          title: Start Year
-          type: integer
-        end_year:
-          title: End Year
-          type: integer
-        indexed:
-          title: Indexed
-          type: boolean
-        is_primary:
-          title: Is Primary
-          type: boolean
-        bucket_size_human:
-          title: Bucket Size Human
-          type: string
-        total_size_human:
-          title: Total Size Human
-          type: string
-        bucket_num_objects:
-          title: Bucket Num Objects
-          type: integer
-        bucket_num_objects_human:
-          title: Bucket Num Objects Human
-          type: string
-        creation_date:
-          title: Creation Date
-          type: string
-          format: date
-        supplementary_bucket_group:
-          title: Supplementary Bucket Group
-          type: array
-          items:
-            type: string
-        cloud_storage:
-          $ref: '#/components/schemas/CloudStorageOutAdmin'
-        status:
-          $ref: '#/components/schemas/EnumOutAdmin'
-        updates:
-          $ref: '#/components/schemas/BucketUpdatesOutAdmin'
-        sample_data:
-          $ref: '#/components/schemas/ExtSampleDataOutAdmin'
-        storage_type:
-          $ref: '#/components/schemas/EnumOutAdmin'
-        id:
-          title: Id
-          type: integer
-        aws_account:
-          $ref: '#/components/schemas/EnumOutAdmin'
-        bucket_size_bytes:
-          title: Bucket Size Bytes
-          type: integer
-        total_size_bytes:
-          title: Total Size Bytes
-          type: integer
-        versioning:
-          title: Versioning
-          type: boolean
-        requester_pays:
-          title: Requester Pays
-          type: boolean
-        author:
-          $ref: '#/components/schemas/ExtPersonOutAdmin'
-        maintainer:
-          $ref: '#/components/schemas/ExtPersonOutAdmin'
-        monitoring:
-          $ref: '#/components/schemas/BucketMonitoringOutAdmin'
-        version:
-          title: Version
-          type: string
-        prev_version_expiration_interval_days:
-          title: Prev Version Expiration Interval Days
-          type: integer
-        archive_transition_interval_days:
-          title: Archive Transition Interval Days
-          type: integer
-        bucket_qa:
-          $ref: '#/components/schemas/BucketQAOutAdmin'
-        bucket_source:
-          $ref: '#/components/schemas/BucketSourceOutAdmin'
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
-        created:
-          title: Created
-          type: string
-          format: date-time
-        modified:
-          title: Modified
-          type: string
-          format: date-time
-    BucketGroupOutPublic:
-      title: BucketGroupOutPublic
-      required:
-      - text_id
-      - bucket_name
-      - path_format
-      - aggregation
-      - id
-      type: object
-      properties:
-        text_id:
-          title: Text Id
-          type: string
-        bucket_name:
-          title: Bucket Name
-          type: string
-        path_format:
-          title: Path Format
-          type: string
-        path_description:
-          title: Path Description
-          type: string
-        aggregation:
-          title: Aggregation
-          type: string
-        start_year:
-          title: Start Year
-          type: integer
-        end_year:
-          title: End Year
-          type: integer
-        indexed:
-          title: Indexed
-          type: boolean
-        is_primary:
-          title: Is Primary
-          type: boolean
-        bucket_size_human:
-          title: Bucket Size Human
-          type: string
-        total_size_human:
-          title: Total Size Human
-          type: string
-        bucket_num_objects:
-          title: Bucket Num Objects
-          type: integer
-        bucket_num_objects_human:
-          title: Bucket Num Objects Human
-          type: string
-        creation_date:
-          title: Creation Date
-          type: string
-          format: date
-        supplementary_bucket_group:
-          title: Supplementary Bucket Group
-          type: array
-          items:
-            type: string
-        cloud_storage_id:
-          title: Cloud Storage Id
-          type: integer
-        status_id:
-          title: Status Id
-          type: integer
-        updates_id:
-          title: Updates Id
-          type: integer
-        sample_data_id:
-          title: Sample Data Id
-          type: integer
-        storage_type_id:
-          title: Storage Type Id
-          type: integer
-        id:
-          title: Id
-          type: integer
-    CloudStorageOutAdmin:
-      title: CloudStorageOutAdmin
-      required:
-      - text_id
-      - dataset_id
-      - is_active
-      - is_public
-      - id
-      - created
-      - modified
-      type: object
-      properties:
-        text_id:
-          title: Text Id
-          type: string
-        sample_data_url:
-          title: Sample Data Url
-          type: string
-        sample_file_description:
-          title: Sample File Description
-          type: string
-        sample_file_id:
-          title: Sample File Id
-          type: integer
-        dataset_id:
-          title: Dataset Id
-          type: integer
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
-        id:
-          title: Id
-          type: integer
-        csv_columns:
-          title: Csv Columns
-          type: array
-          items:
-            $ref: '#/components/schemas/CSVColumnOutAdmin'
-        bucket_groups:
-          title: Bucket Groups
-          type: array
-          items:
-            type: integer
-        sample_file:
-          $ref: '#/components/schemas/ExtS3ObjectOutAdmin'
-        created:
-          title: Created
-          type: string
-          format: date-time
-        modified:
-          title: Modified
-          type: string
-          format: date-time
-    BucketGroupCreate:
-      title: BucketGroupCreate
-      required:
-      - text_id
-      - bucket_name
-      - path_format
-      - aggregation
-      - aws_account_id
-      type: object
-      properties:
-        text_id:
-          title: Text Id
-          type: string
-        bucket_name:
-          title: Bucket Name
-          type: string
-        path_format:
-          title: Path Format
-          type: string
-        path_description:
-          title: Path Description
-          type: string
-        aggregation:
-          title: Aggregation
-          type: string
-        start_year:
-          title: Start Year
-          type: integer
-        end_year:
-          title: End Year
-          type: integer
-        indexed:
-          title: Indexed
-          type: boolean
-        is_primary:
-          title: Is Primary
-          type: boolean
-        bucket_size_human:
-          title: Bucket Size Human
-          type: string
-        total_size_human:
-          title: Total Size Human
-          type: string
-        bucket_num_objects:
-          title: Bucket Num Objects
-          type: integer
-        bucket_num_objects_human:
-          title: Bucket Num Objects Human
-          type: string
-        creation_date:
-          title: Creation Date
-          type: string
-          format: date
-        supplementary_bucket_group:
-          title: Supplementary Bucket Group
-          type: array
-          items:
-            type: string
-        cloud_storage_id:
-          title: Cloud Storage Id
-          type: integer
-        status_id:
-          title: Status Id
-          type: integer
-        updates_id:
-          title: Updates Id
-          type: integer
-        sample_data_id:
-          title: Sample Data Id
-          type: integer
-        storage_type_id:
-          title: Storage Type Id
-          type: integer
-        aws_account_id:
-          title: Aws Account Id
-          type: integer
-        bucket_size_bytes:
-          title: Bucket Size Bytes
-          type: integer
-        total_size_bytes:
-          title: Total Size Bytes
-          type: integer
-        versioning:
-          title: Versioning
-          type: boolean
-        requester_pays:
-          title: Requester Pays
-          type: boolean
-        author_id:
-          title: Author Id
-          type: integer
-        maintainer_id:
-          title: Maintainer Id
-          type: integer
-        monitoring_id:
-          title: Monitoring Id
-          type: integer
-        version:
-          title: Version
-          type: string
-        prev_version_expiration_interval_days:
-          title: Prev Version Expiration Interval Days
-          type: integer
-        archive_transition_interval_days:
-          title: Archive Transition Interval Days
-          type: integer
-        bucket_qa_id:
-          title: Bucket Qa Id
-          type: integer
-        bucket_source_id:
-          title: Bucket Source Id
-          type: integer
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
-    BucketQAOutAdmin:
-      title: BucketQAOutAdmin
-      required:
-      - is_active
-      - is_public
-      - id
-      - created
-      - modified
-      type: object
-      properties:
-        row_1:
-          title: Row 1
-          type: string
-        row_2:
-          title: Row 2
-          type: string
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
-        id:
-          title: Id
-          type: integer
-        created:
-          title: Created
-          type: string
-          format: date-time
-        modified:
-          title: Modified
-          type: string
-          format: date-time
-    ExtSampleDataOutAdmin:
-      title: ExtSampleDataOutAdmin
-      required:
-      - id
-      - is_active
-      - is_public
-      - created
-      - modified
-      type: object
-      properties:
-        bucket_name:
-          title: Bucket Name
-          type: string
-        display_name:
-          title: Display Name
+        data_type:
+          title: Data Type
           type: string
         description:
           title: Description
           type: string
-        id:
-          title: Id
+        cloud_storage_id:
+          title: Cloud Storage Id
           type: integer
-        aws_account:
-          $ref: '#/components/schemas/EnumOutAdmin'
+        ordering:
+          title: Ordering
+          type: integer
         is_active:
           title: Is Active
           type: boolean
@@ -1502,6 +1499,9 @@ components:
         notes:
           title: Notes
           type: string
+        id:
+          title: Id
+          type: integer
         created:
           title: Created
           type: string

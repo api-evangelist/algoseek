@@ -332,53 +332,6 @@ components:
           title: Modified
           type: string
           format: date-time
-    EnumOutAdmin:
-      title: EnumOutAdmin
-      required:
-      - text_id
-      - internal_name
-      - is_active
-      - is_public
-      - id
-      - created
-      - modified
-      type: object
-      properties:
-        text_id:
-          title: Text Id
-          type: string
-        display_name:
-          title: Display Name
-          type: string
-        full_name:
-          title: Full Name
-          type: string
-        description:
-          title: Description
-          type: string
-        internal_name:
-          title: Internal Name
-          type: string
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
-        id:
-          title: Id
-          type: integer
-        created:
-          title: Created
-          type: string
-          format: date-time
-        modified:
-          title: Modified
-          type: string
-          format: date-time
     DataGroupOutPublic:
       title: DataGroupOutPublic
       required:
@@ -434,70 +387,15 @@ components:
         id:
           title: Id
           type: integer
-    DataGroupCreate:
-      title: DataGroupCreate
-      required:
-      - text_id
-      - status_id
-      - region_id
-      - pricing_id
-      - internal_name
+    HTTPValidationError:
+      title: HTTPValidationError
       type: object
       properties:
-        text_id:
-          title: Text Id
-          type: string
-        display_name:
-          title: Display Name
-          type: string
-        full_name:
-          title: Full Name
-          type: string
-        description:
-          title: Description
-          type: string
-        universe_size:
-          title: Universe Size
-          type: integer
-        universe_description:
-          title: Universe Description
-          type: string
-        universe_components:
-          title: Universe Components
+        detail:
+          title: Detail
           type: array
           items:
-            type: string
-        symbols_per_component:
-          title: Symbols Per Component
-          type: array
-          items:
-            type: integer
-        tags:
-          title: Tags
-          type: array
-          items:
-            type: string
-        status_id:
-          title: Status Id
-          type: integer
-        region_id:
-          title: Region Id
-          type: integer
-        pricing_id:
-          title: Pricing Id
-          type: integer
-        internal_name:
-          title: Internal Name
-          type: string
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
+            $ref: '#/components/schemas/ValidationError'
     ExtDataGroupOutAdmin:
       title: ExtDataGroupOutAdmin
       required:
@@ -575,6 +473,132 @@ components:
           title: Modified
           type: string
           format: date-time
+    DataGroupUpdate:
+      title: DataGroupUpdate
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        full_name:
+          title: Full Name
+          type: string
+        description:
+          title: Description
+          type: string
+        universe_size:
+          title: Universe Size
+          type: integer
+        universe_description:
+          title: Universe Description
+          type: string
+        universe_components:
+          title: Universe Components
+          type: array
+          items:
+            type: string
+        symbols_per_component:
+          title: Symbols Per Component
+          type: array
+          items:
+            type: integer
+        tags:
+          title: Tags
+          type: array
+          items:
+            type: string
+        status_id:
+          title: Status Id
+          type: integer
+        region_id:
+          title: Region Id
+          type: integer
+        pricing_id:
+          title: Pricing Id
+          type: integer
+        internal_name:
+          title: Internal Name
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+    EnumOutAdmin:
+      title: EnumOutAdmin
+      required:
+      - text_id
+      - internal_name
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        full_name:
+          title: Full Name
+          type: string
+        description:
+          title: Description
+          type: string
+        internal_name:
+          title: Internal Name
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    ValidationError:
+      title: ValidationError
+      required:
+      - loc
+      - msg
+      - type
+      type: object
+      properties:
+        loc:
+          title: Location
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
     DataGroupPricingOutAdmin:
       title: DataGroupPricingOutAdmin
       required:
@@ -624,38 +648,14 @@ components:
           title: Modified
           type: string
           format: date-time
-    ValidationError:
-      title: ValidationError
+    DataGroupCreate:
+      title: DataGroupCreate
       required:
-      - loc
-      - msg
-      - type
-      type: object
-      properties:
-        loc:
-          title: Location
-          type: array
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-        msg:
-          title: Message
-          type: string
-        type:
-          title: Error Type
-          type: string
-    HTTPValidationError:
-      title: HTTPValidationError
-      type: object
-      properties:
-        detail:
-          title: Detail
-          type: array
-          items:
-            $ref: '#/components/schemas/ValidationError'
-    DataGroupUpdate:
-      title: DataGroupUpdate
+      - text_id
+      - status_id
+      - region_id
+      - pricing_id
+      - internal_name
       type: object
       properties:
         text_id:

@@ -169,43 +169,21 @@ paths:
       - HTTPBearer: []
 components:
   schemas:
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
     DatasetChangeCreate:
       title: DatasetChangeCreate
       required:
       - dataset_id
       - effective_date
       - description
-      type: object
-      properties:
-        dataset_id:
-          title: Dataset Id
-          type: integer
-        effective_date:
-          title: Effective Date
-          type: string
-          format: date
-        start_date:
-          title: Start Date
-          type: string
-          format: date
-        end_date:
-          title: End Date
-          type: string
-          format: date
-        description:
-          title: Description
-          type: string
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
-    DatasetChangeUpdate:
-      title: DatasetChangeUpdate
       type: object
       properties:
         dataset_id:
@@ -256,15 +234,37 @@ components:
         type:
           title: Error Type
           type: string
-    HTTPValidationError:
-      title: HTTPValidationError
+    DatasetChangeUpdate:
+      title: DatasetChangeUpdate
       type: object
       properties:
-        detail:
-          title: Detail
-          type: array
-          items:
-            $ref: '#/components/schemas/ValidationError'
+        dataset_id:
+          title: Dataset Id
+          type: integer
+        effective_date:
+          title: Effective Date
+          type: string
+          format: date
+        start_date:
+          title: Start Date
+          type: string
+          format: date
+        end_date:
+          title: End Date
+          type: string
+          format: date
+        description:
+          title: Description
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
     DatasetChangeOutAdmin:
       title: DatasetChangeOutAdmin
       required:

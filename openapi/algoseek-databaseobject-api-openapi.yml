@@ -310,83 +310,6 @@ paths:
       - HTTPBearer: []
 components:
   schemas:
-    EnumOutAdmin:
-      title: EnumOutAdmin
-      required:
-      - text_id
-      - internal_name
-      - is_active
-      - is_public
-      - id
-      - created
-      - modified
-      type: object
-      properties:
-        text_id:
-          title: Text Id
-          type: string
-        display_name:
-          title: Display Name
-          type: string
-        full_name:
-          title: Full Name
-          type: string
-        description:
-          title: Description
-          type: string
-        internal_name:
-          title: Internal Name
-          type: string
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
-        id:
-          title: Id
-          type: integer
-        created:
-          title: Created
-          type: string
-          format: date-time
-        modified:
-          title: Modified
-          type: string
-          format: date-time
-    ValidationError:
-      title: ValidationError
-      required:
-      - loc
-      - msg
-      - type
-      type: object
-      properties:
-        loc:
-          title: Location
-          type: array
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-        msg:
-          title: Message
-          type: string
-        type:
-          title: Error Type
-          type: string
-    HTTPValidationError:
-      title: HTTPValidationError
-      type: object
-      properties:
-        detail:
-          title: Detail
-          type: array
-          items:
-            $ref: '#/components/schemas/ValidationError'
     DatabaseObjectUpdate:
       title: DatabaseObjectUpdate
       type: object
@@ -452,6 +375,15 @@ components:
         notes:
           title: Notes
           type: string
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
     DatabaseObjectOutAdmin:
       title: DatabaseObjectOutAdmin
       required:
@@ -536,6 +468,125 @@ components:
           title: Modified
           type: string
           format: date-time
+    EnumOutAdmin:
+      title: EnumOutAdmin
+      required:
+      - text_id
+      - internal_name
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        full_name:
+          title: Full Name
+          type: string
+        description:
+          title: Description
+          type: string
+        internal_name:
+          title: Internal Name
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    DatabaseObjectOutPublic:
+      title: DatabaseObjectOutPublic
+      required:
+      - object_name
+      - db_object_type_id
+      - id
+      type: object
+      properties:
+        object_name:
+          title: Object Name
+          type: string
+        db_object_type_id:
+          title: Db Object Type Id
+          type: integer
+        status_id:
+          title: Status Id
+          type: integer
+        signature:
+          title: Signature
+          type: string
+        arguments:
+          title: Arguments
+          type: array
+          items:
+            type: string
+          default: []
+        arguments_types:
+          title: Arguments Types
+          type: array
+          items:
+            type: string
+          default: []
+        return_values:
+          title: Return Values
+          type: array
+          items:
+            type: string
+          default: []
+        return_value_types:
+          title: Return Value Types
+          type: array
+          items:
+            type: string
+          default: []
+        create_query:
+          title: Create Query
+          type: string
+        description:
+          title: Description
+          type: string
+        table_dependencies:
+          title: Table Dependencies
+          type: array
+          items:
+            type: integer
+        object_dependencies:
+          title: Object Dependencies
+          type: array
+          items:
+            type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
     DatabaseObjectCreate:
       title: DatabaseObjectCreate
       required:
@@ -659,78 +710,27 @@ components:
           title: Modified
           type: string
           format: date-time
-    DatabaseObjectOutPublic:
-      title: DatabaseObjectOutPublic
+    ValidationError:
+      title: ValidationError
       required:
-      - object_name
-      - db_object_type_id
-      - id
+      - loc
+      - msg
+      - type
       type: object
       properties:
-        object_name:
-          title: Object Name
+        loc:
+          title: Location
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+        msg:
+          title: Message
           type: string
-        db_object_type_id:
-          title: Db Object Type Id
-          type: integer
-        status_id:
-          title: Status Id
-          type: integer
-        signature:
-          title: Signature
+        type:
+          title: Error Type
           type: string
-        arguments:
-          title: Arguments
-          type: array
-          items:
-            type: string
-          default: []
-        arguments_types:
-          title: Arguments Types
-          type: array
-          items:
-            type: string
-          default: []
-        return_values:
-          title: Return Values
-          type: array
-          items:
-            type: string
-          default: []
-        return_value_types:
-          title: Return Value Types
-          type: array
-          items:
-            type: string
-          default: []
-        create_query:
-          title: Create Query
-          type: string
-        description:
-          title: Description
-          type: string
-        table_dependencies:
-          title: Table Dependencies
-          type: array
-          items:
-            type: integer
-        object_dependencies:
-          title: Object Dependencies
-          type: array
-          items:
-            type: integer
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
-        id:
-          title: Id
-          type: integer
   securitySchemes:
     HTTPBearer:
       type: http

@@ -211,10 +211,11 @@ paths:
       - HTTPBearer: []
 components:
   schemas:
-    DataGroupPricingUpdate:
-      title: DataGroupPricingUpdate
+    DataGroupPricingOutPublic:
+      title: DataGroupPricingOutPublic
       required:
       - name
+      - id
       type: object
       properties:
         name:
@@ -235,15 +236,18 @@ components:
         lease_upd_factor:
           title: Lease Upd Factor
           type: number
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
+        id:
+          title: Id
+          type: integer
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
     DataGroupPricingCreate:
       title: DataGroupPricingCreate
       required:
@@ -277,11 +281,10 @@ components:
         notes:
           title: Notes
           type: string
-    DataGroupPricingOutPublic:
-      title: DataGroupPricingOutPublic
+    DataGroupPricingUpdate:
+      title: DataGroupPricingUpdate
       required:
       - name
-      - id
       type: object
       properties:
         name:
@@ -302,9 +305,36 @@ components:
         lease_upd_factor:
           title: Lease Upd Factor
           type: number
-        id:
-          title: Id
-          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+    ValidationError:
+      title: ValidationError
+      required:
+      - loc
+      - msg
+      - type
+      type: object
+      properties:
+        loc:
+          title: Location
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
     DataGroupPricingOutAdmin:
       title: DataGroupPricingOutAdmin
       required:
@@ -354,36 +384,6 @@ components:
           title: Modified
           type: string
           format: date-time
-    ValidationError:
-      title: ValidationError
-      required:
-      - loc
-      - msg
-      - type
-      type: object
-      properties:
-        loc:
-          title: Location
-          type: array
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-        msg:
-          title: Message
-          type: string
-        type:
-          title: Error Type
-          type: string
-    HTTPValidationError:
-      title: HTTPValidationError
-      type: object
-      properties:
-        detail:
-          title: Detail
-          type: array
-          items:
-            $ref: '#/components/schemas/ValidationError'
   securitySchemes:
     HTTPBearer:
       type: http

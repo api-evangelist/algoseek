@@ -230,6 +230,121 @@ paths:
       - HTTPBearer: []
 components:
   schemas:
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
+    CSVColumnUpdate:
+      title: CSVColumnUpdate
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        data_type:
+          title: Data Type
+          type: string
+        description:
+          title: Description
+          type: string
+        cloud_storage_id:
+          title: Cloud Storage Id
+          type: integer
+        ordering:
+          title: Ordering
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+    CSVColumnOutPublic:
+      title: CSVColumnOutPublic
+      required:
+      - cloud_storage_id
+      - ordering
+      - id
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        data_type:
+          title: Data Type
+          type: string
+        description:
+          title: Description
+          type: string
+        cloud_storage_id:
+          title: Cloud Storage Id
+          type: integer
+        ordering:
+          title: Ordering
+          type: integer
+        id:
+          title: Id
+          type: integer
+    ValidationError:
+      title: ValidationError
+      required:
+      - loc
+      - msg
+      - type
+      type: object
+      properties:
+        loc:
+          title: Location
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
+    CSVColumnCreate:
+      title: CSVColumnCreate
+      required:
+      - cloud_storage_id
+      - ordering
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        data_type:
+          title: Data Type
+          type: string
+        description:
+          title: Description
+          type: string
+        cloud_storage_id:
+          title: Cloud Storage Id
+          type: integer
+        ordering:
+          title: Ordering
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
     CSVColumnOutAdmin:
       title: CSVColumnOutAdmin
       required:
@@ -277,121 +392,6 @@ components:
           title: Modified
           type: string
           format: date-time
-    CSVColumnOutPublic:
-      title: CSVColumnOutPublic
-      required:
-      - cloud_storage_id
-      - ordering
-      - id
-      type: object
-      properties:
-        name:
-          title: Name
-          type: string
-        data_type:
-          title: Data Type
-          type: string
-        description:
-          title: Description
-          type: string
-        cloud_storage_id:
-          title: Cloud Storage Id
-          type: integer
-        ordering:
-          title: Ordering
-          type: integer
-        id:
-          title: Id
-          type: integer
-    CSVColumnUpdate:
-      title: CSVColumnUpdate
-      type: object
-      properties:
-        name:
-          title: Name
-          type: string
-        data_type:
-          title: Data Type
-          type: string
-        description:
-          title: Description
-          type: string
-        cloud_storage_id:
-          title: Cloud Storage Id
-          type: integer
-        ordering:
-          title: Ordering
-          type: integer
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
-    CSVColumnCreate:
-      title: CSVColumnCreate
-      required:
-      - cloud_storage_id
-      - ordering
-      type: object
-      properties:
-        name:
-          title: Name
-          type: string
-        data_type:
-          title: Data Type
-          type: string
-        description:
-          title: Description
-          type: string
-        cloud_storage_id:
-          title: Cloud Storage Id
-          type: integer
-        ordering:
-          title: Ordering
-          type: integer
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
-    ValidationError:
-      title: ValidationError
-      required:
-      - loc
-      - msg
-      - type
-      type: object
-      properties:
-        loc:
-          title: Location
-          type: array
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-        msg:
-          title: Message
-          type: string
-        type:
-          title: Error Type
-          type: string
-    HTTPValidationError:
-      title: HTTPValidationError
-      type: object
-      properties:
-        detail:
-          title: Detail
-          type: array
-          items:
-            $ref: '#/components/schemas/ValidationError'
   securitySchemes:
     HTTPBearer:
       type: http

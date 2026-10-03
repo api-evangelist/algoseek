@@ -32,19 +32,20 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
-    AppsTokenQuery:
-      title: AppsTokenQuery
+    Token:
+      title: Token
       required:
-      - name
-      - secret
+      - token
+      - expiry_date
       type: object
       properties:
-        name:
-          title: Name
+        token:
+          title: Token
           type: string
-        secret:
-          title: Secret
+        expiry_date:
+          title: Expiry Date
           type: string
+          format: date-time
     ValidationError:
       title: ValidationError
       required:
@@ -75,20 +76,19 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ValidationError'
-    Token:
-      title: Token
+    AppsTokenQuery:
+      title: AppsTokenQuery
       required:
-      - token
-      - expiry_date
+      - name
+      - secret
       type: object
       properties:
-        token:
-          title: Token
+        name:
+          title: Name
           type: string
-        expiry_date:
-          title: Expiry Date
+        secret:
+          title: Secret
           type: string
-          format: date-time
   securitySchemes:
     HTTPBearer:
       type: http
