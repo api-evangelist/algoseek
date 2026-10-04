@@ -211,6 +211,76 @@ paths:
       - HTTPBearer: []
 components:
   schemas:
+    VendorOutPublic:
+      title: VendorOutPublic
+      required:
+      - text_id
+      - full_name
+      - display_name
+      - id
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        full_name:
+          title: Full Name
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        description:
+          title: Description
+          type: string
+        website:
+          title: Website
+          type: string
+        logo_url:
+          title: Logo Url
+          type: string
+        icon_url:
+          title: Icon Url
+          type: string
+        id:
+          title: Id
+          type: integer
+    VendorUpdate:
+      title: VendorUpdate
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        full_name:
+          title: Full Name
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        description:
+          title: Description
+          type: string
+        website:
+          title: Website
+          type: string
+        logo_url:
+          title: Logo Url
+          type: string
+        icon_url:
+          title: Icon Url
+          type: string
+        internal_name:
+          title: Internal Name
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
     PersonOutAdmin:
       title: PersonOutAdmin
       required:
@@ -263,6 +333,27 @@ components:
           title: Modified
           type: string
           format: date-time
+    ValidationError:
+      title: ValidationError
+      required:
+      - loc
+      - msg
+      - type
+      type: object
+      properties:
+        loc:
+          title: Location
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
     HTTPValidationError:
       title: HTTPValidationError
       type: object
@@ -272,6 +363,48 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ValidationError'
+    VendorCreate:
+      title: VendorCreate
+      required:
+      - text_id
+      - full_name
+      - display_name
+      - internal_name
+      type: object
+      properties:
+        text_id:
+          title: Text Id
+          type: string
+        full_name:
+          title: Full Name
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        description:
+          title: Description
+          type: string
+        website:
+          title: Website
+          type: string
+        logo_url:
+          title: Logo Url
+          type: string
+        icon_url:
+          title: Icon Url
+          type: string
+        internal_name:
+          title: Internal Name
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
     VendorOutAdmin:
       title: VendorOutAdmin
       required:
@@ -335,139 +468,6 @@ components:
           title: Modified
           type: string
           format: date-time
-    VendorOutPublic:
-      title: VendorOutPublic
-      required:
-      - text_id
-      - full_name
-      - display_name
-      - id
-      type: object
-      properties:
-        text_id:
-          title: Text Id
-          type: string
-        full_name:
-          title: Full Name
-          type: string
-        display_name:
-          title: Display Name
-          type: string
-        description:
-          title: Description
-          type: string
-        website:
-          title: Website
-          type: string
-        logo_url:
-          title: Logo Url
-          type: string
-        icon_url:
-          title: Icon Url
-          type: string
-        id:
-          title: Id
-          type: integer
-    VendorCreate:
-      title: VendorCreate
-      required:
-      - text_id
-      - full_name
-      - display_name
-      - internal_name
-      type: object
-      properties:
-        text_id:
-          title: Text Id
-          type: string
-        full_name:
-          title: Full Name
-          type: string
-        display_name:
-          title: Display Name
-          type: string
-        description:
-          title: Description
-          type: string
-        website:
-          title: Website
-          type: string
-        logo_url:
-          title: Logo Url
-          type: string
-        icon_url:
-          title: Icon Url
-          type: string
-        internal_name:
-          title: Internal Name
-          type: string
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
-    VendorUpdate:
-      title: VendorUpdate
-      type: object
-      properties:
-        text_id:
-          title: Text Id
-          type: string
-        full_name:
-          title: Full Name
-          type: string
-        display_name:
-          title: Display Name
-          type: string
-        description:
-          title: Description
-          type: string
-        website:
-          title: Website
-          type: string
-        logo_url:
-          title: Logo Url
-          type: string
-        icon_url:
-          title: Icon Url
-          type: string
-        internal_name:
-          title: Internal Name
-          type: string
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
-    ValidationError:
-      title: ValidationError
-      required:
-      - loc
-      - msg
-      - type
-      type: object
-      properties:
-        loc:
-          title: Location
-          type: array
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-        msg:
-          title: Message
-          type: string
-        type:
-          title: Error Type
-          type: string
   securitySchemes:
     HTTPBearer:
       type: http

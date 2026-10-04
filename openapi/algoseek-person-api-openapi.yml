@@ -233,6 +233,205 @@ paths:
       - HTTPBearer: []
 components:
   schemas:
+    ExtPersonOutAdmin:
+      title: ExtPersonOutAdmin
+      required:
+      - first_name
+      - last_name
+      - email
+      - id
+      - is_active
+      - is_public
+      - created
+      - modified
+      type: object
+      properties:
+        first_name:
+          title: First Name
+          type: string
+        last_name:
+          title: Last Name
+          type: string
+        email:
+          title: Email
+          type: string
+        phone:
+          title: Phone
+          type: string
+        role:
+          title: Role
+          type: string
+        id:
+          title: Id
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+        vendor:
+          $ref: '#/components/schemas/ExtVendorOutAdmin'
+    PersonUpdate:
+      title: PersonUpdate
+      type: object
+      properties:
+        first_name:
+          title: First Name
+          type: string
+        last_name:
+          title: Last Name
+          type: string
+        email:
+          title: Email
+          type: string
+        phone:
+          title: Phone
+          type: string
+        role:
+          title: Role
+          type: string
+        vendor_id:
+          title: Vendor Id
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+    PersonCreate:
+      title: PersonCreate
+      required:
+      - first_name
+      - last_name
+      - email
+      - vendor_id
+      type: object
+      properties:
+        first_name:
+          title: First Name
+          type: string
+        last_name:
+          title: Last Name
+          type: string
+        email:
+          title: Email
+          type: string
+        phone:
+          title: Phone
+          type: string
+        role:
+          title: Role
+          type: string
+        vendor_id:
+          title: Vendor Id
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+    PersonOutAdmin:
+      title: PersonOutAdmin
+      required:
+      - first_name
+      - last_name
+      - email
+      - vendor_id
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        first_name:
+          title: First Name
+          type: string
+        last_name:
+          title: Last Name
+          type: string
+        email:
+          title: Email
+          type: string
+        phone:
+          title: Phone
+          type: string
+        role:
+          title: Role
+          type: string
+        vendor_id:
+          title: Vendor Id
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    ValidationError:
+      title: ValidationError
+      required:
+      - loc
+      - msg
+      - type
+      type: object
+      properties:
+        loc:
+          title: Location
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
     ExtVendorOutAdmin:
       title: ExtVendorOutAdmin
       required:
@@ -291,205 +490,6 @@ components:
           title: Modified
           type: string
           format: date-time
-    HTTPValidationError:
-      title: HTTPValidationError
-      type: object
-      properties:
-        detail:
-          title: Detail
-          type: array
-          items:
-            $ref: '#/components/schemas/ValidationError'
-    PersonOutAdmin:
-      title: PersonOutAdmin
-      required:
-      - first_name
-      - last_name
-      - email
-      - vendor_id
-      - is_active
-      - is_public
-      - id
-      - created
-      - modified
-      type: object
-      properties:
-        first_name:
-          title: First Name
-          type: string
-        last_name:
-          title: Last Name
-          type: string
-        email:
-          title: Email
-          type: string
-        phone:
-          title: Phone
-          type: string
-        role:
-          title: Role
-          type: string
-        vendor_id:
-          title: Vendor Id
-          type: integer
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
-        id:
-          title: Id
-          type: integer
-        created:
-          title: Created
-          type: string
-          format: date-time
-        modified:
-          title: Modified
-          type: string
-          format: date-time
-    PersonUpdate:
-      title: PersonUpdate
-      type: object
-      properties:
-        first_name:
-          title: First Name
-          type: string
-        last_name:
-          title: Last Name
-          type: string
-        email:
-          title: Email
-          type: string
-        phone:
-          title: Phone
-          type: string
-        role:
-          title: Role
-          type: string
-        vendor_id:
-          title: Vendor Id
-          type: integer
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
-    ExtPersonOutAdmin:
-      title: ExtPersonOutAdmin
-      required:
-      - first_name
-      - last_name
-      - email
-      - id
-      - is_active
-      - is_public
-      - created
-      - modified
-      type: object
-      properties:
-        first_name:
-          title: First Name
-          type: string
-        last_name:
-          title: Last Name
-          type: string
-        email:
-          title: Email
-          type: string
-        phone:
-          title: Phone
-          type: string
-        role:
-          title: Role
-          type: string
-        id:
-          title: Id
-          type: integer
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
-        created:
-          title: Created
-          type: string
-          format: date-time
-        modified:
-          title: Modified
-          type: string
-          format: date-time
-        vendor:
-          $ref: '#/components/schemas/ExtVendorOutAdmin'
-    PersonCreate:
-      title: PersonCreate
-      required:
-      - first_name
-      - last_name
-      - email
-      - vendor_id
-      type: object
-      properties:
-        first_name:
-          title: First Name
-          type: string
-        last_name:
-          title: Last Name
-          type: string
-        email:
-          title: Email
-          type: string
-        phone:
-          title: Phone
-          type: string
-        role:
-          title: Role
-          type: string
-        vendor_id:
-          title: Vendor Id
-          type: integer
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
-    ValidationError:
-      title: ValidationError
-      required:
-      - loc
-      - msg
-      - type
-      type: object
-      properties:
-        loc:
-          title: Location
-          type: array
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-        msg:
-          title: Message
-          type: string
-        type:
-          title: Error Type
-          type: string
   securitySchemes:
     HTTPBearer:
       type: http

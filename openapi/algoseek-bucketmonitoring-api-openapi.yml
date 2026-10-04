@@ -163,59 +163,6 @@ paths:
       - HTTPBearer: []
 components:
   schemas:
-    HTTPValidationError:
-      title: HTTPValidationError
-      type: object
-      properties:
-        detail:
-          title: Detail
-          type: array
-          items:
-            $ref: '#/components/schemas/ValidationError'
-    BucketMonitoringCreate:
-      title: BucketMonitoringCreate
-      type: object
-      properties:
-        delay_alert_minutes:
-          title: Delay Alert Minutes
-          type: integer
-        timeout_minutes:
-          title: Timeout Minutes
-          type: integer
-        check_period_minutes:
-          title: Check Period Minutes
-          type: integer
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
-    BucketMonitoringUpdate:
-      title: BucketMonitoringUpdate
-      type: object
-      properties:
-        delay_alert_minutes:
-          title: Delay Alert Minutes
-          type: integer
-        timeout_minutes:
-          title: Timeout Minutes
-          type: integer
-        check_period_minutes:
-          title: Check Period Minutes
-          type: integer
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
     BucketMonitoringOutAdmin:
       title: BucketMonitoringOutAdmin
       required:
@@ -255,6 +202,28 @@ components:
           title: Modified
           type: string
           format: date-time
+    BucketMonitoringCreate:
+      title: BucketMonitoringCreate
+      type: object
+      properties:
+        delay_alert_minutes:
+          title: Delay Alert Minutes
+          type: integer
+        timeout_minutes:
+          title: Timeout Minutes
+          type: integer
+        check_period_minutes:
+          title: Check Period Minutes
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
     ValidationError:
       title: ValidationError
       required:
@@ -275,6 +244,37 @@ components:
           type: string
         type:
           title: Error Type
+          type: string
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
+    BucketMonitoringUpdate:
+      title: BucketMonitoringUpdate
+      type: object
+      properties:
+        delay_alert_minutes:
+          title: Delay Alert Minutes
+          type: integer
+        timeout_minutes:
+          title: Timeout Minutes
+          type: integer
+        check_period_minutes:
+          title: Check Period Minutes
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
           type: string
   securitySchemes:
     HTTPBearer:

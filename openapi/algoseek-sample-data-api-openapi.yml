@@ -246,6 +246,96 @@ paths:
       - HTTPBearer: []
 components:
   schemas:
+    SampleDataOutPublic:
+      title: SampleDataOutPublic
+      required:
+      - id
+      type: object
+      properties:
+        bucket_name:
+          title: Bucket Name
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        description:
+          title: Description
+          type: string
+        id:
+          title: Id
+          type: integer
+    SampleDataOutAdmin:
+      title: SampleDataOutAdmin
+      required:
+      - is_active
+      - is_public
+      - id
+      - created
+      - modified
+      type: object
+      properties:
+        bucket_name:
+          title: Bucket Name
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        description:
+          title: Description
+          type: string
+        aws_account_id:
+          title: Aws Account Id
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+        id:
+          title: Id
+          type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    ValidationError:
+      title: ValidationError
+      required:
+      - loc
+      - msg
+      - type
+      type: object
+      properties:
+        loc:
+          title: Location
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
     ExtSampleDataOutAdmin:
       title: ExtSampleDataOutAdmin
       required:
@@ -287,15 +377,31 @@ components:
           title: Modified
           type: string
           format: date-time
-    HTTPValidationError:
-      title: HTTPValidationError
+    SampleDataUpdate:
+      title: SampleDataUpdate
       type: object
       properties:
-        detail:
-          title: Detail
-          type: array
-          items:
-            $ref: '#/components/schemas/ValidationError'
+        bucket_name:
+          title: Bucket Name
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        description:
+          title: Description
+          type: string
+        aws_account_id:
+          title: Aws Account Id
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
     SampleDataCreate:
       title: SampleDataCreate
       type: object
@@ -368,112 +474,6 @@ components:
           title: Modified
           type: string
           format: date-time
-    SampleDataOutPublic:
-      title: SampleDataOutPublic
-      required:
-      - id
-      type: object
-      properties:
-        bucket_name:
-          title: Bucket Name
-          type: string
-        display_name:
-          title: Display Name
-          type: string
-        description:
-          title: Description
-          type: string
-        id:
-          title: Id
-          type: integer
-    SampleDataOutAdmin:
-      title: SampleDataOutAdmin
-      required:
-      - is_active
-      - is_public
-      - id
-      - created
-      - modified
-      type: object
-      properties:
-        bucket_name:
-          title: Bucket Name
-          type: string
-        display_name:
-          title: Display Name
-          type: string
-        description:
-          title: Description
-          type: string
-        aws_account_id:
-          title: Aws Account Id
-          type: integer
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
-        id:
-          title: Id
-          type: integer
-        created:
-          title: Created
-          type: string
-          format: date-time
-        modified:
-          title: Modified
-          type: string
-          format: date-time
-    SampleDataUpdate:
-      title: SampleDataUpdate
-      type: object
-      properties:
-        bucket_name:
-          title: Bucket Name
-          type: string
-        display_name:
-          title: Display Name
-          type: string
-        description:
-          title: Description
-          type: string
-        aws_account_id:
-          title: Aws Account Id
-          type: integer
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
-    ValidationError:
-      title: ValidationError
-      required:
-      - loc
-      - msg
-      - type
-      type: object
-      properties:
-        loc:
-          title: Location
-          type: array
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-        msg:
-          title: Message
-          type: string
-        type:
-          title: Error Type
-          type: string
   securitySchemes:
     HTTPBearer:
       type: http

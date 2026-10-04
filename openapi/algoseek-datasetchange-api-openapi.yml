@@ -169,21 +169,8 @@ paths:
       - HTTPBearer: []
 components:
   schemas:
-    HTTPValidationError:
-      title: HTTPValidationError
-      type: object
-      properties:
-        detail:
-          title: Detail
-          type: array
-          items:
-            $ref: '#/components/schemas/ValidationError'
-    DatasetChangeCreate:
-      title: DatasetChangeCreate
-      required:
-      - dataset_id
-      - effective_date
-      - description
+    DatasetChangeUpdate:
+      title: DatasetChangeUpdate
       type: object
       properties:
         dataset_id:
@@ -234,8 +221,12 @@ components:
         type:
           title: Error Type
           type: string
-    DatasetChangeUpdate:
-      title: DatasetChangeUpdate
+    DatasetChangeCreate:
+      title: DatasetChangeCreate
+      required:
+      - dataset_id
+      - effective_date
+      - description
       type: object
       properties:
         dataset_id:
@@ -316,6 +307,15 @@ components:
           title: Modified
           type: string
           format: date-time
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
   securitySchemes:
     HTTPBearer:
       type: http
