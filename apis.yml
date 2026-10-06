@@ -54,7 +54,7 @@ tags_raw:
 - Real-Time
 - Trading
 created: '2026-07-21'
-modified: '2026-07-22'
+modified: '2026-10-06'
 specificationVersion: '0.23'
 apis:
 - aid: algoseek:algoseek-ardadb-query-service
@@ -540,6 +540,10 @@ apis:
   - type: Documentation
     url: https://metadata-services.algoseek.com/docs
 common:
+- url: https://algoseek.com/blog/
+  type: Blog
+- url: https://algoseek.com/feed/
+  type: BlogRSS
 - type: Overlay
   url: overlays/algoseek-cloudstorage-api-overlay.yaml
 - type: Overlay
