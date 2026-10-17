@@ -246,24 +246,6 @@ paths:
       - HTTPBearer: []
 components:
   schemas:
-    SampleDataOutPublic:
-      title: SampleDataOutPublic
-      required:
-      - id
-      type: object
-      properties:
-        bucket_name:
-          title: Bucket Name
-          type: string
-        display_name:
-          title: Display Name
-          type: string
-        description:
-          title: Description
-          type: string
-        id:
-          title: Id
-          type: integer
     SampleDataOutAdmin:
       title: SampleDataOutAdmin
       required:
@@ -306,36 +288,6 @@ components:
           title: Modified
           type: string
           format: date-time
-    ValidationError:
-      title: ValidationError
-      required:
-      - loc
-      - msg
-      - type
-      type: object
-      properties:
-        loc:
-          title: Location
-          type: array
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-        msg:
-          title: Message
-          type: string
-        type:
-          title: Error Type
-          type: string
-    HTTPValidationError:
-      title: HTTPValidationError
-      type: object
-      properties:
-        detail:
-          title: Detail
-          type: array
-          items:
-            $ref: '#/components/schemas/ValidationError'
     ExtSampleDataOutAdmin:
       title: ExtSampleDataOutAdmin
       required:
@@ -377,6 +329,27 @@ components:
           title: Modified
           type: string
           format: date-time
+    ValidationError:
+      title: ValidationError
+      required:
+      - loc
+      - msg
+      - type
+      type: object
+      properties:
+        loc:
+          title: Location
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
     SampleDataUpdate:
       title: SampleDataUpdate
       type: object
@@ -402,6 +375,33 @@ components:
         notes:
           title: Notes
           type: string
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
+    SampleDataOutPublic:
+      title: SampleDataOutPublic
+      required:
+      - id
+      type: object
+      properties:
+        bucket_name:
+          title: Bucket Name
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+        description:
+          title: Description
+          type: string
+        id:
+          title: Id
+          type: integer
     SampleDataCreate:
       title: SampleDataCreate
       type: object

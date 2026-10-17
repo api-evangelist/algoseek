@@ -192,62 +192,8 @@ paths:
       - HTTPBearer: []
 components:
   schemas:
-    PersonOutAdmin:
-      title: PersonOutAdmin
-      required:
-      - first_name
-      - last_name
-      - email
-      - vendor_id
-      - is_active
-      - is_public
-      - id
-      - created
-      - modified
-      type: object
-      properties:
-        first_name:
-          title: First Name
-          type: string
-        last_name:
-          title: Last Name
-          type: string
-        email:
-          title: Email
-          type: string
-        phone:
-          title: Phone
-          type: string
-        role:
-          title: Role
-          type: string
-        vendor_id:
-          title: Vendor Id
-          type: integer
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
-        id:
-          title: Id
-          type: integer
-        created:
-          title: Created
-          type: string
-          format: date-time
-        modified:
-          title: Modified
-          type: string
-          format: date-time
-    BucketSourceCreate:
-      title: BucketSourceCreate
-      required:
-      - author_id
+    BucketSourceUpdate:
+      title: BucketSourceUpdate
       type: object
       properties:
         account_name:
@@ -304,87 +250,33 @@ components:
         type:
           title: Error Type
           type: string
-    BucketSourceUpdate:
-      title: BucketSourceUpdate
-      type: object
-      properties:
-        account_name:
-          title: Account Name
-          type: string
-        resource_arn:
-          title: Resource Arn
-          type: string
-        source_code_url:
-          title: Source Code Url
-          type: string
-        code_location:
-          title: Code Location
-          type: string
-        logs_location:
-          title: Logs Location
-          type: string
-        aws_resource_type_id:
-          title: Aws Resource Type Id
-          type: integer
-        author_id:
-          title: Author Id
-          type: integer
-        maintainer_id:
-          title: Maintainer Id
-          type: integer
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
-        notes:
-          title: Notes
-          type: string
-    HTTPValidationError:
-      title: HTTPValidationError
-      type: object
-      properties:
-        detail:
-          title: Detail
-          type: array
-          items:
-            $ref: '#/components/schemas/ValidationError'
-    ExtBucketSourceOutAdmin:
-      title: ExtBucketSourceOutAdmin
+    EnumOutAdmin:
+      title: EnumOutAdmin
       required:
-      - author_id
-      - id
+      - text_id
+      - internal_name
       - is_active
       - is_public
+      - id
       - created
       - modified
       type: object
       properties:
-        account_name:
-          title: Account Name
+        text_id:
+          title: Text Id
           type: string
-        resource_arn:
-          title: Resource Arn
+        display_name:
+          title: Display Name
           type: string
-        source_code_url:
-          title: Source Code Url
+        full_name:
+          title: Full Name
           type: string
-        code_location:
-          title: Code Location
+        description:
+          title: Description
           type: string
-        logs_location:
-          title: Logs Location
+        internal_name:
+          title: Internal Name
           type: string
-        aws_resource_type:
-          $ref: '#/components/schemas/EnumOutAdmin'
-        author_id:
-          $ref: '#/components/schemas/PersonOutAdmin'
-        maintainer_id:
-          $ref: '#/components/schemas/PersonOutAdmin'
-        id:
-          title: Id
-          type: integer
         is_active:
           title: Is Active
           type: boolean
@@ -394,6 +286,9 @@ components:
         notes:
           title: Notes
           type: string
+        id:
+          title: Id
+          type: integer
         created:
           title: Created
           type: string
@@ -457,11 +352,61 @@ components:
           title: Modified
           type: string
           format: date-time
-    EnumOutAdmin:
-      title: EnumOutAdmin
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
+    BucketSourceCreate:
+      title: BucketSourceCreate
       required:
-      - text_id
-      - internal_name
+      - author_id
+      type: object
+      properties:
+        account_name:
+          title: Account Name
+          type: string
+        resource_arn:
+          title: Resource Arn
+          type: string
+        source_code_url:
+          title: Source Code Url
+          type: string
+        code_location:
+          title: Code Location
+          type: string
+        logs_location:
+          title: Logs Location
+          type: string
+        aws_resource_type_id:
+          title: Aws Resource Type Id
+          type: integer
+        author_id:
+          title: Author Id
+          type: integer
+        maintainer_id:
+          title: Maintainer Id
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
+    PersonOutAdmin:
+      title: PersonOutAdmin
+      required:
+      - first_name
+      - last_name
+      - email
+      - vendor_id
       - is_active
       - is_public
       - id
@@ -469,21 +414,24 @@ components:
       - modified
       type: object
       properties:
-        text_id:
-          title: Text Id
+        first_name:
+          title: First Name
           type: string
-        display_name:
-          title: Display Name
+        last_name:
+          title: Last Name
           type: string
-        full_name:
-          title: Full Name
+        email:
+          title: Email
           type: string
-        description:
-          title: Description
+        phone:
+          title: Phone
           type: string
-        internal_name:
-          title: Internal Name
+        role:
+          title: Role
           type: string
+        vendor_id:
+          title: Vendor Id
+          type: integer
         is_active:
           title: Is Active
           type: boolean
@@ -496,6 +444,58 @@ components:
         id:
           title: Id
           type: integer
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+    ExtBucketSourceOutAdmin:
+      title: ExtBucketSourceOutAdmin
+      required:
+      - author_id
+      - id
+      - is_active
+      - is_public
+      - created
+      - modified
+      type: object
+      properties:
+        account_name:
+          title: Account Name
+          type: string
+        resource_arn:
+          title: Resource Arn
+          type: string
+        source_code_url:
+          title: Source Code Url
+          type: string
+        code_location:
+          title: Code Location
+          type: string
+        logs_location:
+          title: Logs Location
+          type: string
+        aws_resource_type:
+          $ref: '#/components/schemas/EnumOutAdmin'
+        author_id:
+          $ref: '#/components/schemas/PersonOutAdmin'
+        maintainer_id:
+          $ref: '#/components/schemas/PersonOutAdmin'
+        id:
+          title: Id
+          type: integer
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
         created:
           title: Created
           type: string

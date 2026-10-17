@@ -211,8 +211,38 @@ paths:
       - HTTPBearer: []
 components:
   schemas:
-    DataGroupPricingUpdate:
-      title: DataGroupPricingUpdate
+    ValidationError:
+      title: ValidationError
+      required:
+      - loc
+      - msg
+      - type
+      type: object
+      properties:
+        loc:
+          title: Location
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
+    DataGroupPricingCreate:
+      title: DataGroupPricingCreate
       required:
       - name
       type: object
@@ -272,36 +302,6 @@ components:
         id:
           title: Id
           type: integer
-    ValidationError:
-      title: ValidationError
-      required:
-      - loc
-      - msg
-      - type
-      type: object
-      properties:
-        loc:
-          title: Location
-          type: array
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-        msg:
-          title: Message
-          type: string
-        type:
-          title: Error Type
-          type: string
-    HTTPValidationError:
-      title: HTTPValidationError
-      type: object
-      properties:
-        detail:
-          title: Detail
-          type: array
-          items:
-            $ref: '#/components/schemas/ValidationError'
     DataGroupPricingOutAdmin:
       title: DataGroupPricingOutAdmin
       required:
@@ -351,8 +351,8 @@ components:
           title: Modified
           type: string
           format: date-time
-    DataGroupPricingCreate:
-      title: DataGroupPricingCreate
+    DataGroupPricingUpdate:
+      title: DataGroupPricingUpdate
       required:
       - name
       type: object

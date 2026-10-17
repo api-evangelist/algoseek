@@ -168,15 +168,32 @@ paths:
       - HTTPBearer: []
 components:
   schemas:
-    AccessRole:
-      title: AccessRole
-      enum:
-      - 1
-      - 2
-      - 3
-      - 4
-      - 5
-      description: An enumeration.
+    IdentityCreate:
+      title: IdentityCreate
+      required:
+      - name
+      - access_role
+      - password
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        access_role:
+          title: Access Role
+          type: string
+        password:
+          title: Password
+          type: string
+        is_active:
+          title: Is Active
+          type: boolean
+        is_public:
+          title: Is Public
+          type: boolean
+        notes:
+          title: Notes
+          type: string
     IdentityUpdate:
       title: IdentityUpdate
       type: object
@@ -229,6 +246,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ValidationError'
+    AccessRole:
+      title: AccessRole
+      enum:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      description: An enumeration.
     IdentityOutAdmin:
       title: IdentityOutAdmin
       required:
@@ -264,32 +290,6 @@ components:
           title: Modified
           type: string
           format: date-time
-        notes:
-          title: Notes
-          type: string
-    IdentityCreate:
-      title: IdentityCreate
-      required:
-      - name
-      - access_role
-      - password
-      type: object
-      properties:
-        name:
-          title: Name
-          type: string
-        access_role:
-          title: Access Role
-          type: string
-        password:
-          title: Password
-          type: string
-        is_active:
-          title: Is Active
-          type: boolean
-        is_public:
-          title: Is Public
-          type: boolean
         notes:
           title: Notes
           type: string
