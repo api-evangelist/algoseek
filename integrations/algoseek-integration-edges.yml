@@ -29,16 +29,49 @@ edges:
     detected: '2026-10-18'
   detected_by: sweep-official-sdks.py
   first_seen: '2026-10-18'
+- partner_name: AWS Data Exchange
+  partner: amazon-data-exchange
+  partner_match: aggregator
+  type: marketplace
+  marketplace: amazon-data-exchange-marketplace
+  channel: distribution
+  relationship: distribution-channel
+  direction: third-party
+  evidence: https://aws.amazon.com/marketplace/seller-profile?id=4c1271ed-ae75-4ffd-9ddb-dd5ab02445e7
+  category: data product listing
+  contract_reference:
+    register: AWS Data Exchange (AWS Marketplace discovery search, FULFILLMENT_OPTION_TYPE=DATA_EXCHANGE + seller-profile
+      sellerWebsiteUrl)
+    spec_file: null
+    role: data-marketplace-seller
+    registered_name: algoseek
+    matched_domain: algoseek.com
+    matched_by: domain
+    listings: 29
+    sample_listings:
+    - US Equity Basic Adjustment Factors | 2020 Month (CSV) Free
+    - US Equity Cumulative Adjustment Factors | 2020 Month (CSV) Free
+    - US Equity Detailed Adjustment Factors | 2020 Month (CSV) Free
+    - US Equity Intraday Data | 2020 FAANG Free Sample
+    - US Equity Options Trade Only Minute Bar | 2020 Month (CSV) Free
+    signal_note: 'participation: the provider lists data products on this marketplace; counts are context'
+    detected_by: sweep-data-marketplaces.py
+    detected: '2026-10-20'
+  detected_by: sweep-data-marketplaces.py
+  detected: '2026-10-20'
+  publisher_verified:
+  - Deployed on AWS
+  - Standard Data Agreement
 generated: '2026-10-18'
 method: searched
 source:
-- https://api.nuget.org/v3
-- https://crates.io/api/v1
-- https://proxy.golang.org
-- https://pypi.org/pypi
 - https://registry.npmjs.org
-- https://repo1.maven.org/maven2
+- https://pypi.org/pypi
 - https://rubygems.org/api/v1
+- https://crates.io/api/v1
+- https://repo1.maven.org/maven2
+- https://api.nuget.org/v3
+- https://proxy.golang.org
 checked:
 - https://api.nuget.org/v3
 - https://crates.io/api/v1
@@ -47,3 +80,4 @@ checked:
 - https://registry.npmjs.org
 - https://repo1.maven.org/maven2
 - https://rubygems.org/api/v1
+- https://aws.amazon.com/marketplace/search/results?FULFILLMENT_OPTION_TYPE=DATA_EXCHANGE
