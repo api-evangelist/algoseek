@@ -5,7 +5,7 @@
       "source": "https://algoseek.com/blog/",
       "feed_url": "https://algoseek.com/blog/feed/",
       "title": "",
-      "saved": 10,
+      "saved": 0,
       "method": "discovered"
     },
     {
@@ -23,6 +23,13 @@
       "method": "feed"
     },
     {
+      "source": "https://algoseek.com/blog/feed/",
+      "feed_url": "https://algoseek.com/blog/feed/",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
       "source": "https://www.linkedin.com/company/algoseek",
       "feed_url": "https://www.linkedin.com/company/algoseek",
       "title": "",
@@ -30,6 +37,6 @@
       "method": "none"
     }
   ],
-  "post_count": 10,
-  "fetched": "2026-10-10T13:15:00Z"
+  "post_count": 15,
+  "fetched": "2026-10-17T14:53:57Z"
 }
